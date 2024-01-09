@@ -1,0 +1,226 @@
+.group-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  width: 104px;
+  height: 97px;
+  object-fit: cover;
+}
+.ellipse-parent,
+.frame-div {
+  position: absolute;
+  top: 56px;
+  left: 173px;
+  width: 373px;
+}
+.ellipse-parent {
+  top: 0;
+  left: 0;
+  width: 546px;
+  height: 97px;
+}
+.div31,
+.div32,
+.div33 {
+  position: relative;
+  line-height: 130%;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.div31 {
+  color: var(--color-black);
+}
+.div32,
+.div33 {
+  display: flex;
+  align-items: center;
+  width: 28px;
+  flex-shrink: 0;
+}
+.div33 {
+  font-size: var(--font-size-mini);
+  text-align: right;
+  align-items: flex-end;
+  width: 190px;
+}
+.container {
+  position: absolute;
+  top: 8px;
+  left: 175px;
+  width: 458px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-8xs) var(--padding-5xs);
+  box-sizing: border-box;
+  gap: var(--gap-18xl);
+}
+.div34,
+.group-div {
+  position: absolute;
+  top: 177px;
+  left: 38px;
+  width: 633px;
+  height: 97px;
+  font-size: var(--font-size-11xl);
+}
+.div34 {
+  top: 235px;
+  left: 224px;
+  font-size: var(--font-size-mid);
+  line-height: 130%;
+  font-weight: 500;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 271px;
+  height: 24px;
+}
+.ellipse-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  width: 89.9px;
+  height: 97px;
+  object-fit: cover;
+}
+.div35 {
+  flex: 1;
+  position: relative;
+  line-height: 130%;
+  font-weight: 500;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 24px;
+}
+.wrapper {
+  position: absolute;
+  top: 56px;
+  left: 149.5px;
+  width: 243.8px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-8xs) var(--padding-5xs);
+  box-sizing: border-box;
+}
+.ellipse-group {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 393.3px;
+  height: 97px;
+}
+.div38 {
+  position: relative;
+  font-size: var(--font-size-mini);
+  line-height: 130%;
+  font-weight: 500;
+  text-align: right;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 155px;
+  flex-shrink: 0;
+}
+.parent1 {
+  position: absolute;
+  top: 8px;
+  left: 149.5px;
+  width: 481.5px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-8xs) var(--padding-5xs);
+  box-sizing: border-box;
+  gap: var(--gap-18xl);
+  font-size: var(--font-size-11xl);
+}
+.group-parent1 {
+  position: absolute;
+  top: 316px;
+  left: 38px;
+  width: 631px;
+  height: 97px;
+  font-size: var(--font-size-mid);
+}
+.grchat-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-aliceblue-200);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  width: 230px;
+  height: 142px;
+}
+.div39 {
+  position: absolute;
+  top: 49px;
+  left: 38px;
+  font-family: var(--font-source-code-pro);
+  color: var(--color-black);
+  display: flex;
+  align-items: center;
+  width: 178px;
+  height: 48px;
+}
+.grchat-item {
+  position: absolute;
+  top: 0;
+  left: 233px;
+  background-color: var(--white);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  width: 230px;
+  height: 142px;
+}
+.div40 {
+  position: absolute;
+  top: 49px;
+  left: 264px;
+  font-family: var(--font-source-code-pro);
+  color: var(--color-black);
+  display: flex;
+  align-items: center;
+  width: 182px;
+  height: 48px;
+}
+.grchat-inner {
+  position: absolute;
+  top: 0;
+  left: 463px;
+  background-color: var(--white);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  width: 230px;
+  height: 142px;
+}
+.div41 {
+  position: absolute;
+  top: 49px;
+  left: 474px;
+  font-family: var(--font-source-code-pro);
+  color: var(--color-black);
+  cursor: pointer;
+}
+.grchat {
+  position: relative;
+  background-color: var(--white);
+  width: 100%;
+  height: 796px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-21xl);
+  color: var(--color-gray-100);
+  font-family: var(--font-nunito);
+}
