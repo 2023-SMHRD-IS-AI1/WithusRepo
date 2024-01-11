@@ -34,7 +34,7 @@
 	<%@ include file="./nav.jsp" %>
     <div id="mainImg">회원가입</div>
     <div id="contain">
-      <form action="">
+      <form action="post">
         <label for="exampleFormControlInput1" class="form-label">아이디 *</label>
         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ID" />
         <label for="exampleFormControlInput1" class="form-label">비밀번호 *</label>

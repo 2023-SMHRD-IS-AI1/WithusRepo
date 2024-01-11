@@ -59,7 +59,7 @@ nav {
   height: 87vh;
   position: relative;
 }
-#mainImg1 {
+#main1 {
   width: 250px;
   height: 350px;
   position: relative;
@@ -71,7 +71,7 @@ nav {
   background-repeat: no-repeat;
   background-position: center;
 }
-#mainImg2 {
+#main2 {
   width: 250px;
   height: 300px;
   position: absolute;

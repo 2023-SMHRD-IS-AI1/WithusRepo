@@ -1,52 +1,144 @@
-drop table member;
 
--- Member 테이블 생성
-create table member(
-	email varchar(100) not null,
-	pw varchar(100) not null,
-	tel varchar(100) not null,
-	address varchar(100) not null,
-	primary key(email)
+
+
+create table members(
+	mb_id varchar(20) not null,
+	mb_pw varchar(20) not null,
+	mb_name varchar(50) not null,
+	mb_nick varchar(20) not null,
+	mb_birthdate date not null,
+	mb_gender char(1) not null,
+	mb_phone varchar(20) not null,
+	mb_img varchar(800) not null,
+	joined_at datetime default now(),
+	mb_type varchar(10),
+	primary key(mb_id)
 );
 
--- test 데이터
-insert into member(email, pw, tel, address)
-values('admin@smhrd.com', '1234', '010-0000-0000', '서구 금호동');
 
-select * from member;
-
--- Message 테이블 생성
-
-create table message(
-   num int not null auto_increment,
-   sendE varchar(100) not null,
-   receiveE varchar(100) not null,
-   message varchar(2000) not null,
-   senddate datetime default now(),
-   primary key(num)
+CREATE TABLE companions (
+    comp_idx INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    mb_id VARCHAR(20) NOT NULL,
+    comp_title VARCHAR(1000) NOT NULL,
+    comp_content TEXT NOT NULL,
+    created_at DATETIME DEFAULT NOW(),
+    comp_tourplace VARCHAR(50),
+    comp_schedule VARCHAR(500),
+    PRIMARY KEY(comp_idx),
+    FOREIGN KEY(mb_id) REFERENCES members(mb_id)
 );
 
-select * from message;
-
-insert into message(sendE,receiveE,message) values('test1','test1','test1');
-insert into message(sendE,receiveE,message) values('test2','test2','test2');
-insert into message(sendE,receiveE,message) values('test3','test3','test3');
 
 
--- board 테이블 생성
-create table board(
-	idx int not null auto_increment,
-	title varchar(100) not null,
-	writer varchar(100) not null,
-	filename varchar(100) not null,
-	content varchar(2000) not null,
-	b_date datetime default now(),
-	primary key(idx)
+CREATE TABLE comments (
+    cmt_idx INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    comp_idx INT UNSIGNED NOT NULL,
+    cmt_content TEXT NOT NULL,
+    created_at DATETIME DEFAULT NOW(),
+    mb_id VARCHAR(20),
+    PRIMARY KEY(cmt_idx),
+    FOREIGN KEY(comp_idx) REFERENCES companions(comp_idx),
+    FOREIGN KEY(mb_id) REFERENCES members(mb_id)
 );
 
-select * from board;
+create table surveys (
+	survey_idx int unsigned not null auto_increment,
+	mb_id varchar(20) not null,
+	result_label varchar(100) not null,
+	q1 char(1) not null,
+	q2 char(1) not null,
+	q3 char(1) not null,
+	q4 char(1) not null,
+	q5 char(1) not null,
+	PRIMARY KEY(survey_idx),
+	FOREIGN KEY(mb_id) REFERENCES members(mb_id)
+);
 
 
+create table reviews (
+	review_idx int unsigned not null auto_increment,
+	comp_idx int unsigned not null,
+	review_title varchar(1500) not null,
+	review_content text not null,
+	reviewed_at datetime default now(),
+	mb_id varchar(20) not null,
+	review_img varchar(1500),
+	PRIMARY KEY(review_idx),
+	FOREIGN KEY(mb_id) REFERENCES members(mb_id),
+	FOREIGN KEY(comp_idx) REFERENCES companions(comp_idx)
+);
+
+create table hotspots(
+	hsp_idx int unsigned not null auto_increment,
+	hsp_region varchar(30) not null,
+	hsp_name varchar(50) not null,
+	hsp_addr varchar(1000) not null,
+	lat decimal(17,14) not null,
+	lng decimal(17,14) not null,
+	hsp_tel varchar(20) not null,
+	hsp_mainmenu varchar(2000) not null,
+	hsp_img varchar(1000),
+	primary key(hsp_idx)
+);
+
+create table chatrooms(
+	room_idx int unsigned not null auto_increment,
+	mb_id varchar(20) not null,
+	room_title varchar(1000) not null,
+	room_desc text not null,
+	room_limit int not null,
+	opened_at datetime default now(),
+	room_status varchar(20) not null,
+	primary key(room_idx),
+	FOREIGN KEY(mb_id) REFERENCES members(mb_id)
+);
+
+create table chatting(
+	chat_idx int unsigned not null auto_increment,
+	room_idx int unsigned not null,
+	chatter varchar(20) not null,
+	chat text,
+	chatted_at datetime default now(),
+	primary key(chat_idx),
+	FOREIGN KEY(chatter) REFERENCES members(mb_id),
+	FOREIGN KEY(room_idx) REFERENCES chatrooms(room_idx)
+);
+
+create table following (
+	following_idx int unsigned not null auto_increment,
+	follower varchar(20) not null,
+	followee varchar(20) not null,
+	created_at datetime default now(),
+	primary key(following_idx),
+	FOREIGN KEY(follower) REFERENCES members(mb_id)
+);
+
+
+create table calendars (
+	cal_idx int unsigned not null auto_increment,
+	comp_idx int unsigned not null,
+	cal_title varchar(1000) not null,
+	cal_content text not null,
+	cal_start datetime not null,
+	cal_end datetime not null,
+	cal_status varchar(20) not null,
+	cal_color varchar(20),
+	cal_important varchar(10),
+	primary key(cal_idx),
+	foreign key(comp_idx) references companions(comp_idx)
+);
+
+
+create table applies(
+	app_idx int unsigned not null auto_increment,
+	mb_id varchar(20) not null,
+	comp_idx int unsigned not null,
+	created_at datetime default now(),
+	app_status varchar(20) not null,
+	primary key(app_idx),
+	foreign key(comp_idx) references companions(comp_idx),
+	FOREIGN KEY(mb_id) REFERENCES members(mb_id)
+);
 
 
 

@@ -33,8 +33,8 @@
 <body>
 	<%@ include file="./nav.jsp" %>
     <div id="main">
-      <div id="mainImg1"></div>
-      <div id="mainImg2"></div>
+      <div id="main1"></div>
+      <div id="main2"></div>
       <div id="mainText">
         <p>함께하는 여행의 즐거움</p>
         <p>With Us!</p>
