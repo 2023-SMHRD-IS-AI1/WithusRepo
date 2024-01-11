@@ -1,6 +1,6 @@
 package kr.smhrd.controller;
 
-import java.util.List;
+
 
 import javax.servlet.http.HttpSession;
 
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mysql.jdbc.interceptors.SessionAssociationInterceptor;
+
 
 import kr.smhrd.entity.Member;
 import kr.smhrd.entity.Message;
