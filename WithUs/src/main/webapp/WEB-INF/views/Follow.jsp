@@ -68,7 +68,7 @@
               </div>
           </div>
 
-              <a class="col-md-2 btn btn-primary" id ="su_btn" href="#">수정</a>
+              <a class="col-md-2 btn btn-primary" id ="su_btn" href="goUserproinfo">수정</a>
         
       </div>
 

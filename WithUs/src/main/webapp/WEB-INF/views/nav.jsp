@@ -27,7 +27,7 @@
       <nav>
         <ul id="menu">
           <li><a href="goMain">홈</a></li>
-          <li><a href="#">커뮤니티</a></li>
+          <li><a href="goGroup">커뮤니티</a></li>
         </ul>
       </nav>
       <ul id="r_nav">

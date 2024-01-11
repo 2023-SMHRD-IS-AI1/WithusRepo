@@ -61,8 +61,6 @@ public class MemberController {
 		return "Join";
 	}
 
-	
-	
 	@RequestMapping("/goProfil")
 	public String goProfil() {
 		return "Profil";
@@ -73,5 +71,24 @@ public class MemberController {
 		return "Profil";
 	}
 	
+	@RequestMapping("/goUserproinfo")
+	public String goUserproinfo() {
+		return "Userproinfo";
+	}
+	
+	@RequestMapping("/goUserinfo")
+	public String goUserinfo() {
+		return "Userinfo";
+	}
+	
+	@RequestMapping("/goResult")
+	public String goResult() {
+		return "result";
+	}
+	
+	@RequestMapping("/goGroup")
+	public String goGroup() {
+		return "group";
+	}
 	
 }
