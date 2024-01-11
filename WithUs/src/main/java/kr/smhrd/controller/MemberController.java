@@ -91,4 +91,17 @@ public class MemberController {
 		return "group";
 	}
 	
+	
+	@RequestMapping("/goReview")
+	public String goReview() {
+		return "review";
+	}
+	
+	@RequestMapping("/goMap")
+	public String goMap() {
+		return "Map";
+	}
+	
+	
+	
 }

@@ -13,7 +13,7 @@
 <title>Forty by HTML5 UP</title>
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400&display=swap" />
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400&display=swap" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -26,27 +26,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="resources/assets/css/reset.css" />
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-<link rel="stylesheet"  href="resources/assets/css/Main.css" />
+<link rel="stylesheet"  href="resources/assets/css/review.css" />
 <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
 <body>
 	<%@ include file="./nav.jsp" %>
-    <div id="main">
-      <div id="main1"></div>
-      <div id="main2"></div>
-      <div id="mainText">
-        <p>함께하는 여행의 즐거움</p>
-        <p>With Us!</p>
-      </div>
-    </div>
+     <div id="mainImg"></div>
     <!-- mainImg end -->
-    <div id="contain">
-      <div id="reviewTitle">With Us와 함께하는 여행자들의 생생한 후기</div>
-      <div id="writeBtn">
-        <a class="btn btn-primary" href="goReview" role="button">더보기</a>
-      </div>
+    <%@ include file="./m_btn.jsp" %>
+     <div id="contain">
+      <!-- buttons end -->
       <div id="reviews">
+        <div id="writeBtn">
+          <a class="btn btn-primary" href="#" role="button">글쓰기</a>
+        </div>
         <div class="reviewCard">
           <a href="#">
             <div class="imgBox"></div>
@@ -63,6 +57,34 @@
         <div class="reviewCard">
           <a href="#">
             <div class="imgBox"></div>
+            <div class="textBox">
+              <p class="title">부산리뷰</p>
+              <p class="text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa atque dignissimos similique, perferendis ducimus animi dolor
+                tenetur accusantium voluptas cumque aliquid pariatur optio quae provident earum, est, rerum eaque magni.
+              </p>
+              <p class="date">2024.01.08</p>
+            </div>
+          </a>
+        </div>
+        <div class="reviewCard">
+          <a href="#">
+            <div class="imgBox"></div>
+
+            <div class="textBox">
+              <p class="title">부산리뷰</p>
+              <p class="text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa atque dignissimos similique, perferendis ducimus animi dolor
+                tenetur accusantium voluptas cumque aliquid pariatur optio quae provident earum, est, rerum eaque magni.
+              </p>
+              <p class="date">2024.01.08</p>
+            </div>
+          </a>
+        </div>
+        <div class="reviewCard">
+          <a href="#">
+            <div class="imgBox"></div>
+
             <div class="textBox">
               <p class="title">부산리뷰</p>
               <p class="text">
@@ -127,36 +149,25 @@
               </p>
               <p class="date">2024.01.08</p>
             </div>
-          </a>
-        </div>
-      </div>
-      <div id="reviewTitle">지역별 추천 맛집 List</div>
-      <div id="writeBtn">
-        <a class="btn btn-primary" href="#" role="button">더보기</a>
-      </div>
-      <div id="places">
-        <div class="placeCard">
-          <a href="goMap">
-            <div class="imgBox"><div class="textBox">서울</div></div>
-          </a>
-        </div>
-        <div class="placeCard">
-          <a href="#">
-            <div class="imgBox"><div class="textBox">강릉</div></div>
-          </a>
-        </div>
-        <div class="placeCard">
-          <a href="#">
-            <div class="imgBox"><div class="textBox">제주</div></div>
-          </a>
-        </div>
-        <div class="placeCard">
-          <a href="#">
-            <div class="imgBox"><div class="textBox">부산</div></div>
           </a>
         </div>
       </div>
       <!-- reviews end -->
+      <div id="page">
+        <ul class="pagination">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item active" aria-current="page">
+            <a class="page-link" href="#">2</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </div>
     </div>
     <!-- contain end -->
     <%@ include file="./F_chat.jsp" %>
