@@ -52,18 +52,25 @@ public class MemberController {
 	}
 	
 	
-	
+	@RequestMapping("/goChat")
+	public String goChat() {
+		return "Chat";
+	}
 	@RequestMapping("/goJoin")
 	public String goJoin() {
 		return "Join";
 	}
 
-	// 로그아웃 /logoutMember
-	@RequestMapping("/logoutMember")
-	public String logoutMember(HttpSession session) { 
-		session.removeAttribute("loginMember");
-		
-		return "redirect:/";
+	
+	
+	@RequestMapping("/goProfil")
+	public String goProfil() {
+		return "Profil";
+	}
+	
+	@RequestMapping("/goFollow")
+	public String goFollow() {
+		return "Profil";
 	}
 	
 	

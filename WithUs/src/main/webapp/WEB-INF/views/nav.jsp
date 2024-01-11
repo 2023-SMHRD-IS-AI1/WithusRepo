@@ -32,7 +32,7 @@
       </nav>
       <ul id="r_nav">
         <li>
-          <a href="#"><i class="fa-solid fa-user"></i></a>
+          <a href="goProfil"><i class="fa-solid fa-user"></i></a>
         </li>
         <li>
           <a href="#"><i class="fa-solid fa-calendar"></i></a>
