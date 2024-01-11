@@ -22,7 +22,7 @@
 <body>
 	  <header>
       <div id="logo">
-        <a href="#"><img src="resources/images/logo.png" alt="" /></a>
+        <a href="goMain"><img src="resources/images/logo.png" alt="" /></a>
       </div>
       <nav>
         <ul id="menu">

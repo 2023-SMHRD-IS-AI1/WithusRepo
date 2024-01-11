@@ -34,7 +34,8 @@
 	<%@ include file="./nav.jsp" %>
     <div id="main">
       <div class="login">
-      <form>
+      <form action="post">
+      
       <img class="log-img-icon" alt="" src="resources/images/login_im.png" />
       <b class="log-title">
        로그인
@@ -61,7 +62,7 @@
         </button>
       </a>
         </div>
-    
+    </form>
 
 
       
@@ -70,7 +71,7 @@
       </div>
       <button class="j-btn">     
         <div class="button">
-          <a href="#" style="width: 330px;">
+          <a href="goJoin" style="width: 330px;">
           <div class="base-button1">
             <b class="b1">회원가입</b>
           </div>
@@ -78,7 +79,7 @@
         </div>
       
       </button>
-    </form>
+    
     </div>
       <!-- reviews end -->
     </div>

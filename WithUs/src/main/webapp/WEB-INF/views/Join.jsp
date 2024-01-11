@@ -34,35 +34,44 @@
 	<%@ include file="./nav.jsp" %>
     <div id="mainImg">회원가입</div>
     <div id="contain">
+<<<<<<< HEAD
       <form action="goResult">
+=======
+      <form action="insertMember">
+>>>>>>> branch 'master' of https://github.com/2023-SMHRD-IS-AI1/WithusRepo.git
         <label for="exampleFormControlInput1" class="form-label">아이디 *</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ID" />
+        <input type="text" name="mb_id" class="form-control" id="exampleFormControlInput1" placeholder="ID" />
         <label for="exampleFormControlInput1" class="form-label">비밀번호 *</label>
-        <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="PW" />
+        <input type="password"name="mb_pw" class="form-control" id="exampleFormControlInput1" placeholder="PW" />
+        <label for="exampleFormControlInput1" class="form-label">이름 *</label>
+        <input type="text" name="mb_name" class="form-control" id="exampleFormControlInput1" placeholder="NAME" />
         <label for="exampleFormControlInput1" class="form-label">닉네임 *</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="NICKNAME" />
+        <input type="text" name="mb_nick" class="form-control" id="exampleFormControlInput1" placeholder="NICKNAME" />
         <div id="warn">
           <p>사용할 수 없는 아이디입니다. 다른 아이디를 입력해주세요.</p>
           <p>사용할 수 없는 닉네임입니다. 다른 닉네임을 입력해주세요.</p>
         </div>
-        <label for="exampleFormControlInput1" class="form-label">이메일 *</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="EMAIL" />
-        <label for="exampleFormControlInput1" class="form-label">이름 *</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="NAME" />
+        
+        
         <label for="exampleFormControlInput1" class="form-label">생년월일 *</label>
-        <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="BIRTHDAY" />
-        <label for="exampleFormControlInput1" class="form-label">휴대폰번호 *</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="PHONE NUMBER" />
+        <input type="date" name="mb_birthdate" class="form-control" id="exampleFormControlInput1" placeholder="BIRTHDAY" />
         <label for="exampleFormControlInput1" class="form-label">성별 *</label>
-        <div id="radio">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+        <div id="radio" >
+          <input class="form-check-input" name="mb_gender" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
           <label class="form-check-label" for="inlineRadio1">남성</label>
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+          <input class="form-check-input" name="mb_gender" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
           <label class="form-check-label" for="inlineRadio2">여성</label>
         </div>
+        <label for="exampleFormControlInput1" class="form-label">휴대폰번호 *</label>
+        <input type="text" class="form-control" name="mb_phone" id="exampleFormControlInput1" placeholder="PHONE NUMBER" />
+        
         <label for="formFile" class="form-label">신분증사진 *</label>
+<<<<<<< HEAD
         <input class="form-control" type="file" id="formFile" />
         <input id="submit" class="btn btn-primary" type="submit" value="다음" />
+=======
+        <input class="form-control" name="mb_img" type="file" id="formFile" />
+>>>>>>> branch 'master' of https://github.com/2023-SMHRD-IS-AI1/WithusRepo.git
       </form>
       
     </div>
