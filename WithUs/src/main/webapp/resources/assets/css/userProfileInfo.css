@@ -105,7 +105,7 @@ nav {
 #profileImg {
   width: 200px;
   height: 200px;
-  background-image: url('./img/user.jpg');
+  background-image: url('../../images/user.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 100%;

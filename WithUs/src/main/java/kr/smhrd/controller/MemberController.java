@@ -75,7 +75,7 @@ public class MemberController {
 	
 	@RequestMapping("/goFollow")
 	public String goFollow() {
-		return "Profil";
+		return "Follow";
 	}
 	
 	@RequestMapping("/goUserproinfo")
@@ -102,6 +102,7 @@ public class MemberController {
 		return "group";
 	}
 	
+
 	@RequestMapping("/surveyInsert")
 	public String surveyInsert(Survey survey) {
 		System.out.println(survey.toString());
@@ -121,6 +122,18 @@ public class MemberController {
 	
 	
 	
+
+	
+	@RequestMapping("/goReview")
+	public String goReview() {
+		return "review";
+	}
+	
+	@RequestMapping("/goMap")
+	public String goMap() {
+		return "Map";
+	}
+
 	
 	
 	
