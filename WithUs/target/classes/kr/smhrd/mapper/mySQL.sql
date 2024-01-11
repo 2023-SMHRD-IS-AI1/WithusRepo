@@ -1,4 +1,4 @@
-
+select * from members;
 
 
 create table members(
@@ -7,7 +7,7 @@ create table members(
 	mb_name varchar(50) not null,
 	mb_nick varchar(20) not null,
 	mb_birthdate date not null,
-	mb_gender char(1) not null,
+	mb_gender varchar(20) not null,
 	mb_phone varchar(20) not null,
 	mb_img varchar(800) not null,
 	joined_at datetime default now(),
@@ -45,11 +45,11 @@ create table surveys (
 	survey_idx int unsigned not null auto_increment,
 	mb_id varchar(20) not null,
 	result_label varchar(100) not null,
-	q1 char(1) not null,
-	q2 char(1) not null,
-	q3 char(1) not null,
-	q4 char(1) not null,
-	q5 char(1) not null,
+	q1 varchar(20) not null,
+	q2 varchar(20) not null,
+	q3 varchar(20) not null,
+	q4 varchar(20) not null,
+	q5 varchar(20) not null,
 	PRIMARY KEY(survey_idx),
 	FOREIGN KEY(mb_id) REFERENCES members(mb_id)
 );
