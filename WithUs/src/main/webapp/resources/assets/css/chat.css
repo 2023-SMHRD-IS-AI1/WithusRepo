@@ -50,7 +50,7 @@ nav {
 #mainImg {
   width: 100%;
   height: 250px;
-  background-image: url('./img/mainImg.png');
+  background-image: url('../../images/mainImg.png');
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -168,7 +168,7 @@ textarea {
   height: 100%;
   background: green;
   border-radius: 100%;
-  background-image: url('./img/user.jpg');
+  background-image: url('../../images/user.jpg');
   background-size: cover;
 }
 .chatImg:hover {
