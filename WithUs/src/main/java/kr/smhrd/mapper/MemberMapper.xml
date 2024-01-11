@@ -9,7 +9,7 @@
 	 
 	<!-- id값을 메소드 이름과 동일하게 하면 알아서 찾음 -->
 	<insert id="memberInsert" parameterType="kr.smhrd.entity.Member">
-		insert into member values(#{email}, #{pw}, #{tel}, #{address})
+		insert into members values(#{email}, #{pw}, #{tel}, #{address})
 	</insert> 
 
 	<select id="memberSelect" parameterType="kr.smhrd.entity.Member" resultType="kr.smhrd.entity.Member">

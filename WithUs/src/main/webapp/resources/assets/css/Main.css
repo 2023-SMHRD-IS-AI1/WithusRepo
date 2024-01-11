@@ -59,26 +59,26 @@ nav {
   height: 87vh;
   position: relative;
 }
-#main1 {
+#mainImg1 {
   width: 250px;
   height: 350px;
   position: relative;
   left: 650px;
   top: 200px;
   z-index: 1;
-  background-image: url('./resources/images/main1.png');
+  background-image: url('resources/images/main1.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
-#main2 {
+#mainImg2 {
   width: 250px;
   height: 300px;
   position: absolute;
   left: 770px;
   top: 250px;
   z-index: 2;
-  background-image: url('../resources/images/main2.png');
+  background-image: url('./img/main2.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
