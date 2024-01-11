@@ -68,7 +68,7 @@ public class MemberController {
 	
 	@RequestMapping("/goFollow")
 	public String goFollow() {
-		return "Profil";
+		return "Follow";
 	}
 	
 	@RequestMapping("/goUserproinfo")
@@ -90,5 +90,18 @@ public class MemberController {
 	public String goGroup() {
 		return "group";
 	}
+	
+	
+	@RequestMapping("/goReview")
+	public String goReview() {
+		return "review";
+	}
+	
+	@RequestMapping("/goMap")
+	public String goMap() {
+		return "Map";
+	}
+	
+	
 	
 }

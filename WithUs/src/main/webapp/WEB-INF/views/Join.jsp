@@ -34,11 +34,11 @@
 	<%@ include file="./nav.jsp" %>
     <div id="mainImg">회원가입</div>
     <div id="contain">
-<<<<<<< HEAD
+
       <form action="goResult">
-=======
+
       <form action="insertMember">
->>>>>>> branch 'master' of https://github.com/2023-SMHRD-IS-AI1/WithusRepo.git
+
         <label for="exampleFormControlInput1" class="form-label">아이디 *</label>
         <input type="text" name="mb_id" class="form-control" id="exampleFormControlInput1" placeholder="ID" />
         <label for="exampleFormControlInput1" class="form-label">비밀번호 *</label>
@@ -66,12 +66,12 @@
         <input type="text" class="form-control" name="mb_phone" id="exampleFormControlInput1" placeholder="PHONE NUMBER" />
         
         <label for="formFile" class="form-label">신분증사진 *</label>
-<<<<<<< HEAD
+
         <input class="form-control" type="file" id="formFile" />
         <input id="submit" class="btn btn-primary" type="submit" value="다음" />
-=======
+
         <input class="form-control" name="mb_img" type="file" id="formFile" />
->>>>>>> branch 'master' of https://github.com/2023-SMHRD-IS-AI1/WithusRepo.git
+
       </form>
       
     </div>
