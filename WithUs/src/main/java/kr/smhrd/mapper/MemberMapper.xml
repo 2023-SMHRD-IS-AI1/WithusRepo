@@ -9,11 +9,15 @@
 	 
 	<!-- id값을 메소드 이름과 동일하게 하면 알아서 찾음 -->
 	<insert id="memberInsert" parameterType="kr.smhrd.entity.Member">
-		insert into members values(#{email}, #{pw}, #{tel}, #{address})
+		insert into members (mb_id, mb_pw, mb_name, mb_nick, mb_birthdate, mb_gender, mb_phone, mb_img) values (#{mb_id}, #{mb_pw}, #{mb_name}, #{mb_nick}, #{mb_birthdate}, #{mb_gender}, #{mb_phone}, #{mb_img})
 	</insert> 
-
+	
+	<insert id="surveyInsert" parameterType="kr.smhrd.entity.Survey">
+		insert into surveys (q1,q2,q3,q4,q5) values(#{q1},#{q2},#{q3},#{q4},#{q5})
+	</insert>
+	
 	<select id="memberSelect" parameterType="kr.smhrd.entity.Member" resultType="kr.smhrd.entity.Member">
-		select * from member where email=#{email} and pw=#{pw}
+		select * from members where mb_id=#{mb_id} and mb_pw=#{mb_pw}
 	</select>
 
 	<update id="updateMember" parameterType="kr.smhrd.entity.Member">

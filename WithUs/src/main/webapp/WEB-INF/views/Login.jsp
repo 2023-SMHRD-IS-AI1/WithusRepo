@@ -34,16 +34,17 @@
 	<%@ include file="./nav.jsp" %>
     <div id="main">
       <div class="login">
-      <form action="post">
+      <form action="memberSelect" method="post">
       
       <img class="log-img-icon" alt="" src="resources/images/login_im.png" />
       <b class="log-title">
        로그인
       </b>
-      <input class="idinput" placeholder="ID를 입력해주세요" type="text" />
+      <input class="idinput" name ="mb_id" placeholder="ID를 입력해주세요" type="text" />
 
       <input
         class="pwinput"
+        name ="mb_pw"
         placeholder="PW를 입력해주세요"
         type="password"
       />

@@ -1,6 +1,6 @@
 package kr.smhrd.controller;
 
-import java.util.List;
+
 
 import javax.servlet.http.HttpSession;
 
@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mysql.jdbc.interceptors.SessionAssociationInterceptor;
+
 
 import kr.smhrd.entity.Member;
 import kr.smhrd.entity.Message;
+import kr.smhrd.entity.Survey;
 import kr.smhrd.mapper.MemberMapper;
 import kr.smhrd.mapper.MessageMapper;
 
@@ -28,8 +29,8 @@ public class MemberController {
 	// class 안에 있는 메소드를 쓰려면 '객체생성' 필요함, interface는 객체생성도 안됨 -> but 스프링에서는 생성하는게 아니라 주입받아서 씀
 	@Autowired // 스프링 컨테이너에 객체가 생성되어 올라간 boardMapper 객체를 주입받아 사용하겠다
 	private MemberMapper memberMapper; // DAO같은 역할인데 DAO는 커넥션 관리까지 다했다면
-	@Autowired
-	private MessageMapper messageMapper;
+	
+	
 	
 	// @RequestMapping : get방식,post방식 요청을 다 받을 수 있음
 	// @GetMapping : get방식 요청만 받을 수 있음
@@ -51,7 +52,13 @@ public class MemberController {
 		return "Login";
 	}
 	
-	
+	@RequestMapping("goLogout")
+	public String goLogout(HttpSession session) {
+		session.removeAttribute("loginMember");
+
+		return "Main";
+	}
+
 	@RequestMapping("/goChat")
 	public String goChat() {
 		return "Chat";
@@ -82,7 +89,11 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/goResult")
-	public String goResult() {
+	public String goResult(Member member, Model model) {
+		System.out.println(member.toString());
+		memberMapper.memberInsert(member);
+		model.addAttribute("mb_id",member.getMb_id());
+		
 		return "result";
 	}
 	
@@ -90,5 +101,27 @@ public class MemberController {
 	public String goGroup() {
 		return "group";
 	}
+	
+	@RequestMapping("/surveyInsert")
+	public String surveyInsert(Survey survey) {
+		System.out.println(survey.toString());
+		
+		
+		
+		return "Main";
+	}
+	@RequestMapping("/memberSelect")
+	public String memberSelect(Member member, HttpSession session) {
+		Member loginMember = memberMapper.memberSelect(member);
+		session.setAttribute("loginMember", loginMember);
+		
+		
+		return "Main";
+	}
+	
+	
+	
+	
+	
 	
 }
