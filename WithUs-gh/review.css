@@ -1,0 +1,154 @@
+@charset "UTF-8";
+html,
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+header {
+  width: 100%;
+  height: 120px;
+  display: flex;
+}
+#logo {
+  width: 20%;
+  height: 100%;
+  padding-left: 5%;
+  box-sizing: border-box;
+}
+#logo img {
+  height: 100%;
+}
+nav {
+  width: 60%;
+  height: 100%;
+}
+#menu {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#menu li {
+  font-size: 18px;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+}
+#r_nav {
+  font-size: 14px;
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#r_nav i {
+  font-size: 18px;
+}
+#r_nav li {
+  width: 55px;
+  height: 20px;
+}
+#r_nav li a:hover {
+  color: #0b5ed7;
+}
+#mainImg {
+  width: 100%;
+  height: 250px;
+  background-image: url('./img/mainImg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#contain {
+  max-width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding-bottom: 80px;
+}
+#buttons {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#reviews {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+}
+#writeBtn {
+  width: 80%;
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.reviewCard {
+  width: 18%;
+  height: 500px;
+  margin: 20px;
+  border: 1px solid #c0c0c0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.reviewCard a:hover {
+  color: inherit;
+}
+.reviewCard .imgBox {
+  width: 100%;
+  height: 50%;
+  background-image: url('./img/cardImg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.reviewCard .textBox {
+  box-sizing: border-box;
+  padding: 30px;
+}
+.reviewCard .textBox .title {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+.reviewCard .textBox .text {
+  font-size: 13px;
+  line-height: 17px;
+  margin-bottom: 15px;
+}
+.reviewCard .textBox .date {
+  font-size: 12px;
+}
+#chat {
+  display: block;
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  bottom: 70px;
+  right: 70px;
+  z-index: 3;
+  background-color: #fff;
+  border-radius: 100%;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#chat:hover {
+  background-color: #e8e8e8;
+}
+#chat img {
+  width: 70%;
+}
+footer {
+  width: 100%;
+  height: 80px;
+  background: #c6ddff;
+}
