@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="resources/assets/css/F_chat.css" />
 <title>Insert title here</title>
 </head>
+
 <body>
-	<a href="#" id="chat"><img src="resources/images/chat.png" alt="" /></a>
+	<a href="goChat" id="chat"><img src="resources/images/chat.png" alt="" /></a>
 </body>
 </html>
