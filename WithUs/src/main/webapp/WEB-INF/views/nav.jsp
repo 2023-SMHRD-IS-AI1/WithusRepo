@@ -22,23 +22,23 @@
 <body>
 	  <header>
       <div id="logo">
-        <a href="#"><img src="resources/images/logo.png" alt="" /></a>
+        <a href="goMain"><img src="resources/images/logo.png" alt="" /></a>
       </div>
       <nav>
         <ul id="menu">
-          <li><a href="#">홈</a></li>
-          <li><a href="#">커뮤니티</a></li>
+          <li><a href="goMain">홈</a></li>
+          <li><a href="goGroup">커뮤니티</a></li>
         </ul>
       </nav>
       <ul id="r_nav">
         <li>
-          <a href="#"><i class="fa-solid fa-user"></i></a>
+          <a href="goProfil"><i class="fa-solid fa-user"></i></a>
         </li>
         <li>
           <a href="#"><i class="fa-solid fa-calendar"></i></a>
         </li>
-        <li><a href="#">로그인</a></li>
-        <li><a href="#">회원가입</a></li>
+        <li><a href="goLogin">로그인</a></li>
+        <li><a href="goJoin">회원가입</a></li>
       </ul>
     </header>
 </body>

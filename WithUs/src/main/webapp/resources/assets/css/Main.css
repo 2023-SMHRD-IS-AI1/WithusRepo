@@ -59,26 +59,26 @@ nav {
   height: 87vh;
   position: relative;
 }
-#mainImg1 {
+#main1 {
   width: 250px;
   height: 350px;
   position: relative;
   left: 650px;
   top: 200px;
   z-index: 1;
-  background-image: url('resources/images/main1.png');
+  background-image: url('../../images/main1.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
-#mainImg2 {
+#main2 {
   width: 250px;
   height: 300px;
   position: absolute;
   left: 770px;
   top: 250px;
   z-index: 2;
-  background-image: url('./img/main2.png');
+  background-image: url('../../images/main2.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -146,7 +146,7 @@ nav {
 .reviewCard .imgBox {
   width: 100%;
   height: 50%;
-  background-image: url('./img/cardImg.png');
+  background-image: url('../../images/cardImg.png');
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -186,16 +186,16 @@ nav {
   margin: 75px;
 }
 .placeCard:nth-child(1){
-  background-image: url('./img/place1.png');
+  background-image: url('../../images/place1.png');
 }
 .placeCard:nth-child(2){
-  background-image: url('./img/place2.png');
+  background-image: url('../../images/place2.png');
 }
 .placeCard:nth-child(3){
-  background-image: url('./img/place3.png');
+  background-image: url('../../images/place3.png');
 }
 .placeCard:nth-child(4){
-  background-image: url('./img/place4.png');
+  background-image: url('../../images/place4.png');
 }
 .placeCard .imgBox{
   width: 100%;

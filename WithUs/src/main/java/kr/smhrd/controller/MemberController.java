@@ -41,72 +41,54 @@ public class MemberController {
 		return "Main";
 	}
 	
-	// 회원가입 /memberInsert
-	@RequestMapping("/memberInsert")
-	public String memberInsert(Member member, Model model) {
-		// DB에 회원정보 삽입하기
-		System.out.println(member.toString());
-		memberMapper.memberInsert(member); // 인터페이스는 추상메소드만 존재
-		model.addAttribute("email", member.getEmail());
-		return "JoinSuccess";
-	}
-	
-	// 로그인 /memberSelect
-	@PostMapping("/memberSelect")
-	public String memberSelect(Member member, HttpSession session) { // email, pw
-		Member loginMember = memberMapper.memberSelect(member);
-		List<Message> msgList = messageMapper.messageList(member.getEmail());
-		session.setAttribute("loginMember", loginMember);
-		session.setAttribute("msgList", msgList);
+	@RequestMapping("/goMain")
+	public String goMain() {
 		return "Main";
 	}
 	
-	// 로그아웃 /logoutMember
-	@RequestMapping("/logoutMember")
-	public String logoutMember(HttpSession session) { 
-		session.removeAttribute("loginMember");
-		
-		return "redirect:/";
+	@RequestMapping("/goLogin")
+	public String goLogin() {
+		return "Login";
 	}
 	
-	// 회원수정 페이지로 이동 /goUpdatePage
-	@RequestMapping("/goUpdatePage")
-	public String goUpdatePage() {
-		return "UpdateMember";
+	
+	@RequestMapping("/goChat")
+	public String goChat() {
+		return "Chat";
 	}
-	
-	// 회원 수정 기능 / updateMember
-	@RequestMapping("/updateMember")
-	public String updateMember(Member member,HttpSession session ) {
-		// 수정 성공 시 -> Main.jsp
-		// 수정 실패 시 -> UpdateMember.jsp
-		int cnt = memberMapper.updateMember(member);
-		
-		if(cnt > 0) {
-			session.setAttribute("loginMember", member);
-			return "Main";
-		}
-		else {
-			return "UpdateMember";
-		}
-		
-	
+	@RequestMapping("/goJoin")
+	public String goJoin() {
+		return "Join";
 	}
 
-	
-	// 회원정보 보는 페이지로 이동 + DB에 있는 회원조회 /showMember
-	@RequestMapping("/goShowMember") // 요청url
-	public String showMember(Model model) {
-		List<Member> list = memberMapper.showMember();
-		// System.out.println(list.size());
-		model.addAttribute("list",list);
-		return "ShowMember";
+	@RequestMapping("/goProfil")
+	public String goProfil() {
+		return "Profil";
 	}
 	
-	// 회원삭제 /deleteMember
-	@RequestMapping("/deleteMember") // deleteMember?email=~~~
-	public String deleteMember(@RequestParam("email") String email) {
-		memberMapper.deleteMember(email);
-		return "redirect:/goShowMember";
+	@RequestMapping("/goFollow")
+	public String goFollow() {
+		return "Profil";
 	}
+	
+	@RequestMapping("/goUserproinfo")
+	public String goUserproinfo() {
+		return "Userproinfo";
+	}
+	
+	@RequestMapping("/goUserinfo")
+	public String goUserinfo() {
+		return "Userinfo";
+	}
+	
+	@RequestMapping("/goResult")
+	public String goResult() {
+		return "result";
+	}
+	
+	@RequestMapping("/goGroup")
+	public String goGroup() {
+		return "group";
+	}
+	
 }

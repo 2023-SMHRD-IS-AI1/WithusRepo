@@ -26,15 +26,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="resources/assets/css/reset.css" />
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-<link rel="stylesheet" href="resources/assets/css/Main.css" />
+<link rel="stylesheet"  href="resources/assets/css/Main.css" />
 <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
 <body>
 	<%@ include file="./nav.jsp" %>
     <div id="main">
-      <div id="mainImg1"></div>
-      <div id="mainImg2"></div>
+      <div id="main1"></div>
+      <div id="main2"></div>
       <div id="mainText">
         <p>함께하는 여행의 즐거움</p>
         <p>With Us!</p>
