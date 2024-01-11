@@ -136,9 +136,9 @@
 		$.ajax({
 		
 			url : 'nickCheck',
-		    data : { 'inputN' : encodeURIComponent($('#inputN').val()) },
+		    data : { 'inputN' : #inputN },
 		    type : 'get',
-		    contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		  
 		    
 			success : function(data){
 				if(data ==0){
