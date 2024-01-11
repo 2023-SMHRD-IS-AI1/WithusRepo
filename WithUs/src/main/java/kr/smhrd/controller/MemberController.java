@@ -71,7 +71,12 @@ public class MemberController {
 		return "Profil";
 	}
 	
-
+	@RequestMapping("/insertMember")
+	public String insertMember(Member member) {
+		MemberMapper.insertMember(member);
+		System.out.println(member.toString());
+		return "Main";
+	}
 	
 	
 	
