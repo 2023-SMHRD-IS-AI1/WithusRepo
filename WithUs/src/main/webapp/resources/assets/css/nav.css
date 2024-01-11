@@ -1,0 +1,56 @@
+@charset "UTF-8";
+html,
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+header {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  box-sizing: border-box;
+  border-bottom: 1px solid #f1f1f1;
+}
+#logo {
+  width: 20%;
+  height: 100%;
+  padding-left: 5%;
+  box-sizing: border-box;
+}
+#logo img {
+  height: 100%;
+}
+nav {
+  width: 60%;
+  height: 100%;
+}
+#menu {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#menu li {
+  font-size: 18px;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+}
+#r_nav {
+  font-size: 14px;
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#r_nav i {
+  font-size: 18px;
+}
+#r_nav li {
+  width: 55px;
+  height: 20px;
+}
+#r_nav li a:hover {
+  color: #0b5ed7;
+}
