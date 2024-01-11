@@ -34,20 +34,20 @@
 	<%@ include file="./nav.jsp" %>
      <div id="mainImg"></div>
     <!-- mainImg end -->
-    <%@ include file="./m_btn.jsp" %>
+   
     <div id="contain">
-    <!--   <div id="buttons">
-        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-          <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked />
-          <label class="btn btn-outline-primary" for="btnradio1">모집</label>
+  <div id="buttons">
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group" >
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" onclick="location.href='goGroup'"  />
+          <label   class="btn btn-outline-primary active" for="btnradio1">모집</label>
 
-          <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" />
-          <label class="btn btn-outline-primary" for="btnradio2">리뷰</label>
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="location.href='goReview'"  />
+          <label   class="btn btn-outline-primary " for="btnradio2">리뷰</label>
 
-          <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" />
-          <label class="btn btn-outline-primary" for="btnradio3">추천 맛집</label>
+          <input type="radio" class="btn-check " name="btnradio" id="btnradio3" autocomplete="off" onclick="location.href='goMap'"  />
+          <label class="btn btn-outline-primary " for="btnradio3">추천 맛집</label>
         </div>
-      </div> -->
+      </div>
       <!-- buttons end -->
       <div id="reviewTitle">추천 동행자 TOP5</div>
       <div id="travler">

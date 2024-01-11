@@ -34,10 +34,23 @@
 	<%@ include file="./nav.jsp" %>
      <div id="mainImg"></div>
     <!-- mainImg end -->
-    <%@ include file="./m_btn.jsp" %>
+ 
      <div id="contain">
+       <div id="buttons">
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group" >
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" onclick="location.href='goGroup'"  />
+          <label   class="btn btn-outline-primary" for="btnradio1">모집</label>
+
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="location.href='goReview'"  />
+          <label   class="btn btn-outline-primary active" for="btnradio2">리뷰</label>
+
+          <input type="radio" class="btn-check " name="btnradio" id="btnradio3" autocomplete="off" onclick="location.href='goMap'"  />
+          <label class="btn btn-outline-primary " for="btnradio3">추천 맛집</label>
+        </div>
+      </div>
       <!-- buttons end -->
       <div id="reviews">
+      
         <div id="writeBtn">
           <a class="btn btn-primary" href="#" role="button">글쓰기</a>
         </div>
