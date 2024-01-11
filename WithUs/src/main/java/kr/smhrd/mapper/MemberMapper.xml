@@ -7,7 +7,7 @@
 		xml파일과 interface이름이 동일하면 자동으로 맞춰줌
 	 -->
 	 
-	<!-- id값을 메소드 이름과 동일하게 하면 알아서 찾음 -->
+	<!-- 회원가입 -->
 	<insert id="memberInsert" parameterType="kr.smhrd.entity.Member">
 		insert into members (mb_id, mb_pw, mb_name, mb_nick, mb_birthdate, mb_gender, mb_phone, mb_img) values (#{mb_id}, #{mb_pw}, #{mb_name}, #{mb_nick}, #{mb_birthdate}, #{mb_gender}, #{mb_phone}, #{mb_img})
 	</insert> 
@@ -16,11 +16,15 @@
 		insert into surveys (q1,q2,q3,q4,q5) values(#{q1},#{q2},#{q3},#{q4},#{q5})
 	</insert>
 	
+	<!-- 로그인 -->
 	<select id="memberSelect" parameterType="kr.smhrd.entity.Member" resultType="kr.smhrd.entity.Member">
 		select * from members where mb_id=#{mb_id} and mb_pw=#{mb_pw}
 	</select>
-
-	<update id="updateMember" parameterType="kr.smhrd.entity.Member">
+	
+	
+	
+	
+	<!-- <update id="updateMember" parameterType="kr.smhrd.entity.Member">
 		UPDATE MEMBER SET PW=#{pw} , TEL=#{tel}, ADDRESS=#{address} where EMAIL=#{email}
 	</update>
 	
@@ -30,6 +34,6 @@
 	
 	<delete id="deleteMember" parameterType="String">
 		DELETE FROM MEMBER WHERE EMAIL=#{email}
-	</delete>
+	</delete> -->
 	
 </mapper>

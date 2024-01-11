@@ -13,6 +13,42 @@ import kr.smhrd.mapper.MemberMapper;
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
 	
+	// Email 중복 체크
+		@Autowired
+		private MemberMapper memberMapper;
+
+		@RequestMapping("/emailCheck")
+		@ResponseBody
+		public int emailCheck(@RequestParam("inputE") String inputE) {
+			
+			Member member = memberMapper.emailCheck(inputE);
+			
+			if(member != null) {
+				// 사용 불가능한 이메일
+				return 0;
+			}else {
+				// 사용 가능한 이메일
+				return 1;
+			}
+			
+		}
+		
+		@RequestMapping("/nickCheck")
+		@ResponseBody
+		public int nickCheck(@RequestParam("inputN") String inputN) {
+			
+			Member member = memberMapper.nickCheck(inputN);
+			
+			if(member != null) {
+				// 사용 불가능한 닉네임
+				return 0;
+			}else {
+				// 사용 가능한 닉네임
+				return 1;
+			}
+			
+		}
+	
 	
 	
 }
