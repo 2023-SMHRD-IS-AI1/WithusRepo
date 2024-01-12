@@ -46,7 +46,7 @@
           <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="location.href='goReview'"  />
           <label   class="btn btn-outline-primary" for="btnradio2">리뷰</label>
 
-          <input type="radio" class="btn-check " name="btnradio" id="btnradio3" autocomplete="off" onclick="location.href='goMap'"  />
+          <input type="radio" class="btn-check " name="btnradio" id="btnradio3" autocomplete="off" onclick="location.href='goSeoul'"  />
           <label class="btn btn-outline-primary active" for="btnradio3">추천 맛집</label>
         </div>
       </div>
@@ -54,16 +54,16 @@
       <div id="mapbuttons">
         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
           <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" checked />
-          <label class="btn btn-outline-primary btn-outline-warning" for="btnradio4" onclick="Gwangju()">광주</label>
+          <label class="btn btn-outline-primary btn-outline-warning" for="btnradio4" onclick="Gwangju()">서울</label>
 
           <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" />
-          <label class="btn btn-outline-primary btn-outline-warning" for="btnradio5" onclick="Seoul()">서울</label>
+          <label class="btn btn-outline-primary btn-outline-warning" for="btnradio5" onclick="Seoul()">강릉</label>
 
           <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off" />
-          <label class="btn btn-outline-primary btn-outline-warning" for="btnradio6">강릉</label>
+          <label class="btn btn-outline-primary btn-outline-warning" for="btnradio6">제주</label>
           
           <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off" />
-          <label class="btn btn-outline-primary btn-outline-warning" for="btnradio7">제주</label>
+          <label class="btn btn-outline-primary btn-outline-warning" for="btnradio7">부산</label>
         </div>
       </div>
 

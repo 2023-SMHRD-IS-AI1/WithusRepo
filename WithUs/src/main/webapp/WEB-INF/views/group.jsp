@@ -44,7 +44,7 @@
           <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="location.href='goReview'"  />
           <label   class="btn btn-outline-primary " for="btnradio2">리뷰</label>
 
-          <input type="radio" class="btn-check " name="btnradio" id="btnradio3" autocomplete="off" onclick="location.href='goMap'"  />
+          <input type="radio" class="btn-check " name="btnradio" id="btnradio3" autocomplete="off" onclick="location.href='goSeoul'"  />
           <label class="btn btn-outline-primary " for="btnradio3">추천 맛집</label>
         </div>
       </div>
