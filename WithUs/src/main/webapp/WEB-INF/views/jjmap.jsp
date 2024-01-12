@@ -54,10 +54,10 @@
           <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off"/>
           <label class="btn btn-outline-primary btn-outline-warning" for="btnradio4" onclick="seoul()">서울</label>
 
-          <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off"   checked />
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" />
           <label class="btn btn-outline-primary btn-outline-warning" for="btnradio5" onclick="Gr()">강릉</label>
 
-          <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off" />
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off" checked />
           <label class="btn btn-outline-primary btn-outline-warning" for="btnradio6" onclick="jj()">제주</label>
           
           <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off" />

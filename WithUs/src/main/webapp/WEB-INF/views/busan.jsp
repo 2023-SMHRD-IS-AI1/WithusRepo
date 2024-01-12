@@ -52,7 +52,7 @@
       <!-- buttons end -->
       <div id="mapbuttons">
         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-          <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" checked />
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" />
           <label class="btn btn-outline-primary btn-outline-warning" for="btnradio4" onclick="seoul()">서울</label>
 
           <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" />
@@ -61,7 +61,7 @@
           <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off" />
           <label class="btn btn-outline-primary btn-outline-warning" for="btnradio6" onclick="jj()">제주</label>
           
-          <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off" />
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off" checked/>
           <label class="btn btn-outline-primary btn-outline-warning" for="btnradio7" onclick="bs()">부산</label>
         </div>
       </div>

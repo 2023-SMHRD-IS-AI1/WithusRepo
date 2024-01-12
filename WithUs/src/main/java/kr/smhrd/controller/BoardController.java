@@ -1,7 +1,7 @@
 package kr.smhrd.controller;
 
 import java.io.IOException;
-import java.util.List;
+
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -23,8 +23,8 @@ public class BoardController {
 	
 	@Autowired
 	private BoardMapper boardMapper;
-	
-	
+
+
 	// 모집 글 작성
 	@RequestMapping("/boardWirte")
 	public String boardWirte(Board board) {
@@ -42,6 +42,18 @@ public class BoardController {
 		boardMapper.Writereview(board);
 		return "review";
 	}
+	
+	// 모집 글 가져오기
+	@RequestMapping("/getBoard")
+	public String getBoard() {
+		
+		
+		
+		return"group";
+	}
+	
+	
+	
 	
 //	// boardDelete 게시글 삭제
 //	@RequestMapping("/boardDelete") // boardContent?idx=
