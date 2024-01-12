@@ -26,7 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="resources/assets/css/reset.css" />
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-<link rel="stylesheet"  href="resources/assets/css/review.css" />
+<link rel="stylesheet"  href="resources/assets/css/Map.css" />
 <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
@@ -93,130 +93,153 @@ var mapContainer = document.getElementById("map"), // 지도의 중심좌표
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
 var positions = [
-{
-  title: "시리즈인트로",
+{	
+	hsp_region : "제주"
+	hsp_name : "문개항아리"
+	hsp_address : "제주특별자치도 제주시 조천읍 조함해안로 217-1" 
+	latlng : new kakao.maps.LatLng(33.5534876, 126.6440569),
+	hsp_tel : 07042244775
+	hsp_mainmenu : "우삼겹 칼라반반/라면/칼국수 2人"
+	Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,417353,16731&rt1=&rt2=문개항아리 조천본점&rtIds=,26792593"
+	hsp_img: 
+	
+  /* title: "시리즈인트로",
   address: "광주 동구 제봉로110번길 1",
   latlng: new kakao.maps.LatLng(35.1484606, 126.9222057),
   pimg: "./image/1시리즈인트로.jpeg",
   Link: "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,482270,458916&rt1=&rt2=%EC%8B%9C%EB%A6%AC%EC%A6%88%EC%9D%B8%ED%8A%B8%EB%A1%9C&rtIds=,1849034438",
   Link2:
-    "http://localhost:3001/CafeInfo?name=시리즈인트로&i=./image/1시리즈인트로.jpeg",
+    "http://localhost:3001/CafeInfo?name=시리즈인트로&i=./image/1시리즈인트로.jpeg", */
 },
 {
-  title: "티거훗타임쿠키",
-  address: "광주 동구 제봉로110번길 9",
-  latlng: new kakao.maps.LatLng(35.148723, 126.9227715),
-  pimg: "./image/2티거훗타임쿠키in동명.jpg",
-  Link: "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,482405,458996&rt1=&rt2=%ED%8B%B0%EA%B1%B0%ED%9B%97%ED%83%80%EC%9E%84&rtIds=,62937167",
-  Link2:
-    "http://localhost:3001/CafeInfo?name=티거훗타임쿠키&i=./image/2티거훗타임쿠키in동명.jpg",
+	hsp_region : "제주"
+	hsp_name : "숙성도"
+	hsp_address : "제주특별자치도 제주시 원노형로 41" 
+	latlng : new kakao.maps.LatLng(33.4850463, 126.4850445),
+	hsp_tel : 0647115212
+	hsp_mainmenu : "960숙성흑뼈등심(350g)"
+	Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,380346,-2092&rt1=&rt2=숙성도 노형점&rtIds=,316010726"
+	hsp_img: 
 },
 {
-  title: "로타리커피",
-  address: "광주 동구 장동로 2",
-  latlng: new kakao.maps.LatLng(35.1492656, 126.9223209),
-  pimg: "./image/3로타리커피.jpeg",
-  Link: "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,482299,459147&rt1=&rt2=%EB%A1%9C%ED%83%80%EB%A6%AC%EC%BB%A4%ED%94%BC&rtIds=,1106438639",
-  Link2:
-    "http://localhost:3001/CafeInfo?name=로타리커피&i=./image/3로타리커피.jpeg",
-},
-
-{
-  title: "토라네코",
-  address: "광주 동구 장동로 23-33 1층",
-  latlng: new kakao.maps.LatLng(35.1484528, 126.9246276),
-  pimg: "./image/4토라네코.jpg",
-  Link: "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,482819,458916&rt1=&rt2=%ED%86%A0%EB%9D%BC%EB%84%A4%EC%BD%94&rtIds=,1110310247",
-  Link2:
-    "http://localhost:3001/CafeInfo?name=토라네코&i=./image/4토라네코.jpg",
+	hsp_region : "제주"
+	hsp_name : "새우리"
+	hsp_address : "제주특별자치도 제주시 특별자치도 무근성7길 24" 
+	latlng : new kakao.maps.LatLng(33.5146009, 126.5207545),
+	hsp_tel : 0649002527
+	hsp_mainmenu : "딱새우 김밥"
+	Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,388683,6070&rt1=&rt2=제주시새우리 제주점&rtIds=,2146989435"
+	hsp_img: 
 },
 
 {
-  title: "소뇨",
-  address: "광주 동구 장동로 21",
-  latlng: new kakao.maps.LatLng(35.1483106, 126.9242476),
-  pimg: "./image/5소뇨.jpg",
-  Link: "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,482731,458882&rt1=&rt2=%EC%86%8C%EB%87%A8&rtIds=,2116137905",
-  Link2: "http://localhost:3001/CafeInfo?name=소뇨&i=./image/5소뇨.jpg",
+	hsp_region : "제주"
+	hsp_name : "자매국수"
+	hsp_address : "제주특별자치도 제주시 특별자치도, 항골남길 46" 
+	latlng : new kakao.maps.LatLng(33.4985643, 126.458788),
+	hsp_tel : 0647462222
+	hsp_mainmenu : "고기국수"
+	Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,374353,1694&rt1=&rt2=자매국수&rtIds=,21455793"
+	hsp_img: 
 },
 
 {
-  title: "여기카페",
-  address: "광주 동구 장동로 15-1",
-  latlng: new kakao.maps.LatLng(35.1486165, 126.9238187),
-  pimg: "./image/6herecafe.jpg",
-  // pimg: src={require("./image/6herecafe.jpg").default},
-  Link: "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,482633,458965&rt1=&rt2=%EC%97%AC%EA%B8%B0%EC%B9%B4%ED%8E%98&rtIds=,1692969948",
-  Link2:
-    "http://localhost:3001/CafeInfo?name=여기카페&i=./image/6herecafe.jpg",
+	hsp_region : "제주"
+	hsp_name : "정우말가든"
+	hsp_address : "제주특별자치도 제주시 연동 505-5" 
+	latlng : new kakao.maps.LatLng(33.4802099, 126.4976743),
+	hsp_tel : 0647476525
+	hsp_mainmenu : "정우스페샬코스"
+	Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,383242,-3425&rt1=&rt2=정우말가든&rtIds=,8515374"
+	hsp_img: 
 },
 
 {
-  title: "올데이피크닉",
-  address: "광주 동구 제봉로110번길 20",
-  latlng: new kakao.maps.LatLng(35.1490458, 126.9240097),
-  pimg: "./image/7올데이피크닉.jpeg",
-  Link: "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,482682,459095&rt1=&rt2=%EC%98%AC%EB%8D%B0%EC%9D%B4%ED%94%BC%ED%81%AC%EB%8B%89&rtIds=,2007794744",
-  Link2:
-    "http://localhost:3001/CafeInfo?name=올데이피크닉&i=./image/7올데이피크닉.jpeg",
+	hsp_region : "제주"
+	hsp_name : "하타나카"
+	hsp_address : "제주특별자치도 제주시 특별자치도 연동 번지 1층 292-57" 
+	latlng : new kakao.maps.LatLng(33.4886182, 126.4948886),
+	hsp_tel : 0647476525
+	hsp_mainmenu : "닭다리살 꼬치"
+	Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,362461,-1898&rt1=&rt2=하타나카&rtIds=,1000640070"
+	hsp_img: 
 },
 
 {
-  title: "카페벨벳",
-  address: "광주 동구 장동로 23-45 1층",
-  latlng: new kakao.maps.LatLng(35.1487785, 126.9245597),
-  pimg: "./image/8카페벨벳.jpeg",
-  Link: "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,482810,459008&rt1=&rt2=%EC%B9%B4%ED%8E%98%EB%B2%A8%EB%B2%B3&rtIds=,1345384774",
-  Link2:
-    "http://localhost:3001/CafeInfo?name=카페벨벳&i=./image/8카페벨벳.jpeg",
+	hsp_region : "제주"
+	hsp_name : "제주 김만복"
+	hsp_address : "제주특별자치도 제주시 특별자치도, 오라로 41 KR" 
+	latlng : new kakao.maps.LatLng(33.4970467, 126.5090047),
+	hsp_tel : 0647598582
+	hsp_mainmenu : "만복이네 김밥"
+	Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,385915,1209&rt1=&rt2=제주김만복 김밥 본점&rtIds=,1046180098"
+	hsp_img: 
 },
 
 {
-  title: "하삼동커피",
-  address: "광주 동구 제봉로110번길 15-1 1층",
-  latlng: new kakao.maps.LatLng(35.1490215, 126.923503),
-  pimg: "./image/9하삼동커피 동명점.jpg",
-  Link: "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,482568,459080&rt1=&rt2=%ED%95%98%EC%82%BC%EB%8F%99%EC%BB%A4%ED%94%BC%20%EB%8F%99%EB%AA%85%EC%A0%90&rtIds=,1854684861",
-  Link2:
-    "http://localhost:3001/CafeInfo?name=하삼동커피&i=./image/9하삼동커피 동명점.jpg",
+	hsp_region : "제주"
+	hsp_name : "반디파스타"
+	hsp_address : "제주특별자치도 제주시 특별자치도, 조천읍 함덕리 528 KR 1004-29 3층 반디파스타" 
+	latlng : new kakao.maps.LatLng(33.5425322, 126.6692199),
+	hsp_tel : 050713840615
+	hsp_mainmenu : "돌문어 오일 파스타"
+	Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,423185,13672&rt1=&rt2=반디파스타 함덕본점&rtIds=,1232992456"
+	hsp_img: 
 },
 
 {
-  title: "루야",
-  address: "광주 동구 제봉로110번길 19 1,2층",
-  latlng: new kakao.maps.LatLng(35.1492882, 126.9238012),
-  pimg: "./image/10루야.jpeg",
-  Link: "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,482634,459152&rt1=&rt2=%EB%A3%A8%EC%95%BC&rtIds=,719862470",
-  Link2: "http://localhost:3001/CafeInfo?name=루야&i=./image/10루야.jpeg",
+	hsp_region : "제주"
+	hsp_name : "우진해장국"
+	hsp_address : "제주특별자치도 제주시 특별자치도 서사로 11" 
+	latlng : new kakao.maps.LatLng(33.511505, 126.5200319),
+	hsp_tel : 0647573393
+	hsp_mainmenu : "고사리육개장"
+	Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,388508,5213&rt1=&rt2=우진해장국&rtIds=,11547525"
+	hsp_img:
 },
 
 {
-  title: "맷차",
-  address: "광주 동구 동계천로 132",
-  latlng: new kakao.maps.LatLng(35.1494165, 126.9236283),
-  pimg: "./image/11맷차.jpg",
-  Link: "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,482636,459208&rt1=&rt2=%EB%A7%B7%EC%B0%A8&rtIds=,1374343348",
-  Link2: "http://localhost:3001/CafeInfo?name=맷차&i=./image/11맷차.jpg",
+	hsp_region : "제주"
+	hsp_name : "마라도 횟집"
+	hsp_address : "제주특별자치도 제주시 연동 262-10" 
+	latlng : new kakao.maps.LatLng(33.4867686, 126.489452),
+	hsp_tel : 0647462286
+	hsp_mainmenu : "모듬회"
+	Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,381367,-1606&rt1=&rt2=연동마라도횟집&rtIds=,27454594"
+	hsp_img:
 },
 
 {
-  title: "아노씨스튜디오",
-  address: "광주 동구 장동로 5-3 3층",
-  latlng: new kakao.maps.LatLng(35.149248, 126.9230292),
-  pimg: "./image/12아노씨스튜디오.jpg",
-  Link: "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,482462,459147&rt1=&rt2=%EC%95%84%EB%85%B8%EC%94%A8%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4&rtIds=,789848702",
-  Link2:
-    "http://localhost:3001/CafeInfo?name=아노씨스튜디오&i=./image/12아노씨스튜디오.jpg",
+	hsp_region : "서울"
+	hsp_name : "파이브가이즈 강남점"
+	hsp_address : "서울특별시 서초구 강남대로 435" 
+	latlng : new kakao.maps.LatLng(37.5012188, 127.0256954),
+	hsp_tel : 07088347900
+	hsp_mainmenu : "치즈버거"
+	Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,505678,1111585&rt1=&rt2=파이브가이즈 강남&rtIds=,1725176424"
+	hsp_img: 
 },
 
 {
-  title: "카페 플랜비",
-  address: "광주 동구 동계천로 126-7 1,2층",
-  latlng: new kakao.maps.LatLng(35.1495625, 126.9234245),
-  pimg: "./image/13카페플랜비.jpeg",
-  Link: "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,482551,459232&rt1=&rt2=%EC%B9%B4%ED%8E%98%ED%94%8C%EB%9E%9C%EB%B9%84&rtIds=,761426304",
-  Link2:
-    "http://localhost:3001/CafeInfo?name=카페플랜비&i=./image/13카페플랜비.jpeg",
+	hsp_region : "서울"
+	hsp_name : "파이브가이즈 강남점"
+	hsp_address : "서울특별시 서초구 강남대로 435" 
+	latlng : new kakao.maps.LatLng(37.5012188, 127.0256954),
+	hsp_tel : 07088347900
+	hsp_mainmenu : "치즈버거"
+	Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,505678,1111585&rt1=&rt2=파이브가이즈 강남&rtIds=,1725176424"
+	hsp_img:
+},
+
+{
+	hsp_region : "서울"
+	hsp_name : "명동 교자"
+	hsp_address : "서울특별시 서초구 강남대로 435" 
+	latlng : new kakao.maps.LatLng(37.5012188, 127.0256954),
+	hsp_tel : 07088347900
+	hsp_mainmenu : "치즈버거"
+	Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,505678,1111585&rt1=&rt2=파이브가이즈 강남&rtIds=,1725176424"
+	hsp_img:
 },
 
 {

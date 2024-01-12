@@ -37,9 +37,6 @@
 
 
       <form action="goResult" method="post">
-      <form action="goResult">
-
-      <form action="insertMember">
 
 
         <label for="exampleFormControlInput1" class="form-label">아이디 *</label>
