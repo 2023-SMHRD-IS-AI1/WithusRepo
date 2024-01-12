@@ -126,17 +126,15 @@
     // 닉네임 중복 체크
     function checkN() {
        
-       var inputN = decodeURIComponent($('#inputN').val());
+       var inputN = $('#inputN').val();
       
        console.log(inputN)
       
       $.ajax({
       
          url : 'nickCheck',
-          data : { 'inputN' : encodeURIComponent($('#inputN').val()) },
+          data : { 'inputN' : inputN },
           type : 'get',
-          contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-          
          success : function(data){
             if(data ==0){
                $('#resultCheck2').text('이미 존재하는 닉네임입니다.')
