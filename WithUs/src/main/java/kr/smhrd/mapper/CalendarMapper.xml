@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.smhrd.mapper.CalendarMapper">
+
+<insert id="insertCalendar" parameterType ="kr.smhrd.entity.Calendar">
+insert into calendars(comp_idx, cal_title, cal_content, cal_start, cal_end, cal_status)
+values(3, #{cal_title},'test',#{cal_start},#{cal_end}, 'on')
+</insert>
+
+</mapper>
