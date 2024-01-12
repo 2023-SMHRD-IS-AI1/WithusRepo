@@ -9,6 +9,6 @@
 </head>
 
 <body>
-	<a href="goChat" id="chat"><img src="resources/images/chat.png" alt="" /></a>
+	<a href="chat.action" id="chat"><img src="resources/images/chat.png" alt="" /></a>
 </body>
 </html>
