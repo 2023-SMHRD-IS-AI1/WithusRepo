@@ -112,12 +112,18 @@ public class MemberController {
 		return "Main";
 	}
 	@RequestMapping("/memberSelect")
-	public String memberSelect(Member member, HttpSession session) {
+	public String memberSelect(Member member, HttpSession session, Model model) {
 		Member loginMember = memberMapper.memberSelect(member);
 		session.setAttribute("loginMember", loginMember);
 		
+		if(loginMember != null) {
+			return "Main";
+		}else {
+			return "Login";
+			
+		}
 		
-		return "Main";
+		
 	}
 	
 	

@@ -26,7 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="resources/assets/css/reset.css" />
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-<link rel="stylesheet"  href="resources/assets/css/review.css" />
+<link rel="stylesheet"  href="resources/assets/css/Map.css" />
 <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
@@ -769,6 +769,8 @@ var positions = [
   Link2:
     "http://localhost:3001/CafeInfo?name=카페호시정&i=./image/31카페호시정.jpeg",
 },
+
+
 ];
 
 for (let i = 0; i < positions.length; i++) {
