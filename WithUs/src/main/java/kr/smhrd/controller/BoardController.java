@@ -43,14 +43,6 @@ public class BoardController {
 		return "review";
 	}
 	
-	// 모집 글 가져오기
-	@RequestMapping("/getBoard")
-	public String getBoard() {
-		
-		
-		
-		return"group";
-	}
 	
 	
 	
