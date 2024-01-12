@@ -48,7 +48,10 @@
       <!-- buttons end -->
       <div id="reviews">
         <div id="writeBtn">
+        <% if (loginMember == null){ %>
+        <%}else {%>
           <a class="btn btn-primary" href="goRewrite" role="button">글쓰기</a>
+          <%} %>
         </div>
         <div class="reviewCard">
           <a href="#">

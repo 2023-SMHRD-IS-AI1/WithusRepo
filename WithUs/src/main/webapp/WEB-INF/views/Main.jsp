@@ -132,26 +132,26 @@
       </div>
       <div id="reviewTitle">지역별 추천 맛집 List</div>
       <div id="writeBtn">
-        <a class="btn btn-primary" href="goMap" role="button">더보기</a>
+        <a class="btn btn-primary" href="goSeoul" role="button">더보기</a>
       </div>
       <div id="places">
         <div class="placeCard">
-          <a href="goMap">
+          <a href="goSeoul">
             <div class="imgBox"><div class="textBox">서울</div></div>
           </a>
         </div>
         <div class="placeCard">
-          <a href="#">
+          <a href="goGr">
             <div class="imgBox"><div class="textBox">강릉</div></div>
           </a>
         </div>
         <div class="placeCard">
-          <a href="#">
+          <a href="goJj">
             <div class="imgBox"><div class="textBox">제주</div></div>
           </a>
         </div>
         <div class="placeCard">
-          <a href="#">
+          <a href="goBusan">
             <div class="imgBox"><div class="textBox">부산</div></div>
           </a>
         </div>
