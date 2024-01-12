@@ -10,7 +10,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Forty by HTML5 UP</title>
+<title>With us</title>
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400&display=swap" />
@@ -132,7 +132,7 @@
       </div>
       <div id="reviewTitle">지역별 추천 맛집 List</div>
       <div id="writeBtn">
-        <a class="btn btn-primary" href="#" role="button">더보기</a>
+        <a class="btn btn-primary" href="goMap" role="button">더보기</a>
       </div>
       <div id="places">
         <div class="placeCard">

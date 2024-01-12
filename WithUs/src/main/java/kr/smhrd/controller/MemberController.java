@@ -88,6 +88,11 @@ public class MemberController {
 		return "Userinfo";
 	}
 	
+	@RequestMapping("/goDaily")
+	public String goDaily() {
+		return "daily";
+	}
+	
 	@RequestMapping("/goResult")
 	public String goResult(Member member, Model model) {
 		System.out.println(member.toString());
@@ -126,10 +131,7 @@ public class MemberController {
 		
 	}
 	
-	
-	
 
-	
 	@RequestMapping("/goReview")
 	public String goReview() {
 		return "review";
@@ -141,6 +143,15 @@ public class MemberController {
 	}
 
 	
+	@RequestMapping("/goGrwriter")
+	public String goGrwriter() {
+		return "gr_writer";
+	}
 	
+	@RequestMapping("/goRewrite")
+	public String goRewrite() {
+		
+		return "re_writer";
+	}
 	
 }

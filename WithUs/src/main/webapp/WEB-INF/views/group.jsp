@@ -85,7 +85,7 @@
       <div id="reviewTitle">현재 모집중인 사람들!</div>
       <div id="reviews">
         <div id="writeBtn">
-          <a class="btn btn-primary" href="#" role="button">글쓰기</a>
+          <a class="btn btn-primary" href="goGrwriter" role="button">글쓰기</a>
         </div>
         <div class="group">
           <div class="groupCard">

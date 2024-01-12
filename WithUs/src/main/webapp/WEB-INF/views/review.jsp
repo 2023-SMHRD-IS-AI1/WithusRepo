@@ -10,10 +10,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Forty by HTML5 UP</title>
+<title>review</title>
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400&display=swap" />
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400&display=swap" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -24,58 +24,158 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="daily.css" />
- 
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+    <link rel="stylesheet" href="resources/assets/css/review.css" />
     <link rel="stylesheet" href="resources/assets/css/reset.css" />
-<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-<link rel="stylesheet"  href="resources/assets/css/daily.css" />
-    <script>
-
-      document.addEventListener('DOMContentLoaded', function() {
-        const calendarEl = document.getElementById('calendar')
-        const calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth',
-          selectable: true
-        })
-        calendar.render()
-      })
-</script>
 </head>
 <body>
 	<%@ include file="./nav.jsp" %>
      <div id="mainImg"></div>
     <!-- mainImg end -->
- 
-     <div id="contain">
-          <h1 id ="d_title">일정</h1>
-      <div id='calendar'></div>
-      <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">1월 14일 일정</h5>
-            <small>3일후</small>
-          </div>
-          <p class="mb-1">강릉 여행</p>
-        </a>
-        <a href="#" class="list-group-item list-group-item-info" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">1월 14일 일정</h5>
-            <small>3일후</small>
-          </div>
-          <p class="mb-1">강릉 여행</p>
-        </a>
-
    
-        <a href="#" class="list-group-item list-group-item-warning">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">List group item heading</h5>
-            <small class="text-body-secondary">3 days ago</small>
-          </div>
-          <p class="mb-1">Some placeholder content in a paragraph.</p>
-          <small class="text-body-secondary">And some muted small print.</small>
-        </a>
+    <div id="contain">
+       <div id="buttons">
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" onclick="location.href='goGroup'" />
+          <label class="btn btn-outline-primary" for="btnradio1">모집</label>
 
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked onclick="location.href='goReview'"/>
+          <label class="btn btn-outline-primary" for="btnradio2">리뷰</label>
+
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" onclick="location.href='goMap'" />
+          <label class="btn btn-outline-primary" for="btnradio3">추천 맛집</label>
+        </div>
+      </div>
+      <!-- buttons end -->
+      <div id="reviews">
+        <div id="writeBtn">
+          <a class="btn btn-primary" href="goRewrite" role="button">글쓰기</a>
+        </div>
+        <div class="reviewCard">
+          <a href="#">
+            <div class="imgBox"></div>
+            <div class="textBox">
+              <p class="title">부산리뷰</p>
+              <p class="text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa atque dignissimos similique, perferendis ducimus animi dolor
+                tenetur accusantium voluptas cumque aliquid pariatur optio quae provident earum, est, rerum eaque magni.
+              </p>
+              <p class="date">2024.01.08</p>
+            </div>
+          </a>
+        </div>
+        <div class="reviewCard">
+          <a href="#">
+            <div class="imgBox"></div>
+            <div class="textBox">
+              <p class="title">부산리뷰</p>
+              <p class="text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa atque dignissimos similique, perferendis ducimus animi dolor
+                tenetur accusantium voluptas cumque aliquid pariatur optio quae provident earum, est, rerum eaque magni.
+              </p>
+              <p class="date">2024.01.08</p>
+            </div>
+          </a>
+        </div>
+        <div class="reviewCard">
+          <a href="#">
+            <div class="imgBox"></div>
+
+            <div class="textBox">
+              <p class="title">부산리뷰</p>
+              <p class="text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa atque dignissimos similique, perferendis ducimus animi dolor
+                tenetur accusantium voluptas cumque aliquid pariatur optio quae provident earum, est, rerum eaque magni.
+              </p>
+              <p class="date">2024.01.08</p>
+            </div>
+          </a>
+        </div>
+        <div class="reviewCard">
+          <a href="#">
+            <div class="imgBox"></div>
+
+            <div class="textBox">
+              <p class="title">부산리뷰</p>
+              <p class="text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa atque dignissimos similique, perferendis ducimus animi dolor
+                tenetur accusantium voluptas cumque aliquid pariatur optio quae provident earum, est, rerum eaque magni.
+              </p>
+              <p class="date">2024.01.08</p>
+            </div>
+          </a>
+        </div>
+        <div class="reviewCard">
+          <a href="#">
+            <div class="imgBox"></div>
+
+            <div class="textBox">
+              <p class="title">부산리뷰</p>
+              <p class="text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa atque dignissimos similique, perferendis ducimus animi dolor
+                tenetur accusantium voluptas cumque aliquid pariatur optio quae provident earum, est, rerum eaque magni.
+              </p>
+              <p class="date">2024.01.08</p>
+            </div>
+          </a>
+        </div>
+        <div class="reviewCard">
+          <a href="#">
+            <div class="imgBox"></div>
+
+            <div class="textBox">
+              <p class="title">부산리뷰</p>
+              <p class="text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa atque dignissimos similique, perferendis ducimus animi dolor
+                tenetur accusantium voluptas cumque aliquid pariatur optio quae provident earum, est, rerum eaque magni.
+              </p>
+              <p class="date">2024.01.08</p>
+            </div>
+          </a>
+        </div>
+        <div class="reviewCard">
+          <a href="#">
+            <div class="imgBox"></div>
+
+            <div class="textBox">
+              <p class="title">부산리뷰</p>
+              <p class="text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa atque dignissimos similique, perferendis ducimus animi dolor
+                tenetur accusantium voluptas cumque aliquid pariatur optio quae provident earum, est, rerum eaque magni.
+              </p>
+              <p class="date">2024.01.08</p>
+            </div>
+          </a>
+        </div>
+        <div class="reviewCard">
+          <a href="#">
+            <div class="imgBox"></div>
+
+            <div class="textBox">
+              <p class="title">부산리뷰</p>
+              <p class="text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa atque dignissimos similique, perferendis ducimus animi dolor
+                tenetur accusantium voluptas cumque aliquid pariatur optio quae provident earum, est, rerum eaque magni.
+              </p>
+              <p class="date">2024.01.08</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <!-- reviews end -->
+      <div id="page">
+        <ul class="pagination">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item active" aria-current="page">
+            <a class="page-link" href="#">2</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
       </div>
     </div>
     <!-- contain end -->
