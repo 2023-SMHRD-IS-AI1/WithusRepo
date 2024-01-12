@@ -44,7 +44,12 @@ public class BoardController {
 	}
 	
 	
-	
+	// 모집 페이지 이동
+		@RequestMapping("/goGroup")
+		public String goGroup() {
+			
+			return "group";
+		}
 	
 	
 //	// boardDelete 게시글 삭제

@@ -129,12 +129,7 @@ public class MemberController {
 	}
 	
 
-	// 모집 페이지 이동
-	@RequestMapping("/goGroup")
-	public String goGroup() {
-		
-		return "group";
-	}
+	
 	
 	// 리뷰 페이지 이동
 	@RequestMapping("/goReview")
