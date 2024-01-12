@@ -4,7 +4,7 @@
 <%@page import="kr.smhrd.entity.Member"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -31,22 +31,19 @@
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
 <body>
-	<%@ include file="./nav.jsp" %>
+   <%@ include file="./nav.jsp" %>
     <div id="mainImg">회원가입</div>
     <div id="contain">
 
 
       <form action="goResult" method="post">
-      <form action="goResult">
-
-      <form action="insertMember">
 
 
         <label for="exampleFormControlInput1" class="form-label">아이디 *</label>
         <input type="text" name="mb_id"  class="form-control" id="inputE" placeholder="ID" />
         
-       		<li><input type="button" value="중복체크" onclick="checkE()" /></li>
-			<p id="resultCheck"></p>		
+             <li><input type="button" value="중복체크" onclick="checkE()" /></li>
+         <p id="resultCheck"></p>      
         
         <label for="exampleFormControlInput1" class="form-label">비밀번호 *</label>
         <input type="password"name="mb_pw" class="form-control" id="exampleFormControlInput1" placeholder="PW" />
@@ -57,7 +54,7 @@
         <input type="text" name="mb_nick" class="form-control" id="inputN" placeholder="NICKNAME" />
         
         <li><input type="button" value="중복체크" onclick="checkN()" /></li>
-			<p id="resultCheck2"></p>
+         <p id="resultCheck2"></p>
         
         
         
@@ -90,71 +87,70 @@
     <!-- contain end -->
     <footer></footer>
     <script src="resources/assets/js/jquery.min.js"></script>
-			<script src="resources/assets/js/jquery.scrolly.min.js"></script>
-			<script src="resources/assets/js/jquery.scrollex.min.js"></script>
-			<script src="resources/assets/js/skel.min.js"></script>
-			<script src="resources/assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="resources/assets/js/main.js"></script>
+         <script src="resources/assets/js/jquery.scrolly.min.js"></script>
+         <script src="resources/assets/js/jquery.scrollex.min.js"></script>
+         <script src="resources/assets/js/skel.min.js"></script>
+         <script src="resources/assets/js/util.js"></script>
+         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+         <script src="resources/assets/js/main.js"></script>
 
     <script type="text/javascript">
     
     // 아이디 중복 체크
     function checkE() {
-		var inputE = $('#inputE').val()
+      var inputE = $('#inputE').val()
 
-		$.ajax({ // json 형식 {key:value, key:value}
-			// 어디로 요청할 것인지(요쳥 url)
-			url : 'emailCheck',
-			// 요청 데이터
-			data : { 'inputE' : inputE },
-			// 요청 방식
-			type : 'get',
-			// 요청-응답 성공
-			success : function(data){
-				// 불가능 : 0 가능: 1
-				// alert(data)
-				if(data ==0){
-					$('#resultCheck').text('이미 존재하는 아이디입니다.')
-				}else{
-					$('#resultCheck').text('가입 가능한 아이디입니다.')
-				}
-			},
-			// 요청-응답 실패
-			error : function(){
-				alert("통신 실패")
-			}
-		})
+      $.ajax({ // json 형식 {key:value, key:value}
+         // 어디로 요청할 것인지(요쳥 url)
+         url : 'emailCheck',
+         // 요청 데이터
+         data : { 'inputE' : inputE },
+         // 요청 방식
+         type : 'get',
+         // 요청-응답 성공
+         success : function(data){
+            // 불가능 : 0 가능: 1
+            // alert(data)
+            if(data ==0){
+               $('#resultCheck').text('이미 존재하는 아이디입니다.')
+            }else{
+               $('#resultCheck').text('가입 가능한 아이디입니다.')
+            }
+         },
+         // 요청-응답 실패
+         error : function(){
+            alert("통신 실패")
+         }
+      })
     }
     // 닉네임 중복 체크
     function checkN() {
-    	
-    	var inputN = decodeURIComponent($('#inputN').val());
-		
-    	console.log(inputN)
-		
-		$.ajax({
-		
-			url : 'nickCheck',
-		    data : { 'inputN' : #inputN },
-		    type : 'get',
-		  
-		    
-			success : function(data){
-				if(data ==0){
-					$('#resultCheck2').text('이미 존재하는 닉네임입니다.')
-				}else{
-					$('#resultCheck2').text('사용 가능한 닉네임입니다.')
-				}
-			},
-			// 요청-응답 실패
-			error : function(){
-				alert("통신 실패")
-			}
-		})
+       
+       var inputN = decodeURIComponent($('#inputN').val());
+      
+       console.log(inputN)
+      
+      $.ajax({
+      
+         url : 'nickCheck',
+          data : { 'inputN' : encodeURIComponent($('#inputN').val()) },
+          type : 'get',
+          contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+          
+         success : function(data){
+            if(data ==0){
+               $('#resultCheck2').text('이미 존재하는 닉네임입니다.')
+            }else{
+               $('#resultCheck2').text('사용 가능한 닉네임입니다.')
+            }
+         },
+         // 요청-응답 실패
+         error : function(){
+            alert("통신 실패")
+         }
+      })
     }
     </script>
     
 </body>
 </html>
-
