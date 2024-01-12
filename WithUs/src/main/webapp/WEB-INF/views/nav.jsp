@@ -35,16 +35,17 @@
         </ul>
       </nav>
       <ul id="r_nav">
-        <li>
-          <a href="goProfil"><i class="fa-solid fa-user"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa-solid fa-calendar"></i></a>
-        </li>
+
         <% if (loginMember == null){ %>
         <li><a href="goLogin">로그인</a></li>
         <li><a href="goJoin">회원가입</a></li>
         <%}else {%>
+        <li>
+          <a href="goProfil"><i class="fa-solid fa-user"></i></a>
+        </li>
+        <li>
+          <a href="goDaily"><i class="fa-solid fa-calendar"></i></a>
+        </li>
         <li><a href="goLogout">로그아웃</a></li>
         <%} %>
       </ul>

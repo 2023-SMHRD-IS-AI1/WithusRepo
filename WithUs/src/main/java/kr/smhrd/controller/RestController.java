@@ -37,6 +37,7 @@ public class RestController {
 		@ResponseBody
 		public int nickCheck(@RequestParam("inputN") String inputN) {
 			
+			System.out.println(inputN);
 			Member member = memberMapper.nickCheck(inputN);
 			
 			if(member != null) {

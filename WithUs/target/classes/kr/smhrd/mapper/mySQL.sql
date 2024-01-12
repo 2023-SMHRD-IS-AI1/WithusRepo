@@ -1,5 +1,8 @@
 select * from members;
 
+select * from companions;
+
+select * from reviews;
 
 create table members(
 	mb_id varchar(20) not null,
@@ -20,10 +23,13 @@ CREATE TABLE companions (
     comp_idx INT UNSIGNED NOT NULL AUTO_INCREMENT,
     mb_id VARCHAR(20) NOT NULL,
     comp_title VARCHAR(1000) NOT NULL,
+    comp_members INT NOT NULL,
     comp_content TEXT NOT NULL,
     created_at DATETIME DEFAULT NOW(),
     comp_tourplace VARCHAR(50),
-    comp_schedule VARCHAR(500),
+    comp_start datetime not null,
+    comp_end datetime not null,
+    comp_img varchar(2000),
     PRIMARY KEY(comp_idx),
     FOREIGN KEY(mb_id) REFERENCES members(mb_id)
 );
@@ -57,15 +63,14 @@ create table surveys (
 
 create table reviews (
 	review_idx int unsigned not null auto_increment,
-	comp_idx int unsigned not null,
 	review_title varchar(1500) not null,
 	review_content text not null,
+	review_region varchar(200) not null,
 	reviewed_at datetime default now(),
 	mb_id varchar(20) not null,
 	review_img varchar(1500),
 	PRIMARY KEY(review_idx),
-	FOREIGN KEY(mb_id) REFERENCES members(mb_id),
-	FOREIGN KEY(comp_idx) REFERENCES companions(comp_idx)
+	FOREIGN KEY(mb_id) REFERENCES members(mb_id)
 );
 
 create table hotspots(

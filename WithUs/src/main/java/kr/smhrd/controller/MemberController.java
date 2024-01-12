@@ -88,9 +88,14 @@ public class MemberController {
 		return "Userinfo";
 	}
 	
+	@RequestMapping("/goDaily")
+	public String goDaily() {
+		return "daily";
+	}
+	
 	@RequestMapping("/goResult")
 	public String goResult(Member member, Model model) {
-		System.out.println(member.toString());
+		
 		memberMapper.memberInsert(member);
 		model.addAttribute("mb_id",member.getMb_id());
 		
@@ -126,21 +131,42 @@ public class MemberController {
 		
 	}
 	
-	
-	
 
-	
 	@RequestMapping("/goReview")
 	public String goReview() {
 		return "review";
 	}
-	
-	@RequestMapping("/goMap")
-	public String goMap() {
-		return "Map";
+	// 서울 지도 이동
+	@RequestMapping("/goSeoul")
+	public String goSeoul() {
+		return "Seoul";
 	}
-
+	// 강릉 지도 이동
+	@RequestMapping("/goGr")
+	public String goGr() {
+		return "Grmap";
+	}
+	// 제주 지도 이동
+	@RequestMapping("goJj")
+	public String goJj() {
+		return "jjmap";
+	}
+	// 부산 지도 이동
+	@RequestMapping("goBusan")
+	public String goBusan() {
+		return "busan";
+	}
 	
 	
+	@RequestMapping("/goGrwriter")
+	public String goGrwriter() {
+		return "gr_writer";
+	}
+	
+	@RequestMapping("/goRewrite")
+	public String goRewrite() {
+		
+		return "re_writer";
+	}
 	
 }

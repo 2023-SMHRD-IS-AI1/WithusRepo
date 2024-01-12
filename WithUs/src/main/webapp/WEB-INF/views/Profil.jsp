@@ -38,9 +38,7 @@
 	<%@ include file="./nav.jsp" %>
       <div id="mainImg"></div>
     <!-- mainImg end -->
-     <div id="mainImg"></div>
-    <!-- mainImg end -->
-    <div id="contain">
+
 <!-- profil -->
 <!------ 프로필 ---------->
 <div class="container emp-profile">
