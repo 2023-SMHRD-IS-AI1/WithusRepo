@@ -102,10 +102,7 @@ public class MemberController {
 		return "result";
 	}
 	
-	@RequestMapping("/goGroup")
-	public String goGroup() {
-		return "group";
-	}
+	
 	
 
 	@RequestMapping("/surveyInsert")
@@ -132,10 +129,14 @@ public class MemberController {
 	}
 	
 
+	
+	
+	// 리뷰 페이지 이동
 	@RequestMapping("/goReview")
 	public String goReview() {
 		return "review";
 	}
+		
 	// 서울 지도 이동
 	@RequestMapping("/goSeoul")
 	public String goSeoul() {

@@ -4,6 +4,8 @@ select * from companions;
 
 select * from reviews;
 
+select * from calendars;
+
 create table members(
 	mb_id varchar(20) not null,
 	mb_pw varchar(20) not null,

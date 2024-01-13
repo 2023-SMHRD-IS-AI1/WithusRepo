@@ -1,4 +1,5 @@
-
+<%@page import="com.smhrd.myapp.entity.Calendar"%>
+<%@page import ="kr.smhrd.entity.Calendar" %>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -7,10 +8,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <%@ include file="./nav.jsp" %>
-      <div id="mainImg"></div>
-    <!-- mainImg end -->
-    <div id="contain">
     <meta charset="utf-8" />
     <!-- 화면 해상도에 따라 글자 크기 대응(모바일 대응) -->
     <meta
@@ -41,9 +38,7 @@
       rel="stylesheet"
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
-      
     />
-    <link rel="stylesheet" href="resources/assets/css/reset.css" />
     <style>
       /* body 스타일 */
       html,

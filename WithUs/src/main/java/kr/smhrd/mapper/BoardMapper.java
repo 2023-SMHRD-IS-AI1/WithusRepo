@@ -17,6 +17,8 @@ public interface BoardMapper {
 
 	
 
+	
+
 //	public int insertBoard(Board board);
 //
 //	public List<Board> boardList();
