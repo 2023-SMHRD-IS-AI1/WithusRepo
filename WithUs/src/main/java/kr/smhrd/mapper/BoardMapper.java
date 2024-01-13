@@ -15,6 +15,8 @@ public interface BoardMapper {
 
 	public void Writereview(reviewBoard board);
 
+	public List<Board> getAllBoard();
+
 	
 
 	

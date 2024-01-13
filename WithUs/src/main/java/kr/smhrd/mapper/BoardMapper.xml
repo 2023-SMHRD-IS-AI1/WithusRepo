@@ -30,5 +30,8 @@
 		values(#{review_title},#{review_content},#{review_region},#{mb_id},#{review_img})
 	</insert>
 	
-
+	<select id="getAllBoard" resultType="kr.smhrd.entity.Board">
+		select * from companions
+	</select>
+	
 </mapper>

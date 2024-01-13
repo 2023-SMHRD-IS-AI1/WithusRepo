@@ -1,7 +1,7 @@
 package kr.smhrd.controller;
 
 import java.io.IOException;
-
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -46,7 +46,11 @@ public class BoardController {
 	
 	// 모집 페이지 이동
 		@RequestMapping("/goGroup")
-		public String goGroup() {
+		public String goGroup(Model model) {
+			
+			List<Board> boardList = boardMapper.getAllBoard();
+			model.addAttribute("boardList", boardList);
+			
 			
 			return "group";
 		}

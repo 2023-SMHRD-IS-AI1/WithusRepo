@@ -1,3 +1,5 @@
+<%@page import="kr.smhrd.entity.Board"%>
+<%@page import="org.springframework.ui.Model"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="kr.smhrd.entity.Message"%>
 <%@page import="java.util.List"%>
@@ -34,6 +36,15 @@
 	<%@ include file="./nav.jsp" %>
      <div id="mainImg"></div>
     <!-- mainImg end -->
+   
+  <% 
+  	List<Board> boardList = (List<Board>)request.getAttribute("boardList");
+	if(boardList != null){
+		System.out.println(boardList.size());
+	}
+  
+  %> 
+   
    
     <div id="contain">
   <div id="buttons">
@@ -96,6 +107,7 @@
             <div class="groupCardTop">
               <div class="groupCardImg"></div>
               <div class="groupCardText">
+              	<%= boardList.get(0).getComp_content() %>
                 <p>USER</p>
                 <p>20대</p>
               </div>
