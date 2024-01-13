@@ -1,57 +1,8 @@
-@charset "UTF-8";
-html,
-body {
-  font-family: 'Noto Sans KR', sans-serif;
-  background-color: white !important;
-}
-header {
-  width: 100%;
-  height: 120px;
-  display: flex;
-}
-#logo {
-  width: 20%;
-  height: 100%;
-  padding-left: 5%;
-  box-sizing: border-box;
-}
-#logo img {
-  height: 100%;
-}
-nav {
-  width: 60%;
-  height: 100%;
-}
-#menu {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#menu li {
-  font-size: 18px;
-  width: 100px;
-  height: 30px;
-  text-align: center;
-}
-#r_nav {
-  font-size: 14px;
-  width: 20%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#r_nav i {
-  font-size: 18px;
-}
-#r_nav li {
-  width: 55px;
-  height: 20px;
-}
-#r_nav li a:hover {
-  color: #0b5ed7;
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
 }
 #mainImg {
   width: 100%;
@@ -60,318 +11,169 @@ nav {
   background-size: cover;
   background-repeat: no-repeat;
 }
-#chat {
-  display: block;
-  width: 80px;
-  height: 80px;
-  position: fixed;
-  bottom: 70px;
-  right: 70px;
-  z-index: 3;
-  background-color: #fff;
-  border-radius: 100%;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+#contain {
+  width: 80%;
+  margin: 0 auto;
+  padding: 40px 0;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
+}
+#profileBox {
+  width: 50%;
+  height: 600px;
+  display: flex;
+}
+#boxL {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+#boxL_top {
+  width: 100%;
+  height: 30%;
+  box-sizing: border-box;
+  padding: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#chat:hover {
-  background-color: #e8e8e8;
+#proImg {
+  width: 150px;
+  height: 150px;
+  background-color: blue;
+  border-radius: 100%;
 }
-#chat img {
-  width: 70%;
+#boxL button {
+  width: 50%;
+  border: none;
+  height: 10%;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #bbd6ff;
 }
+#boxL button:active {
+  background-color: #708cb6;
+}
+#proDesc {
+  width: 100%;
+  height: 50%;
+  box-sizing: border-box;
+  padding: 15px;
+  border: 1px solid #bdbdbd8f;
+  border-radius: 20px;
+}
+#proDesc li {
+  width: 100%;
+  height: 25%;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+#proDesc span {
+  display: inline-block;
+  width: 30%;
+  font-weight: bold;
+}
+
+#boxR {
+  width: 50%;
+  height: 100%;
+}
+#boxR_top {
+  width: 100%;
+  height: 15%;
+  display: flex;
+}
+#follow {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+#follow span:last-child {
+  font-weight: bold;
+}
+#following {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+#following span:last-child {
+  font-weight: bold;
+}
+#boxR_Mid {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#boxR_bottom {
+  width: 100%;
+  height: 75%;
+  box-sizing: border-box;
+  padding: 15px;
+}
+#list {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #bdbdbd8f;
+  border-radius: 20px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+ul {
+  padding: 0;
+}
+#list li {
+  width: 100%;
+  height: 60px;
+  border-bottom: 1px solid #bdbdbd8f;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+#list li:last-child {
+  border: none;
+}
+#listImg {
+  height: 100%;
+  width: 40px;
+  border-radius: 100%;
+  background: blue;
+  margin-right: 10px;
+}
+#listNick {
+  font-size: 13px;
+}
+#list li button {
+  position: absolute;
+  right: 30px;
+  border: none;
+  font-size: 13px;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+#list li button:active {
+  background-color: #999;
+}
+
 footer {
   width: 100%;
   height: 80px;
-  background: #c6ddff;
+  background-color: #c6ddff;
 }
-
-#contain {
-  max-width: 80%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-  padding-bottom: 80px;
-}
-
-.col-md-6{
-    position: relative;
-    top: 30px;
-}
-
-/* 프로필 css*/
-body{
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
-}
-
-#all{
-    position: relative;
-    left:60px;
-    box-shadow: 5px 5px 5px 5px;   
-
-}
-.emp-profile{
-    padding: 3%;
-    margin-top: 6%;
-    margin-bottom: 3%;
-    border-radius: 0.5rem;
-    background: #fff;
-    width: 800px;
-    
-}
-#img_box{
-    position: relative;
-    right: 15px;
-    top: 20px;
-}
-.profile-img{
-    text-align: center;
-}
-.profile-img img{
-    width: 70%;
-    height: 100%;
-}
-.profile-img .file {
-    position: relative;
-    overflow: hidden;
-    margin-top: -20%;
-    width: 70%;
-    border: none;
-    border-radius: 0;
-    font-size: 15px;
-    background: #212529b8;
-}
-.profile-img .file input {
-    position: absolute;
-    opacity: 0;
-    right: 0;
-    top: 0;
-}
-.profile-head h5{
-    color: #333;
-}
-.profile-head h6{
-    color: #0062cc;
-}
-.profile-edit-btn{
-    border: none;
-    border-radius: 1.5rem;
-    width: 70%;
-    padding: 2%;
-    font-weight: 600;
-    color: #6c757d;
-    cursor: pointer;
-}
-.proile-rating{
-    font-size: 12px;
-    color: #818182;
-    margin-top: 5%;
-}
-.proile-rating span{
-    color: #495057;
-    font-size: 15px;
-    font-weight: 600;
-}
-.profile-head .nav-tabs{
-    margin-bottom:5%;
-}
-.profile-head .nav-tabs .nav-link{
-    font-weight:600;
-    border: none;
-}
-.profile-head .nav-tabs .nav-link.active{
-    border: none;
-    border-bottom:2px solid #0062cc;
-}
-.profile-work{
-    position: relative;
-    top: 45px;
-    padding: 10%;
-    margin-top: -15%;
-    
-}
-.profile-work p{
-    font-size: 12px;
-    color: #818182;
-    font-weight: 600;
-    margin-top: 10%;
-}
-.profile-work a{
-    text-decoration: none;
-    color: #495057;
-    font-weight: 600;
-    font-size: 14px;
-}
-.profile-work ul{
-    list-style: none;
-}
-.profile-tab label{
-    font-weight: 600;
-}
-.profile-tab p{
-    font-weight: 600;
-    color: #0062cc;
-}
-
-/* 팔로우 리스트 */
-body{
-    margin-top:20px;
-    background:#eee;
-}
-
-.avatar {
-    position: relative;
-    display: inline-block;
-    width: 40px;
-    white-space: nowrap;
-    border-radius: 1000px;
-    vertical-align: bottom
-}
-
-.avatar i {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 10px;
-    height: 10px;
-    border: 2px solid #fff;
-    border-radius: 100%
-}
-
-.avatar img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    border: 0 none;
-    border-radius: 1000px
-}
-
-.avatar-online i {
-    background-color: #4caf50
-}
-
-.avatar-off i {
-    background-color: #616161
-}
-
-.avatar-busy i {
-    background-color: #ff9800
-}
-
-.avatar-away i {
-    background-color: #f44336
-}
-
-.avatar-100 {
-    width: 100px
-}
-
-.avatar-100 i {
-    height: 20px;
-    width: 20px
-}
-
-.avatar-lg {
-    width: 50px
-}
-
-.avatar-lg i {
-    height: 12px;
-    width: 12px
-}
-
-.avatar-sm {
-    width: 30px
-}
-
-.avatar-sm i {
-    height: 8px;
-    width: 8px
-}
-
-.avatar-xs {
-    width: 20px
-}
-
-.avatar-xs i {
-    height: 7px;
-    width: 7px
-}
-
-.list-group-item {
-    position: relative;
-    display: block;
-    padding: 10px 15px;
-    margin-bottom: -1px;
-    background-color: #fff;
-    border: 1px solid transparent;
-}
-
-#nav1{
-    position: relative;
-    left:80px
-}
-
-#su_btn{
-    position: relative;
-    width: 50%;
-    height: 30%;
-   right: 180px;
-   top: 50px;
-}
-
-
-
-@media screen and (max-width: 767px){
-	#su_btn{
-        width: 90%;
-        position: relative;
-        top: 45px;
-        left: 20px;
-        z-index: 150;
-
-    }
-    .emp-profile{
-        padding: 3%;
-        margin-top: 6%;
-        margin-bottom: 3%;
-        border-radius: 0.5rem;
-        background: #fff;
-        width: 800px;
-        left: 15px;
-        
-    }
-
-    #all{
-        position: relative;
-        margin-right: 95px;
-    }
-
-    #img_box{
-        position: relative;
-        left: 1px;
-    }
-    #nav1{
-        position: relative;
-        left:130px
-    }
-
-    .container{
-        position: relative;
-        right:47px
-    }
-    .col-md-6{
-        position: relative;
-        left:130px;
-    }
-    .col-md-8{
-        position: relative;
-        left: 25px;
-    }
-}
-
-
-
