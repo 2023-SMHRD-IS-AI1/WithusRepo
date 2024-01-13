@@ -1,5 +1,6 @@
 package kr.smhrd.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
@@ -16,6 +17,7 @@ public class reviewBoard {
 //			FOREIGN KEY(mb_id) REFERENCES members(mb_id)
 //		);
 	
+
 	private String review_title;
 	private String review_content;
 	private String review_region;

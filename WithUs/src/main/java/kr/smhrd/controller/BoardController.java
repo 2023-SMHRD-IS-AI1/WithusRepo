@@ -32,19 +32,19 @@ public class BoardController {
 		
 		boardMapper.boardWirte(board);
 		
-		return "Main";
+		return "redirect:/goGroup";
 	}
 	
 	// 리뷰 글 작성
 	@RequestMapping("/Writereview")
 	public String Writereview(reviewBoard board) {
-		System.out.println(board.toString());
-		
+
 		boardMapper.Writereview(board);
-		return "review";
+		return "redirect:/goReview";
 	}
 	
 
+	
 	
 	
 	// 모집 페이지 이동
@@ -64,7 +64,10 @@ public class BoardController {
 	public String goReview(Model model) {
 		
 		List<reviewBoard> reviewList = boardMapper.getAllReview();
-		model.addAttribute("reviewList", reviewList);
+		if (reviewList != null) {
+			model.addAttribute("reviewList", reviewList);
+		}
+		
 		
 		return "review";
 	}

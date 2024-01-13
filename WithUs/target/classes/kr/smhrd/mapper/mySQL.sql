@@ -10,7 +10,7 @@ select * from companions;
 
 select * from reviews;
 
-commit;
+
 
 create table members(
 	mb_id varchar(20) not null,
