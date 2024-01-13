@@ -103,9 +103,10 @@
           <a class="btn btn-primary" href="goGrwriter" role="button">글쓰기</a>
           <%} %>
         </div>
-	
+		
+	<div class="group">
 		<%  for(int i =0; i<5 ;i++){ %>
-        <div class="group">
+        	
           <div class="groupCard">
             <div class="groupCardTop">
               <div class="groupCardImg"></div>
@@ -113,6 +114,7 @@
               	
                 <p>닉네임 : <%=boardList.get(i).getMb_nick() %></p>
                 <p>나이 : <%=boardList.get(i).getMb_age() %></p>
+                
               </div>
             </div>
             <div class="groupCardBottom">
@@ -120,12 +122,15 @@
               <div class="groupDesc"><%= boardList.get(i).getComp_content() %></div>
               <button type="button">신청</button>
             </div>
-            </div>
+         </div>
+             
             <% } %>
-          
-      </div>
+          </div>
+ 	
       <!-- reviews end -->
-      <div id="page">
+      
+    </div>
+    <div id="page">
         <ul class="pagination">
           <li class="page-item disabled">
             <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
@@ -140,7 +145,7 @@
           </li>
         </ul>
       </div>
-    
+   </div>
     <!-- contain end -->
     <%@ include file="./F_chat.jsp" %>
     <footer></footer>

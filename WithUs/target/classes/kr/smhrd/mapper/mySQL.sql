@@ -8,7 +8,7 @@ select * from calendars;
 
 select * from companions;
 
-
+select * from reviews;
 
 commit;
 

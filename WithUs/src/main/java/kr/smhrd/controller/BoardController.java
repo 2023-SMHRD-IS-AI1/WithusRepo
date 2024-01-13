@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -31,7 +32,7 @@ public class BoardController {
 		
 		boardMapper.boardWirte(board);
 		
-		return "group";
+		return "Main";
 	}
 	
 	// 리뷰 글 작성
@@ -42,6 +43,8 @@ public class BoardController {
 		boardMapper.Writereview(board);
 		return "review";
 	}
+	
+
 	
 	
 	// 모집 페이지 이동
@@ -55,6 +58,16 @@ public class BoardController {
 			return "group";
 		}
 	
+		
+	// 리뷰 페이지 이동
+	@RequestMapping("/goReview")
+	public String goReview(Model model) {
+		
+		List<reviewBoard> reviewList = boardMapper.getAllReview();
+		model.addAttribute("reviewList", reviewList);
+		
+		return "review";
+	}
 	
 //	// boardDelete 게시글 삭제
 //	@RequestMapping("/boardDelete") // boardContent?idx=
