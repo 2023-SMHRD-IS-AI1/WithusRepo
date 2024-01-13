@@ -34,6 +34,7 @@
 	<%@ include file="./nav.jsp" %>
     <div id="mainImg">설문조사</div>
     <div id="contain">
+    
       <form action="surveyInsert" method="post">
         <label for="exampleFormControlInput1" class="form-label">1. 주요 활동 장소가 어디인가요?</label>
         <div class="form-check">

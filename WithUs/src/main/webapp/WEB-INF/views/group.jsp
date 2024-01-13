@@ -1,3 +1,4 @@
+<%@page import="java.beans.beancontext.BeanContextMembershipListener"%>
 <%@page import="kr.smhrd.entity.Board"%>
 <%@page import="org.springframework.ui.Model"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
@@ -102,93 +103,26 @@
           <a class="btn btn-primary" href="goGrwriter" role="button">글쓰기</a>
           <%} %>
         </div>
+	
+		<%  for(int i =0; i<5 ;i++){ %>
         <div class="group">
           <div class="groupCard">
             <div class="groupCardTop">
               <div class="groupCardImg"></div>
               <div class="groupCardText">
-              	<%= boardList.get(0).getComp_content() %>
-                <p>USER</p>
-                <p>20대</p>
+              	
+                <p>닉네임 : <%=boardList.get(i).getMb_nick() %></p>
+                <p>나이 : <%=boardList.get(i).getMb_age() %></p>
               </div>
             </div>
             <div class="groupCardBottom">
-              <div class="groupCount">모집중 (2/5)</div>
-              <div class="groupDesc">Lorem ipsum dolor sit, amet consectetur adipisicing.</div>
+              <div class="groupCount">모집 인원 : <%= boardList.get(i).getComp_members() %></div>
+              <div class="groupDesc"><%= boardList.get(i).getComp_content() %></div>
               <button type="button">신청</button>
             </div>
-          </div>
-          <div class="groupCard">
-            <div class="groupCardTop">
-              <div class="groupCardImg"></div>
-              <div class="groupCardText">
-                <p>USER</p>
-                <p>20대</p>
-              </div>
             </div>
-            <div class="groupCardBottom">
-              <div class="groupCount">모집중 (2/5)</div>
-              <div class="groupDesc">Lorem ipsum dolor sit, amet consectetur adipisicing.</div>
-              <button type="button">신청</button>
-            </div>
-          </div>
-          <div class="groupCard">
-            <div class="groupCardTop">
-              <div class="groupCardImg"></div>
-              <div class="groupCardText">
-                <p>USER</p>
-                <p>20대</p>
-              </div>
-            </div>
-            <div class="groupCardBottom">
-              <div class="groupCount">모집중 (2/5)</div>
-              <div class="groupDesc">Lorem ipsum dolor sit, amet consectetur adipisicing.</div>
-              <button type="button">신청</button>
-            </div>
-          </div>
-          <div class="groupCard">
-            <div class="groupCardTop">
-              <div class="groupCardImg"></div>
-              <div class="groupCardText">
-                <p>USER</p>
-                <p>20대</p>
-              </div>
-            </div>
-            <div class="groupCardBottom">
-              <div class="groupCount">모집중 (2/5)</div>
-              <div class="groupDesc">Lorem ipsum dolor sit, amet consectetur adipisicing.</div>
-              <button type="button">신청</button>
-            </div>
-          </div>
-          <div class="groupCard">
-            <div class="groupCardTop">
-              <div class="groupCardImg"></div>
-              <div class="groupCardText">
-                <p>USER</p>
-                <p>20대</p>
-              </div>
-            </div>
-            <div class="groupCardBottom">
-              <div class="groupCount">모집중 (2/5)</div>
-              <div class="groupDesc">Lorem ipsum dolor sit, amet consectetur adipisicing.</div>
-              <button type="button">신청</button>
-            </div>
-          </div>
-          <div class="groupCard">
-            <div class="groupCardTop">
-              <div class="groupCardImg"></div>
-              <div class="groupCardText">
-                <p>USER</p>
-                <p>20대</p>
-              </div>
-            </div>
-            <div class="groupCardBottom">
-              <div class="groupCount">모집중 (2/5)</div>
-              <div class="groupDesc">Lorem ipsum dolor sit, amet consectetur adipisicing.</div>
-              <button type="button">신청</button>
-            </div>
-          </div>
-        </div>
+            <% } %>
+          
       </div>
       <!-- reviews end -->
       <div id="page">
@@ -206,7 +140,7 @@
           </li>
         </ul>
       </div>
-    </div>
+    
     <!-- contain end -->
     <%@ include file="./F_chat.jsp" %>
     <footer></footer>

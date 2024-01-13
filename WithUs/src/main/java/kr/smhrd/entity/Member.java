@@ -1,5 +1,7 @@
 package kr.smhrd.entity;
 
+
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -13,7 +15,6 @@ import lombok.ToString;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @NoArgsConstructor
-@Getter
 @Setter
 @ToString
 

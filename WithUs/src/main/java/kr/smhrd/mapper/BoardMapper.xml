@@ -21,8 +21,8 @@
 	
 	<!-- 모집글 작성 -->
 	<insert id="boardWirte" parameterType="kr.smhrd.entity.Board">
-		insert into companions (mb_id,comp_title,comp_members,comp_content,comp_tourplace,comp_start,comp_end,comp_img)
-		values(#{mb_id},#{comp_title},#{comp_members},#{comp_content},#{comp_tourplace},#{comp_start},#{comp_end},#{comp_img})
+		insert into companions (mb_id,mb_nick,mb_age,comp_title,comp_members,comp_content,comp_tourplace,comp_start,comp_end,comp_img)
+		values(#{mb_id},#{mb_nick},#{mb_age},#{comp_title},#{comp_members},#{comp_content},#{comp_tourplace},#{comp_start},#{comp_end},#{comp_img})
 	</insert>
 	
 	<insert id="Writereview" parameterType="kr.smhrd.entity.reviewBoard">

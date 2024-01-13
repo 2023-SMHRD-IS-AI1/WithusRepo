@@ -6,6 +6,12 @@ select * from reviews;
 
 select * from calendars;
 
+select * from companions;
+
+
+
+commit;
+
 create table members(
 	mb_id varchar(20) not null,
 	mb_pw varchar(20) not null,
@@ -24,6 +30,7 @@ create table members(
 CREATE TABLE companions (
     comp_idx INT UNSIGNED NOT NULL AUTO_INCREMENT,
     mb_id VARCHAR(20) NOT NULL,
+    mb_nick VARCHAR(20) NOT NULL,
     comp_title VARCHAR(1000) NOT NULL,
     comp_members INT NOT NULL,
     comp_content TEXT NOT NULL,

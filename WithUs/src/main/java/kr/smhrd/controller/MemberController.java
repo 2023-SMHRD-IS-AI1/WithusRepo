@@ -2,6 +2,12 @@ package kr.smhrd.controller;
 
 
 
+
+
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,13 +99,25 @@ public class MemberController {
 		return "daily";
 	}
 	
+//	@RequestMapping("/goResult")
+//	public String goResult(Member member, Model model) {
+//		
+//		memberMapper.memberInsert(member);
+//		model.addAttribute("mb_id",member.getMb_id());
+//		model.addAttribute("mb_nick", member.getMb_nick());
+//		
+//	
+//		
+//		return "result";
+//	}
+	
 	@RequestMapping("/goResult")
 	public String goResult(Member member, Model model) {
-		
-		memberMapper.memberInsert(member);
-		model.addAttribute("mb_id",member.getMb_id());
-		
-		return "result";
+	    memberMapper.memberInsert(member);
+	    model.addAttribute("mb_id", member.getMb_id());
+
+
+	    return "result";
 	}
 	
 	
@@ -113,13 +131,25 @@ public class MemberController {
 		
 		return "Main";
 	}
+	
+	// 로그인
 	@RequestMapping("/memberSelect")
-	public String memberSelect(Member member, HttpSession session, Model model) {
+	public String memberSelect(Member member, HttpSession session) {
 		Member loginMember = memberMapper.memberSelect(member);
 		session.setAttribute("loginMember", loginMember);
 		
+		LocalDate currentDate = LocalDate.now();
 		if(loginMember != null) {
-			return "Main";
+			
+
+	    // Member 객체에서 생년월일 String을 LocalDate로 변환
+	    LocalDate birthDate = LocalDate.parse(loginMember.getMb_birthdate(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+	    int mb_age = Period.between(birthDate, currentDate).getYears(); // 나이 계산
+	    System.out.println(mb_age);
+	    session.setAttribute("mb_age", mb_age);
+	    return "Main";
+		
 		}else {
 			return "Login";
 			

@@ -20,6 +20,8 @@ public class Board {
 //		);
 	
 	private String mb_id;
+	private String mb_nick;
+	private String mb_age;
 	private String comp_title;
 	private String comp_members;
 	private String comp_content;
