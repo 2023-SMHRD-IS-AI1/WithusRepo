@@ -32,7 +32,7 @@ public class BoardController {
 		
 		boardMapper.boardWirte(board);
 		
-		return "Main";
+		return "redirect:/goGroup";
 	}
 	
 	// 리뷰 글 작성
