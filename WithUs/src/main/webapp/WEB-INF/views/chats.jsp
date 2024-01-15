@@ -20,6 +20,7 @@
 }
 </style>
 <body>
+<%@ include file="./nav.jsp" %>
 	<div class="container">
 	<h1 class="page-header">Chat</h1>		
 	

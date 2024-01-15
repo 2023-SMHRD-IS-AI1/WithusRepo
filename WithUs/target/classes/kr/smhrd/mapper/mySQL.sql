@@ -129,14 +129,14 @@ create table following (
 	FOREIGN KEY(follower) REFERENCES members(mb_id)
 );
 
-
+drop table calendars;
 create table calendars (
 	cal_idx int unsigned not null auto_increment,
 	comp_idx int unsigned not null,
 	cal_title varchar(1000) not null,
 	cal_content text not null,
-	cal_start datetime not null,
-	cal_end datetime not null,
+	cal_start varchar(100) not null,
+	cal_end varchar(100) not null,
 	cal_status varchar(20) not null,
 	cal_color varchar(20),
 	cal_important varchar(10),
@@ -157,6 +157,7 @@ create table applies(
 );
 
 
+delete from reviews;
 
 
 

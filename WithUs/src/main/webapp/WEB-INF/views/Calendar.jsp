@@ -98,6 +98,7 @@
               <option value="purple">보라색</option>
             </select>
           </div>
+          
           <div class="modal-footer">
             <button
               type="button"
@@ -150,6 +151,17 @@
                     });
                   }
                 },
+              exports.calendar = async(req,res)=>{
+            	  await req.body.forEach((res)=>{
+            		  calendar.create({
+            			  title: res.title,
+            			  start: res.start,
+            			  end: res.end,
+            			  backgroundColor : res.beackgroundColor,
+            		  })
+            	  })
+              }
+              
               },
             },
            // 해더에 표시할 툴바
@@ -281,6 +293,7 @@
               $("#start").val("");
               $("#end").val("");
               $("#color").val("");
+             
             }
           });
           // 캘린더 랜더링
