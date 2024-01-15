@@ -208,7 +208,7 @@ public class MemberController {
        LocalDate birthDate = LocalDate.parse(loginMember.getMb_birthdate(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
        int mb_age = Period.between(birthDate, currentDate).getYears(); // 나이 계산
-       System.out.println(mb_age);
+       
        session.setAttribute("mb_age", mb_age);
        return "Main";
       
