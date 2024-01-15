@@ -155,6 +155,7 @@
                     });
                   }
                 },
+                             
               },
             },
            // 해더에 표시할 툴바
@@ -196,17 +197,17 @@
                 
                 // 실제 내가 선택해서 이벤트가 발생한 데이터
                 
-                //console.log(title);
-               // console.log(arg.start);
-               // console.log(arg.end);
-                //console.log(arg.allDay);
-                
+                /* console.log(title);
+                console.log(arg.start);
+                console.log(arg.end);
+                console.log(arg.allDay); */
+                 
                	// 비동기 통신으로 CalendarController로 위에 네개의 데이터를 보낼 것
                	// 참고 VO로 묶어서 보내야함
                	
                 $.ajax({
                     type: "get",
-                    url: "/controller/addEvent", 
+                    url: "addEvent", 
                     data: {
                         'title': title,
                         'start': arg.start,

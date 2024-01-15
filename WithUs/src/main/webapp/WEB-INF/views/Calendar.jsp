@@ -151,6 +151,17 @@
                     });
                   }
                 },
+              exports.calendar = async(req,res)=>{
+            	  await req.body.forEach((res)=>{
+            		  calendar.create({
+            			  title: res.title,
+            			  start: res.start,
+            			  end: res.end,
+            			  backgroundColor : res.beackgroundColor,
+            		  })
+            	  })
+              }
+              
               },
             },
            // 해더에 표시할 툴바

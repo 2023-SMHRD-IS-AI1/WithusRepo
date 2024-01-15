@@ -28,7 +28,9 @@ public class CalendarController {
 	private kr.smhrd.mapper.CalendarMapper mapper;
 	
 
+	
 	@RequestMapping("/addEvent")
+	@ResponseBody
 	public String addEvent(@RequestParam String title, @RequestParam String start, @RequestParam String end,
 			@RequestParam String allDay) {
 // 여기서 받은 데이터를 활용하여 필요한 로직 수행
