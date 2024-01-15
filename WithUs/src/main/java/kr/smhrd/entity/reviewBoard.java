@@ -1,9 +1,11 @@
 package kr.smhrd.entity;
 
-import lombok.AllArgsConstructor;
+
+
 import lombok.Data;
 
 @Data
+
 public class reviewBoard {
 	
 //	create table reviews (
