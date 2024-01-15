@@ -52,7 +52,7 @@
 						<span>팔로우</span><span>100</span>
 					</div>
 					<div id="following">
-						<span>팔로우</span><span>100</span>
+						<span>팔로잉</span><span>100</span>
 					</div>
 				</div>
 				<div id="boxR_Mid">
