@@ -72,7 +72,7 @@
                                 <img src=""><img src="resources/images/cardImg.png" class="image" alt="image post">
                             </div>
                             <div class="post-description">
-                                <h2>제주도에 겨울바다 보러 같이 여행 가실분 구합니다!!</h2>
+                                <h2>제주도에 겨울바다 보러 같이 여행 가실분 구합니다</h2>
                                 <br>
                                 <h3>지역 : <span>제주도</span></h3>
                                 <br>
