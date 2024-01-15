@@ -90,7 +90,7 @@ public class BoardController {
 		// MultipartRequest 객체 생성을 위한 매개변수 설정
 		// 1. 요청객체(request)
 		// 2. 파일을 저장할 경로(String)
-		String savePath = request.getRealPath("./resources/upload1");
+		String savePath = request.getRealPath("resources/upload1");
 		System.out.println(savePath);
 		// 3. 파일의 용량 크기(int)
 		int maxSize = 1024 * 1024 * 10 ; // 10MB
