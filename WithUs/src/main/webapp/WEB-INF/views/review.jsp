@@ -39,8 +39,11 @@
 		System.out.println(reviewList.size());
 	}
   
-  %> 
+
+  %>   
+
    
+
    
     <div id="contain">
        <div id="buttons">
@@ -63,7 +66,7 @@
           <a class="btn btn-primary" href="goRewrite" role="button">글쓰기</a>
           <%} %>
         </div>
-        <% 
+         <% 
         
         for(int i=(reviewList.size()-1); i>=0; i--){ %>
         <div class="reviewCard">
