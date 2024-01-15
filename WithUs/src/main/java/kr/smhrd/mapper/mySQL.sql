@@ -157,6 +157,7 @@ create table applies(
 );
 
 
+delete from reviews;
 
 
 
