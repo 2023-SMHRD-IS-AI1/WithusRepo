@@ -28,6 +28,11 @@
 	
 	
 	
+<!-- 	<update id="updateProfil" parameterType="String">
+		update members set mb_proimg=#{mb_proimg} , mb_comment=#{mb_comment} where mb_id=#{mb_id}
+	</update> -->
+	
+	
 	<!-- <update id="updateMember" parameterType="kr.smhrd.entity.Member">
 		UPDATE MEMBER SET PW=#{pw} , TEL=#{tel}, ADDRESS=#{address} where EMAIL=#{email}
 	</update>

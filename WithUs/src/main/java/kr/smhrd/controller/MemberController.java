@@ -111,6 +111,8 @@ public class MemberController {
    @RequestMapping("/updateProfil")
    public String updateProfil() {
 	   
+
+	   
 	   return "Userproinfo";
    }
    

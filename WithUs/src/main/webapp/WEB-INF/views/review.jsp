@@ -33,13 +33,13 @@
      <div id="mainImg"></div>
     <!-- mainImg end -->
    
-    <% 
+   <% 
     List<reviewBoard> reviewList = (List<reviewBoard>)request.getAttribute("reviewList");
 	if(reviewList != null){
 		System.out.println(reviewList.size());
 	}
   
-  %> 
+  %>  
    
    
     <div id="contain">
@@ -74,7 +74,7 @@
               <p class="text">
                 <%= reviewList.get(i).getReview_content() %>
               </p>
-              <p class="date"><%= reviewList.get(i).getReviewed_at() %></p>
+              <p class="text"><%= reviewList.get(i).getReviewed_at() %></p>
             </div>
           </a>   
         </div>
