@@ -22,6 +22,10 @@
 	</select>
 	
 	
+	<update id="updateUserinfo" parameterType="kr.smhrd.entity.Member">
+		update members set mb_pw=#{mb_pw} , mb_nick=#{mb_nick}, mb_phone=#{mb_phone} where mb_id=#{mb_id}
+	</update>
+	
 	
 	
 	<!-- <update id="updateMember" parameterType="kr.smhrd.entity.Member">

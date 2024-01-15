@@ -45,10 +45,7 @@
         </div>
         <div class="input">
           <i class="fa-solid fa-pencil"></i>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="NICKNAME" />
-        </div>
-        <div id="warn">
-          <p>사용할 수 없는 닉네임입니다. 다른 닉네임을 입력해주세요.</p>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="<%=loginMember.getMb_nick() %>" readonly="readonly"/>
         </div>
         <div class="input">
           <i class="fa-solid fa-pencil"></i>

@@ -9,6 +9,11 @@
 </head>
 
 <body>
+	
+	<% if (loginMember != null){ %>
 	<a href="chat.action" id="chat"><img src="resources/images/chat.png" alt="" /></a>
+	 <%}else {%>
+	 
+	 <%} %>
 </body>
 </html>
