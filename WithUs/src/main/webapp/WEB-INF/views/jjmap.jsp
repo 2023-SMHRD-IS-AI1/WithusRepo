@@ -28,7 +28,7 @@
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
     <link rel="stylesheet" href="resources/assets/css/reset.css" />
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-<link rel="stylesheet"  href="resources/assets/css/Map.css" />
+<link rel="stylesheet"  href="resources/assets/css/Maps.css" />
 
 </head>
 <body>

@@ -42,6 +42,7 @@
         <div id="profileImg">
           <i class="fa-solid fa-camera"></i>
           <button type="button"></button>
+          <input>
         </div>
         <div class="input">
           <i class="fa-solid fa-pencil"></i>
