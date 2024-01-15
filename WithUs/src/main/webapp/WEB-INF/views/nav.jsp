@@ -41,7 +41,7 @@
         <li><a href="goJoin">회원가입</a></li>
         <%}else {%>
         <li>
-          <a href="goProfil"><i class="fa-solid fa-user"></i></a>
+          <a href="goUserinfo"><i class="fa-solid fa-user"></i></a>
         </li>
         <li>
           <a href="goDaily"><i class="fa-solid fa-calendar"></i></a>

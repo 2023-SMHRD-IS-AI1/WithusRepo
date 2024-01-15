@@ -23,6 +23,8 @@ create table members(
 	mb_img varchar(800) not null,
 	joined_at datetime default now(),
 	mb_type varchar(10),
+	mb_proimg varchar(300),
+	mb_comment varchar(300),	
 	primary key(mb_id)
 );
 

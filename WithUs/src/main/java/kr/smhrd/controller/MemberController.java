@@ -99,6 +99,21 @@ public class MemberController {
       return "daily";
    }
    
+   @RequestMapping("/updateUserinfo")
+   public String updateUserinfo(Member member) {
+	   
+	    
+	   memberMapper.updateUserinfo(member);
+	   
+	   return "Userinfo";
+   }
+   
+   @RequestMapping("/updateProfil")
+   public String updateProfil() {
+	   
+	   return "Userproinfo";
+   }
+   
 //   @RequestMapping("/goResult")
 //   public String goResult(Member member, Model model) {
 //      

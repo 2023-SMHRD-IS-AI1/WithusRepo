@@ -21,6 +21,8 @@ public interface MemberMapper {
 	@Select("select * from members where mb_nick=#{mb_nick}")
 	Member nickCheck(String inputN);
 
+	void updateUserinfo(Member member);
+
 
 	
 

@@ -33,23 +33,29 @@
 <body>
 	<%@ include file="./nav.jsp" %>
      
+     
+     
     <div id="contain">
       <div id="mainImg">
         <p><a href="goUserinfo">계정 관리</a></p>
         <p><a href="goUserproinfo">회원 정보 변경</a></p>
       </div>
-      <form action="goProfil">
+      <form action="updateUserinfo" method="post">
         <label for="exampleFormControlInput1" class="form-label">아이디 *</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ID" />
+        <input type="text" class="form-control" name="mb_id" id="exampleFormControlInput1" placeholder="<%=loginMember.getMb_id() %>" readonly="readonly" value="<%=loginMember.getMb_id() %>"/>
         <label for="exampleFormControlInput1" class="form-label">비밀번호 *</label>
-        <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="PW" />
-        <div id="warn">
+        <input type="password" class="form-control" id="exampleFormControlInput1" name="mb_pw" placeholder="PW" />
+        <input type="hidden" name= "mb_name" value=<%=loginMember.getMb_name() %>>
+        <!-- <div id="warn">
           <p>사용할 수 없는 아이디입니다. 다른 아이디를 입력해주세요.</p>
-        </div>
-        <label for="exampleFormControlInput1" class="form-label">이메일 *</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="EMAIL" />
+        </div> -->
+        <label for="exampleFormControlInput1" class="form-label">닉네임 *</label>
+        <input type="text" class="form-control" name="mb_nick" id="exampleFormControlInput1" placeholder="NICKNAME" />
+        <input type="hidden" name= "mb_birthdate" value=<%=loginMember.getMb_birthdate() %>>
+        <input type="hidden" name= "mb_gender" value=<%=loginMember.getMb_gender() %>>
         <label for="exampleFormControlInput1" class="form-label">전화번호 *</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="PHONE NUMBER" />
+        <input type="text" class="form-control" name="mb_phone" id="exampleFormControlInput1" placeholder="PHONE NUMBER" />
+        <input type="hidden" name= "mb_img" value=<%=loginMember.getMb_img() %>>
         <input id="submit" class="btn btn-primary" type="submit" value="수정" />
       </form>
       
