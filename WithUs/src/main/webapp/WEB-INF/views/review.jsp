@@ -33,13 +33,13 @@
      <div id="mainImg"></div>
     <!-- mainImg end -->
    
-   <% 
+    <% 
     List<reviewBoard> reviewList = (List<reviewBoard>)request.getAttribute("reviewList");
 	if(reviewList != null){
 		System.out.println(reviewList.size());
 	}
   
-  %>  
+  %> 
    
    
     <div id="contain">
@@ -68,13 +68,13 @@
         for(int i=(reviewList.size()-1); i>=0; i--){ %>
         <div class="reviewCard">
           <a href="#">
-            <div class="imgBox"> <img src="<%=reviewList.get(i).getReview_img()%>"></div>
+            <div class="imgBox"> <img src="./resources/upload1/<%=reviewList.get(i).getReview_img()%>"></div>
             <div class="textBox">
               <p class="title"><%= reviewList.get(i).getReview_title() %></p>
               <p class="text">
                 <%= reviewList.get(i).getReview_content() %>
               </p>
-              <p class="text"><%= reviewList.get(i).getReviewed_at() %></p>
+              <p class="date"><%= reviewList.get(i).getReviewed_at() %></p>
             </div>
           </a>   
         </div>
