@@ -40,13 +40,17 @@
       </div>
       <form action="updateProfil">
         <div id="profileImg">
+
           
+          
+          
+
         </div>
         
         <div class="input">
        <input type="hidden" name="mb_id" value= "<%=loginMember.getMb_id()%>">
          프로필 이미지 변경 :<input type="file" name="mb_proimg">
-          <i class="fa-solid fa-pencil"></i>
+          <i class="fa-solid fa-camera"></i>	
           <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="<%=loginMember.getMb_nick() %>" readonly="readonly"/>
         </div>
         <div class="input">
