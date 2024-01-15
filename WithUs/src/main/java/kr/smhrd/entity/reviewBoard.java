@@ -2,10 +2,13 @@ package kr.smhrd.entity;
 
 
 
+import java.time.LocalDateTime;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-
+@AllArgsConstructor
 public class reviewBoard {
 	
 //	create table reviews (
@@ -20,10 +23,11 @@ public class reviewBoard {
 //		);
 	
 
+	private Long review_idx;
 	private String review_title;
 	private String review_content;
 	private String review_region;
-	private String reviewed_at;
+	private LocalDateTime reviewed_at;
 	private String mb_id;
 	private String review_img;
 

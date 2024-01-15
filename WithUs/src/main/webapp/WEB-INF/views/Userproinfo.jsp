@@ -38,19 +38,25 @@
         <p><a href="goUserinfo">계정 관리</a></p>
         <p><a href="goUserproinfo">회원 정보 변경</a></p>
       </div>
-      <form action="goProfil">
+      <form action="updateProfil">
         <div id="profileImg">
-          <i class="fa-solid fa-camera"></i>
-          <button type="button"></button>
+
+          
+          
+          
+
         </div>
+        
         <div class="input">
-          <i class="fa-solid fa-pencil"></i>
+       <input type="hidden" name="mb_id" value= "<%=loginMember.getMb_id()%>">
+         프로필 이미지 변경 :<input type="file" name="mb_proimg">
+          <i class="fa-solid fa-camera"></i>	
           <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="<%=loginMember.getMb_nick() %>" readonly="readonly"/>
         </div>
         <div class="input">
           <i class="fa-solid fa-pencil"></i>
           <label for="exampleFormControlTextarea1" class="form-label"></label>
-          <textarea id="textarea" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="자기소개"></textarea>
+          <textarea id="textarea" class="form-control" name="mb_comment" id="exampleFormControlTextarea1" rows="3" placeholder="자기소개"></textarea>
         </div>
         <input id="submit" class="btn btn-primary" type="submit" value="수정" />
       </form>
@@ -59,6 +65,11 @@
     <!-- contain end -->
     <%@ include file="./F_chat.jsp" %>
     <footer></footer>
+    
+    <script type="text/javascript">
+    	
+    </script>
+    
 </body>
 </html>
 

@@ -35,7 +35,7 @@
    
     <div id="contain">
        <h1 id ="m_title">리뷰 글쓰기</h1>
-      <form id = "m_content" action="Writereview" >
+      <form id = "m_content" action="Writereview" method="post" enctype="multipart/form-data">
         <div class="input-group">
           <span class="input-group-text">제목</span>
           <input type="text" name="review_title" aria-label="m_title" class="form-control">

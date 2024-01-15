@@ -25,7 +25,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="resources/assets/css/review.css" />
+    <link rel="stylesheet" href="resources/assets/css/reviews.css" />
     <link rel="stylesheet" href="resources/assets/css/reset.css" />
 </head>
 <body>
@@ -33,13 +33,13 @@
      <div id="mainImg"></div>
     <!-- mainImg end -->
    
-    <% 
+   <% 
     List<reviewBoard> reviewList = (List<reviewBoard>)request.getAttribute("reviewList");
 	if(reviewList != null){
 		System.out.println(reviewList.size());
 	}
   
-  %> 
+  %>  
    
    
     <div id="contain">
@@ -74,7 +74,7 @@
               <p class="text">
                 <%= reviewList.get(i).getReview_content() %>
               </p>
-              <p class="date"><%= reviewList.get(i).getReviewed_at() %></p>
+              <p class="text"><%= reviewList.get(i).getReviewed_at() %></p>
             </div>
           </a>   
         </div>
