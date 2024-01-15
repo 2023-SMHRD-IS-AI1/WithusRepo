@@ -98,6 +98,7 @@
               <option value="purple">보라색</option>
             </select>
           </div>
+          
           <div class="modal-footer">
             <button
               type="button"
@@ -281,6 +282,7 @@
               $("#start").val("");
               $("#end").val("");
               $("#color").val("");
+             
             }
           });
           // 캘린더 랜더링
