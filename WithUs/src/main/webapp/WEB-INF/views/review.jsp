@@ -39,12 +39,11 @@
 		System.out.println(reviewList.size());
 	}
   
-<<<<<<< HEAD
+
   %>   
-=======
-  %> 
+
    
->>>>>>> branch 'master' of https://github.com/2023-SMHRD-IS-AI1/WithusRepo.git
+
    
     <div id="contain">
        <div id="buttons">

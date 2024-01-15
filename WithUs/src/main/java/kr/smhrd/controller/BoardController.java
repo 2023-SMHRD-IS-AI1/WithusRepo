@@ -66,16 +66,16 @@ public class BoardController {
 
    
    
-   // 리뷰 글 작성
-   @RequestMapping("/Writereview")
-   public String Writereview(reviewBoard board) {
-      
-      
-      
-      boardMapper.Writereview(board);
-      
-      return "redirect:/goReview";
-   }
+//   // 리뷰 글 작성
+//   @RequestMapping("/Writereview")
+//   public String Writereview(reviewBoard board) {
+//      
+//      
+//      
+//      boardMapper.Writereview(board);
+//      
+//      return "redirect:/goReview";
+//   }
 
    
    // 게시글 업로드 기능
