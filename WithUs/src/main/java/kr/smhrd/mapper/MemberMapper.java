@@ -23,6 +23,8 @@ public interface MemberMapper {
 
 	void updateUserinfo(Member member);
 
+	void updateUserPro(Member member);
+
 	
 
 

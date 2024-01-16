@@ -26,6 +26,9 @@
 		update members set mb_pw=#{mb_pw} , mb_nick=#{mb_nick}, mb_phone=#{mb_phone} where mb_id=#{mb_id}
 	</update>
 	
+	<update id="updateUserPro" parameterType="kr.smhrd.entity.Member">
+		update members set mb_proimg=#{mb_proimg} , mb_comment=#{mb_comment} where mb_id=#{mb_id}
+	</update>
 	
 	
 <!-- 	<update id="updateProfil" parameterType="String">

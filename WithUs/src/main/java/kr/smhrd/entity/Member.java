@@ -50,5 +50,7 @@ public class Member {
 	private String joined_at;
 	@NonNull
 	private String mb_type;
+	private String mb_proimg;
+	private String mb_comment;
 	
 }

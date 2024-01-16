@@ -38,20 +38,24 @@
         <p><a href="goUserinfo">계정 관리</a></p>
         <p><a href="goUserproinfo">회원 정보 변경</a></p>
       </div>
-      <form action="updateProfil">
+      
+      <form action="updateProfil" method="post" enctype="multipart/form-data">
         <div id="profileImg">
-
-          
-          
-          
 
         </div>
         
         <div class="input">
        <input type="hidden" name="mb_id" value= "<%=loginMember.getMb_id()%>">
-         프로필 이미지 변경 :<input type="file" name="mb_proimg">
-          <i class="fa-solid fa-camera"></i>	
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="<%=loginMember.getMb_nick() %>" readonly="readonly"/>
+       <input type="hidden" class="form-control" id="exampleFormControlInput1" name="mb_pw" value="<%=loginMember.getMb_pw() %>" />
+       <input type="hidden" class="form-control" id="exampleFormControlInput1" name="mb_name" value="<%=loginMember.getMb_name() %>" />
+       <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="<%=loginMember.getMb_nick() %>" readonly="readonly"/>
+          <input type="hidden" class="form-control" id="exampleFormControlInput1" name="mb_birthdate" value="<%=loginMember.getMb_birthdate() %>" />
+          <input type="hidden" class="form-control" id="exampleFormControlInput1" name="mb_gender" value="<%=loginMember.getMb_gender() %>" />
+          <input type="hidden" class="form-control" id="exampleFormControlInput1" name="mb_phone" value="<%=loginMember.getMb_phone() %>" />
+          <input type="hidden" class="form-control" id="exampleFormControlInput1" name="mb_img" value="<%=loginMember.getMb_img() %>" />
+         <i class="fa-solid fa-camera"></i>프로필 이미지 변경 :<input type="file" name="mb_proimg">
+          	
+          
         </div>
         <div class="input">
           <i class="fa-solid fa-pencil"></i>
