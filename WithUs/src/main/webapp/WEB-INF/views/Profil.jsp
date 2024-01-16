@@ -34,10 +34,12 @@
 	
 	<% 
 		Member memPro = (Member)session.getAttribute("memPro");
-		System.out.println(memPro);
+		
 		String mb_age = (String)session.getAttribute("mb_age");
+		
+		
 	%>
-
+	
 	
 	
 	<div id="mainImg"></div>
@@ -61,7 +63,7 @@
     					<li><span>닉네임</span><%=memPro.getMb_nick() %></li>
     					<li><span>나이</span>${mb_age }</li>
 						<li><span>MBTI</span><%=memPro.getMb_mbti() %></li>
-    
+    			
 					<% } else { %>
 					   
 					<% } %>
@@ -72,10 +74,10 @@
 			<div id="boxR">
 				<div id="boxR_top">
 					<div id="follow">
-						<span>팔로우</span><span id="followerCount">100</span>
+						<span>팔로우</span><span id="followerCount"></span>
 					</div>
 					<div id="following">
-						<span>팔로잉</span><span id="followingCount">100</span>
+						<span>팔로잉</span><span id="followingCount"></span>
 					</div>
 				</div>
 				<div id="boxR_Mid">
@@ -90,55 +92,14 @@
 					</div>
 				</div>
 				<div id="boxR_bottom">
-					<ul id="list">
-						<li>
-							<div id="listImg"></div>
-							<div id="listNick">닉네임</div>
-							<button type="button">팔로우</button>
-						</li>
-						<li>
-							<div id="listImg"></div>
-							<div id="listNick">닉네임</div>
-							<button type="button">팔로우</button>
-						</li>
-						<li>
-							<div id="listImg"></div>
-							<div id="listNick">닉네임</div>
-							<button type="button">팔로우</button>
-						</li>
-						<li>
-							<div id="listImg"></div>
-							<div id="listNick">닉네임</div>
-							<button type="button">팔로우</button>
-						</li>
-						<li>
-							<div id="listImg"></div>
-							<div id="listNick">닉네임</div>
-							<button type="button">팔로우</button>
-						</li>
-						<li>
-							<div id="listImg"></div>
-							<div id="listNick">닉네임</div>
-							<button type="button">팔로우</button>
-						</li>
-						<li>
-							<div id="listImg"></div>
-							<div id="listNick">닉네임</div>
-							<button type="button">팔로우</button>
-						</li>
-						<li>
-							<div id="listImg"></div>
-							<div id="listNick">닉네임</div>
-							<button type="button">팔로우</button>
-						</li>
-						<li>
-							<div id="listImg"></div>
-							<div id="listNick">닉네임</div>
-							<button type="button">팔로우</button>
-						</li>
-
-
-					</ul>
+				    <ul id="followerList">
+				        <li>
+				            <div class="listImg"></div>
+				            <div class="listNick">닉네임</div>
+				            <button type="button">팔로우</button>
+				        </li>
+				        <!-- 나머지 li 요소들도 동일하게 수정 -->
+				    </ul>
 				</div>
 			</div>
 		</div>
@@ -186,20 +147,33 @@
 
         // 팔로워 정보 가져오기
         $.ajax({
-            url: 'getFollower/' + userId,
+            url: 'getFollowers/' + userId,
             type: 'GET',
             success: function(followerData) {
                 // 팔로워 정보 처리
                 document.getElementById('followerCount').innerText = followerData.count;
+                
+                var followerListHtml = followerData.followers.map(function(follower) {
+                    return `
+                        <li>
+                            <div class="listImg"></div>
+                            <div class="listNick">${follower.mb_nick}</div> <!-- 팔로워의 닉네임 표시 -->
+                            <button type="button" onclick="toggleFollow('${userId}', '${follower.mb_id}')">팔로우</button>
+                        </li>
+                    `;
+                }).join('');
+
+                document.getElementById('followerList').innerHTML = followerListHtml;
             },
             error: function(error) {
+            	console.log(userId);
                 console.error('팔로워 정보 가져오기 실패:', error);
             }
         });
 
         // 팔로잉 정보 가져오기
         $.ajax({
-            url: 'getFollowing/' + userId,
+            url: 'getFollowings/' + userId,
             type: 'GET',
             success: function(followingData) {
                 // 팔로잉 정보 처리

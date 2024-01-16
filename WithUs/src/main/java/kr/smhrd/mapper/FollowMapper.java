@@ -22,10 +22,10 @@ public interface FollowMapper {
 
 
 
-	@Select("SELECT * FROM followers WHERE following_id = #{userId}")
+	@Select("SELECT * FROM following WHERE follower = #{userId}")
     List<Member> getFollowers(String userId);
 
-    @Select("SELECT * FROM followings WHERE follower_id = #{userId}")
+    @Select("SELECT * FROM following WHERE followee = #{userId}")
     List<Member> getFollowings(String userId);
 
 	

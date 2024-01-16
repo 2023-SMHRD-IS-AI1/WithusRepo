@@ -53,7 +53,7 @@ public class FollowingController {
 	    }
 	}
 	
-    @GetMapping("/getFollower/{userId}")
+    @GetMapping("getFollowers/{userId}")
     public Map<String, Object> getFollowers(@PathVariable String userId) {
         List<Member> followers = followMapper.getFollowers(userId);
         Map<String, Object> response = new HashMap<>();
@@ -63,7 +63,7 @@ public class FollowingController {
         return response;
     }
 
-    @GetMapping("/getFollowing/{userId}")
+    @GetMapping("getFollowings/{userId}")
     public Map<String, Object> getFollowings(@PathVariable String userId) {
         List<Member> followings = followMapper.getFollowings(userId);
         Map<String, Object> response = new HashMap<>();
