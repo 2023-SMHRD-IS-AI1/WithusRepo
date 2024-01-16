@@ -140,22 +140,29 @@
       <!-- reviews end -->
       
     </div>
-        <div id="page">
-            <ul class="pagination">
-                <li class="page-item <%= (currentPage == 0) ? "disabled" : "" %>">
-                    <a class="page-link" href="goGroup?page=<%= currentPage - 1 %>" tabindex="-1" aria-disabled="true">Previous</a>
+<div class="d-flex justify-content-center">
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li class="page-item <%= (currentPage == 0) ? "disabled" : "" %>">
+                <c:if test="${currentPage > 0}">
+                    <a class="page-link" href="<c:url value='/goGroup'/>?page=<%= currentPage - 1 %>" tabindex="-1" aria-disabled="true">&laquo;</a>
+                </c:if>
+            </li>
+            
+            <% for (int pageNum = 1; pageNum <= totalPages; pageNum++) { %>
+                <li class="page-item <%= (pageNum - 1 == currentPage) ? "active" : "" %>">
+                    <a class="page-link" href="<c:url value='/goGroup'/>?page=<%= pageNum - 1 %>"><%= pageNum %></a>
                 </li>
-                <!-- 페이지 번호를 동적으로 생성 -->
-                <% for (int pageNum = 1; pageNum <= totalPages; pageNum++) { %>
-                    <li class="page-item <%= (pageNum - 1 == currentPage) ? "active" : "" %>">
-                        <a class="page-link" href="goGroup?page=<%= pageNum - 1 %>"><%= pageNum %></a>
-                    </li>
-                <% } %>
-                <li class="page-item <%= (currentPage == totalPages - 1) ? "disabled" : "" %>">
-                    <a class="page-link" href="goGroup?page=<%= currentPage + 1 %>">Next</a>
-                </li>
-            </ul>
-        </div>
+            <% } %>
+            
+            <li class="page-item <%= (currentPage == totalPages - 1) ? "disabled" : "" %>">
+                <c:if test="${currentPage < totalPages - 1}">
+                    <a class="page-link" href="<c:url value='/goGroup'/>?page=<%= currentPage + 1 %>">&raquo;</a>
+                </c:if>
+            </li>
+        </ul>
+    </nav>
+</div>
     </div>
 
     <%@ include file="./F_chat.jsp" %>
