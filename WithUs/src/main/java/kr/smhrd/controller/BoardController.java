@@ -32,7 +32,7 @@ public class BoardController {
       
 	  MultipartRequest multi = null;
 	  
-	  String savePath = "C:\\Users\\smhrd\\git\\WithusRepo\\WithUs\\src\\main\\webapp\\resources\\comp_img";
+	  String savePath = "C:\\Users\\poa11\\git\\WithusRepo2\\WithUs\\src\\main\\webapp\\resources\\comp_img";
 	  System.out.println(savePath);
 	  int maxSize = 1024 * 1024 * 10 ; // 10MB
       String enc = "UTF-8";
@@ -50,12 +50,13 @@ public class BoardController {
 //  	private String comp_start;
 //  	private String comp_end;
 //  	private String comp_img;
-      System.out.println(board.toString());
+      
       
       try {
 		multi = new MultipartRequest(request, savePath, maxSize, enc, dftrp);
 		String mb_id = multi.getParameter("mb_id");
 		String mb_nick = multi.getParameter("mb_nick");
+		String mb_age = multi.getParameter("mb_age");
 		String comp_title = multi.getParameter("comp_title");
 		String comp_members = multi.getParameter("comp_members");
 		String comp_content = multi.getParameter("comp_content");
@@ -64,8 +65,8 @@ public class BoardController {
 		String comp_end = multi.getParameter("comp_end");
 		String comp_img =  multi.getFilesystemName("comp_img");
 		
-		board = new Board(null, mb_id, mb_nick, null, comp_title, comp_members, comp_content, null, comp_tourplace, comp_start, comp_end, comp_img);
-		
+		board = new Board(null, mb_id, mb_nick, mb_age, comp_title, comp_members, comp_content, null, comp_tourplace, comp_start, comp_end, comp_img);
+		System.out.println(board.toString());
 	
 	} catch (IOException e) {
 		// TODO Auto-generated catch block

@@ -130,8 +130,14 @@ public class MemberController {
    public String updateUserinfo(Member member, HttpSession session) {
 	   
 	    
-	   Member loginMember = memberMapper.updateUserinfo(member);
-	   session.setAttribute("loginMember", loginMember);
+	   int cnt = memberMapper.updateUserinfo(member);
+	   session.setAttribute("loginMember", member);
+	   
+	   if(cnt >0) {
+		   System.out.println("개인정보 변경 성공");
+	   }else {
+		   System.out.println("개인정보 변경 실패");
+	   }
 	   
 	   return "Userinfo";
    }
@@ -140,8 +146,8 @@ public class MemberController {
    // 프로필 수정
    @RequestMapping("/updateProfil")
    public String updateProfil(Member member, HttpServletRequest request, HttpSession session) {
-	   MultipartRequest multi = null;
-		
+	   
+	    MultipartRequest multi = null;
 		
 		String savePath = "C:\\Users\\poa11\\git\\WithusRepo2\\WithUs\\src\\main\\webapp\\resources\\pro_img";
 		System.out.println(savePath);
@@ -166,6 +172,7 @@ public class MemberController {
 			String mb_comment = multi.getParameter("mb_comment");
 		
 			member = new Member(mb_id, mb_pw, mb_name, mb_nick, mb_birthdate, mb_gender, mb_phone, mb_img, null, null, mb_proimg, mb_comment);
+			session.setAttribute("loginMember", member);
 			System.out.println(member);
 			
 		} catch (IOException e) {
@@ -173,8 +180,8 @@ public class MemberController {
 			System.out.println("회원정보 수정 실패");
 		} 
 	   System.out.println(member.toString());
-	   Member loginMember = memberMapper.updateUserPro(member);
-	   session.setAttribute("loginMember", loginMember);
+	   int cnt = memberMapper.updateUserPro(member);
+	   
 	   
 	   return "Userproinfo";
    }

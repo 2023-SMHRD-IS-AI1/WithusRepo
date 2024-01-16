@@ -22,9 +22,9 @@ public interface MemberMapper {
 	@Select("select * from members where mb_nick=#{mb_nick}")
 	Member nickCheck(String inputN);
 
-	Member updateUserinfo(Member member);
+	int updateUserinfo(Member member);
 
-	Member updateUserPro(Member member);
+	int updateUserPro(Member member);
 
 	Member findPro(String mb_id);
 
