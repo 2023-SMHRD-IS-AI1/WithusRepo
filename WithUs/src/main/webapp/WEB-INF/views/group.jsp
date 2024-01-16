@@ -105,7 +105,11 @@
         </div>
 		
 	<div class="group">
+
+		
+
 		<%  for(int i =(boardList.size()-1); i>=0 ;i--){ %>
+
         	
           <div class="groupCard">
             <div class="groupCardTop">

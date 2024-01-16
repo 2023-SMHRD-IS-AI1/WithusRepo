@@ -25,7 +25,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="resources/assets/css/reviews.css" />
+    <link rel="stylesheet" href="resources/assets/css/reviewss.css" />
     <link rel="stylesheet" href="resources/assets/css/reset.css" />
 </head>
 <body>
@@ -71,7 +71,7 @@
         for(int i=(reviewList.size()-1); i>=0; i--){ %>
         <div class="reviewCard">
           <a href="goRecon">
-            <div class="imgBox"> <img src="resources/upload1/<%=reviewList.get(i).getReview_img()%>"></div>
+            <div class="imgBox"> <img class="uim" src="resources/upload1/<%=reviewList.get(i).getReview_img()%>"></div>
             <div class="textBox">
               <p class="title"><%= reviewList.get(i).getReview_title() %></p>
               <p class="text">
