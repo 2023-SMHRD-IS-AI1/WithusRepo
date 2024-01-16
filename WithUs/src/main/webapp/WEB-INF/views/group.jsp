@@ -106,7 +106,7 @@
 		
 	<div class="group">
 
-		<%  for(int i =0; i<boardList.size() ;i++){ %>
+		
 
 		<%  for(int i =(boardList.size()-1); i>=0 ;i--){ %>
 
