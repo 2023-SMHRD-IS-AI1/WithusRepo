@@ -50,7 +50,7 @@ public class BoardController {
 //  	private String comp_start;
 //  	private String comp_end;
 //  	private String comp_img;
-      
+      System.out.println(board.toString());
       
       try {
 		multi = new MultipartRequest(request, savePath, maxSize, enc, dftrp);
@@ -64,8 +64,8 @@ public class BoardController {
 		String comp_end = multi.getParameter("comp_end");
 		String comp_img =  multi.getFilesystemName("comp_img");
 		
-		board = new Board(null, mb_id, mb_nick, comp_title, null, comp_members, comp_content, null, comp_tourplace, comp_start, comp_end, comp_img);
-		System.out.println(board.toString());
+		board = new Board(null, mb_id, mb_nick, null, comp_title, comp_members, comp_content, null, comp_tourplace, comp_start, comp_end, comp_img);
+		
 	
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
@@ -117,8 +117,31 @@ public class BoardController {
       return "review";
    }
 
-	
-	
+   // 모집 페이지 이동
+   @RequestMapping("/goGroup")
+   public String goGroup(Model model) {
+      
+      List<Board> boardList = boardMapper.getAllBoard();
+      model.addAttribute("boardList", boardList);
+      
+      
+      return "group";
+   }
+
+   
+	// 리뷰 페이지 이동
+	@RequestMapping("/goReview")
+	public String goReview(Model model) {
+	   
+	   List<reviewBoard> reviewList = boardMapper.getAllReview();
+	   if (reviewList != null) {
+	      model.addAttribute("reviewList", reviewList);
+	   }
+	   
+	   
+	   return "review";
+	}
+		
    
    
 
@@ -263,30 +286,7 @@ public class BoardController {
 
    
    
-   // 모집 페이지 이동
-      @RequestMapping("/goGroup")
-      public String goGroup(Model model) {
-         
-         List<Board> boardList = boardMapper.getAllBoard();
-         model.addAttribute("boardList", boardList);
-         
-         
-         return "group";
-      }
-   
-      
-   // 리뷰 페이지 이동
-   @RequestMapping("/goReview")
-   public String goReview(Model model) {
-      
-      List<reviewBoard> reviewList = boardMapper.getAllReview();
-      if (reviewList != null) {
-         model.addAttribute("reviewList", reviewList);
-      }
-      
-      
-      return "review";
-   }
+
    
 //   // boardDelete 게시글 삭제
 //   @RequestMapping("/boardDelete") // boardContent?idx=

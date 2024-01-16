@@ -39,13 +39,14 @@
    
     <div id="contain">
        <h1 id ="m_title">모집 글쓰기</h1>
-      <form id = "m_content" action="boardWirte">
+      <form id = "m_content" action="boardWirte" method="get" enctype="multipart/form-data">
       	<input type= "hidden" name="mb_id" value="<%=loginMember.getMb_id()%>">
       	<input type= "hidden" name="mb_nick" value="<%=loginMember.getMb_nick()%>">
-      	<input type= "hidden" name="mb_age" value=${mb_age }>
+      	
         <div class="input-group">
           <span class="input-group-text">제목</span>
           <input type="text" name ="comp_title" aria-label="m_title" class="form-control">
+          <input type= "hidden" name="mb_age" value=${mb_age }>
         </div>
         <br>
         <div class="input-group">
