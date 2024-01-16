@@ -38,4 +38,15 @@
 		select * from reviews
 	</select> 
 	
+	 <!-- 페이징을 위한 추가된 SQL -->
+    <select id="getAllReviewWithPagination" resultType="kr.smhrd.entity.reviewBoard">
+        SELECT * FROM reviews
+        LIMIT #{size} OFFSET #{offset}
+    </select>
+
+    <!-- 리뷰의 총 갯수를 가져오는 SQL -->
+    <select id="getReviewCount" resultType="int">
+        SELECT COUNT(*) FROM reviews
+    </select>
+	
 </mapper>

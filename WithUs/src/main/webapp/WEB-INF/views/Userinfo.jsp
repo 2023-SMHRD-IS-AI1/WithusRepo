@@ -21,14 +21,13 @@
       crossorigin="anonymous"
     />
     <script src="https://kit.fontawesome.com/d5377ff581.js" crossorigin="anonymous"></script>
+    <script src="resources/assets/js/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="resources/assets/css/reset.css" />
-<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-<link rel="stylesheet"  href="resources/assets/css/userInfo.css" />
-<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <link rel="stylesheet"  href="resources/assets/css/userInfo.css" />
+	
 </head>
 <body>
 	<%@ include file="./nav.jsp" %>
@@ -66,15 +65,10 @@
     <!-- contain end -->
     <%@ include file="./F_chat.jsp" %>
     <footer></footer>
-    <script src="resources/assets/js/jquery.min.js"></script>
-         <script src="resources/assets/js/jquery.scrolly.min.js"></script>
-         <script src="resources/assets/js/jquery.scrollex.min.js"></script>
-         <script src="resources/assets/js/skel.min.js"></script>
-         <script src="resources/assets/js/util.js"></script>
-         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-         <script src="resources/assets/js/main.js"></script>
+
     
     <script type="text/javascript">
+    
     // 닉네임 중복 체크
     function checkN() {
        
@@ -101,6 +95,7 @@
       })
     }
     </script>
+    
     
 </body>
 </html>
