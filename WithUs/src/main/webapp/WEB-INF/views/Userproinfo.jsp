@@ -32,14 +32,16 @@
 </head>
 <body>
 	<%@ include file="./nav.jsp" %>
-  
+  	
+  	
+  	
      <div id="contain">
       <div id="mainImg">
         <p><a href="goUserinfo">계정 관리</a></p>
         <p><a href="goUserproinfo">회원 정보 변경</a></p>
       </div>
       
-      <form action="updateProfil" method="post" enctype="multipart/form-data">
+      <form action="updateProfil" method="get" enctype="multipart/form-data">
         <div id="profileImg">
 
         </div>

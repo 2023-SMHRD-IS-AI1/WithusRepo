@@ -109,16 +109,16 @@
 		
 
 		<%  for(int i =(boardList.size()-1); i>=0 ;i--){ %>
-
-        	
+			
+        	<a href="getProfil?mb_id=<%=boardList.get(i).getMb_id() %>&mb_age=<%=boardList.get(i).getMb_age() %>">프로필 보기</a>
+			
           <div class="groupCard">
             <div class="groupCardTop">
               <div class="groupCardImg"></div>
               <div class="groupCardText">
-              	
                 <p>닉네임 : <%=boardList.get(i).getMb_nick() %></p>
                 <p>나이 : <%=boardList.get(i).getMb_age() %></p>
-                
+                </a>
               </div>
             </div>
             <div class="groupCardBottom">

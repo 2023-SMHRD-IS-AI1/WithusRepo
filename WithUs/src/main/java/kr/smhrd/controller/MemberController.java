@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import kr.smhrd.entity.Board;
 import kr.smhrd.entity.Member;
 import kr.smhrd.entity.Message;
 import kr.smhrd.entity.Survey;
@@ -78,10 +79,7 @@ public class MemberController {
       return "Join";
    }
 
-   @RequestMapping("/goProfil")
-   public String goProfil() {
-      return "Profil";
-   }
+
    
    @RequestMapping("/goFollow")
    public String goFollow() {
@@ -102,12 +100,38 @@ public class MemberController {
    public String goDaily() {
       return "daily";
    }
+   
+   // 프로필 가져오기
+   @RequestMapping("/getProfil")
+   public String getProfil(@RequestParam("mb_id") String mb_id, @RequestParam("mb_age") String mb_age, HttpSession session) {
+       // mbId와 mbAge를 사용하여 필요한 처리 수행
+       // 예를 들어, 회원 정보 조회 등
+
+       Member memPro = memberMapper.findPro(mb_id); // 예시 메서드, 실제 구현에 맞게 변경 필요
+
+
+       session.setAttribute("memPro", memPro);
+       session.setAttribute("mb_age", mb_age);
+
+       return "redirect:/goProfil";
+   }
+
+   
+   // 프로필 보기
+   @RequestMapping("/goProfil")
+   public String goProfil() {
+	   
+	   return "Profil";
+   }
+   
+   
    // 개인정보 변경
    @RequestMapping("/updateUserinfo")
-   public String updateUserinfo(Member member) {
+   public String updateUserinfo(Member member, HttpSession session) {
 	   
 	    
-	   memberMapper.updateUserinfo(member);
+	   Member loginMember = memberMapper.updateUserinfo(member);
+	   session.setAttribute("loginMember", loginMember);
 	   
 	   return "Userinfo";
    }
@@ -115,7 +139,7 @@ public class MemberController {
    
    // 프로필 수정
    @RequestMapping("/updateProfil")
-   public String updateProfil(Member member, HttpServletRequest request) {
+   public String updateProfil(Member member, HttpServletRequest request, HttpSession session) {
 	   MultipartRequest multi = null;
 		
 		
@@ -142,14 +166,15 @@ public class MemberController {
 			String mb_comment = multi.getParameter("mb_comment");
 		
 			member = new Member(mb_id, mb_pw, mb_name, mb_nick, mb_birthdate, mb_gender, mb_phone, mb_img, null, null, mb_proimg, mb_comment);
-			
+			System.out.println(member);
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			System.out.println("회원정보 수정 실패");
 		} 
 	   System.out.println(member.toString());
-	   memberMapper.updateUserPro(member);
+	   Member loginMember = memberMapper.updateUserPro(member);
+	   session.setAttribute("loginMember", loginMember);
 	   
 	   return "Userproinfo";
    }

@@ -31,19 +31,35 @@
 </head>
 <body>
 	<%@ include file="./nav.jsp"%>
+	
+	<% 
+		Member memPro = (Member)session.getAttribute("memPro");
+		System.out.println(memPro);
+		String mb_age = (String)session.getAttribute("mb_age");
+	%>
+
+	
+	
 	<div id="mainImg"></div>
 	<!-- mainImg end -->
 	<div id="contain">
 		<div id="profileBox">
 			<div id="boxL">
 				<div id="boxL_top">
-					<div id="proImg"></div>
+					<div id="proImg"><img class="uim" src="./resources/pro_img/<%=memPro.getMb_proimg()%>"></div>
 				</div>
 				<button type="button">팔로우</button>
 				<ul id="proDesc">
-					<li><span>닉네임</span>닉네임</li>
-					<li><span>나이</span>20</li>
-					<li><span>MBTI</span>ENFP</li>
+					<% if (memPro != null) { %>
+    					<li><span>닉네임</span><%=memPro.getMb_nick() %></li>
+    					<li><span>나이</span>${mb_age }</li>
+						<li><span>MBTI</span>ENFP</li>
+    
+					<% } else { %>
+					   
+					<% } %>
+					
+					
 				</ul>
 			</div>
 			<div id="boxR">

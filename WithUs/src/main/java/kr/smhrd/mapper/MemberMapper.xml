@@ -30,6 +30,9 @@
 		update members set mb_proimg=#{mb_proimg} , mb_comment=#{mb_comment} where mb_id=#{mb_id}
 	</update>
 	
+	<select id="findPro" parameterType="String" resultType="kr.smhrd.entity.Member">
+		select * from members where mb_id=#{mb_id}
+	</select>
 	
 <!-- 	<update id="updateProfil" parameterType="String">
 		update members set mb_proimg=#{mb_proimg} , mb_comment=#{mb_comment} where mb_id=#{mb_id}
