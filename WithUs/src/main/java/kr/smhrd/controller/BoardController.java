@@ -32,7 +32,7 @@ public class BoardController {
       
 	  MultipartRequest multi = null;
 	  
-	  String savePath = "C:\\Users\\poa11\\git\\WithusRepo2\\WithUs\\src\\main\\webapp\\resources\\comp_img";
+	  String savePath = "C:\\Users\\smhrd\\git\\WithusRepo\\WithUs\\src\\main\\webapp\\resources\\comp_img";
 	  System.out.println(savePath);
 	  int maxSize = 1024 * 1024 * 10 ; // 10MB
       String enc = "UTF-8";

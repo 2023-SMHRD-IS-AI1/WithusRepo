@@ -35,35 +35,35 @@
 	<%@ include file="./nav.jsp" %>
      <div id="mainImg"></div>
     <!-- mainImg end -->
- 
-     <div id="contain">
-           <div id="buttons">
-        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-          <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" onclick="location.href='goGroup'" />
-          <label class="btn btn-outline-primary" for="btnradio1">모집</label>
 
-          <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="location.href='goReview'"/>
-          <label class="btn btn-outline-primary" for="btnradio2">리뷰</label>
-
-          <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked />
-          <label class="btn btn-outline-primary" for="btnradio3">추천 맛집</label>
-        </div>
-      </div>
+	<div id="contain">
+      	<div id="buttons">
+        	<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+	          <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" onclick="location.href='goGroup'" />
+	          <label class="btn btn-outline-primary" for="btnradio1">모집</label>
+	
+	          <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="location.href='goReview'"/>
+	          <label class="btn btn-outline-primary" for="btnradio2">리뷰</label>
+	
+	          <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked />
+	          <label class="btn btn-outline-primary" for="btnradio3">추천 맛집</label>
+        	</div>
+     	 </div>
       <!-- buttons end -->
-      <div id="mapbuttons">
-        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-          <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" checked />
-          <label class="btn btn-outline-primary btn-outline-warning" for="btnradio4" onclick="seoul()">서울</label>
-
-          <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" />
-          <label class="btn btn-outline-primary btn-outline-warning" for="btnradio5" onclick="Gr()">강릉</label>
-
-          <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off" />
-          <label class="btn btn-outline-primary btn-outline-warning" for="btnradio6" onclick="jj()">제주</label>
-          
-          <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off" />
-          <label class="btn btn-outline-primary btn-outline-warning" for="btnradio7" onclick="bs()">부산</label>
-        </div>
+      	<div id="mapbuttons">
+	        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+	          <input type="radio" class="btn-check" name="btnradio1" id="btnradio4" autocomplete="off" checked />
+	          <label class="btn btn-outline-primary btn-outline-warning" for="btnradio4" onclick="seoul()">서울</label>
+	
+	          <input type="radio" class="btn-check" name="btnradio1" id="btnradio5" autocomplete="off" />
+	          <label class="btn btn-outline-primary btn-outline-warning" for="btnradio5" onclick="Gr()">강릉</label>
+	
+	          <input type="radio" class="btn-check" name="btnradio1" id="btnradio6" autocomplete="off" />
+	          <label class="btn btn-outline-primary btn-outline-warning" for="btnradio6" onclick="jj()">제주</label>
+	          
+	          <input type="radio" class="btn-check" name="btnradio1" id="btnradio7" autocomplete="off" />
+	          <label class="btn btn-outline-primary btn-outline-warning" for="btnradio7" onclick="bs()">부산</label>
+	        </div>
       </div>
 
       <div id="map" style="width:60%;height:500px;"></div>
@@ -104,7 +104,11 @@
       hsp_tel : "07088347900",
       hsp_mainmenu : "칼국수",
       Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,505678,1111585&rt1=&rt2=파이브가이즈 강남&rtIds=,1725176424",
+
+      hsp_img:"resources/hsp_img/seoul/seoulimg2.jpg",
+
       hsp_img:"resources/hsp_img/seoul/명동교자.jpg",
+
    
 },
 
@@ -272,7 +276,8 @@
 
     //커스텀오버레이 이미지
     var imgContent = document.createElement("img");
-    imgContent.src = data. hsp_img;
+    imgContent.className = "hsp_img";
+    imgContent.src = data.hsp_img;
     //imgContent.setAttribute("src", data.pimg);
 
     imgContent.setAttribute("width", "73px");
@@ -366,7 +371,11 @@
       hsp_tel : "07088347900",
       hsp_mainmenu : "칼국수",
       Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,505678,1111585&rt1=&rt2=파이브가이즈 강남&rtIds=,1725176424",
+
+      hsp_img:"resources/hsp_img/seoul/seoulimg2.jpg",
+
       hsp_img:"resources/hsp_img/seoul/명동교자.jpg2",
+
    
 },
 
@@ -534,7 +543,8 @@
 
     //커스텀오버레이 이미지
     var imgContent = document.createElement("img");
-    imgContent.src = data. hsp_img;
+    imgContent.className = "hsp_img";
+    imgContent.src = data.hsp_img;
     //imgContent.setAttribute("src", data.pimg);
 
     imgContent.setAttribute("width", "73px");
@@ -796,7 +806,8 @@
   
       //커스텀오버레이 이미지
       var imgContent = document.createElement("img");
-      imgContent.src = data. hsp_img;
+      imgContent.className = "hsp_img";
+      imgContent.src = data.hsp_img;
       //imgContent.setAttribute("src", data.pimg);
   
       imgContent.setAttribute("width", "73px");
@@ -1063,7 +1074,8 @@
   
       //커스텀오버레이 이미지
       var imgContent = document.createElement("img");
-      imgContent.src = data. hsp_img;
+      imgContent.className = "hsp_img";
+      imgContent.src = data.hsp_img;
       //imgContent.setAttribute("src", data.pimg);
   
       imgContent.setAttribute("width", "73px");
@@ -1325,7 +1337,8 @@ hsp_img: "resources/hsp_img/busan/busanimg10.jpg"
   
       //커스텀오버레이 이미지
       var imgContent = document.createElement("img");
-      imgContent.src = data. hsp_img;
+      imgContent.className = "hsp_img";
+      imgContent.src = data.hsp_img;
       //imgContent.setAttribute("src", data.pimg);
   
       imgContent.setAttribute("width", "73px");
@@ -1384,12 +1397,6 @@ hsp_img: "resources/hsp_img/busan/busanimg10.jpg"
       });
     }
       }
-
-
-
-
-
-
 
 
 

@@ -66,41 +66,40 @@
           <a class="btn btn-primary" href="goRewrite" role="button">글쓰기</a>
           <%} %>
         </div>
-         <% 
-        
-        for(int i=(reviewList.size()-1); i>=0; i--){ %>
-        <div class="reviewCard">
-          <a href="goRecon">
-            <div class="imgBox"> <img class="uim" src="resources/upload1/<%=reviewList.get(i).getReview_img()%>"></div>
-            <div class="textBox">
-              <p class="title"><%= reviewList.get(i).getReview_title() %></p>
-              <p class="text">
-                <%= reviewList.get(i).getReview_content() %>
-              </p>
-              <p class="date"><%= reviewList.get(i).getReviewed_at() %></p>
+        <c:forEach var="review" items="${reviewList}">
+    <div class="reviewCard">
+        <a href="goRecon">
+            <div class="imgBox">
+                <img class="uim" src="resources/upload1/<c:out value="${review.review_img}" />">
             </div>
-          </a>   
-        </div>
-        <%} %>
+            <div class="textBox">
+                <p class="title"><c:out value="${review.review_title}" /></p>
+                <p class="text">
+                    <c:out value="${review.review_content}" />
+                </p>
+                <p class="date"><c:out value="${review.reviewed_at}" /></p>
+            </div>
+        </a>
+    </div>
+</c:forEach>
         
       </div>
       <!-- reviews end -->
-      <div id="page">
+    
+ <!-- 페이지네이션 -->
+<div class="d-flex justify-content-center">
+    <nav aria-label="Page navigation">
         <ul class="pagination">
-          <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item active" aria-current="page">
-            <a class="page-link" href="#">2</a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-          </li>
+            <c:forEach begin="0" end="${totalPages - 1}" var="pageNumber">
+                <li class="page-item ${pageNumber eq currentPage ? 'active' : ''}">
+                    <a class="page-link" href="<c:url value='/goReview'/>?page=${pageNumber}">
+                        ${pageNumber + 1}
+                    </a>
+                </li>
+            </c:forEach>
         </ul>
-      </div>
-    </div>
+    </nav>
+</div>
     <!-- contain end -->
     <%@ include file="./F_chat.jsp" %>
     <footer></footer>
