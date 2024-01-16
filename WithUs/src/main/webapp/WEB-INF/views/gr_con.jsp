@@ -26,7 +26,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="resources/assets/css/g_con_n.css" />
+    <link rel="stylesheet" href="resources/assets/css/grcontent.css" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="resources/assets/css/reset.css" />
 <body>
@@ -72,7 +72,7 @@
                                 <img src=""><img src="resources/images/cardImg.png" class="image" alt="image post">
                             </div>
                             <div class="post-description">
-                                <h2>제주도에 겨울바다 보러 같이 여행 가실분 구합니다!!</h2>
+                                <h2>제주도에 겨울바다 보러 같이 여행 가실분 구합니다</h2>
                                 <br>
                                 <h3>지역 : <span>제주도</span></h3>
                                 <br>
