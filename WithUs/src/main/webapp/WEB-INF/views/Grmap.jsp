@@ -159,7 +159,7 @@
    hsp_tel : "0336480340",
    hsp_mainmenu : "순감자옹심이",
    Link: "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,917471,1186653&rt1=&rt2=강릉감자옹심이 강릉본점&rtIds=,10127723",
-   hsp_img: "resources/hsp_img/kangreung/kangimg7.jpg"
+   hsp_img: "resources/hsp_img/kangreung/7.강릉감자옹심이.jpg"
 },
 
 {
@@ -170,7 +170,7 @@
    hsp_tel : "0336510187",
    hsp_mainmenu : "보쌈한상",
    Link: "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,921633,1196868&rt1=&rt2=오월에초당&rtIds=,26992014",
-   hsp_img: "resources/hsp_img/kangreung/kangimg8.jpg"
+   hsp_img: "resources/hsp_img/kangreung/오월에초당.jpg"
 },
 
 {
@@ -366,7 +366,7 @@
       hsp_tel : "07088347900",
       hsp_mainmenu : "칼국수",
       Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,505678,1111585&rt1=&rt2=파이브가이즈 강남&rtIds=,1725176424",
-      hsp_img:"resources/hsp_img/seoul/seoulimg1.jpg2",
+      hsp_img:"resources/hsp_img/seoul/명동교자.jpg2",
    
 },
 
@@ -422,7 +422,7 @@
    hsp_tel :" 0222536373",
    hsp_mainmenu : "통삼겹살",
    Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,505382,1131860&rt1=&rt2=육전식당 본점&rtIds=,10331494",
-   hsp_img: "resources/hsp_img/seoul/seoulimg7.jpg",
+   hsp_img: "resources/hsp_img/seoul/육전식당.jpg",
 },
 
 {
@@ -684,7 +684,7 @@
    hsp_tel : "0336480340",
    hsp_mainmenu : "순감자옹심이",
    Link: "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,917471,1186653&rt1=&rt2=강릉감자옹심이 강릉본점&rtIds=,10127723",
-   hsp_img: "resources/hsp_img/kangreung/kangimg7.jpg"
+   hsp_img: "resources/hsp_img/kangreung/7.강릉감자옹심이.jpg"
 },
 
 {
@@ -695,7 +695,7 @@
    hsp_tel : "0336510187",
    hsp_mainmenu : "보쌈한상",
    Link: "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,921633,1196868&rt1=&rt2=오월에초당&rtIds=,26992014",
-   hsp_img: "resources/hsp_img/kangreung/kangimg8.jpg"
+   hsp_img: "resources/hsp_img/kangreung/오월에초당.jpg"
 },
 
 {
@@ -906,7 +906,7 @@
    hsp_tel : "0649002527",
    hsp_mainmenu : "딱새우 김밥",
    Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,388683,6070&rt1=&rt2=제주시새우리 제주점&rtIds=,2146989435",
-   hsp_img: "resources/hsp_img/jeju/jejuimg3.jpg",
+   hsp_img: "resources/hsp_img/jeju/새우리.jpg",
 },
 
 {
@@ -928,7 +928,7 @@
    hsp_tel : "0647476525",
    hsp_mainmenu : "정우스페샬코스",
    Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,383242,-3425&rt1=&rt2=정우말가든&rtIds=,8515374",
-   hsp_img: "resources/hsp_img/jeju/jejuimg5.jpg",
+   hsp_img: "resources/hsp_img/jeju/정우말가든.jpg",
 },
 
 {
@@ -939,7 +939,7 @@
    hsp_tel : "0647476525",
    hsp_mainmenu : "닭다리살 꼬치",
    Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,362461,-1898&rt1=&rt2=하타나카&rtIds=,1000640070",
-   hsp_img: "resources/hsp_img/jeju/jejuimg6.jpg"
+   hsp_img: "resources/hsp_img/jeju/하타나카.jpg"
 },
 
 {
@@ -983,7 +983,7 @@
    hsp_tel :" 0647462286",
    hsp_mainmenu : "모듬회",
    Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,381367,-1606&rt1=&rt2=연동마라도횟집&rtIds=,27454594",
-   hsp_img: "resources/hsp_img/jeju/jejuimg10.jpg"
+   hsp_img: "resources/hsp_img/jeju/마라도 횟집.jpg"
 },
 
 
@@ -1212,7 +1212,7 @@ latlng: new kakao.maps.LatLng(35.1021046, 129.0305985),
 hsp_tel : "0512451478",
 hsp_mainmenu : "이재모 새싹피자",
 Link: "[https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,962915,450758&rt1=&rt2=이재모피자](https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,962915,450758&rt1=&rt2=%EC%9D%B4%EC%9E%AC%EB%AA%A8%ED%94%BC%EC%9E%90) 본점&rtIds=,10070964",
-hsp_img: "resources/hsp_img/busan/busanimg7.jpg"
+hsp_img: "resources/hsp_img/busan/7.이재모피자.jpg"
 },
 
 {
@@ -1234,7 +1234,7 @@ latlng: new kakao.maps.LatLng(35.1676386, 129.0507095),
 hsp_tel : "0518047416",
 hsp_mainmenu : "곱창전골",
 Link: "[https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,967093,469053&rt1=&rt2=마산곱창&rtIds=,16669377](https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,967093,469053&rt1=&rt2=%EB%A7%88%EC%82%B0%EA%B3%B1%EC%B0%BD&rtIds=,16669377)",
-hsp_img: "resources/hsp_img/busan/busanimg9.jpg"
+hsp_img: "resources/hsp_img/busan/9.마산곱창.JPG"
 },
 
 {
