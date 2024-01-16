@@ -46,6 +46,11 @@
   height: 150px;
   background-color: blue;
   border-radius: 100%;
+  overflow : hidden;
+}
+.uim{
+	width:150px;
+	height:150px;
 }
 #boxL button {
   width: 50%;

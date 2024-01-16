@@ -28,6 +28,12 @@ public class Board {
 	
 	
 	private Long comp_idx;
+	public Board(String mb_id, String mb_age) {
+		super();
+		this.mb_id = mb_id;
+		this.mb_age = mb_age;
+	}
+	
 	private String mb_id;
 	private String mb_nick;
 	private String mb_age;

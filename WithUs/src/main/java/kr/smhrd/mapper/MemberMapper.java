@@ -3,6 +3,7 @@ package kr.smhrd.mapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import kr.smhrd.entity.Board;
 import kr.smhrd.entity.Member;
 
 
@@ -21,7 +22,11 @@ public interface MemberMapper {
 	@Select("select * from members where mb_nick=#{mb_nick}")
 	Member nickCheck(String inputN);
 
-	void updateUserinfo(Member member);
+	int updateUserinfo(Member member);
+
+	int updateUserPro(Member member);
+
+	Member findPro(String mb_id);
 
 	
 

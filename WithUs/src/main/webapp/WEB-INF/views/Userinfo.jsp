@@ -50,7 +50,9 @@
           <p>사용할 수 없는 아이디입니다. 다른 아이디를 입력해주세요.</p>
         </div> -->
         <label for="exampleFormControlInput1" class="form-label">닉네임 *</label>
-        <input type="text" class="form-control" name="mb_nick" id="exampleFormControlInput1" placeholder="NICKNAME" />
+        <input type="text" class="form-control" name="mb_nick" id="inputN" placeholder="NICKNAME" />
+        <li><input type="button" value="중복체크" onclick="checkN()" /></li>
+         <p id="resultCheck2"></p>
         <input type="hidden" name= "mb_birthdate" value=<%=loginMember.getMb_birthdate() %>>
         <input type="hidden" name= "mb_gender" value=<%=loginMember.getMb_gender() %>>
         <label for="exampleFormControlInput1" class="form-label">전화번호 *</label>
@@ -64,6 +66,42 @@
     <!-- contain end -->
     <%@ include file="./F_chat.jsp" %>
     <footer></footer>
+    <script src="resources/assets/js/jquery.min.js"></script>
+         <script src="resources/assets/js/jquery.scrolly.min.js"></script>
+         <script src="resources/assets/js/jquery.scrollex.min.js"></script>
+         <script src="resources/assets/js/skel.min.js"></script>
+         <script src="resources/assets/js/util.js"></script>
+         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+         <script src="resources/assets/js/main.js"></script>
+    
+    <script type="text/javascript">
+    // 닉네임 중복 체크
+    function checkN() {
+       
+       var inputN = $('#inputN').val();
+      
+       console.log(inputN)
+      
+      $.ajax({
+      
+         url : 'nickCheck',
+          data : { 'inputN' : inputN },
+          type : 'get',
+         success : function(data){
+            if(data ==0){
+               $('#resultCheck2').text('이미 존재하는 닉네임입니다.')
+            }else{
+               $('#resultCheck2').text('사용 가능한 닉네임입니다.')
+            }
+         },
+         // 요청-응답 실패
+         error : function(){
+            alert("통신 실패")
+         }
+      })
+    }
+    </script>
+    
 </body>
 </html>
 

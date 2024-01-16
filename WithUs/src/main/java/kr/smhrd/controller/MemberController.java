@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import kr.smhrd.entity.Board;
 import kr.smhrd.entity.Member;
 import kr.smhrd.entity.Message;
 import kr.smhrd.entity.Survey;
@@ -78,10 +79,7 @@ public class MemberController {
       return "Join";
    }
 
-   @RequestMapping("/goProfil")
-   public String goProfil() {
-      return "Profil";
-   }
+
    
    @RequestMapping("/goFollow")
    public String goFollow() {
@@ -103,61 +101,92 @@ public class MemberController {
       return "daily";
    }
    
+   // 프로필 가져오기
+   @RequestMapping("/getProfil")
+   public String getProfil(@RequestParam("mb_id") String mb_id, @RequestParam("mb_age") String mb_age, HttpSession session) {
+       // mbId와 mbAge를 사용하여 필요한 처리 수행
+       // 예를 들어, 회원 정보 조회 등
+
+       Member memPro = memberMapper.findPro(mb_id); // 예시 메서드, 실제 구현에 맞게 변경 필요
+
+
+       session.setAttribute("memPro", memPro);
+       session.setAttribute("mb_age", mb_age);
+
+       return "redirect:/goProfil";
+   }
+
+   
+   // 프로필 보기
+   @RequestMapping("/goProfil")
+   public String goProfil() {
+	   
+	   return "Profil";
+   }
+   
+   
+   // 개인정보 변경
    @RequestMapping("/updateUserinfo")
-   public String updateUserinfo(Member member) {
+   public String updateUserinfo(Member member, HttpSession session) {
 	   
 	    
-	   memberMapper.updateUserinfo(member);
+	   int cnt = memberMapper.updateUserinfo(member);
+	   session.setAttribute("loginMember", member);
+	   
+	   if(cnt >0) {
+		   System.out.println("개인정보 변경 성공");
+	   }else {
+		   System.out.println("개인정보 변경 실패");
+	   }
 	   
 	   return "Userinfo";
    }
    
+   
+   // 프로필 수정
    @RequestMapping("/updateProfil")
-   public String updateProfil() {
+   public String updateProfil(Member member, HttpServletRequest request, HttpSession session) {
 	   
- 
+	    MultipartRequest multi = null;
+		
+		String savePath = "C:\\Users\\poa11\\git\\WithusRepo2\\WithUs\\src\\main\\webapp\\resources\\pro_img";
+		System.out.println(savePath);
+		// 3. 파일의 용량 크기(int)
+		int maxSize = 1024 * 1024 * 10 ; // 10MB
+		// 4. 파일 이름에 대한 인코딩(String)
+		String enc = "UTF-8";
+		// 5. 파일 이름 중복제거(DefaultFileRenamePolicy) 
+		DefaultFileRenamePolicy dftrp = new DefaultFileRenamePolicy(); 
+		
+		try {
+			multi = new MultipartRequest(request, savePath, maxSize, enc, dftrp);
+			String mb_id = multi.getParameter("mb_id");
+			String mb_pw = multi.getParameter("mb_pw");
+			String mb_name = multi.getParameter("mb_name");
+			String mb_nick = multi.getParameter("mb_nick");
+			String mb_birthdate = multi.getParameter("mb_birthdate");
+			String mb_gender = multi.getParameter("mb_gender");
+			String mb_phone = multi.getParameter("mb_phone");
+			String mb_img = multi.getParameter("mb_img");
+			String mb_proimg  =  multi.getFilesystemName("mb_proimg");
+			String mb_comment = multi.getParameter("mb_comment");
+		
+			member = new Member(mb_id, mb_pw, mb_name, mb_nick, mb_birthdate, mb_gender, mb_phone, mb_img, null, null, mb_proimg, mb_comment);
+			session.setAttribute("loginMember", member);
+			System.out.println(member);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("회원정보 수정 실패");
+		} 
+	   System.out.println(member.toString());
+	   int cnt = memberMapper.updateUserPro(member);
+	   
 	   
 	   return "Userproinfo";
    }
    
-// 게시글 업로드 기능
-//	@RequestMapping("/Writereview")
-//	public String BoardInsert(reviewBoard board,HttpServletRequest request) {
-//		
-//		MultipartRequest multi = null;
-//		
-//		// MultipartRequest 객체 생성을 위한 매개변수 설정
-//		// 1. 요청객체(request)
-//		// 2. 파일을 저장할 경로(String)
-//		String savePath = request.getRealPath("./resources/review_img");
-//		System.out.println(savePath);
-//		// 3. 파일의 용량 크기(int)
-//		int maxSize = 1024 * 1024 * 10 ; // 10MB
-//		// 4. 파일 이름에 대한 인코딩(String)
-//		String enc = "UTF-8";
-//		// 5. 파일 이름 중복제거(DefaultFileRenamePolicy) 
-//		DefaultFileRenamePolicy dftrp = new DefaultFileRenamePolicy(); 
-//		
-//		try {
-//			multi = new MultipartRequest(request, savePath, maxSize, enc, dftrp);
-//			String review_title = multi.getParameter("review_title");
-//			String review_content = multi.getParameter("review_content");
-//			String review_region = multi.getParameter("review_region");
-//			String mb_id = multi.getParameter("mb_id");
-//			String review_img =  multi.getFilesystemName("review_img");
-//		
-//			board = new reviewBoard(null, review_title, review_content, review_region, null, mb_id, review_img);
-//			System.out.println(board.toString());
-//			boardMapper.Writereview(board);
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			System.out.println("리뷰 작성 실패");
-//		}
-//		
-//		
-//		
-//		return "goReview";
-//	}
+   
    
    
    

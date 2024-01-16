@@ -37,9 +37,11 @@
      <div id="mainImg"></div>
     <!-- mainImg end -->
    
+   <% int mb_age = (int)session.getAttribute("mb_age"); %>
+   
     <div id="contain">
        <h1 id ="m_title">모집 글쓰기</h1>
-      <form id = "m_content" action="boardWirte" method="get" enctype="multipart/form-data">
+      <form id = "m_content" action="boardWirte" method="post" enctype="multipart/form-data">
       	<input type= "hidden" name="mb_id" value="<%=loginMember.getMb_id()%>">
       	<input type= "hidden" name="mb_nick" value="<%=loginMember.getMb_nick()%>">
       	
