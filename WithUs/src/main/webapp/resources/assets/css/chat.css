@@ -113,13 +113,18 @@ textarea {
   padding: 5px 15px;
   display: flex;
 }
+
 #chatting .me {
   width: 100%;
   padding: 5px 15px;
   display: flex;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
+  flex-direction: row-reverse;
 }
-#chatting li:first-child {
+.me .chatNick {
+  display: none;
+}
+#chatting .userCome {
   line-height: 70px;
   display: flex;
   justify-content: center;
@@ -129,6 +134,10 @@ textarea {
   display: inline-block;
   width: 10%;
   height: 70px;
+}
+#chatting .chatNick {
+  font-size: 11px;
+  color: #999;
 }
 .talk {
   display: flex;
