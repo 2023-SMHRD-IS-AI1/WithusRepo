@@ -90,6 +90,14 @@
 <div class="d-flex justify-content-center">
     <nav aria-label="Page navigation">
         <ul class="pagination">
+            <c:if test="${currentPage > 0}">
+                <li class="page-item">
+                    <a class="page-link" href="<c:url value='/goReview'/>?page=${currentPage - 1}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            </c:if>
+            
             <c:forEach begin="0" end="${totalPages - 1}" var="pageNumber">
                 <li class="page-item ${pageNumber eq currentPage ? 'active' : ''}">
                     <a class="page-link" href="<c:url value='/goReview'/>?page=${pageNumber}">
@@ -97,10 +105,20 @@
                     </a>
                 </li>
             </c:forEach>
+            
+            <c:if test="${currentPage < totalPages - 1}">
+                <li class="page-item">
+                    <a class="page-link" href="<c:url value='/goReview'/>?page=${currentPage + 1}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </c:if>
         </ul>
     </nav>
 </div>
+
     <!-- contain end -->
+    </div>
     <%@ include file="./F_chat.jsp" %>
     <footer></footer>
 </body>
