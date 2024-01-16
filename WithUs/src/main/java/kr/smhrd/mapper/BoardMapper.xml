@@ -48,5 +48,19 @@
     <select id="getReviewCount" resultType="int">
         SELECT COUNT(*) FROM reviews
     </select>
+    
+    <!-- 모집-->
+    <!-- 페이징을 위한 추가된 SQL -->
+<select id="getAllRecruitingWithPagination" resultType="kr.smhrd.entity.Board">
+    SELECT * FROM companions
+    LIMIT #{size} OFFSET #{offset}
+</select>
+
+
+
+<!-- 총 모집글의 갯수를 가져오는 SQL -->
+<select id="getRecruitingCount" resultType="int">
+    SELECT COUNT(*) FROM companions
+</select>
 	
 </mapper>

@@ -25,6 +25,12 @@ public interface BoardMapper {
 
     // 리뷰의 총 갯수를 가져오는 메서드
     int getReviewCount();
+    
+    // 페이징을 위한 추가된 메서드
+    List<Board> getAllRecruitingWithPagination(@Param("offset") int offset, @Param("size") int size);
+
+    // 모집 중인 사람들의 총 갯수를 가져오는 메서드
+    int getRecruitingCount();
 
 	
 

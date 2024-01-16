@@ -10,6 +10,10 @@
 	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+    int currentPage = (Integer) request.getAttribute("currentPage");
+    int totalPages = (Integer) request.getAttribute("totalPages");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -136,23 +140,24 @@
       <!-- reviews end -->
       
     </div>
-    <div id="page">
-        <ul class="pagination">
-          <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item active" aria-current="page">
-            <a class="page-link" href="#">2</a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-          </li>
-        </ul>
-      </div>
-   </div>
-    <!-- contain end -->
+        <div id="page">
+            <ul class="pagination">
+                <li class="page-item <%= (currentPage == 0) ? "disabled" : "" %>">
+                    <a class="page-link" href="goGroup?page=<%= currentPage - 1 %>" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+                <!-- 페이지 번호를 동적으로 생성 -->
+                <% for (int pageNum = 1; pageNum <= totalPages; pageNum++) { %>
+                    <li class="page-item <%= (pageNum - 1 == currentPage) ? "active" : "" %>">
+                        <a class="page-link" href="goGroup?page=<%= pageNum - 1 %>"><%= pageNum %></a>
+                    </li>
+                <% } %>
+                <li class="page-item <%= (currentPage == totalPages - 1) ? "disabled" : "" %>">
+                    <a class="page-link" href="goGroup?page=<%= currentPage + 1 %>">Next</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <%@ include file="./F_chat.jsp" %>
     <footer></footer>
 </body>
