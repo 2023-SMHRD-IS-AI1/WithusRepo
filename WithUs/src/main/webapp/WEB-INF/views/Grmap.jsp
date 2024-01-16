@@ -159,7 +159,7 @@
    hsp_tel : "0336480340",
    hsp_mainmenu : "순감자옹심이",
    Link: "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,917471,1186653&rt1=&rt2=강릉감자옹심이 강릉본점&rtIds=,10127723",
-   hsp_img: "resources/hsp_img/kangreung/kangimg7.jpg"
+   hsp_img: "resources/hsp_img/kangreung/7.강릉감자옹심이.jpg"
 },
 
 {
@@ -170,7 +170,7 @@
    hsp_tel : "0336510187",
    hsp_mainmenu : "보쌈한상",
    Link: "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,921633,1196868&rt1=&rt2=오월에초당&rtIds=,26992014",
-   hsp_img: "resources/hsp_img/kangreung/kangimg8.jpg"
+   hsp_img: "resources/hsp_img/kangreung/오월에초당.jpg"
 },
 
 {

@@ -120,7 +120,7 @@ Link2:
  hsp_tel : "0649002527",
  hsp_mainmenu : "딱새우 김밥",
  Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,388683,6070&rt1=&rt2=제주시새우리 제주점&rtIds=,2146989435",
- hsp_img: "resources/hsp_img/jeju/jejuimg3.jpg",
+ hsp_img: "resources/hsp_img/jeju/새우리.jpg",
 },
 
 {
@@ -142,7 +142,7 @@ Link2:
  hsp_tel : "0647476525",
  hsp_mainmenu : "정우스페샬코스",
  Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,383242,-3425&rt1=&rt2=정우말가든&rtIds=,8515374",
- hsp_img: "resources/hsp_img/jeju/jejuimg5.jpg",
+ hsp_img: "resources/hsp_img/jeju/정우말가든.jpg",
 },
 
 {
@@ -153,7 +153,7 @@ Link2:
  hsp_tel : "0647476525",
  hsp_mainmenu : "닭다리살 꼬치",
  Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,362461,-1898&rt1=&rt2=하타나카&rtIds=,1000640070",
- hsp_img: "resources/hsp_img/jeju/jejuimg6.jpg"
+ hsp_img: "resources/hsp_img/jeju/하타나카.jpg"
 },
 
 {
@@ -197,7 +197,7 @@ Link2:
  hsp_tel :" 0647462286",
  hsp_mainmenu : "모듬회",
  Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,381367,-1606&rt1=&rt2=연동마라도횟집&rtIds=,27454594",
- hsp_img: "resources/hsp_img/jeju/jejuimg10.jpg"
+ hsp_img: "resources/hsp_img/jeju/마라도 횟집.jpg"
 },
 
 

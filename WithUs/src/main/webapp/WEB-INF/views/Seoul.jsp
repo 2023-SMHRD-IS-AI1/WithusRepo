@@ -104,7 +104,7 @@
       hsp_tel : "07088347900",
       hsp_mainmenu : "칼국수",
       Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,505678,1111585&rt1=&rt2=파이브가이즈 강남&rtIds=,1725176424",
-      hsp_img:"resources/hsp_img/seoul/seoulimg1.jpg2",
+      hsp_img:"resources/hsp_img/seoul/명동교자.jpg",
    
 },
 
@@ -160,7 +160,7 @@
    hsp_tel :" 0222536373",
    hsp_mainmenu : "통삼겹살",
    Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,505382,1131860&rt1=&rt2=육전식당 본점&rtIds=,10331494",
-   hsp_img: "resources/hsp_img/seoul/seoulimg7.jpg",
+   hsp_img: "resources/hsp_img/seoul/육전식당.jpg",
 },
 
 {
