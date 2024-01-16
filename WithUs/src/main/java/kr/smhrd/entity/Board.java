@@ -1,8 +1,12 @@
 package kr.smhrd.entity;
 
+import java.time.LocalDateTime;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 
 public class Board {
 	
@@ -19,15 +23,22 @@ public class Board {
 //		    FOREIGN KEY(mb_id) REFERENCES members(mb_id)
 //		);
 	
+	
+	public Board(Object comp_idx2, String mb_id2, String mb_nick2, String comp_title2, Object comp_title3,
+			String comp_members2, String comp_content2, Object created_at2, String comp_tourplace2, String comp_start2,
+			String comp_end2, String comp_img2) {
+		// TODO Auto-generated constructor stub
+	}
+	private Long comp_idx;
 	private String mb_id;
 	private String mb_nick;
 	private String mb_age;
 	private String comp_title;
-	private String comp_members;
+	private int comp_members;
 	private String comp_content;
-	private String created_at;
+	private LocalDateTime created_at;
 	private String comp_tourplace;
-	private String comp_start;
-	private String comp_end;
+	private LocalDateTime comp_start;
+	private LocalDateTime comp_end;
 	private String comp_img;
 }
