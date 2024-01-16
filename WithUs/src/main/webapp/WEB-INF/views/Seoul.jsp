@@ -104,7 +104,7 @@
       hsp_tel : "07088347900",
       hsp_mainmenu : "칼국수",
       Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,505678,1111585&rt1=&rt2=파이브가이즈 강남&rtIds=,1725176424",
-      hsp_img:"resources/hsp_img/seoul/seoulimg1.jpg2",
+      hsp_img:"resources/hsp_img/seoul/seoulimg2.jpg",
    
 },
 
@@ -366,7 +366,7 @@
       hsp_tel : "07088347900",
       hsp_mainmenu : "칼국수",
       Link : "https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,505678,1111585&rt1=&rt2=파이브가이즈 강남&rtIds=,1725176424",
-      hsp_img:"resources/hsp_img/seoul/seoulimg1.jpg2",
+      hsp_img:"resources/hsp_img/seoul/seoulimg2.jpg",
    
 },
 
