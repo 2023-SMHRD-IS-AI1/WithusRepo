@@ -57,6 +57,20 @@ public class CalendarController {
 		 return "Event added successfully!";
 	}
 	
+	@PostMapping("/calendar")
+    @ResponseBody
+    public String addEvents(@RequestBody List<Calendar> events) {
+        try {
+            for (Calendar event : events) {
+                mapper.insertCalendar(event);
+            }
+            return "일정 등록에 성공했습니다.";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "일정 등록에 실패했습니다.";
+        }
+    }
+	
 	
 
 }
