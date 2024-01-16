@@ -1,6 +1,7 @@
 package kr.smhrd.controller;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,12 +28,98 @@ public class BoardController {
 
    // 모집 글 작성
    @RequestMapping("/boardWirte")
-   public String boardWirte(Board board) {
+   public String boardWirte(Board board,HttpServletRequest request) {
       
+	  MultipartRequest multi = null;
+	  
+	  String savePath = "C:\\Users\\poa11\\git\\WithusRepo2\\WithUs\\src\\main\\webapp\\resources\\comp_img";
+	  System.out.println(savePath);
+	  int maxSize = 1024 * 1024 * 10 ; // 10MB
+      String enc = "UTF-8";
+      DefaultFileRenamePolicy dftrp = new DefaultFileRenamePolicy(); 
+	  
+//      private String comp_idx;
+//  	private String mb_id;
+//  	private String mb_nick;
+//  	private String mb_age;
+//  	private String comp_title;
+//  	private String comp_members;
+//  	private String comp_content;
+//  	private LocalDateTime created_at;
+//  	private String comp_tourplace;
+//  	private String comp_start;
+//  	private String comp_end;
+//  	private String comp_img;
+      
+      
+      try {
+		multi = new MultipartRequest(request, savePath, maxSize, enc, dftrp);
+		String mb_id = multi.getParameter("mb_id");
+		String mb_nick = multi.getParameter("mb_nick");
+		String comp_title = multi.getParameter("comp_title");
+		String comp_members = multi.getParameter("comp_members");
+		String comp_content = multi.getParameter("comp_content");
+		String comp_tourplace = multi.getParameter("comp_tourplace");
+		String comp_start = multi.getParameter("comp_start");
+		String comp_end = multi.getParameter("comp_end");
+		String comp_img =  multi.getFilesystemName("comp_img");
+		
+		board = new Board(null, mb_id, mb_nick, comp_title, null, comp_members, comp_content, null, comp_tourplace, comp_start, comp_end, comp_img);
+		System.out.println(board.toString());
+	
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	  
       boardMapper.boardWirte(board);
       
       return "redirect:/goGroup";
    }
+ 
+
+   // 리뷰 글 작성
+   @RequestMapping("/Writereview")
+   public String Writereview(reviewBoard board,HttpServletRequest request) {
+      
+      MultipartRequest multi = null;
+      
+      // MultipartRequest 객체 생성을 위한 매개변수 설정
+      // 1. 요청객체(request)
+      // 2. 파일을 저장할 경로(String)
+      String savePath = "C:\\Users\\poa11\\git\\WithusRepo2\\WithUs\\src\\main\\webapp\\resources\\upload1";
+      System.out.println(savePath);
+      // 3. 파일의 용량 크기(int)
+      int maxSize = 1024 * 1024 * 10 ; // 10MB
+      // 4. 파일 이름에 대한 인코딩(String)
+      String enc = "UTF-8";
+      // 5. 파일 이름 중복제거(DefaultFileRenamePolicy) 
+      DefaultFileRenamePolicy dftrp = new DefaultFileRenamePolicy(); 
+      
+      try {
+         multi = new MultipartRequest(request, savePath, maxSize, enc, dftrp);
+         String review_title = multi.getParameter("review_title");
+         String review_content = multi.getParameter("review_content");
+         String review_region = multi.getParameter("review_region");
+         String mb_id = multi.getParameter("mb_id");
+         String review_img =  multi.getFilesystemName("review_img");
+      
+         board = new reviewBoard(null, review_title, review_content, review_region, null, mb_id, review_img);
+         System.out.println(board.toString());
+         boardMapper.Writereview(board);
+      } catch (IOException e) {
+         // TODO Auto-generated catch block
+         System.out.println("리뷰 작성 실패");
+      }
+      
+      
+      
+      return "review";
+   }
+
+	
+	
+   
    
 
 //   @RequestMapping("/Writereview")
@@ -82,87 +169,47 @@ public class BoardController {
    
    
    
-   // 게시글 업로드 기능
-   @RequestMapping("/Writereview")
-   public String Writereview(reviewBoard board,HttpServletRequest request) {
-      
-      MultipartRequest multi = null;
-      
-      // MultipartRequest 객체 생성을 위한 매개변수 설정
-      // 1. 요청객체(request)
-      // 2. 파일을 저장할 경로(String)
-      String savePath = "C:\\Users\\poa11\\git\\WithusRepo2\\WithUs\\src\\main\\webapp\\resources\\upload1";
-      System.out.println(savePath);
-      // 3. 파일의 용량 크기(int)
-      int maxSize = 1024 * 1024 * 10 ; // 10MB
-      // 4. 파일 이름에 대한 인코딩(String)
-      String enc = "UTF-8";
-      // 5. 파일 이름 중복제거(DefaultFileRenamePolicy) 
-      DefaultFileRenamePolicy dftrp = new DefaultFileRenamePolicy(); 
-      
-      try {
-         multi = new MultipartRequest(request, savePath, maxSize, enc, dftrp);
-         String review_title = multi.getParameter("review_title");
-         String review_content = multi.getParameter("review_content");
-         String review_region = multi.getParameter("review_region");
-         String mb_id = multi.getParameter("mb_id");
-         String review_img =  multi.getFilesystemName("review_img");
-      
-         board = new reviewBoard(null, review_title, review_content, review_region, null, mb_id, review_img);
-         System.out.println(board.toString());
-         boardMapper.Writereview(board);
-      } catch (IOException e) {
-         // TODO Auto-generated catch block
-         System.out.println("리뷰 작성 실패");
-      }
-      
-      
-      
-      return "review";
-   }
-
-	
-	
+ 
 	
 	
 	// 게시글 업로드 기능
-	@RequestMapping("/Writereview")
-	public String BoardInsert(reviewBoard board,HttpServletRequest request) {
-		
-		MultipartRequest multi = null;
-		
-		// MultipartRequest 객체 생성을 위한 매개변수 설정
-		// 1. 요청객체(request)
-		// 2. 파일을 저장할 경로(String)
-		String savePath = request.getRealPath("resources/upload1");
-		System.out.println(savePath);
-		// 3. 파일의 용량 크기(int)
-		int maxSize = 1024 * 1024 * 10 ; // 10MB
-		// 4. 파일 이름에 대한 인코딩(String)
-		String enc = "UTF-8";
-		// 5. 파일 이름 중복제거(DefaultFileRenamePolicy) 
-		DefaultFileRenamePolicy dftrp = new DefaultFileRenamePolicy(); 
-		
-		try {
-			multi = new MultipartRequest(request, savePath, maxSize, enc, dftrp);
-			String review_title = multi.getParameter("review_title");
-			String review_content = multi.getParameter("review_content");
-			String review_region = multi.getParameter("review_region");
-			String mb_id = multi.getParameter("mb_id");
-			String review_img =  multi.getFilesystemName("review_img");
-		
-			board = new reviewBoard(null, review_title, review_content, review_region, null, mb_id, review_img);
-			System.out.println(board.toString());
-			boardMapper.Writereview(board);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			System.out.println("리뷰 작성 실패");
-		}
-		
-		
-		
-		return "review";
-	}
+//	@RequestMapping("/Writereview")
+//	public String BoardInsert(reviewBoard board,HttpServletRequest request) {
+//		
+//		MultipartRequest multi = null;
+//		
+//		// MultipartRequest 객체 생성을 위한 매개변수 설정
+//		// 1. 요청객체(request)
+//		// 2. 파일을 저장할 경로(String)
+//		String savePath = request.getRealPath("resources/upload1");
+//		System.out.println(savePath);
+//		// 3. 파일의 용량 크기(int)
+//		int maxSize = 1024 * 1024 * 10 ; // 10MB
+//		// 4. 파일 이름에 대한 인코딩(String)
+//		String enc = "UTF-8";
+//		// 5. 파일 이름 중복제거(DefaultFileRenamePolicy) 
+//		DefaultFileRenamePolicy dftrp = new DefaultFileRenamePolicy(); 
+//		
+//		try {
+//			multi = new MultipartRequest(request, savePath, maxSize, enc, dftrp);
+//			String review_title = multi.getParameter("review_title");
+//			String review_content = multi.getParameter("review_content");
+//			String review_region = multi.getParameter("review_region");
+//			String mb_id = multi.getParameter("mb_id");
+//			String review_img =  multi.getFilesystemName("review_img");
+//		
+//			board = new reviewBoard(null, review_title, review_content, review_region, null, mb_id, review_img);
+//			System.out.println(board.toString());
+//			boardMapper.Writereview(board);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			System.out.println("리뷰 작성 실패");
+//		}
+//		
+//		
+//		
+//		return "review";
+//	}
 
 
    
