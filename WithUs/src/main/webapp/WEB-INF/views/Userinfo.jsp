@@ -67,12 +67,7 @@
     <%@ include file="./F_chat.jsp" %>
     <footer></footer>
     <script src="resources/assets/js/jquery.min.js"></script>
-         <script src="resources/assets/js/jquery.scrolly.min.js"></script>
-         <script src="resources/assets/js/jquery.scrollex.min.js"></script>
-         <script src="resources/assets/js/skel.min.js"></script>
-         <script src="resources/assets/js/util.js"></script>
-         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-         <script src="resources/assets/js/main.js"></script>
+         
     
     <script type="text/javascript">
     // 닉네임 중복 체크

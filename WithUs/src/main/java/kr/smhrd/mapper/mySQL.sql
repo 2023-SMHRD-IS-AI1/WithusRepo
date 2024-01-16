@@ -10,6 +10,7 @@ select * from companions;
 
 select * from reviews;
 
+select * from following;
 
 
 create table members(
@@ -24,7 +25,8 @@ create table members(
 	joined_at datetime default now(),
 	mb_type varchar(10),
 	mb_proimg varchar(300),
-	mb_comment varchar(300),	
+	mb_comment varchar(300),
+	mb_mbti VARCHAR(50),
 	primary key(mb_id)
 );
 

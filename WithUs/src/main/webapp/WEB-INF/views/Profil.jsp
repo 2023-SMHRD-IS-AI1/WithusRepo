@@ -26,7 +26,7 @@
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;800&display=swap"
 	rel="stylesheet" />
 <link rel="stylesheet" href="resources/assets/css/profil.css" />
-<link rel="stylesheet" href="resources/assets/css/profil.css" />
+
 <title>프로필상세</title>
 </head>
 <body>
@@ -48,12 +48,19 @@
 				<div id="boxL_top">
 					<div id="proImg"><img class="uim" src="./resources/pro_img/<%=memPro.getMb_proimg()%>"></div>
 				</div>
-				<button type="button">팔로우</button>
+				<% if (loginMember == null) {%>
+					<!-- 로그인 안한 상태 -->
+				<%}else if(loginMember.getMb_id().equals(memPro.getMb_id())){ %>
+					<!-- 로그인한 사람과 프로필 사람이 동일할 때 --> 
+				<%}else{ %>
+					<button type="button" id="followbtn" onclick="toggleFollow('<%=loginMember.getMb_id() %>','<%=memPro.getMb_id() %>')">팔로우</button>
+
+				<%} %>
 				<ul id="proDesc">
 					<% if (memPro != null) { %>
     					<li><span>닉네임</span><%=memPro.getMb_nick() %></li>
     					<li><span>나이</span>${mb_age }</li>
-						<li><span>MBTI</span>ENFP</li>
+						<li><span>MBTI</span><%=memPro.getMb_mbti() %></li>
     
 					<% } else { %>
 					   
@@ -65,10 +72,10 @@
 			<div id="boxR">
 				<div id="boxR_top">
 					<div id="follow">
-						<span>팔로우</span><span>100</span>
+						<span>팔로우</span><span id="followerCount">100</span>
 					</div>
 					<div id="following">
-						<span>팔로잉</span><span>100</span>
+						<span>팔로잉</span><span id="followingCount">100</span>
 					</div>
 				</div>
 				<div id="boxR_Mid">
@@ -137,5 +144,76 @@
 		</div>
 	</div>
 	<footer></footer>
+	 <script src="resources/assets/js/jquery.min.js"></script>
+         
+
+    <script type="text/javascript">
+    function toggleFollow(followerId, followingId) {
+        $.ajax({
+            url: 'goFollow', 
+            type: 'POST',
+            contentType: 'application/json', // JSON 형식으로 데이터를 전송하겠다고 서버에 알림
+            data: JSON.stringify({ 
+                follower: followerId, 
+                followee: followingId 
+            }),
+            success: function(response) {
+            	if (response === 'followed') {
+                    // 팔로우 상태로 변경 (예: 버튼 텍스트 변경)
+                    document.getElementById('followbtn').innerText = '팔로우 취소';
+                    console.log('팔로우 성공');
+                } else if (response === 'unfollowed') {
+                    // 팔로우 취소 상태로 변경
+                    document.getElementById('followbtn').innerText = '팔로우';
+                    console.log('팔로우 취소 성공');
+                }
+            },
+            error: function(xhr, status, error) {
+                console.log('팔로우 실패');
+
+            }
+        });
+    }
+    
+    $(document).ready(function() {
+        // 페이지 로드 완료 시 getFollowData 함수 실행
+        getFollowData();
+    });
+
+    function getFollowData() {
+        // 현재 보고 있는 프로필의 사용자 ID
+        var userId = '<%= memPro.getMb_id() %>';
+
+        // 팔로워 정보 가져오기
+        $.ajax({
+            url: 'getFollower/' + userId,
+            type: 'GET',
+            success: function(followerData) {
+                // 팔로워 정보 처리
+                document.getElementById('followerCount').innerText = followerData.count;
+            },
+            error: function(error) {
+                console.error('팔로워 정보 가져오기 실패:', error);
+            }
+        });
+
+        // 팔로잉 정보 가져오기
+        $.ajax({
+            url: 'getFollowing/' + userId,
+            type: 'GET',
+            success: function(followingData) {
+                // 팔로잉 정보 처리
+                document.getElementById('followingCount').innerText = followingData.count;
+            },
+            error: function(error) {
+                console.error('팔로잉 정보 가져오기 실패:', error);
+            }
+        });
+    }
+    
+    
+    
+</script>
+	
 </body>
 </html>

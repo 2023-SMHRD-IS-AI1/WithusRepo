@@ -27,7 +27,7 @@
 	</update>
 	
 	<update id="updateUserPro" parameterType="kr.smhrd.entity.Member">
-		update members set mb_proimg=#{mb_proimg} , mb_comment=#{mb_comment} where mb_id=#{mb_id}
+		update members set mb_proimg=#{mb_proimg} , mb_comment=#{mb_comment}, mb_mbti=#{mb_mbti} where mb_id=#{mb_id}
 	</update>
 	
 	<select id="findPro" parameterType="String" resultType="kr.smhrd.entity.Member">

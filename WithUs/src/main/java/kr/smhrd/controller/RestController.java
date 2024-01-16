@@ -16,7 +16,8 @@ public class RestController {
 	// Email 중복 체크
 		@Autowired
 		private MemberMapper memberMapper;
-
+		
+		
 		@RequestMapping("/emailCheck")
 		@ResponseBody
 		public int emailCheck(@RequestParam("inputE") String inputE) {

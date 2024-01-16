@@ -170,14 +170,15 @@ public class MemberController {
 			String mb_img = multi.getParameter("mb_img");
 			String mb_proimg  =  multi.getFilesystemName("mb_proimg");
 			String mb_comment = multi.getParameter("mb_comment");
-		
-			member = new Member(mb_id, mb_pw, mb_name, mb_nick, mb_birthdate, mb_gender, mb_phone, mb_img, null, null, mb_proimg, mb_comment);
+			String mb_mbti = multi.getParameter("mb_mbti");
+			
+			member = new Member(mb_id, mb_pw, mb_name, mb_nick, mb_birthdate, mb_gender, mb_phone, mb_img, null, null, mb_proimg, mb_comment,mb_mbti);
 			session.setAttribute("loginMember", member);
 			System.out.println(member);
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			System.out.println("회원정보 수정 실패");
+			
 		} 
 	   System.out.println(member.toString());
 	   int cnt = memberMapper.updateUserPro(member);

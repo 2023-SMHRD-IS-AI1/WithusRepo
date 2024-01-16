@@ -64,6 +64,11 @@
           <label for="exampleFormControlTextarea1" class="form-label"></label>
           <textarea id="textarea" class="form-control" name="mb_comment" id="exampleFormControlTextarea1" rows="3" placeholder="자기소개"></textarea>
         </div>
+        <div class="input">
+          <i class="fa-solid fa-pencil"></i>
+          
+          <input id="text" class="form-control" name="mb_mbti" id="exampleFormControlInput1" placeholder="MBTI" />
+        </div>
         <input id="submit" class="btn btn-primary" type="submit" value="수정" />
       </form>
       

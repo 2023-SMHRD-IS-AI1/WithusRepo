@@ -52,5 +52,7 @@ public class Member {
 	private String mb_type;
 	private String mb_proimg;
 	private String mb_comment;
+	private String mb_mbti;
+	
 	
 }
