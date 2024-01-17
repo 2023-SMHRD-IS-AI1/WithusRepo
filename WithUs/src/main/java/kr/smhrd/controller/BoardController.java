@@ -109,11 +109,11 @@ public class BoardController {
    
    
 
-   @RequestMapping("/goRecon")
-   public String goRecon() {
-     
-      return "re_con";
-   }
+	/*
+	 * @RequestMapping("/goRecon") public String goRecon() {
+	 * 
+	 * return "re_con"; }
+	 */
    
 
 //   @RequestMapping("/Writereview")

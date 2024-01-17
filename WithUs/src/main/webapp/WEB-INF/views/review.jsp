@@ -66,9 +66,9 @@
           <a class="btn btn-primary" href="goRewrite" role="button">글쓰기</a>
           <%} %>
         </div>
-        <c:forEach var="review" items="${reviewList}">
+  <c:forEach var="review" items="${reviewList}">
     <div class="reviewCard">
-        <a href="goRecon">
+        <a href="<c:url value='/goRecon'/>?review_idx=${review.review_idx}">
             <div class="imgBox">
                 <img class="uim" src="resources/upload1/<c:out value="${review.review_img}" />">
             </div>

@@ -62,5 +62,13 @@
 <select id="getRecruitingCount" resultType="int">
     SELECT COUNT(*) FROM companions
 </select>
-	
+
+  <select id="getReviewByIndex" resultType="kr.smhrd.entity.reviewBoard">
+         SELECT * FROM reviews
+        WHERE review_idx = #{review_idx}
+    </select>
+    
+   
+ 
+  
 </mapper>
