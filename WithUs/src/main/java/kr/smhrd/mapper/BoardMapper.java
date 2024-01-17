@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import kr.smhrd.entity.Board;
+
 import kr.smhrd.entity.reviewBoard;
 
 @Mapper
@@ -31,6 +32,13 @@ public interface BoardMapper {
 
     // 모집 중인 사람들의 총 갯수를 가져오는 메서드
     int getRecruitingCount();
+    
+    // 게시물 상세 페이지
+	public reviewBoard getReviewByIndex(Long review_idx);
+
+	
+	
+	
 
 	
 
