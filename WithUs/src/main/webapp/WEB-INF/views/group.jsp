@@ -81,9 +81,6 @@
         left: 205px;
         
     }
-
- 
-
 </style>
 </head>
 <body>
