@@ -1,76 +1,76 @@
 package kr.smhrd.controller;
 
-
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.jsp.JspTagException;
+import javax.xml.crypto.Data;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
+
+import com.google.gson.Gson;
 
 import kr.smhrd.entity.Calendar;
-
+import kr.smhrd.mapper.CalendarMapper;
 
 @Controller
 public class CalendarController {
-	
-	@Autowired
-	private kr.smhrd.mapper.CalendarMapper mapper;
-	
+   
+   @Autowired
+   private CalendarMapper calMapper;
+   
+   
+   private Calendar dto;
+   
+   
+   
+   
+   @RequestMapping(value="/calSave", method=RequestMethod.POST)
+   public @ResponseBody String addEvent(@RequestBody String params) {
 
-	
-	@RequestMapping("/addEvent")
-	@ResponseBody
-	public String addEvent(@RequestParam String title, @RequestParam String start, @RequestParam String end,
-			@RequestParam String allDay) {
-// 여기서 받은 데이터를 활용하여 필요한 로직 수행
-// 예시로 받은 데이터를 CalendarEvent 객체로 묶어서 활용하는 경우:
-
-		//System.out.println(title + "/" + start + "/" + end + "/" + allDay);
-		
-
-// 서비스나 DAO를 통해 이벤트 등록 등의 비즈니스 로직 수행
-
-// 성공 또는 실패에 따라 적절한 응답 반환
-		
-
-		kr.smhrd.entity.Calendar ca = new kr.smhrd.entity.Calendar();
-		ca.setCal_title(title);
-		ca.setCal_start(start);
-		ca.setCal_end(end);
-		
-		mapper.insertCalendar(ca);
-		 
-		 return "Event added successfully!";
-	}
-	
-	@PostMapping("/calendar")
-    @ResponseBody
-    public String addEvents(@RequestBody List<Calendar> events) {
-        try {
-            for (Calendar event : events) {
-                mapper.insertCalendar(event);
-            }
-            return "일정 등록에 성공했습니다.";
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "일정 등록에 실패했습니다.";
-        }
-    }
-	
-	
-
+      System.out.println(params);
+   
+      Calendar[] arr = new Gson().fromJson(params, Calendar[].class);
+      
+      
+      // System.out.println(arr[0].toString());    
+      for(int i=0; i<arr.length; i++) {
+         
+         System.out.println("문자열 잘랐어요 : " + arr[i].getCal_start().substring(0, arr[i].getCal_start().indexOf("T")));
+          arr[i].setCal_start(arr[i].getCal_start().substring(0, arr[i].getCal_start().indexOf("T")));
+            System.out.println(arr[i].getCal_start());
+           arr[i].setCal_end(arr[i].getCal_end().substring(0, arr[i].getCal_end().indexOf("T")));
+          System.out.println(arr[i].getCal_end());
+         
+        // System.out.println(arr[i].getSTARTED_AT());
+         
+//         calMapper.insertCalendar(arr[i]);
+      }
+      System.out.println(arr[0].getCal_start());
+//      calMapper.insertCalendar(arr[0]);
+      
+      dto = arr[0];
+      System.out.println(dto.getCal_title());
+      System.out.println(dto.getCal_start());
+      System.out.println(dto.getCal_end());
+      calMapper.insertCalendar(dto);
+      
+       return "Event added successfully!";
+   }
+   
 }
