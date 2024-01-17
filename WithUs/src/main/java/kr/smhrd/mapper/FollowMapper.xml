@@ -5,9 +5,7 @@
 		 INSERT INTO following (follower, followee)
         VALUES (#{follower}, #{followee})
 	</insert>
-	
-	
-	
+
 	<select id="checkFollowing" parameterType="kr.smhrd.entity.Following" resultType="boolean">
         SELECT COUNT(*) > 0
         FROM following
@@ -20,5 +18,7 @@
         WHERE follower = #{follower}
         AND followee = #{followee}
     </delete>
+	
+
 	
 </mapper>

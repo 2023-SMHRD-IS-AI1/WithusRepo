@@ -58,8 +58,8 @@ public class FollowingController {
         List<Member> followers = followMapper.getFollowers(userId);
         Map<String, Object> response = new HashMap<>();
         response.put("count", followers.size());
-        response.put("followers", followers);
-
+        // response.put("followers", followers);
+        
         return response;
     }
 
@@ -68,7 +68,7 @@ public class FollowingController {
         List<Member> followings = followMapper.getFollowings(userId);
         Map<String, Object> response = new HashMap<>();
         response.put("count", followings.size());
-        response.put("followings", followings);
+        // response.put("followings", followings);
 
         return response;
     }

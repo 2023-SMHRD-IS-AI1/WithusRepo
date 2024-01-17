@@ -13,6 +13,7 @@ select * from reviews;
 select * from following;
 
 
+
 create table members(
 	mb_id varchar(20) not null,
 	mb_pw varchar(20) not null,

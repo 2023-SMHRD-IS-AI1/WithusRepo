@@ -34,8 +34,9 @@
 	
 	<% 
 		Member memPro = (Member)session.getAttribute("memPro");
-		
+		// System.out.println(memPro);
 		String mb_age = (String)session.getAttribute("mb_age");
+		
 		
 		
 	%>
@@ -59,14 +60,15 @@
 
 				<%} %>
 				<ul id="proDesc">
-					<% if (memPro != null) { %>
-    					<li><span>닉네임</span><%=memPro.getMb_nick() %></li>
-    					<li><span>나이</span>${mb_age }</li>
-						<li><span>MBTI</span><%=memPro.getMb_mbti() %></li>
-    			
-					<% } else { %>
-					   
-					<% } %>
+							<% if (memPro != null) { %>
+					    <li><span>닉네임</span><%=memPro.getMb_nick() %></li>
+					    <li><span>나이</span>${mb_age }</li>
+					    <li><span>MBTI</span>
+				        <% if (memPro.getMb_mbti() != null) { %>
+				            <%=memPro.getMb_mbti() %>
+				        <% } %>
+				    	입력 안함</li>
+						<% } %>
 					
 					
 				</ul>
@@ -80,27 +82,8 @@
 						<span>팔로잉</span><span id="followingCount"></span>
 					</div>
 				</div>
-				<div id="boxR_Mid">
-					<div class="btn-group" role="group"
-						aria-label="Basic radio toggle button group">
-						<input type="radio" class="btn-check" name="btnradio"
-							id="btnradio1" autocomplete="off" checked /> <label
-							class="btn btn-outline-primary" for="btnradio1">팔로우</label> <input
-							type="radio" class="btn-check" name="btnradio" id="btnradio2"
-							autocomplete="off" /> <label class="btn btn-outline-primary"
-							for="btnradio2">팔로잉 </label>
-					</div>
-				</div>
-				<div id="boxR_bottom">
-				    <ul id="followerList">
-				        <li>
-				            <div class="listImg"></div>
-				            <div class="listNick">닉네임</div>
-				            <button type="button">팔로우</button>
-				        </li>
-				        <!-- 나머지 li 요소들도 동일하게 수정 -->
-				    </ul>
-				</div>
+				
+				
 			</div>
 		</div>
 	</div>
@@ -128,6 +111,7 @@
                     document.getElementById('followbtn').innerText = '팔로우';
                     console.log('팔로우 취소 성공');
                 }
+            	getFollowData();
             },
             error: function(xhr, status, error) {
                 console.log('팔로우 실패');
@@ -151,19 +135,9 @@
             type: 'GET',
             success: function(followerData) {
                 // 팔로워 정보 처리
+                console.log(followerData)
                 document.getElementById('followerCount').innerText = followerData.count;
                 
-                var followerListHtml = followerData.followers.map(function(follower) {
-                    return `
-                        <li>
-                            <div class="listImg"></div>
-                            <div class="listNick">${follower.mb_nick}</div> <!-- 팔로워의 닉네임 표시 -->
-                            <button type="button" onclick="toggleFollow('${userId}', '${follower.mb_id}')">팔로우</button>
-                        </li>
-                    `;
-                }).join('');
-
-                document.getElementById('followerList').innerHTML = followerListHtml;
             },
             error: function(error) {
             	console.log(userId);
