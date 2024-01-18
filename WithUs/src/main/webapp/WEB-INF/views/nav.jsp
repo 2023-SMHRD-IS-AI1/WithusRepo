@@ -127,11 +127,11 @@
             <div id="p_con">
                 <p>팔로우 : <span>200</span> &nbsp;&nbsp; 팔로잉 : <span>10</span></p>
                 <br>
-                <p>닉네임  : <sapn>닉네임</sapn></p>
+                <p>닉네임  : <span>닉네임</span></p>
                 <br>
-                <p>나이  : <sapn>24</sapn></p>
+                <p>나이  : <span>24</span></p>
                 <br>
-                <p>MBTI  : <sapn>MBTI</sapn></p>
+                <p>MBTI  : <span>MBTI</span></p>
 
             </div>
         </div>

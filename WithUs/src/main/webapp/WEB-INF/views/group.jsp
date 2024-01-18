@@ -195,16 +195,16 @@
 	        <div class="modal-body">
 	            <div class="all">
 	          <img src="resources/images/profil.png" id="p_img">
-	            <div id="p_con">
-	                <p>팔로우 : <span>200</span> &nbsp;&nbsp; 팔로잉 : <span>10</span></p>
-	                <br>
-	                <p>닉네임  : <sapn>닉네임</sapn></p>
-	                <br>
-	                <p>나이  : <sapn>24</sapn></p>
-	                <br>
-	                <p>MBTI  : <sapn>MBTI</sapn></p>
-	
-	            	</div>
+	             <div id="p_con">
+                <p>팔로우 : <span>200</span> &nbsp;&nbsp; 팔로잉 : <span>10</span></p>
+                <br>
+                <p>닉네임  : <span>닉네임</span></p>
+                <br>
+                <p>나이  : <span>24</span></p>
+                <br>
+                <p>MBTI  : <span>MBTI</span></p>
+
+            </div>
 	        	</div>
 	        </div>
         <div class="modal-footer">
