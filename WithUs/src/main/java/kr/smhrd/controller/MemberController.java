@@ -29,6 +29,7 @@ import kr.smhrd.entity.Member;
 import kr.smhrd.entity.Message;
 import kr.smhrd.entity.Survey;
 import kr.smhrd.entity.reviewBoard;
+import kr.smhrd.mapper.CalendarMapper;
 import kr.smhrd.mapper.MemberMapper;
 import kr.smhrd.mapper.MessageMapper;
 
@@ -41,6 +42,7 @@ public class MemberController {
    @Autowired // 스프링 컨테이너에 객체가 생성되어 올라간 boardMapper 객체를 주입받아 사용하겠다
    private MemberMapper memberMapper; // DAO같은 역할인데 DAO는 커넥션 관리까지 다했다면
    
+   private CalendarMapper calendarMapper;
    
    
    // @RequestMapping : get방식,post방식 요청을 다 받을 수 있음
@@ -231,12 +233,12 @@ public class MemberController {
    @RequestMapping("/memberSelect")
    public String memberSelect(Member member, HttpSession session) {
       Member loginMember = memberMapper.memberSelect(member);
+      
       session.setAttribute("loginMember", loginMember);
       
       LocalDate currentDate = LocalDate.now();
       if(loginMember != null) {
-         
-
+    	 
        // Member 객체에서 생년월일 String을 LocalDate로 변환
        LocalDate birthDate = LocalDate.parse(loginMember.getMb_birthdate(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 

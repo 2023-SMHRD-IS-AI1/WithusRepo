@@ -41,13 +41,10 @@ public class CalendarController {
    
    private Calendar dto;
    
-   @Autowired
-   private MemberMapper memberMapper;
-   
    
    
    @RequestMapping(value="/calSave", method=RequestMethod.POST)
-   public @ResponseBody String addEvent(@RequestBody String params) {
+   public @ResponseBody String addEvent(@RequestBody String params, HttpSession session) {
 
       System.out.println(params);
    
@@ -68,24 +65,15 @@ public class CalendarController {
 //         calMapper.insertCalendar(arr[i]);
       }
  
-      
+      //session.setAttribute("calendar",dto);
      
-      System.out.println(dto.getCal_title());
-      System.out.println(dto.getCal_start());
-      System.out.println(dto.getCal_end());
-     
-      
+//      System.out.println(dto.getCal_start());
+//      System.out.println(dto.getCal_end());
+//      System.out.println(dto.getCal_title());
+       System.out.println(dto.getMb_id());
     
        return "Event added successfully!";
    }
-	/*
-	 * @RequestMapping(value="/eventData", method=RequestMethod.POST)
-	 * 
-	 * @ResponseBody public List<Calendar> getEventData(Member member, HttpSession
-	 * session){ Member loginMember = memberMapper.memberSelect(member);
-	 * List<Calendar> eventList = new ArrayList<Calendar>();
-	 * 
-	 * if(loginMember != null) { List<Calendar> eventsFromDatabase =
-	 * calMapper.calendar(loginMember.getMb_id()); } return "daily"; }
-	 */
+	
+	
    }
