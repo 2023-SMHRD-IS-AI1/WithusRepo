@@ -55,6 +55,8 @@ html, body {
    <div id='calendar-container'>
       <div id='calendar'></div>
    </div>
+   
+   
    <!-- 부트스트랩 modal 부분 -->
    <!-- Modal -->
    <div class="modal fade" id="exampleModal" tabindex="-1"
@@ -62,6 +64,7 @@ html, body {
       <div class="modal-dialog">
          <div class="modal-content">
             <div class="modal-header">
+            
                <h5 class="modal-title" id="exampleModalLabel">일정 추가하기</h5>
                <button type="button" class="btn-close" data-bs-dismiss="modal"
                   aria-label="Close"></button>
@@ -89,7 +92,11 @@ html, body {
          </div>
       </div>
    </div>
-   <script>
+   
+   <script type="text/javascript">
+   			
+   var mb_id = "<%=loginMember.getMb_id() %>";
+   
   (function(){
     $(function(){
       // calendar element 취득
@@ -124,6 +131,7 @@ html, body {
                 for(var i = 0; i<allEvent.length; i++){
              
                   var objt = new Object();
+                   objt.mb_id = mb_id;
                    objt.cal_title = allEvent[i]._def.title;
                    objt.cal_start = allEvent[i]._instance.range.start;
                    objt.cal_end = allEvent[i]._instance.range.end;
