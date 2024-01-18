@@ -123,17 +123,19 @@
       
         <div class="modal-body">
             <div class="all">
-          <img src="resources/images/user.png" id="p_img">
+            <% if (loginMember != null){ %>
+          <img src="./resources/pro_img/<%=loginMember.getMb_proimg() %>" id="p_img">
             <div id="p_con">
-                <p>팔로우 : <span>200</span> &nbsp;&nbsp; 팔로잉 : <span>10</span></p>
+                <p>팔로우 : <span id="followerCount"></span> &nbsp;&nbsp; 팔로잉 : <span id="followingCount"></span> </p>
                 <br>
-                <p>닉네임  : <sapn>닉네임</sapn></p>
+                <p>닉네임  : <span><%= loginMember.getMb_nick() %></span></p>
                 <br>
-                <p>나이  : <sapn>24</sapn></p>
+                <p>생년월일  : <span><%=loginMember.getMb_birthdate() %></span></p>
                 <br>
-                <p>MBTI  : <sapn>MBTI</sapn></p>
+                <p>MBTI  : <span><%= loginMember.getMb_mbti() %></span></p>
 
             </div>
+            <%} %>
         </div>
         </div>
       
@@ -142,13 +144,54 @@
         </div>
     </div>
     
-   <script>
    
+   <script src="resources/assets/js/jquery.min.js"></script>
+   <script type="text/javascript">
    	function openMyPmodal() {
 		$('#mypmodal .modal-content').load("mypmodal.jsp")
 		$('#mypmodal').modal('show')
+		getFollowData();
 	}
    
+
+
+    function getFollowData() {
+        // 현재 보고 있는 프로필의 사용자 ID
+        var userId = '<%= loginMember != null ? loginMember.getMb_id() : "" %>';
+
+        // 팔로워 정보 가져오기
+        $.ajax({
+            url: 'getFollowers/' + userId,
+            type: 'GET',
+            success: function(followerData) {
+                // 팔로워 정보 처리
+                console.log(followerData)
+                document.getElementById('followerCount').innerText = followerData.count;
+                
+            },
+            error: function(error) {
+            	console.log(userId);
+                console.error('팔로워 정보 가져오기 실패:', error);
+            }
+        });
+
+        // 팔로잉 정보 가져오기
+        $.ajax({
+            url: 'getFollowings/' + userId,
+            type: 'GET',
+            success: function(followingData) {
+                // 팔로잉 정보 처리
+                document.getElementById('followingCount').innerText = followingData.count;
+            },
+            error: function(error) {
+                console.error('팔로잉 정보 가져오기 실패:', error);
+            }
+        });
+    }
+    
+   	
+   	
+    	
    </script>
     
 </body>

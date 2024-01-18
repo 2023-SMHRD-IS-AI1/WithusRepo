@@ -12,8 +12,9 @@
 		insert into members (mb_id, mb_pw, mb_name, mb_nick, mb_birthdate, mb_gender, mb_phone, mb_img) values (#{mb_id}, #{mb_pw}, #{mb_name}, #{mb_nick}, #{mb_birthdate}, #{mb_gender}, #{mb_phone}, #{mb_img})
 	</insert> 
 	
+	<!-- 설문조사 -->
 	<insert id="surveyInsert" parameterType="kr.smhrd.entity.Survey">
-		insert into surveys (q1,q2,q3,q4,q5) values(#{q1},#{q2},#{q3},#{q4},#{q5})
+		insert into surveys (mb_id,q1,q2,q3,q4,q5) values(#{mb_id},#{q1},#{q2},#{q3},#{q4},#{q5})
 	</insert>
 	
 	<!-- 로그인 -->

@@ -37,8 +37,7 @@
 		// System.out.println(memPro);
 		String mb_age = (String)session.getAttribute("mb_age");
 		
-		
-		
+	
 	%>
 	
 	
@@ -59,15 +58,13 @@
 					<button type="button" id="followbtn" onclick="toggleFollow('<%=loginMember.getMb_id() %>','<%=memPro.getMb_id() %>')">팔로우</button>
 
 				<%} %>
+
 				<ul id="proDesc">
+				
 							<% if (memPro != null) { %>
 					    <li><span>닉네임</span><%=memPro.getMb_nick() %></li>
 					    <li><span>나이</span>${mb_age }</li>
-					    <li><span>MBTI</span>
-				        <% if (memPro.getMb_mbti() != null) { %>
-				            <%=memPro.getMb_mbti() %>
-				        <% } %>
-				    	입력 안함</li>
+					    <li><span>MBTI</span><%=memPro.getMb_mbti() %>
 						<% } %>
 					
 					

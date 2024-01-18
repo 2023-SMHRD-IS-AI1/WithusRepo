@@ -12,7 +12,15 @@ select * from reviews;
 
 select * from following;
 
+select * from surveys;
 
+
+
+commit;
+
+drop table surveys;
+
+delete from surveys;
 
 create table members(
 	mb_id varchar(20) not null,
@@ -27,7 +35,7 @@ create table members(
 	mb_type varchar(10),
 	mb_proimg varchar(300),
 	mb_comment varchar(300),
-	mb_mbti VARCHAR(50),
+	mb_mbti VARCHAR(50) default '입력 안됨',
 	primary key(mb_id)
 );
 
@@ -64,12 +72,13 @@ CREATE TABLE comments (
 create table surveys (
 	survey_idx int unsigned not null auto_increment,
 	mb_id varchar(20) not null,
-	result_label varchar(100) not null,
-	q1 varchar(20) not null,
-	q2 varchar(20) not null,
-	q3 varchar(20) not null,
-	q4 varchar(20) not null,
-	q5 varchar(20) not null,
+	result_label varchar(100),
+	q1 int(20) not null,
+	q2 int(20) not null,
+	q3 int(20) not null,
+	q4 int(20) not null,
+	q5 int(20) not null,
+	processed int(10) default 0,
 	PRIMARY KEY(survey_idx),
 	FOREIGN KEY(mb_id) REFERENCES members(mb_id)
 );
