@@ -203,22 +203,25 @@ public class MemberController {
 //      return "result";
 //   }
    
+   
+   // 회원가입
    @RequestMapping("/goResult")
-   public String goResult(Member member, Model model) {
+   public String goResult(Member member, HttpSession session) {
        memberMapper.memberInsert(member);
-       model.addAttribute("mb_id", member.getMb_id());
+       
+       session.setAttribute("mb_id", member.getMb_id());
 
 
        return "result";
    }
    
    
-   
+  // 설문조사 
 
    @RequestMapping("/surveyInsert")
    public String surveyInsert(Survey survey) {
-      System.out.println(survey.toString());
-      
+	  
+	  memberMapper.surveyInsert(survey);
       
       
       return "Main";

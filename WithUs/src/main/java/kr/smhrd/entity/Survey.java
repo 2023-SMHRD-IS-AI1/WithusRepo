@@ -1,17 +1,27 @@
 package kr.smhrd.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 @Data
-
+@AllArgsConstructor
+@NoArgsConstructor
 
 public class Survey {
 	
-	private String q1;
-	private String q2;
-	private String q3;
-	private String q4;
-	private String q5;
+	private String mb_id;
+	@NonNull
+	private int q1;
+	@NonNull
+	private int q2;
+	@NonNull
+	private int q3;
+	@NonNull
+	private int q4;
+	@NonNull
+	private int q5;
 	
 	
 	

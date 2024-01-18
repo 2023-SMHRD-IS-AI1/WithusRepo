@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Select;
 
 import kr.smhrd.entity.Board;
 import kr.smhrd.entity.Member;
+import kr.smhrd.entity.Survey;
 
 
 // 결국은 MemberMapper라는 클래스도 Spring Container로 올라가게됨
@@ -27,6 +28,8 @@ public interface MemberMapper {
 	int updateUserPro(Member member);
 
 	Member findPro(String mb_id);
+
+	void surveyInsert(Survey survey);
 
 	
 
