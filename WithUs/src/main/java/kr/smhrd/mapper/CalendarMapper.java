@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import kr.smhrd.entity.Member;
+
 
 
 
@@ -16,5 +18,6 @@ public interface CalendarMapper {
 
 	public int insertCalendar(kr.smhrd.entity.Calendar calendar);
 
+	
 	
 }
