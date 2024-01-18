@@ -74,7 +74,16 @@ public class ReviewController {
 
         return "re_con"; // "re_con"이라는 뷰를 사용하여 리뷰 세부 정보를 표시합니다.
     }
+    
+
    
+    @GetMapping("/goRewrmodify")
+	public String goRewrmodify() {
+ 
+
+
+        return "re_wr_modify"; 
+    }
    
 }
   

@@ -105,11 +105,13 @@ body {
 
 .group {
     padding: 30px;
-    width: 80%;
+    width: 96%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
+    position: relative;
+    left:36px;
 }
 
 .groupCard {
