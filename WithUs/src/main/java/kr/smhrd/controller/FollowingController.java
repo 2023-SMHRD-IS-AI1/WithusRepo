@@ -67,6 +67,7 @@ public class FollowingController {
     public Map<String, Object> getFollowings(@PathVariable String userId) {
         List<Member> followings = followMapper.getFollowings(userId);
         Map<String, Object> response = new HashMap<>();
+        System.out.println(followings);
         response.put("count", followings.size());
         // response.put("followings", followings);
 

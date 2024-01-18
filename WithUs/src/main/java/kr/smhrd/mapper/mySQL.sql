@@ -12,6 +12,7 @@ select * from reviews;
 
 select * from following;
 
+select * from surveys;
 
 
 
