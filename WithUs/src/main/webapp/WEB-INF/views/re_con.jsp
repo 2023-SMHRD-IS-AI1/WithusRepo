@@ -23,13 +23,18 @@
 	<link rel="stylesheet" href="resources/assets/css/grcontent.css"/>
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="resources/assets/css/reset.css"/>
-	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+					crossorigin="anonymous"></script>
 </head>
 <body>
 <%@ include file="./nav.jsp" %>
 <div id="mainImg"></div>
 <!-- mainImg end -->
 <h1 id="title">리뷰</h1>
+<div id="del">
+	<a href="#"><p><i class="fa-solid fa-pencil"></i>수정</p></a>
+	<p><i class="fa-solid fa-trash"></i>삭제</p>
+</div>
 <div id="contain">
 	<div id="revBox">
 		<div id="revTitle">
@@ -57,9 +62,12 @@
 			</div>
 		</div>
 		<div id="userAction">
-			<div id="like"><i class="fa-regular fa-heart" id="normal-heart"></i><i class="fa-solid fa-heart" id="full-heart"></i> 300</div>
-			<div id="comment"><i class="fa-regular fa-comment-dots" id="normal-comments"></i><i class="fa-solid fa-comment-dots"
-																																		 id="full-comments"> </i></div>
+			<div id="like"><i class="fa-regular fa-heart" id="normal-heart"></i><i class="fa-solid fa-heart"
+																																						 id="full-heart"></i> 300
+			</div>
+			<div id="comment"><i class="fa-regular fa-comment-dots" id="normal-comments"></i><i
+							class="fa-solid fa-comment-dots"
+							id="full-comments"> </i></div>
 		</div>
 		<div class="showComment">
 			<form action="">
@@ -97,31 +105,31 @@
 
 <script type="text/javascript">
 
-	$("#full-heart").hide();
-	$("#full-comments").hide();
-	$(".showComment").hide();
-	$(".commentList").hide();
+    $("#full-heart").hide();
+    $("#full-comments").hide();
+    $(".showComment").hide();
+    $(".commentList").hide();
 
-	$("#normal-heart").click(()=>{
+    $("#normal-heart").click(() => {
         $("#normal-heart").hide();
         $("#full-heart").show();
-	})
-	$("#full-heart").click(()=>{
-      $("#normal-heart").show();
-      $("#full-heart").hide();
-	})
-	$("#normal-comments").click(()=>{
+    })
+    $("#full-heart").click(() => {
+        $("#normal-heart").show();
+        $("#full-heart").hide();
+    })
+    $("#normal-comments").click(() => {
         $("#normal-comments").hide();
         $("#full-comments").show();
-      $(".showComment").show();
-      $(".commentList").show();
-	})
-	$("#full-comments").click(()=>{
+        $(".showComment").show();
+        $(".commentList").show();
+    })
+    $("#full-comments").click(() => {
         $("#normal-comments").show();
         $("#full-comments").hide();
-      $(".showComment").hide();
-      $(".commentList").hide();
-	})
+        $(".showComment").hide();
+        $(".commentList").hide();
+    })
 </script>
 
 </body>

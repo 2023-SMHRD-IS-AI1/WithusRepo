@@ -1,153 +1,198 @@
 @charset "UTF-8";
 html,
 body {
-  font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
 }
-div{
-  font-size: inherit;
+
+div {
+    font-size: inherit;
 }
-#title{
-  width: 100%;
-  padding:40px 0;
-  font-size: 40px;
-  text-align: center;
+
+#title {
+    width: 100%;
+    padding: 40px 0;
+    font-size: 40px;
+    text-align: center;
 }
-#contain{
-  width: 80%;
-  padding: 40px 0;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+
+#del {
+    display: flex;
+    width: 80%;
+    justify-content: flex-end;
+    padding: 10px 15px;
 }
-#revBox{
-  width: 70%;
-  box-sizing: border-box;
-  padding: 20px 15px;
-  border: 1px solid #ddd;
-  border-radius:10px;
+
+#del p {
+    margin-right: 30px;
+    cursor: pointer;
 }
-#revTitle{
-  width: 100%;
-  padding: 20px 15px;
-  border-bottom: 1px solid #ddd;
+
+#del p:hover {
+    color: #0b5ed7;
 }
-#revTitle > p{
-  font-size: 30px;
-  margin-bottom: 30px;
+
+#contain {
+    width: 80%;
+    padding: 10px 0 40px 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
-#revInfo{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+
+#revBox {
+    width: 70%;
+    box-sizing: border-box;
+    padding: 20px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
 }
-#userImg{
-  display:inline-block;
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-  background-image: url("../../images/user.png");
-  background-size: cover;
-  background-position: center;
-  margin-right: 10px;
+
+#revTitle {
+    width: 100%;
+    padding: 20px 15px;
+    border-bottom: 1px solid #ddd;
 }
-#revContent{
-  width: 100%;
-  padding: 20px 15px;
-  margin-top: 30px;
+
+#revTitle > p {
+    font-size: 30px;
+    margin-bottom: 30px;
 }
-#revPhoto{
-  width: 100%;
-  margin-bottom: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+#revInfo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 }
-#revPhoto img{
-  max-width: 90%;
-  margin:0 auto;
+
+#userImg {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-image: url("../../images/user.png");
+    background-size: cover;
+    background-position: center;
+    margin-right: 10px;
 }
-#revTxt{
-  width: 100%;
-  line-height: 200%;
-  margin : 30px 0;
+
+#revContent {
+    width: 100%;
+    padding: 20px 15px;
+    margin-top: 30px;
 }
-#travelInfo{
-  width: 100%;
-  color:#555;
-  line-height: 180%;
+
+#revPhoto {
+    width: 100%;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-#travelInfo span{
-  margin-right: 3px;
+
+#revPhoto img {
+    max-width: 90%;
+    margin: 0 auto;
 }
-#userAction{
-  width: 100%;
-  padding: 20px 15px;
-  display: flex;
-  font-size: 16px;
+
+#revTxt {
+    width: 100%;
+    line-height: 200%;
+    margin: 30px 0;
 }
-#like{
-  margin-right: 30px;
-  cursor:pointer;
+
+#travelInfo {
+    width: 100%;
+    color: #555;
+    line-height: 180%;
 }
-#comment{
-  cursor:pointer;
- }
-.showComment{
-  width: 100%;
+
+#travelInfo span {
+    margin-right: 3px;
 }
-.showComment textarea{
-  width: 90%;
+
+#userAction {
+    width: 100%;
+    padding: 20px 15px;
+    display: flex;
+    font-size: 16px;
 }
-.showComment button{
-  width: 10%;
-  border:none;
+
+#like {
+    margin-right: 30px;
+    cursor: pointer;
 }
-.showComment button:active{
-  background-color: #555;
-  color:#fff;
+
+#comment {
+    cursor: pointer;
 }
-.showComment form{
-  display: flex;
+
+.showComment {
+    width: 100%;
 }
-.commentList{
-  width: 100%;
-  padding: 20px 15px;
+
+.showComment textarea {
+    width: 90%;
 }
-.commentList li{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 30px;
- }
-.commentImg{
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-  background-image: url("../../images/user.png");
-  margin-right: 10px;
+
+.showComment button {
+    width: 10%;
+    border: none;
 }
-.commentLeft{
-  display: flex;
+
+.showComment button:active {
+    background-color: #555;
+    color: #fff;
 }
-.commentContent{
-  height:100%;
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  justify-content: space-around;
+
+.showComment form {
+    display: flex;
 }
-.commentContent p:first-child{
-  font-weight: bold;
+
+.commentList {
+    width: 100%;
+    padding: 20px 15px;
 }
-.commentDate{
-  display: flex;
-  justify-content: center;
-  align-self: flex-end;
-  margin-bottom: 10px;
-  font-size:12px;
+
+.commentList li {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.commentImg {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-image: url("../../images/user.png");
+    margin-right: 10px;
+}
+
+.commentLeft {
+    display: flex;
+}
+
+.commentContent {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: space-around;
+}
+
+.commentContent p:first-child {
+    font-weight: bold;
+}
+
+.commentDate {
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+    margin-bottom: 10px;
+    font-size: 12px;
 }
 
 
