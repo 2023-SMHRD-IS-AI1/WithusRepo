@@ -14,6 +14,8 @@ select * from following;
 
 
 
+
+
 create table members(
 	mb_id varchar(20) not null,
 	mb_pw varchar(20) not null,
@@ -27,7 +29,7 @@ create table members(
 	mb_type varchar(10),
 	mb_proimg varchar(300),
 	mb_comment varchar(300),
-	mb_mbti VARCHAR(50),
+	mb_mbti VARCHAR(50) default '입력 안됨',
 	primary key(mb_id)
 );
 

@@ -93,9 +93,12 @@
    
   <% 
   	List<Board> boardList = (List<Board>)request.getAttribute("boardList");
-	if(boardList != null){
-		System.out.println(boardList.size());
-	}
+	
+	Member memPro = (Member)session.getAttribute("memPro");
+	
+	Object mb_age = session.getAttribute("mb_age");
+	System.out.println(boardList.size());
+	
   
   %> 
    
@@ -147,6 +150,7 @@
           <button type="button">팔로우</button>
         </div>
       </div>
+     
       <div id="reviewTitle">현재 모집중인 사람들!</div>
       <div id="reviews">
         <div id="writeBtn">
@@ -169,10 +173,12 @@
             <div class="groupCardTop">
               <div class="groupCardImg"></div>
               <div class="groupCardText">
-              <a <%-- href="getProfil?mb_id=<%=boardList.get(i).getMb_id() %>&mb_age=<%=boardList.get(i).getMb_age() %>  --%> data-bs-toggle="modal" data-bs-target="#profil">
-              <p>닉네임 : <%=boardList.get(i).getMb_nick() %></p>
+              <a href="getProfil?mb_id=<%=boardList.get(i).getMb_id() %>&mb_age=<%=boardList.get(i).getMb_age() %>">
+
+                <p>닉네임 : <%=boardList.get(i).getMb_nick() %></p>
                 <p>나이 : <%=boardList.get(i).getMb_age() %></p>
-              </a>
+                </a>
+            
 
               </div>	
             </div>
@@ -185,39 +191,7 @@
              
             <% } %>
           </div>
- 		
- 		<!-- Modal -->
-	<div class="modal fade" id="profil" data-bs-backdrop="static"  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    	<div class="modal-dialog">
-	      <div class="modal-content">
-	        <div class="modal-header">
-	          <h1 class="modal-title fs-5" id="staticBackdropLabel">프로필</h1>
-	          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-	        </div>
-	      
-	        <div class="modal-body">
-	            <div class="all">
-	          <img src="resources/images/profil.png" id="p_img">
-	            <div id="p_con">
-	                <p>팔로우 : <span>200</span> &nbsp;&nbsp; 팔로잉 : <span>10</span></p>
-	                <br>
-	                <p>닉네임  : <sapn>닉네임</sapn></p>
-	                <br>
-	                <p>나이  : <sapn>24</sapn></p>
-	                <br>
-	                <p>MBTI  : <sapn>MBTI</sapn></p>
-	
-	            	</div>
-	        	</div>
-	        </div>
-        <div class="modal-footer">
-          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-          <button type="button" class="btn btn-primary fl_btn">팔로우</button>
-        </div>
-      </div>
-    </div>
-  </div>
- 		
+ 
  		
  		
  		
@@ -251,6 +225,11 @@
 
     <%@ include file="./F_chat.jsp" %>
     <footer></footer>
+    <script src="resources/assets/js/jquery.min.js"></script>
+
+    
+    
+    
 </body>
 </html>
 
