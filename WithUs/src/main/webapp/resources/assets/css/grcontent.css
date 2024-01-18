@@ -2,285 +2,158 @@
 html,
 body {
   font-family: 'Noto Sans KR', sans-serif;
+}
+div{
+  font-size: inherit;
+}
+#title{
   width: 100%;
-}
-header {
-  width: 100%;
-  height: 120px;
-  display: flex;
-}
-
-.all{
-  position: relative;
-  right: 85px;
-}
-
-.send{
-  position: relative;
-  left: 10px;
-  top:6px;
-}
-
-#r_title{
-  font-size: 45px;
-  position: relative;
-  top:15px;
-  right: 155px;
-}
-.row{
-  position: relative;
-  left:16%;
-}
-
-#buttons{
-  position: relative;
-  left: 87%;
-  top: 55px;
- 
-
-}
-#logo {
-  width: 20%;
-  height: 100%;
-  padding-left: 5%;
-  box-sizing: border-box;
-}
-#logo img {
-  height: 100%;
-}
-nav {
-  width: 60%;
-  height: 100%;
-}
-#menu {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#menu li {
-  font-size: 18px;
-  width: 100px;
-  height: 30px;
+  padding:40px 0;
+  font-size: 40px;
   text-align: center;
 }
-#r_nav {
-  font-size: 14px;
-  width: 20%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#r_nav i {
-  font-size: 18px;
-}
-#r_nav li {
-  width: 55px;
-  height: 20px;
-}
-#r_nav li a:hover {
-  color: #0b5ed7;
-}
-#mainImg {
-  width: 100%;
-  height: 250px;
-  background-image: url('../../images/mainImg.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-#contain {
-  max-width: 80%;
+#contain{
+  width: 80%;
+  padding: 40px 0;
   margin: 0 auto;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box;
-  padding-bottom: 80px;
-  box-shadow: 2px 2px 2px 2px;
-  background-color: aliceblue;
 }
-#chat{
-  display: block;
-  width: 80px;
-  height: 80px;
-  position: fixed;
-  bottom: 70px;
-  right: 70px;
-  z-index: 3;
-  background-color: #fff;
+#revBox{
+  width: 70%;
+  box-sizing: border-box;
+  padding: 20px 15px;
+  border: 1px solid #ddd;
+  border-radius:10px;
+}
+#revTitle{
+  width: 100%;
+  padding: 20px 15px;
+  border-bottom: 1px solid #ddd;
+}
+#revTitle > p{
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+#revInfo{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+#userImg{
+  display:inline-block;
+  width: 50px;
+  height: 50px;
   border-radius: 100%;
-  box-shadow:0 4px 4px rgba(0, 0, 0, 0.25) ;
+  background-image: url("../../images/user.png");
+  background-size: cover;
+  background-position: center;
+  margin-right: 10px;
+}
+#revContent{
+  width: 100%;
+  padding: 20px 15px;
+  margin-top: 30px;
+}
+#revPhoto{
+  width: 100%;
+  margin-bottom: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#chat:hover{
-  background-color: #e8e8e8;
+#revPhoto img{
+  max-width: 90%;
+  margin:0 auto;
 }
-#chat img{
-  width: 70%;
-}
-footer {
+#revTxt{
   width: 100%;
-  height: 80px;
-  background: #c6ddff;
+  line-height: 200%;
+  margin : 30px 0;
+}
+#travelInfo{
+  width: 100%;
+  color:#555;
+  line-height: 180%;
+}
+#travelInfo span{
+  margin-right: 3px;
+}
+#userAction{
+  width: 100%;
+  padding: 20px 15px;
+  display: flex;
+  font-size: 16px;
+}
+#like{
+  margin-right: 30px;
+  cursor:pointer;
+}
+#comment{
+  cursor:pointer;
+ }
+.showComment{
+  width: 100%;
+}
+.showComment textarea{
+  width: 90%;
+}
+.showComment button{
+  width: 10%;
+  border:none;
+}
+.showComment button:active{
+  background-color: #555;
+  color:#fff;
+}
+.showComment form{
+  display: flex;
+}
+.commentList{
+  width: 100%;
+  padding: 20px 15px;
+}
+.commentList li{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+ }
+.commentImg{
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-image: url("../../images/user.png");
+  margin-right: 10px;
+}
+.commentLeft{
+  display: flex;
+}
+.commentContent{
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: space-around;
+}
+.commentContent p:first-child{
+  font-weight: bold;
+}
+.commentDate{
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+  margin-bottom: 10px;
+  font-size:12px;
 }
 
 
-/* 리뷰 게시물 */
-body{
-  margin-top:20px;
-
-  }
-  .profile-widget {
-    position: relative;
-  }
-  .profile-widget .image-container .profile-background {
-    width: 100%;
-    height: auto;
-  }
-  .profile-widget .details {
-    padding: 50px 15px 15px;
-    text-align: center;
-  }
-  /* End Component: Profile Widget */
-
-
-  /* Component: Mini Profile Widget */
-  .mini-profile-widget .image-container .avatar {
-    width: 180px;
-    height: 180px;
-    display: block;
-    margin: 0 auto;
-    border-radius: 50%;
-    background: white;
-    padding: 4px;
-    border: 1px solid #dddddd;
-  }
-  .mini-profile-widget .details {
-    text-align: center;
-  }
-  
-  
-  
-  /* Component: Panel */
-  .panel {
-    border-radius: 0;
-    margin-bottom: 30px;
-  }
-  .panel.solid-color {
-    color: white;
-  }
-  .panel .panel-heading {
-    border-radius: 0;
-    position: relative;
-  }
-  .panel .panel-heading > .controls {
-    position: absolute;
-    right: 10px;
-    top: 12px;
-  }
-  .panel .panel-heading > .controls .nav.nav-pills {
-    margin: -8px 0 0 0;
-  }
-  .panel .panel-heading > .controls .nav.nav-pills li a {
-    padding: 5px 8px;
-  }
-  .panel .panel-heading .clickable {
-    margin-top: 0px;
-    font-size: 12px;
-    cursor: pointer;
-  }
-  .panel .panel-body {
-    font-size: 13px;
-  }
-  /* Component: Posts */
-
-
-  .post .post-heading {
-    height: 95px;
-    padding: 20px 15px;
-  }
-  .post .post-heading .avatar {
-    width: 60px;
-    height: 60px;
-    display: block;
-    margin-right: 15px;
-  }
-  .post .post-heading .meta .title {
-    margin-bottom: 0;
-  }
 
 
 
-  .post .post-image .image {
-    width: 100%;
-    height: auto;
-  }
-  .post .post-description {
-    padding: 15px;
-  }
-  .post .post-description p {
-    font-size: 14px;
-  }
-  .post .post-description .stats {
-    margin-top: 20px;
-  }
-  .post .post-description .stats .stat-item {
-    display: inline-block;
-    margin-right: 15px;
-  }
-  .post .post-description .stats .stat-item .icon {
-    margin-right: 8px;
-  }
-
-  /* hr 댓글위의 선 */
-  .post .post-footer {
-    border-top: 1px solid #ddd;
-    padding: 15px;
-  }
 
 
-  .post .post-footer .input-group-addon a {
-    color: #454545;
-  }
-  .post .post-footer .comments-list {
-    padding: 0;
-    margin-top: 20px;
-    list-style-type: none;
-  }
-  .post .post-footer .comments-list .comment {
-    display: block;
-    width: 100%;
-    margin: 20px 0;
-  }
-  .post .post-footer .comments-list .comment .avatar {
-    width: 35px;
-    height: 35px;
-  }
-  .post .post-footer .comments-list .comment .comment-heading {
-    display: block;
-    width: 100%;
-  }
-  .post .post-footer .comments-list .comment .comment-heading .user {
-    font-size: 14px;
-    font-weight: bold;
-    display: inline;
-    margin-top: 0;
-    margin-right: 10px;
-  }
-  .post .post-footer .comments-list .comment .comment-heading .time {
-    font-size: 12px;
-    color: #aaa;
-    margin-top: 0;
-    display: inline;
-  }
-  .post .post-footer .comments-list .comment .comment-body {
-    margin-left: 50px;
-  }
-  .post .post-footer .comments-list .comment > .comments-list {
-    margin-left: 50px;
-  }
-  
+
