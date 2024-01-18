@@ -232,7 +232,7 @@ public class BoardController {
          String mb_id = multi.getParameter("mb_id");
          String review_img =  multi.getFilesystemName("review_img");
       
-         board = new reviewBoard(null, review_title, review_content, review_region, null, mb_id, review_img);
+         board = new reviewBoard(null, review_title, review_content, review_region, null, mb_id, review_img, null);
          System.out.println(board.toString());
          boardMapper.Writereview(board);
       } catch (IOException e) {
