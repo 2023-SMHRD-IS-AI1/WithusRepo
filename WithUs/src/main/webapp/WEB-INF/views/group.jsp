@@ -98,7 +98,7 @@
 	
 	Object mb_age = session.getAttribute("mb_age");
 	System.out.println(boardList.size());
-	
+	List<Integer> ageList = (List<Integer>)session.getAttribute("ageList");
   
   %> 
    
@@ -119,6 +119,34 @@
       <!-- buttons end -->
       <div id="reviewTitle">추천 동행자 TOP5</div>
       <div id="travler">
+      
+      <% if(loginMember != null){ 
+      		if(profiles.size() >= 5){
+      			for (int i=0;i<5; i++){%>
+      				<div class="travlerCard">
+      	          <div class="travlerCardImg"></div>
+      	          <div class="travlerNick"><%=profiles.get(i).getMb_nick() %></div>
+      	          <div class="travlerAge">나이 : <%=ageList.get(i) %></div>
+      	          <button type="button">팔로우</button>
+      	        </div>
+      		  <%}
+      		}else{
+      			for (int i=0;i<profiles.size(); i++){%>	
+      			<div class="travlerCard">
+      	          <div class="travlerCardImg"></div>
+      	          <div class="travlerNick"><%=profiles.get(i).getMb_nick() %></div>
+      	          <div class="travlerAge">나이 : <%=ageList.get(i) %></div>
+      	          <button type="button">팔로우</button>
+      	        </div>
+    	  	<%} 
+      		}
+    	  %>
+      
+      
+      
+      
+      
+      <%}else{ %>
         <div class="travlerCard">
           <div class="travlerCardImg"></div>
           <div class="travlerNick">USER</div>
@@ -149,6 +177,8 @@
           <div class="travlerAge">20대</div>
           <button type="button">팔로우</button>
         </div>
+        
+        <%} %>
       </div>
      
       <div id="reviewTitle">현재 모집중인 사람들!</div>

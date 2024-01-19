@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -126,6 +128,17 @@ public class MemberController {
 	   return "Profil";
    }
    
+   // 추천 회원 가져오기
+//   @RequestMapping("/recommendMem")
+//   public void recommendMem(HttpSession session) {
+//	   
+//	   String mb_id = (String) session.getAttribute("mb_id");
+//	   
+//	   
+//	   
+//   }
+   
+   
    
    // 개인정보 변경
    @RequestMapping("/updateUserinfo")
@@ -192,20 +205,6 @@ public class MemberController {
    
    
    
-   
-//   @RequestMapping("/goResult")
-//   public String goResult(Member member, Model model) {
-//      
-//      memberMapper.memberInsert(member);
-//      model.addAttribute("mb_id",member.getMb_id());
-//      model.addAttribute("mb_nick", member.getMb_nick());
-//      
-//   
-//      
-//      return "result";
-//   }
-   
-   
    // 회원가입
    @RequestMapping("/goResult")
    public String goResult(Member member, HttpSession session) {
@@ -236,6 +235,8 @@ public class MemberController {
       
       session.setAttribute("loginMember", loginMember);
       
+      
+      
       LocalDate currentDate = LocalDate.now();
       if(loginMember != null) {
     	 
@@ -244,6 +245,25 @@ public class MemberController {
 
        int mb_age = Period.between(birthDate, currentDate).getYears(); // 나이 계산
        
+    // 추천 회원 가져오기
+       String mb_id = loginMember.getMb_id();
+       List<String> recommendMem = memberMapper.getrecommendMem(mb_id);
+ 	   
+       List<Integer> ageList = new ArrayList<Integer>();
+ 	   List<Member> profiles = new ArrayList<Member>();
+ 	   for(int i = 0; i <recommendMem.size(); i++) {
+ 		   Member profile = memberMapper.findPro(recommendMem.get(i));
+ 		   
+ 		   LocalDate proBirthDate = LocalDate.parse(profile.getMb_birthdate(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+ 		   int proMb_age = Period.between(proBirthDate, currentDate).getYears(); // 나이 계산
+ 		   
+ 		   ageList.add(proMb_age);
+ 		   profiles.add(profile);
+ 		   session.setAttribute("profiles", profiles);
+ 		   session.setAttribute("ageList", ageList);
+ 		   System.out.println(profiles);
+ 		   
+ 	   }
        session.setAttribute("mb_age", mb_age);
        return "Main";
       
