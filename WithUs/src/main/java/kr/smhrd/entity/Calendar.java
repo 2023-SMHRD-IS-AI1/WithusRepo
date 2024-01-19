@@ -16,7 +16,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Calendar {
 	int cal_idx; 
-	int comp_idx;
+	String mb_id;
 	String cal_title;
 	  String cal_content;
 	 String cal_start;

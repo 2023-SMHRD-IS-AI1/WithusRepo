@@ -10,10 +10,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.http.HttpSession;
 import javax.xml.crypto.Data;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,7 +28,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 
 import kr.smhrd.entity.Calendar;
+import kr.smhrd.entity.Member;
 import kr.smhrd.mapper.CalendarMapper;
+import kr.smhrd.mapper.MemberMapper;
 
 @Controller
 public class CalendarController {
@@ -39,9 +43,8 @@ public class CalendarController {
    
    
    
-   
    @RequestMapping(value="/calSave", method=RequestMethod.POST)
-   public @ResponseBody String addEvent(@RequestBody String params) {
+   public @ResponseBody String addEvent(@RequestBody String params, HttpSession session) {
 
       System.out.println(params);
    
@@ -51,26 +54,27 @@ public class CalendarController {
       // System.out.println(arr[0].toString());    
       for(int i=0; i<arr.length; i++) {
          
-         System.out.println("문자열 잘랐어요 : " + arr[i].getCal_start().substring(0, arr[i].getCal_start().indexOf("T")));
+       //  System.out.println("문자열 잘랐어요 : " + arr[i].getCal_start().substring(0, arr[i].getCal_start().indexOf("T")));
           arr[i].setCal_start(arr[i].getCal_start().substring(0, arr[i].getCal_start().indexOf("T")));
             System.out.println(arr[i].getCal_start());
            arr[i].setCal_end(arr[i].getCal_end().substring(0, arr[i].getCal_end().indexOf("T")));
           System.out.println(arr[i].getCal_end());
-         
-        // System.out.println(arr[i].getSTARTED_AT());
-         
-//         calMapper.insertCalendar(arr[i]);
+          dto = arr[i];
+          calMapper.insertCalendar(dto);
       }
-      System.out.println(arr[0].getCal_start());
-//      calMapper.insertCalendar(arr[0]);
-      
-      dto = arr[0];
-      System.out.println(dto.getCal_title());
-      System.out.println(dto.getCal_start());
-      System.out.println(dto.getCal_end());
-      calMapper.insertCalendar(dto);
-      
+ 
+      //session.setAttribute("calendar",dto);
+     
+       System.out.println(dto.getMb_id());
+    
        return "Event added successfully!";
    }
-   
-}
+   // 사용자 아이디를 기반으로 달력 데이터를 가져와서 모델에 추가
+   @GetMapping("/eventData")
+   public String getEventData(Model model) {
+	   List<Calendar> calendarData = calMapper.getCalendarDataByUserId(dto.getMb_id());
+       model.addAttribute("calendarData", calendarData);
+       return "redirect:/daily";
+   }
+	
+   }
