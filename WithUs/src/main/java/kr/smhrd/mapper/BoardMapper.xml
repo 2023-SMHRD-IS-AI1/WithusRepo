@@ -101,7 +101,14 @@
     </delete>
     
     
- 
 
+<update id="updateReview" parameterType="kr.smhrd.entity.reviewBoard">
+    UPDATE reviews
+    SET
+        review_title = #{review_title},
+        review_content = #{review_content},
+        review_region = #{review_region}
+    WHERE review_idx = #{review_idx}
+</update>
   
 </mapper>

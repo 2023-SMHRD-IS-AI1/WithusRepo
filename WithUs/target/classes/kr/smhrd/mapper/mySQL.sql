@@ -14,13 +14,16 @@ select * from following;
 
 select * from surveys;
 
+select * from comments;
 
+select * from reviewLike;
 
 commit;
 
-drop table surveys;
+ALTER TABLE members
+MODIFY COLUMN mb_comment VARCHAR(300) DEFAULT '입력 안됨';
 
-delete from surveys;
+
 
 create table members(
 	mb_id varchar(20) not null,
@@ -34,7 +37,7 @@ create table members(
 	joined_at datetime default now(),
 	mb_type varchar(10),
 	mb_proimg varchar(300),
-	mb_comment varchar(300),
+	mb_comment varchar(300) DEFAULT '입력 안됨',
 	mb_mbti VARCHAR(50) default '입력 안됨',
 	primary key(mb_id)
 );
@@ -60,13 +63,12 @@ CREATE TABLE companions (
 
 CREATE TABLE comments (
     cmt_idx INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    comp_idx INT UNSIGNED NOT NULL,
     cmt_content TEXT NOT NULL,
     created_at DATETIME DEFAULT NOW(),
     mb_id VARCHAR(20),
+    review_idx INT UNSIGNED,
     PRIMARY KEY(cmt_idx),
-    FOREIGN KEY(comp_idx) REFERENCES companions(comp_idx),
-    FOREIGN KEY(mb_id) REFERENCES members(mb_id)
+    FOREIGN KEY(review_idx) REFERENCES reviews(review_idx)
 );
 
 create table surveys (
@@ -141,10 +143,10 @@ create table following (
 	FOREIGN KEY(follower) REFERENCES members(mb_id)
 );
 
-drop table calendars;
+
 create table calendars (
 	cal_idx int unsigned not null auto_increment,
-	comp_idx int unsigned not null,
+	mb_id varchar(20) not null,
 	cal_title varchar(1000) not null,
 	cal_content text not null,
 	cal_start varchar(100) not null,
@@ -153,7 +155,7 @@ create table calendars (
 	cal_color varchar(20),
 	cal_important varchar(10),
 	primary key(cal_idx),
-	foreign key(comp_idx) references companions(comp_idx)
+	foreign key(mb_id) references members(mb_id)
 );
 
 
@@ -168,9 +170,18 @@ create table applies(
 	FOREIGN KEY(mb_id) REFERENCES members(mb_id)
 );
 
+ALTER TABLE 테이블명 DROP COLUMN 컬럼명;
 
-delete from reviews;
+create table chat(
+	
+)
 
-
-
-
+create table reviewLike(
+	like_idx int unsigned not null auto_increment,
+	review_idx int unsigned not null,
+	mb_id varchar(20) not null,
+	liked boolean,
+	primary key(like_idx),
+	FOREIGN KEY(mb_id) REFERENCES members(mb_id),
+	FOREIGN KEY(review_idx) REFERENCES reviews(review_idx)
+);

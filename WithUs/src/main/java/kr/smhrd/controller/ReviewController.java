@@ -79,27 +79,8 @@ public class ReviewController {
     }
     
     
-   
-    
-    @GetMapping("/gorewrModify/{review_idx}")
-    public String gorewrModify(@PathVariable Long review_idx, Model model) {
-     
-            // review_idx를 사용하여 특정 리뷰의 세부 정보를 가져옴
-//            reviewBoard review = boardMapper.getReviewByIndex(review_idx);
-            
-//            System.out.println("Received review_idx: " + review_idx);
-            
-            // 리뷰 세부 정보를 모델에 추가
-//            model.addAttribute("review", review);
-            return "re_wr_modify";
-
- 
-    }
-    
-
-    
     @PostMapping("/updateReview")
-    public String updateReview(@ModelAttribute reviewBoard review, @RequestParam Long review_idx, Model model) {
+    public String updateReview(@ModelAttribute reviewBoard review, Model model) {
         try {
             // 유효성 검사: 리뷰 제목이 null이거나 빈 문자열인 경우 예외 발생
             if (review.getReview_title() == null || review.getReview_title().trim().isEmpty()) {
@@ -110,7 +91,7 @@ public class ReviewController {
             boardMapper.updateReview(review);
 
             // 수정된 리뷰의 상세 페이지로 리다이렉트
-            return "redirect:/goRecon?review_idx=" + review_idx;
+            return "redirect:/goRecon?review_idx=" + review.getReview_idx();
         } catch (Exception e) {
             // 예외가 발생한 경우, 오류 메시지와 함께 리뷰 수정 폼으로 이동
             model.addAttribute("error", "리뷰 수정 중 오류가 발생했습니다: " + e.getMessage());
@@ -118,7 +99,6 @@ public class ReviewController {
             return "re_wr_modify";
         }
     }
-
 
 
 
@@ -204,11 +184,6 @@ public class ReviewController {
             return "redirect:/goRecon?review_idx=" + review_idx; 
         }
     }
-    
-    
-    
-    
-    
     
     @PostMapping("/updateComment")
     public String updateComment(

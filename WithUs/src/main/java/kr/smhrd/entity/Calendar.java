@@ -18,10 +18,10 @@ public class Calendar {
 	int cal_idx; 
 	String mb_id;
 	String cal_title;
-	  String cal_content;
-	 String cal_start;
-	 String cal_end;
-	 String cal_status ;
+	String cal_content;
+	String cal_start;
+	String cal_end;
+	String cal_status ;
 	String cal_color;
 	String cal_important;
 	

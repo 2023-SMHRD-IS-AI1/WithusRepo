@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="kr.smhrd.entity.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -78,7 +79,14 @@
 </style>
 <body>
 
-	<% Member loginMember = (Member)session.getAttribute("loginMember"); %>
+	<% 
+		Member loginMember = (Member)session.getAttribute("loginMember");
+		if( loginMember != null){
+			String mb_id = (String)loginMember.getMb_id();
+			session.setAttribute("mb_id", mb_id);	
+		}
+		List<Member> profiles = (List<Member>)session.getAttribute("profiles");
+	%>
 
 	  <header>
       <div id="logo">

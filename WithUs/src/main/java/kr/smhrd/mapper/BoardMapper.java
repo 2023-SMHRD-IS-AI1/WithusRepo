@@ -54,11 +54,6 @@ public interface BoardMapper {
 	public void deleteReview(Long review_idx);
 
     // 리뷰 게시물 수정
-    @Update("UPDATE reviews " +
-            "SET review_title = #{review_title}, " +
-            "    review_content = #{review_content}, " +
-            "    review_region = #{review_region} " +
-            "WHERE review_idx = #{review_idx}")
     void updateReview(reviewBoard review);
 
 	
