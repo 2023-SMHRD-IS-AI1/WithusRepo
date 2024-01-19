@@ -127,25 +127,53 @@
       	          <div class="travlerCardImg"></div>
       	          <div class="travlerNick"><%=profiles.get(i).getMb_nick() %></div>
       	          <div class="travlerAge">나이 : <%=ageList.get(i) %></div>
-      	          <button type="button">팔로우</button>
+      	          <button type="button" class="followbtn" onclick="toggleFollow('<%=loginMember.getMb_id() %>','<%=profiles.get(i).getMb_id() %>', this)">팔로우</button>
       	        </div>
       		  <%}
-      		}else{
+      		}else if(profiles.size() == 0){%>
+      			<div class="travlerCard">
+          <div class="travlerCardImg"></div>
+          <div class="travlerNick">USER</div>
+          <div class="travlerAge">20대</div>
+          <button type="button">팔로우</button>
+        </div>
+        <div class="travlerCard">
+          <div class="travlerCardImg"></div>
+          <div class="travlerNick">USER</div>
+          <div class="travlerAge">20대</div>
+          <button type="button">팔로우</button>
+        </div>
+        <div class="travlerCard">
+          <div class="travlerCardImg"></div>
+          <div class="travlerNick">USER</div>
+          <div class="travlerAge">20대</div>
+          <button type="button">팔로우</button>
+        </div>
+        <div class="travlerCard">
+          <div class="travlerCardImg"></div>
+          <div class="travlerNick">USER</div>
+          <div class="travlerAge">20대</div>
+          <button type="button">팔로우</button>
+        </div>
+        <div class="travlerCard">
+          <div class="travlerCardImg"></div>
+          <div class="travlerNick">USER</div>
+          <div class="travlerAge">20대</div>
+          <button type="button">팔로우</button>
+        </div>
+      		<%}else{
       			for (int i=0;i<profiles.size(); i++){%>	
       			<div class="travlerCard">
       	          <div class="travlerCardImg"></div>
       	          <div class="travlerNick"><%=profiles.get(i).getMb_nick() %></div>
       	          <div class="travlerAge">나이 : <%=ageList.get(i) %></div>
-      	          <button type="button">팔로우</button>
+      	          <button type="button" class="followbtn" onclick="toggleFollow('<%=loginMember.getMb_id() %>','<%=profiles.get(i).getMb_id() %>', this)">팔로우</button>
       	        </div>
     	  	<%} 
-      		}
-    	  %>
-      
-      
-      
-      
-      
+      		}%>
+    	  	
+      		
+		
       <%}else{ %>
         <div class="travlerCard">
           <div class="travlerCardImg"></div>
@@ -324,5 +352,34 @@
         // 서버로부터의 응답을 처리하는 로직 작성
         console.log('서버 응답:', message);
     }
+    
+
+    function toggleFollow(followerId, followingId, clickedButton) {
+        $.ajax({
+            url: 'goFollow', 
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ 
+                follower: followerId, 
+                followee: followingId 
+            }),
+            success: function(response) {
+                if (response === 'followed') {
+                    // 팔로우 상태로 변경 (클릭된 버튼의 텍스트 변경)
+                    clickedButton.innerText = '팔로우 취소';
+                    console.log('팔로우 성공');
+                } else if (response === 'unfollowed') {
+                    // 팔로우 취소 상태로 변경 (클릭된 버튼의 텍스트 변경)
+                    clickedButton.innerText = '팔로우';
+                    console.log('팔로우 취소 성공');
+                }
+                getFollowData();
+            },
+            error: function(xhr, status, error) {
+                console.log('팔로우 실패');
+            }
+        });
+    }
+    
 </script>
 </html>

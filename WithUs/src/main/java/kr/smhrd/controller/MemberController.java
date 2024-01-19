@@ -67,12 +67,7 @@ public class MemberController {
       return "Login";
    }
    
-   @RequestMapping("goLogout")
-   public String goLogout(HttpSession session) {
-      session.removeAttribute("loginMember");
-
-      return "Main";
-   }
+  
 
    @RequestMapping("/goChat")
    public String goChat() {
@@ -275,7 +270,15 @@ public class MemberController {
       
    }
    
-
+   // 로그아웃
+   @RequestMapping("goLogout")
+   public String goLogout(HttpSession session) {
+      session.removeAttribute("loginMember");
+      session.removeAttribute("profiles");
+      session.removeAttribute("ageList");
+      
+      return "Main";
+   }
    
    
    
