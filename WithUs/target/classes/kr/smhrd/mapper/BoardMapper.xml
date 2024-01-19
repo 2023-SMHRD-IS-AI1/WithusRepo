@@ -95,6 +95,13 @@
         SET cmt_content = #{cmt_content}
         WHERE cmt_idx = #{cmt_idx}
     </update>
+	
+	 <delete id="deleteReview" parameterType="Long">
+        DELETE FROM reviews WHERE review_idx = #{review_idx}
+    </delete>
+    
+    
+ 
 
   
 </mapper>

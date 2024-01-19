@@ -82,39 +82,50 @@
 <div id="mainImg"></div>
 <!-- mainImg end -->
 <h1 id="title">리뷰</h1>
+
 <div id="del">
-    <a href="goRewrmodify"><p><i class="fa-solid fa-pencil"></i>수정</p></a>
-    <p data-bs-toggle="modal" data-bs-target="#dele"><i class="fa-solid fa-trash" ></i>삭제</p>
+  <%-- 리뷰 수정 및 삭제 버튼 --%>
+<%
+    if (loginMember != null && loginMember.getMb_id() != null && loginMember.getMb_id().equals(review.getMb_id())) {
+%>
+    <!-- 리뷰 수정 링크 -->
+   <a href="${pageContext.request.contextPath}/gorewrModify/${review.getReview_idx()}">
+                <p><i class="fa-solid fa-pencil"></i>수정</p>
+            </a>
+    <!-- 리뷰 삭제 모달 -->
+    <p  data-bs-toggle="modal" data-bs-target="#dele"><i class="fa-solid fa-trash"></i>삭제</p>
+<%
+    }
+%>
+</div>
+	
+	
+<!-- 삭제 Modal -->
+<div class="modal fade" id="dele" data-bs-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">삭제</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="del_body">
+                진짜 삭제 하시겠습니까?
+            </div>
+            <div class="modal-footer" id="del_fot">
+             <form action="${pageContext.request.contextPath}/deleteReview" method="post" id="deleteForm">
+    <input type="hidden" name="review_idx" value="${review.getReview_idx()}" />
+    <button type="button" class="btn btn-danger fl_btn delete" onclick="confirmDelete()">예</button>
+    <button type="button" class="btn btn-primary fl_btn del2" data-bs-dismiss="modal">아니오</button>
+</form>
+            </div>
+        </div>
+    </div>
 </div>
 
-	<!-- Modal -->
-	<div class="modal fade" id="dele" data-bs-backdrop="static"  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    	<div class="modal-dialog">
-	      <div class="modal-content">
-	        <div class="modal-header">
-	          <h1 class="modal-title fs-5" id="staticBackdropLabel">삭제</h1>
-	          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-	        </div>	      
-		        <div class="modal-body" id="del_body">
-		         진짜 삭제 하시겠습니까?
-	            </div>
-	        </div>
-        <div class="modal-footer" id = "del_fot">
-          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-          <button type="button" class="btn btn-danger fl_btn del1">예</button>
-          <button type="button" class="btn btn-primary fl_btn del2">아니오</button>
-    	</div>
-  	</div>
-  </div>
-<!-- 삭제 모달  -->
 <script>
-    // 삭제 버튼 클릭 시 이벤트 처리
-    $('#confirmDeleteBtn').on('click', function() {
-        // 여기에 삭제 동작을 수행하는 JavaScript 코드 추가
-        // 예를 들어, AJAX를 사용하여 서버에 삭제 요청을 보낼 수 있습니다.
-        // 삭제가 완료되면 모달을 닫을 수 있습니다.
-        $('#deleteModal').modal('hide');
-    });
+    function confirmDelete() {
+        document.getElementById('deleteForm').submit();
+    }
 </script>
 <div id="contain">
         <div id="revBox">
@@ -196,7 +207,7 @@
         </div>
     </div>
 
-    <!-- 수정 폼 모달 -->
+   <!-- 수정 폼 모달 -->
     <div class="modal fade" id="updateCommentModal" tabindex="-1" aria-labelledby="updateCommentModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -221,13 +232,11 @@
         </div>
     </div>
 
-    <script type="text/javascript">
+  <script type="text/javascript">
         $(document).ready(function () {
             // 좋아요 및 댓글 표시 여부 설정
             $("#full-heart").hide();
             $("#full-comments").hide();
-            $(".showComment").hide();
-            $(".commentList").hide();
 
             // 좋아요 버튼 클릭 시
             $("#normal-heart").click(() => {
@@ -241,21 +250,7 @@
                 $("#full-heart").hide();
             });
 
-            // 댓글 보기 버튼 클릭 시
-            $("#normal-comments").click(() => {
-                $("#normal-comments").hide();
-                $("#full-comments").show();
-                $(".showComment").show();
-                $(".commentList").show();
-            });
-
-            // 댓글 감추기 버튼 클릭 시
-            $("#full-comments").click(() => {
-                $("#normal-comments").show();
-                $("#full-comments").hide();
-                $(".showComment").hide();
-                $(".commentList").hide();
-            });
+    
 
             // 댓글 등록 후 입력 필드 초기화
             $("#commentForm").on("submit", function () {
