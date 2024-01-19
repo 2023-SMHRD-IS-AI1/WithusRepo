@@ -1,0 +1,25 @@
+
+E
+java:S3740"/Provide the parametrized type for this generic.(ð“ÝÓ
+t
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ã‚êòùÿÿÿÿ
+o
+java:S2293-"YReplace the type specification in this constructor call with the diamond operator ("<>").(·†þó
+f	java:S117%"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜ì´™
+k	java:S1177"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åûùåÿÿÿÿÿ
+f	java:S117s"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³çØê
+V	java:S125"<This block of commented-out lines of code should be removed.(˜«¤šüÿÿÿÿ
+l
+java:S3457 "Q%n should be used in place of \n to produce the platform-specific line separator.(±ä£Üúÿÿÿÿ
+E	java:S106 "+Replace this use of System.out by a logger.(±ä£Üúÿÿÿÿ
+@	java:S106'"+Replace this use of System.out by a logger.(ß·º™
+m
+java:S37767"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(åûùåÿÿÿÿÿ
+?	java:S1069"+Replace this use of System.out by a logger.(‚š‰1
+?	java:S106B"+Replace this use of System.out by a logger.(‚š‰1
+E	java:S106D"+Replace this use of System.out by a logger.(¼ÅÎ½üÿÿÿÿ
+E	java:S106u"+Replace this use of System.out by a logger.(—³‡×ýÿÿÿÿ
+l
+java:S1128"QRemove this unused import 'org.springframework.web.bind.annotation.PathVariable'.(¹ûñÅþÿÿÿÿ
+>
+java:S1068"(Remove this unused "list" private field.(ð“ÝÓ

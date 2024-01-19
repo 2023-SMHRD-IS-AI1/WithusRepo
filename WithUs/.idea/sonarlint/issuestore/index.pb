@@ -13,3 +13,7 @@ _
 /src/main/webapp/resources/assets/css/result.css,6\3\63ae20f43f7be24df35ffc98f74f50331538b61f
 V
 &src/main/webapp/WEB-INF/views/Join.jsp,c\0\c0ebe70f77b3ac44c046a1a2e45eae17c488e14c
+W
+'src/main/webapp/WEB-INF/views/chats.jsp,0\1\0113221392cdce53b5114b9b7124f0fb34ead54b
+a
+1src/main/java/kr/smhrd/controller/ChatServer.java,0\6\060d65fe96f582d4644d081d352f2eeb074abf17
