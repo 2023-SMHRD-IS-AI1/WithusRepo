@@ -77,7 +77,7 @@ html, body {
 				<div class="modal-body">
 					일정이름 : <input type="text" id="title" /><br /> 시작시간 : <input
 						type="datetime-local" id="start" /><br /> 종료시간 : <input
-						type="datetime-local" id="end" /><br /> 배경색상 : <select
+						type="datetime-local" id="end" /><br /><!--  배경색상 : <select
 						id="color">
 						<option value="red">빨강색</option>
 						<option value="orange">주황색</option>
@@ -86,7 +86,7 @@ html, body {
 						<option value="blue">파랑색</option>
 						<option value="indigo">남색</option>
 						<option value="purple">보라색</option>
-					</select>
+					</select> -->
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
@@ -97,11 +97,7 @@ html, body {
 			</div>
 		</div>
 	</div>
-	<c:forEach var="event" items="${calendarData}">
-		<p>${event.cal_title}</p>
-		<p>${event.cal_start}</p>
-		<p>${event.cal_end}</p>
-	</c:forEach>
+	
 	<script type="text/javascript">
       var mb_id = "<%=loginMember.getMb_id()%>";
 	
@@ -244,7 +240,7 @@ html, body {
                     title: $("#title").val(),
                     start: $("#start").val(),
                     end: $("#end").val(),
-                    color: $("#color").val(),
+                   // color: $("#color").val(),
                   };
                   //빈값입력시 오류
                   if (
@@ -264,7 +260,7 @@ html, body {
                     $("#title").val("");
                     $("#start").val("");
                     $("#end").val("");
-                    $("#color").val("");
+                   // $("#color").val("");
                   }
                 });
                 
