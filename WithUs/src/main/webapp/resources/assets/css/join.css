@@ -1,113 +1,72 @@
 html,
 body {
-  font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+  font-size: inherit;
 }
-header {
-  width: 100%;
-  height: 120px;
-  display: flex;
-  box-sizing: border-box;
-  border-bottom: 1px solid #f1f1f1;
-}
-#logo {
-  width: 20%;
-  height: 100%;
-  padding-left: 5%;
-  box-sizing: border-box;
-}
-#logo img {
-  height: 100%;
-}
-nav {
-  width: 60%;
-  height: 100%;
-}
-#menu {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#menu li {
-  font-size: 18px;
-  width: 100px;
-  height: 30px;
-  text-align: center;
-}
-#r_nav {
-  font-size: 14px;
-  width: 20%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#r_nav i {
-  font-size: 18px;
-}
-#r_nav li {
-  width: 55px;
-  height: 20px;
-}
-#r_nav li a:hover {
-  color: #0b5ed7;
+li{
+  list-style: none;
 }
 #mainImg {
-  width: 100%;
-  height: 200px;
-  font-size: 50px;
-  text-align: center;
-  line-height: 200px;
-  font-weight: bold;
+    width: 100%;
+    height: 200px;
+    font-size: 50px;
+    text-align: center;
+    line-height: 200px;
+    font-weight: bold;
 }
 #contain {
-  width: 80%;
-  box-sizing: border-box;
-  padding: 40px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    width: 80%;
+    box-sizing: border-box;
+    padding: 40px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 #contain > form {
-  width: 30%;
-  margin-bottom: 30px;
+    width: 30%;
+    margin-bottom: 30px;
 }
+
 #contain > form label {
-  margin: 20px 0;
-  font-size: 18px;
+    margin: 20px 0;
+    font-size: 18px;
 }
+
 #contain > form .form-control {
-  height: 50px;
+    height: 50px;
 }
+
 #radio {
-  margin: 0 20px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 50px;
 }
+
 #radio input {
-  margin: 0 15px;
+    margin: 0 15px;
 }
-#warn {
-  font-size: 13px;
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  height: 50px;
-  width: 100%;
-  text-align: center;
-  letter-spacing: 1px;
-  color: red;
+
+.warn {
+    margin-top: 15px;
+    font-size: 13px;
+    width: 100%;
+    letter-spacing: 1px;
+    color: red;
 }
 
 footer {
-  width: 100%;
-  height: 80px;
-  background: #c6ddff;
+    width: 100%;
+    height: 80px;
+    background: #c6ddff;
+}
+
+.checkBtn{
+    margin-top: 15px;
+}
+#submit{
+    margin-top: 30px;
+    margin-left: 380px;
 }

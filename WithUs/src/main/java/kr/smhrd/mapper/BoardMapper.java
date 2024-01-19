@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import kr.smhrd.entity.Board;
-
+import kr.smhrd.entity.Comment;
 import kr.smhrd.entity.reviewBoard;
 
 @Mapper
@@ -36,9 +36,15 @@ public interface BoardMapper {
     // 게시물 상세 페이지
 	public reviewBoard getReviewByIndex(Long review_idx);
 
+	void addComment(Comment comment);
 	
+	List<Comment> getCommentsByReviewIndex(Long review_idx);
+
+	public Comment getCommentById(Long cmt_idx);
 	
-	
+	public void deleteComment(@Param("cmt_idx") Long cmt_idx);
+
+	public void updateComment(Comment comment);
 
 	
 

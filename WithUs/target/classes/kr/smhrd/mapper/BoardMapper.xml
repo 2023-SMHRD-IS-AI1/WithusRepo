@@ -69,6 +69,32 @@
     </select>
     
    
- 
+<insert id="addComment" parameterType="kr.smhrd.entity.Comment">
+    INSERT INTO comments (mb_id, cmt_content, created_at, review_idx)
+    VALUES (#{mb_id}, #{cmt_content}, now(), #{review_idx} )
+</insert>
+
+<!-- 특정 리뷰의 댓글 목록 가져오기 -->
+<select id="getCommentsByReviewIndex" parameterType="Long" resultType="kr.smhrd.entity.Comment">
+    SELECT * FROM comments
+    WHERE review_idx = #{review_idx} 
+    ORDER BY created_at DESC
+</select>
+	
+	  <select id="getCommentById" resultType="kr.smhrd.entity.Comment" parameterType="Long">
+        SELECT * FROM comments WHERE cmt_idx = #{cmt_idx}
+    </select>
+	
+	
+  <delete id="deleteComment" parameterType="Long">
+        DELETE FROM comments WHERE cmt_idx = #{cmt_idx}
+    </delete>
+
+	  <update id="updateComment" parameterType="kr.smhrd.entity.Comment">
+        UPDATE comments
+        SET cmt_content = #{cmt_content}
+        WHERE cmt_idx = #{cmt_idx}
+    </update>
+
   
 </mapper>
