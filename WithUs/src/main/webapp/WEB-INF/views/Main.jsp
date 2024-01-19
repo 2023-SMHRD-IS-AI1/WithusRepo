@@ -56,7 +56,7 @@
       </div>
       
       <div id="reviews">
-      <%if(reviewList.size()>6){ %>
+      <%if(reviewList != null && reviewList.size() > 6){ %>
       <%for(int i =0; i<6;i++){ %>
         <div class="reviewCard">
           <a href="#">
@@ -71,7 +71,7 @@
           </a>
         </div>
         <%} 
-      }else{ %>
+      }else if(reviewList != null && reviewList.size() <= 5){ %>
       	<%for(int i =0; i<reviewList.size();i++){ %>
         <div class="reviewCard">
           <a href="#">
