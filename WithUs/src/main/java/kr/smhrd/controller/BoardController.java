@@ -110,8 +110,14 @@ public class BoardController {
 	   return "review";
 	}
 		
-   
-   
+	// 모집 상세로 이동
+	@RequestMapping("/goGrcon")
+	public String goGrcon() {
+		
+		return "gr_con";
+	}
+	
+	
 
 	/*
 	 * @RequestMapping("/goRecon") public String goRecon() {
