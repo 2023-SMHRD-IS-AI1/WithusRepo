@@ -1,3 +1,4 @@
+<%@page import="kr.smhrd.entity.reviewBoard"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="kr.smhrd.entity.Message"%>
 <%@page import="java.util.List"%>
@@ -32,6 +33,13 @@
 </head>
 <body>
    <%@ include file="./nav.jsp" %>
+   
+      <% 
+    List<reviewBoard> reviewList = (List<reviewBoard>)request.getAttribute("reviewList");
+	if(reviewList != null){
+		System.out.println(reviewList.size());
+	}
+  %>   
     <div id="main">
       <div id="main1"></div>
       <div id="main2"></div>
@@ -46,89 +54,41 @@
       <div id="writeBtn">
         <a class="btn btn-primary" href="goReview" role="button">더보기</a>
       </div>
+      
       <div id="reviews">
+      <%if(reviewList.size()>6){ %>
+      <%for(int i =0; i<6;i++){ %>
         <div class="reviewCard">
           <a href="#">
-            <div class="imgBox"></div>
+            <div class="imgBox"><img class="uim" src="resources/upload1/<%=reviewList.get(i).getReview_img() %>"></div>
             <div class="textBox">
-              <p class="title">부산리뷰</p>
+              <p class="title"><%=reviewList.get(i).getReview_title() %></p>
               <p class="text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa atque dignissimos similique, perferendis ducimus animi dolor
-                tenetur accusantium voluptas cumque aliquid pariatur optio quae provident earum, est, rerum eaque magni.
+                <%=reviewList.get(i).getReview_content() %>
               </p>
-              <p class="date">2024.01.08</p>
+              <p class="date"><%=reviewList.get(i).getReviewed_at() %></p>
             </div>
           </a>
         </div>
+        <%} 
+      }else{ %>
+      	<%for(int i =0; i<reviewList.size();i++){ %>
         <div class="reviewCard">
           <a href="#">
-            <div class="imgBox"></div>
+            <div class="imgBox"><img class="uim" src="resources/upload1/<%=reviewList.get(i).getReview_img() %>"></div>
             <div class="textBox">
-              <p class="title">부산리뷰</p>
+              <p class="title"><%=reviewList.get(i).getReview_title() %></p>
               <p class="text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa atque dignissimos similique, perferendis ducimus animi dolor
-                tenetur accusantium voluptas cumque aliquid pariatur optio quae provident earum, est, rerum eaque magni.
+                <%=reviewList.get(i).getReview_content() %>
               </p>
-              <p class="date">2024.01.08</p>
+              <p class="date"><%=reviewList.get(i).getReviewed_at() %></p>
             </div>
           </a>
         </div>
-        <div class="reviewCard">
-          <a href="#">
-            <div class="imgBox"></div>
-
-            <div class="textBox">
-              <p class="title">부산리뷰</p>
-              <p class="text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa atque dignissimos similique, perferendis ducimus animi dolor
-                tenetur accusantium voluptas cumque aliquid pariatur optio quae provident earum, est, rerum eaque magni.
-              </p>
-              <p class="date">2024.01.08</p>
-            </div>
-          </a>
-        </div>
-        <div class="reviewCard">
-          <a href="#">
-            <div class="imgBox"></div>
-
-            <div class="textBox">
-              <p class="title">부산리뷰</p>
-              <p class="text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa atque dignissimos similique, perferendis ducimus animi dolor
-                tenetur accusantium voluptas cumque aliquid pariatur optio quae provident earum, est, rerum eaque magni.
-              </p>
-              <p class="date">2024.01.08</p>
-            </div>
-          </a>
-        </div>
-        <div class="reviewCard">
-          <a href="#">
-            <div class="imgBox"></div>
-
-            <div class="textBox">
-              <p class="title">부산리뷰</p>
-              <p class="text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa atque dignissimos similique, perferendis ducimus animi dolor
-                tenetur accusantium voluptas cumque aliquid pariatur optio quae provident earum, est, rerum eaque magni.
-              </p>
-              <p class="date">2024.01.08</p>
-            </div>
-          </a>
-        </div>
-        <div class="reviewCard">
-          <a href="#">
-            <div class="imgBox"></div>
-
-            <div class="textBox">
-              <p class="title">부산리뷰</p>
-              <p class="text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa atque dignissimos similique, perferendis ducimus animi dolor
-                tenetur accusantium voluptas cumque aliquid pariatur optio quae provident earum, est, rerum eaque magni.
-              </p>
-              <p class="date">2024.01.08</p>
-            </div>
-          </a>
-        </div>
+      <%} 
+      }
+      %>
+      
       </div>
       <div id="reviewTitle">지역별 추천 맛집 List</div>
       <div id="writeBtn">
