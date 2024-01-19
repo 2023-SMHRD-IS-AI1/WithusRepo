@@ -31,6 +31,7 @@ import kr.smhrd.entity.Member;
 import kr.smhrd.entity.Message;
 import kr.smhrd.entity.Survey;
 import kr.smhrd.entity.reviewBoard;
+import kr.smhrd.mapper.BoardMapper;
 import kr.smhrd.mapper.CalendarMapper;
 import kr.smhrd.mapper.MemberMapper;
 import kr.smhrd.mapper.MessageMapper;
@@ -46,6 +47,8 @@ public class MemberController {
    
    private CalendarMapper calendarMapper;
    
+   @Autowired
+   private BoardMapper boardMapper;
    
    // @RequestMapping : get방식,post방식 요청을 다 받을 수 있음
    // @GetMapping : get방식 요청만 받을 수 있음
@@ -53,12 +56,20 @@ public class MemberController {
    
    
    @RequestMapping("/")
-   public String main() {
+   public String main(Model model) {
+	   List<reviewBoard> reviewList = boardMapper.getAllReview();
+	   if (reviewList != null) {
+	      model.addAttribute("reviewList", reviewList);
+	   }
       return "Main";
    }
    
    @RequestMapping("/goMain")
-   public String goMain() {
+   public String goMain(Model model) {
+	   List<reviewBoard> reviewList = boardMapper.getAllReview();
+	   if (reviewList != null) {
+	      model.addAttribute("reviewList", reviewList);
+	   }
       return "Main";
    }
    
