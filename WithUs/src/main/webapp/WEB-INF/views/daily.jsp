@@ -58,11 +58,6 @@ html, body {
       <div id="calendar"></div>
    </div>
 
-   <c:forEach var="event" items="${calendarData }">
-      <p>${event.cal_title}</p>
-      <p>${event.cal_start}</p>
-      <p>${event.cal_end}</p>
-   </c:forEach>
    <!-- 부트스트랩 modal 부분 -->
    <!-- Modal -->
    <div class="modal fade" id="exampleModal" tabindex="-1"
@@ -241,21 +236,7 @@ html, body {
                     start: $("#start").val(),
                     end: $("#end").val(),
                    // color: $("#color").val(),
-                   
                   };
-                  $.ajax({
-                	    url: "/saveEvent",
-                	    method: "POST",
-                	    contentType: "application/json; charset=utf-8",
-                	    data: JSON.stringify(eventData),
-                	    success: function (result) {
-                	      console.log(result);
-                	      // 성공적으로 저장되었을 때의 동작 추가
-                	    },
-                	    error: function () {
-                	      alert("Failed to save event. Please try again.");
-                	    },
-                	  });
                   //빈값입력시 오류
                   if (
                     eventData.title == "" ||
