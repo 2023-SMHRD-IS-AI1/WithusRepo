@@ -52,8 +52,7 @@ public class CalendarController {
    
       Calendar[] arr = new Gson().fromJson(params, Calendar[].class);
       
-      
-      // System.out.println(arr[0].toString());    
+       
       for(int i=0; i<arr.length; i++) {
          
        //  System.out.println("문자열 잘랐어요 : " + arr[i].getCal_start().substring(0, arr[i].getCal_start().indexOf("T")));
@@ -73,12 +72,16 @@ public class CalendarController {
    }
    // 사용자 아이디를 기반으로 달력 데이터를 가져와서 모델에 추가
    @GetMapping("/eventData")
-   @ResponseBody
-   public String getEventData(Model model) {
-	   List<Calendar> calendarData = calMapper.getCalendar(dto.getMb_id());
-       model.addAttribute("calendarData", calendarData);
+   public @ResponseBody List<Calendar> getEventData(HttpSession session) {
+	   
+	   Member dto = (Member)session.getAttribute("loginMember");
+	   
+	   String mb_id = dto.getMb_id() ;
+	   
+	   List<Calendar> calendarData = calMapper.getCalendar(mb_id);
+	   
        System.out.println("calendarData:"+calendarData);
-       return "calendarData";
+       return calendarData;
    }
 	
    }

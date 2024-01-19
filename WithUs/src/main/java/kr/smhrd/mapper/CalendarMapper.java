@@ -20,6 +20,6 @@ public interface CalendarMapper {
 
 	public int insertCalendar(kr.smhrd.entity.Calendar calendar);
 
-	 List<Calendar> getCalendar(@Param("mb_id") String mb_id);
+	 List<Calendar> getCalendar(String mb_id);
 	
 }
