@@ -35,6 +35,16 @@
 		select * from members where mb_id=#{mb_id}
 	</select>
 	
+	<select id="getrecommendMem" parameterType="String" resultType="String">
+		SELECT DISTINCT s2.mb_id
+		FROM members m
+		JOIN surveys s1 ON m.mb_id = s1.mb_id
+		JOIN surveys s2 ON s1.result_label = s2.result_label
+		WHERE m.mb_id = #{mb_id} AND s2.mb_id != #{mb_id}
+	</select>
+	
+	
+	
 <!-- 	<update id="updateProfil" parameterType="String">
 		update members set mb_proimg=#{mb_proimg} , mb_comment=#{mb_comment} where mb_id=#{mb_id}
 	</update> -->

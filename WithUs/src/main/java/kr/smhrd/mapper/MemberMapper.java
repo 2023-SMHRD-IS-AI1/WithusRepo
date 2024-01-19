@@ -1,5 +1,7 @@
 package kr.smhrd.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -30,6 +32,8 @@ public interface MemberMapper {
 	Member findPro(String mb_id);
 
 	void surveyInsert(Survey survey);
+
+	List<String> getrecommendMem(String mb_id);
 
 	
 

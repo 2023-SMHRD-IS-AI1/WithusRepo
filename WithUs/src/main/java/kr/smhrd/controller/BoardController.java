@@ -5,11 +5,13 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -17,13 +19,14 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import kr.smhrd.entity.Board;
 import kr.smhrd.entity.reviewBoard;
 import kr.smhrd.mapper.BoardMapper;
+import kr.smhrd.mapper.MemberMapper;
 
 @Controller
 public class BoardController {
    
    @Autowired
    private BoardMapper boardMapper;
-
+   
 
 
    // 모집 글 작성
@@ -84,7 +87,8 @@ public class BoardController {
    // 모집 페이지 이동
    @RequestMapping("/goGroup")
    public String goGroup(Model model) {
-      
+
+	  // 모집글 리스트 가져오기
       List<Board> boardList = boardMapper.getAllBoard();
       model.addAttribute("boardList", boardList);
       

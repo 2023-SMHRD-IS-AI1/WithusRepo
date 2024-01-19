@@ -17,7 +17,6 @@ select * from surveys;
 select * from comments;
 
 
-
 commit;
 
 
