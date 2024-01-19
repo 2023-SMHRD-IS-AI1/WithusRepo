@@ -73,10 +73,10 @@
 			<div id="boxR">
 				<div id="boxR_top">
 					<div id="follow">
-						<span>팔로우</span><span id="followerCount"></span>
+						<span>팔로우</span><span class="followerCount"></span>
 					</div>
 					<div id="following">
-						<span>팔로잉</span><span id="followingCount"></span>
+						<span>팔로잉</span><span class="followingCount"></span>
 					</div>
 				</div>
 				
@@ -133,8 +133,7 @@
             success: function(followerData) {
                 // 팔로워 정보 처리
                 console.log(followerData)
-                document.getElementById('followerCount').innerText = followerData.count;
-                
+                document.getElementsByClassName('followerCount')[0].innerText = followerData.count;
             },
             error: function(error) {
             	console.log(userId);
@@ -148,7 +147,7 @@
             type: 'GET',
             success: function(followingData) {
                 // 팔로잉 정보 처리
-                document.getElementById('followingCount').innerText = followingData.count;
+                document.getElementsByClassName('followingCount')[0].innerText = followingData.count;
             },
             error: function(error) {
                 console.error('팔로잉 정보 가져오기 실패:', error);
