@@ -141,7 +141,9 @@
             </div>
             <div id="userAction">
                 <div id="like"><i class="fa-regular fa-heart" id="normal-heart"></i><i class="fa-solid fa-heart"
-                        id="full-heart"></i> 300</div>
+                        id="full-heart"></i>
+                         <span id="likeCount">0</span>
+                         </div>
                 <div id="comment"><i class="fa-regular fa-comment-dots" id="normal-comments"></i><i
                         class="fa-solid fa-comment-dots" id="full-comments"> </i></div>
             </div>
@@ -220,7 +222,7 @@
             </div>
         </div>
     </div>
-
+ <script src="resources/assets/js/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             // 좋아요 및 댓글 표시 여부 설정
@@ -228,8 +230,28 @@
             $("#full-comments").hide();
             $(".showComment").hide();
             $(".commentList").hide();
-
-            // 좋아요 버튼 클릭 시
+            
+            <% if (review != null && loginMember != null) { %>
+            var review_idx = <%= review.getReview_idx() %>;
+            var mb_id = <%= loginMember.getMb_id() %>;
+        <% } else { %>
+				
+        <% } %>
+        function updateLikeCount(review_idx) {
+            $.ajax({
+                url: 'reviewLike/count',
+                type: 'GET',
+                data: { review_idx: review_idx },
+                success: function(likeCount) {
+                	console.log("좋아요 개수" + likeCount);
+                    $("#likeCount").text(likeCount);
+                },
+                error: function(xhr, status, error) {
+                    console.error('좋아요 개수 조회 실패:', error);
+                }
+            });
+        }
+/*             // 좋아요 버튼 클릭 시
             $("#normal-heart").click(() => {
                 $("#normal-heart").hide();
                 $("#full-heart").show();
@@ -239,8 +261,49 @@
             $("#full-heart").click(() => {
                 $("#normal-heart").show();
                 $("#full-heart").hide();
+            }); */
+        	  // 좋아요 버튼 클릭 시
+            $("#normal-heart").click(() => {
+            	
+                console.log(mb_id);
+                console.log(review_idx);
+                $.ajax({
+                    url: 'reviewLike/add',
+                    type: 'POST',
+                    data: { review_idx: review_idx, mb_id: mb_id },
+                    success: function(response) {
+                    	let Likecount = updateLikeCount(review_idx)
+                        $("#normal-heart").hide();
+                        $("#full-heart").show();
+                        $("#likeCount").text(Likecount);
+                        
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('좋아요 추가 실패:', error);
+                    }
+                });
             });
 
+            // 좋아요 취소 버튼 클릭 시
+            $("#full-heart").click(() => {
+
+                $.ajax({
+                    url: 'reviewLike/delete',
+                    type: 'POST',
+                    data: { review_idx: review_idx, mb_id: mb_id },
+                    success: function(response) {
+                    	let Likecount = updateLikeCount(review_idx)
+                        $("#normal-heart").show();
+                        $("#full-heart").hide();
+                        $("#likeCount").text(Likecount);
+                        
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('좋아요 삭제 실패:', error);
+                    }
+                });
+            });
+               
             // 댓글 보기 버튼 클릭 시
             $("#normal-comments").click(() => {
                 $("#normal-comments").hide();

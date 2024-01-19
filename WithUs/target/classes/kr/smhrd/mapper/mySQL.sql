@@ -16,6 +16,7 @@ select * from surveys;
 
 select * from comments;
 
+select * from reviewLike;
 
 commit;
 
@@ -170,4 +171,12 @@ create table applies(
 );
 
 
-
+create table reviewLike(
+	like_idx int unsigned not null auto_increment,
+	review_idx int unsigned not null,
+	mb_id varchar(20) not null,
+	liked boolean,
+	primary key(like_idx),
+	FOREIGN KEY(mb_id) REFERENCES members(mb_id),
+	FOREIGN KEY(review_idx) REFERENCES reviews(review_idx)
+);
