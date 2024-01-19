@@ -46,17 +46,45 @@
 					 autocomplete="off" checked/> <label
 					class="btn btn-outline-primary" for="btnradio1">채팅</label>
 	</div>
+	<!-- 채팅방을 따로 분리할것
+채팅방(
+	방 식별자 (PK)
+	개설날짜
+	방이름
+	방설명
+	소속인원 (PK)
+)
+
+-->
+
+	<!-- A 라는 사람이 들어왔을 때, A가 소속된 채팅방을 불러와 출력 -->
+	<!--
+		select 방식별자, 방이름, 방설명 from 채팅방
+		where 소속인원 = 로그인한 사용자;
+	-->
+	<!-- 방식별자 -->
 	<div id="chatBox">
 		<ul id="chatList">
-			<li id="chat1">
+			<li class="chatRoom" id="room10">
 				<div class="chatImg"></div>
 				<div class="chatCon">
-					<span class="chatTitle">강원도 여행 </span> <span class="count">5</span>
-					<p class="chat">저희 여행 코스는 속초 - 주문진입니다. 오징어 순대 맛있어요. 바다도
-						이뻐요.바다도 이뻐요.</p>
+					<input type="hidden" readonly value="10">
+					<span class="chatTitle">강원도 여행</span> <span class="count">5</span>
+					<p class="chat">방설명</p>
 				</div>
-				<div class="chatCount">
-					<p>2</p>
+			</li>
+			<li class="chatRoom" id="room115">
+				<div class="chatImg"></div>
+				<div class="chatCon">
+					<span class="chatTitle">경기도 여행 </span> <span class="count">5</span>
+					<p class="chat">방설명</p>
+				</div>
+			</li>
+			<li class="chatRoom" id="room120">
+				<div class="chatImg"></div>
+				<div class="chatCon">
+					<span class="chatTitle">충청도 여행</span> <span class="count">5</span>
+					<p class="chat">방설명</p>
 				</div>
 			</li>
 		</ul>
@@ -67,30 +95,50 @@
 	</div>
 </div>
 <script type="text/javascript">
-    let url = 'ws://172.30.1.55:8081/controller/chatserver';
-    let ws = new WebSocket(url);
+    let url = 'ws://172.30.1.55:8081/controller/chatserver/';
+    let ws
     let userNickname = '<%=loginMember.getMb_nick()%>';
-
-    console.log("userNickname 확인 : ", userNickname)
+    let isAlreadyJoined = false;
+    let currentRoomId = null;
 
     // 로그인 전 메세지 입력 창 비활성화
     $('#msg').attr('disabled', true);
 
     // 채팅 리스트 클릭 시 함수
-    $('#chat1').click(() => {
-        connectWebSocket();
-        // 입장했습니다 텍스트 출력 (본인)
-        $('#chatting').append(
-            $('<li>')
-                .text("'" + userNickname + "' 님이 입장했습니다.")
-                .addClass('userCome')
-        );
-        // 서버로 데이터 전송
-        ws.send('1#' + userNickname + '#');
-        // 채팅창 요소들 속성 변경
-        $('#chat1').attr('disabled', true);
-        $('#msg').attr('disabled', false);
-        $('#msg').focus();
+    $('.chatRoom').click(function () {
+        // 방식별자를 가져오기
+        var room_idx = $(this).attr('id').replace('room', '');
+
+        // 현재 선택한 채팅방과 클릭한 채팅방이 다를 경우에만 처리
+        if (currentRoomId !== room_idx) {
+            currentRoomId = room_idx; // 현재 선택한 방 업데이트
+            clearChatHistory();
+
+            if (!isAlreadyJoined) {
+                // 소켓 연결
+                ws = new WebSocket(url + room_idx);
+
+                // 데이터수신
+                ws.onmessage = onMessage;
+
+                ws.onerror = onError;
+
+                ws.onopen = function () {
+                    $('#chatting').append(
+                        $('<li>')
+                            .text("'" + userNickname + "' 님이 입장했습니다.")
+                            .addClass('userCome')
+                    );
+                    // 서버로 데이터 전송
+                    ws.send('1#' + userNickname + '#');
+                    // 채팅창 요소들 속성 변경
+                    $('.chatRoom').attr('disabled', true);
+                    $('#msg').attr('disabled', false);
+                    $('#msg').focus();
+                }
+                isAlreadyJoined = true;
+            }
+        }
     });
 
     // 메세지 전송 및 아이디
@@ -104,15 +152,18 @@
         }
     }
 
-    /* 데이터수신 */
-    ws.onmessage = (evt) => {
+    function onError(evt) {
+        console.log(evt.data);
+    }
+
+    function onMessage(evt) {
         let message = evt.data;
         let messageType = message.substring(0, 1)
 
         if (messageType === '1') {
             // 상대방 접속 메시지 처리
-          print2(message.substring(2));
-          // print2(message.substring(2));
+            print2(message.substring(2));
+            // print2(message.substring(2));
         } else if (messageType === '2') {
             // 상대방이 보낸 메시지 처리
             let index = message.indexOf('#', 2);
@@ -125,7 +176,7 @@
             chatClose(message.substring(2));
         }
         $('#chatting').scrollTop($('#chatting')[0].scrollHeight);
-    };
+    }
 
     function print(msg) {
         let temp = '';
@@ -177,7 +228,6 @@
 
     }
 
-
     // 엔터 키 입력 시 이벤트 등록
     $('#msg').keydown(function (event) {
         if (event.keyCode == 13) {
@@ -204,16 +254,15 @@
         }
     }
 
-    ws.onerror = (evt) => {
-        console.log(evt.data);
+    window.onbeforeunload = function () {
+        if (ws) {
+            ws.close();
+        }
     };
 
-    window.onbeforeunload = function() {
-      if (ws) {
-        ws.close();
-      }
-    };
-
+    function clearChatHistory() {
+        $('#chatting').empty(); // Empty the chat history
+    }
 
 </script>
 </body>

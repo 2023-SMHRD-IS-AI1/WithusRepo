@@ -169,5 +169,10 @@ create table applies(
 	FOREIGN KEY(mb_id) REFERENCES members(mb_id)
 );
 
+ALTER TABLE 테이블명 DROP COLUMN 컬럼명;
+
+create table chat(
+	
+)
 
 
