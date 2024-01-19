@@ -240,9 +240,9 @@
 
               </div>	
             </div>
-            <div class="groupCardBottom">
+            <div class="groupCardBottom"><a href="goGrcon?comp_idx=<%=boardList.get(i).getComp_idx() %>">
               <div class="groupCount">모집 인원 : <%= boardList.get(i).getComp_members() %></div>
-              <div class="groupDesc"><%= boardList.get(i).getComp_content() %></div>
+              <div class="groupDesc"><%= boardList.get(i).getComp_content() %></div></a>
               <button type="button">신청</button>
 	
 	 <% if (loginMember != null && !loginMember.getMb_id().equals(boardList.get(i).getMb_id())) { %>
