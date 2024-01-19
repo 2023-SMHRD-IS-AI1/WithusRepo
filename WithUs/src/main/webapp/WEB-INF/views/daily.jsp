@@ -1,6 +1,7 @@
 <%@page import="kr.smhrd.entity.Calendar"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+<%@taglib uri ="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,7 +58,11 @@ html, body {
       <div id='calendar'></div>
    </div>
    
-   
+   <c:forEach var ="event" items="${calendarData }">
+   <p>${event.cal_title}</p>
+   <p>${event.cal_start}</p>
+   <p>${event.cal_end}</p>
+   </c:forEach>
    <!-- 부트스트랩 modal 부분 -->
    <!-- Modal -->
    <div class="modal fade" id="exampleModal" tabindex="-1"
@@ -93,7 +98,11 @@ html, body {
          </div>
       </div>
    </div>
-
+<c:forEach var="event" items="${calendarData}">
+    <p>${event.cal_title}</p>
+    <p>${event.cal_start}</p>
+    <p>${event.cal_end}</p>
+</c:forEach>
    <script type="text/javascript">
   
    var mb_id = "<%=loginMember.getMb_id() %>";
@@ -202,7 +211,7 @@ html, body {
           {
             events: async function (info, successCallback, failureCallback) {
           const eventResult = await axios({
-            method: "POST",
+            method: "GET",
             url: "/eventData",
           });
           const eventData = eventResult.data;
@@ -257,8 +266,12 @@ html, body {
           });
       // 캘린더 랜더링
       calendar.render();
+     
+      
     });
   })();
+  
+  
 </script>
 </body>
 </html>

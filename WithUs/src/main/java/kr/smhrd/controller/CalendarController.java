@@ -54,26 +54,27 @@ public class CalendarController {
       // System.out.println(arr[0].toString());    
       for(int i=0; i<arr.length; i++) {
          
-         System.out.println("문자열 잘랐어요 : " + arr[i].getCal_start().substring(0, arr[i].getCal_start().indexOf("T")));
+       //  System.out.println("문자열 잘랐어요 : " + arr[i].getCal_start().substring(0, arr[i].getCal_start().indexOf("T")));
           arr[i].setCal_start(arr[i].getCal_start().substring(0, arr[i].getCal_start().indexOf("T")));
             System.out.println(arr[i].getCal_start());
            arr[i].setCal_end(arr[i].getCal_end().substring(0, arr[i].getCal_end().indexOf("T")));
           System.out.println(arr[i].getCal_end());
           dto = arr[i];
           calMapper.insertCalendar(dto);
-         
-//         calMapper.insertCalendar(arr[i]);
       }
  
       //session.setAttribute("calendar",dto);
      
-//      System.out.println(dto.getCal_start());
-//      System.out.println(dto.getCal_end());
-//      System.out.println(dto.getCal_title());
        System.out.println(dto.getMb_id());
     
        return "Event added successfully!";
    }
-	
+   // 사용자 아이디를 기반으로 달력 데이터를 가져와서 모델에 추가
+   @GetMapping("/eventData")
+   public String getEventData(Model model) {
+	   List<Calendar> calendarData = calMapper.getCalendarDataByUserId(dto.getMb_id());
+       model.addAttribute("calendarData", calendarData);
+       return "redirect:/daily";
+   }
 	
    }

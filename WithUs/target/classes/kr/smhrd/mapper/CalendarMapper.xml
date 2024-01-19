@@ -9,4 +9,8 @@ values(#{mb_id},#{cal_title},'test',#{cal_start},#{cal_end},'on')
 
  <!-- INSERT INTO TB_CALENDAR(CAL_TITLE,CAL_CONTENT,STARTED_AT,ENDED_AT,CAL_COLOR,CAL_IMPORTANCE,USER_ID,CLASS_IDX) 
       VALUES(#{CAL_TITLE},'안녕하세요',#{STARTED_AT},#{ENDED_AT},'보라색','0','JHJ3',2) -->
+      
+<select id="getCalendarDataByUserId" resultType="kr.smhrd.entity.Calendar">
+ select * from calendars where mb_id =#{mb_id}
+ </select>
 </mapper>
