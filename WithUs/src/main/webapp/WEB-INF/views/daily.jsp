@@ -207,32 +207,40 @@ html, body {
           calendar.unselect()
         },
         //데이터 가져오는 이벤트
-        eventSources:[
-          {
-            events: async function (info, successCallback, failureCallback) {
-          const eventResult = await axios({
-            method: "GET",
-            url: "/eventData",
-          });
-          const eventData = eventResult.data;
-          //이벤트에 넣을 배열 선언하기
-          const eventArray = [];
-          eventData.forEach((res) => {
-            eventArray.push({
-              title: res.title,
-              start: res.start,
-              end: res.end,
-              backgroundColor: res.backgroundColor,
-            });
-          });
+       eventSources: [
+  {
+    events: function (info, successCallback, failureCallback) {
+      $.ajax({
+        method: "GET",
+        url: "/eventData",
+        success: function (data) {
+        	if(data&&data.length>0){
+          const eventArray = data.map(res => ({
+            title: res.title,
+            start: res.start,
+            end: res.end,
+            backgroundColor: res.backgroundColor,
+          }));
           successCallback(eventArray);
+        	}else{
+        		alert('이벤트 데이터가 없습니다')
+        	}
         },
-          },
-            {
-              googleCalendarId : 'ko.south_korea.official#holiday@group.v.calendar.google.com',
-              backgroundColor: 'red',
-            }
-        ]
+        error: function (error) {
+          console.error("Error fetching event data:", error);
+          // 적절한 사용자 피드백 제공
+          alert('이벤트 데이터를 불러오는 데 실패했습니다. 관리자에게 문의하세요.');
+
+          failureCallback(error);
+        }
+      });
+    },
+  },
+  {
+    googleCalendarId: 'ko.south_korea.official#holiday@group.v.calendar.google.com',
+    backgroundColor: 'red',
+  }
+]
       });
 
       //모달창 이벤트
@@ -264,6 +272,7 @@ html, body {
               $("#color").val("");
             }
           });
+      
       // 캘린더 랜더링
       calendar.render();
      

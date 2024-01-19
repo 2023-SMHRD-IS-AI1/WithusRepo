@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
 
@@ -32,6 +33,7 @@ import kr.smhrd.entity.Member;
 import kr.smhrd.mapper.CalendarMapper;
 import kr.smhrd.mapper.MemberMapper;
 
+@RestController
 @Controller
 public class CalendarController {
    
@@ -71,10 +73,12 @@ public class CalendarController {
    }
    // 사용자 아이디를 기반으로 달력 데이터를 가져와서 모델에 추가
    @GetMapping("/eventData")
+   @ResponseBody
    public String getEventData(Model model) {
-	   List<Calendar> calendarData = calMapper.getCalendarDataByUserId(dto.getMb_id());
+	   List<Calendar> calendarData = calMapper.getCalendar(dto.getMb_id());
        model.addAttribute("calendarData", calendarData);
-       return "redirect:/daily";
+       System.out.println("calendarData:"+calendarData);
+       return "calendarData";
    }
 	
    }
