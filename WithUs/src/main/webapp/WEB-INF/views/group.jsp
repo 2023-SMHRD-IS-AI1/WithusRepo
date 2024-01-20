@@ -7,7 +7,7 @@
 <%@page import="kr.smhrd.entity.Member"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
@@ -32,8 +32,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="resources/assets/css/reset.css" />
-	<link rel="stylesheet"  href="resources/assets/css/groups.css" />
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+   <link rel="stylesheet"  href="resources/assets/css/groups.css" />
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <style>
     #p_img{
@@ -87,18 +87,18 @@
 </style>
 </head>
 <body>
-	<%@ include file="./nav.jsp" %>
+   <%@ include file="./nav.jsp" %>
      <div id="mainImg"></div>
     <!-- mainImg end -->
    
   <% 
-  	List<Board> boardList = (List<Board>)request.getAttribute("boardList");
-	
-	Member memPro = (Member)session.getAttribute("memPro");
-	
-	Object mb_age = session.getAttribute("mb_age");
-	System.out.println(boardList.size());
-	List<Integer> ageList = (List<Integer>)session.getAttribute("ageList");
+     List<Board> boardList = (List<Board>)request.getAttribute("boardList");
+   
+   Member memPro = (Member)session.getAttribute("memPro");
+   
+   Object mb_age = session.getAttribute("mb_age");
+   System.out.println(boardList.size());
+   List<Integer> ageList = (List<Integer>)session.getAttribute("ageList");
   
   %> 
    
@@ -121,17 +121,17 @@
       <div id="travler">
       
       <% if(loginMember != null){ 
-      		if(profiles.size() >= 5){
-      			for (int i=0;i<5; i++){%>
-      				<div class="travlerCard">
-      	          <div class="travlerCardImg"></div>
-      	          <div class="travlerNick"><%=profiles.get(i).getMb_nick() %></div>
-      	          <div class="travlerAge">나이 : <%=ageList.get(i) %></div>
-      	          <button type="button" class="followbtn" onclick="toggleFollow('<%=loginMember.getMb_id() %>','<%=profiles.get(i).getMb_id() %>', this)">팔로우</button>
-      	        </div>
-      		  <%}
-      		}else if(profiles.size() == 0){%>
-      			<div class="travlerCard">
+            if(profiles.size() >= 5){
+               for (int i=0;i<5; i++){%>
+                  <div class="travlerCard">
+                   <div class="travlerCardImg"></div>
+                   <div class="travlerNick"><%=profiles.get(i).getMb_nick() %></div>
+                   <div class="travlerAge">나이 : <%=ageList.get(i) %></div>
+                   <button type="button" class="followbtn" onclick="toggleFollow('<%=loginMember.getMb_id() %>','<%=profiles.get(i).getMb_id() %>', this)">팔로우</button>
+                 </div>
+              <%}
+            }else if(profiles.size() == 0){%>
+               <div class="travlerCard">
           <div class="travlerCardImg"></div>
           <div class="travlerNick">USER</div>
           <div class="travlerAge">20대</div>
@@ -161,19 +161,19 @@
           <div class="travlerAge">20대</div>
           <button type="button">팔로우</button>
         </div>
-      		<%}else{
-      			for (int i=0;i<profiles.size(); i++){%>	
-      			<div class="travlerCard">
-      	          <div class="travlerCardImg"></div>
-      	          <div class="travlerNick"><%=profiles.get(i).getMb_nick() %></div>
-      	          <div class="travlerAge">나이 : <%=ageList.get(i) %></div>
-      	          <button type="button" class="followbtn" onclick="toggleFollow('<%=loginMember.getMb_id() %>','<%=profiles.get(i).getMb_id() %>', this)">팔로우</button>
-      	        </div>
-    	  	<%} 
-      		}%>
-    	  	
-      		
-		
+            <%}else{
+               for (int i=0;i<profiles.size(); i++){%>   
+               <div class="travlerCard">
+                   <div class="travlerCardImg"></div>
+                   <div class="travlerNick"><%=profiles.get(i).getMb_nick() %></div>
+                   <div class="travlerAge">나이 : <%=ageList.get(i) %></div>
+                   <button type="button" class="followbtn" onclick="toggleFollow('<%=loginMember.getMb_id() %>','<%=profiles.get(i).getMb_id() %>', this)">팔로우</button>
+                 </div>
+            <%} 
+            }%>
+            
+            
+      
       <%}else{ %>
         <div class="travlerCard">
           <div class="travlerCardImg"></div>
@@ -212,21 +212,21 @@
       <div id="reviewTitle">현재 모집중인 사람들!</div>
       <div id="reviews">
         <div id="writeBtn">
-        	<% if (loginMember == null){ %>
-        	
-        	<%}else{ %>
+           <% if (loginMember == null){ %>
+           
+           <%}else{ %>
           <a class="btn btn-primary" href="goGrwriter" role="button">글쓰기</a>
           <%} %>
         </div>
-		
-	<div class="group">
+      
+   <div class="group">
 
-		
+      
 
-		<%  for(int i =(boardList.size()-1); i>=0 ;i--){ %>
-			
-        	
-			
+      <%  for(int i =(boardList.size()-1); i>=0 ;i--){ %>
+         
+           
+         
           <div class="groupCard">
             <div class="groupCardTop">
               <div class="groupCardImg"></div>
@@ -238,58 +238,58 @@
                 </a>
             
 
-              </div>	
+              </div>   
             </div>
             <div class="groupCardBottom"><a href="goGrcon?comp_idx=<%=boardList.get(i).getComp_idx() %>">
               <div class="groupCount">모집 인원 : <%= boardList.get(i).getComp_members() %></div>
               <div class="groupDesc"><%= boardList.get(i).getComp_content() %></div></a>
               <button type="button">신청</button>
-	
-	 <% if (loginMember != null && !loginMember.getMb_id().equals(boardList.get(i).getMb_id())) { %>
+   
+    <% if (loginMember != null && !loginMember.getMb_id().equals(boardList.get(i).getMb_id())) { %>
           <a href="chat.action" class="oneChat">1:1대화</a>
           <%}%>
-	
+   
             </div>
          </div>
              
             <% } %>
           </div>
  
- 			<!-- Modal -->
-		<!-- <div class="modal fade" id="profil" data-bs-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel"
-				 aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h1 class="modal-title fs-5" id="staticBackdropLabel">프로필</h1>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
+          <!-- Modal -->
+      <!-- <div class="modal fade" id="profil" data-bs-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel"
+             aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">프로필</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
 
-					<div class="modal-body">
-						<div class="all">
-							<img src="resources/images/profil.png" id="p_img">
-							<div id="p_con">
-								<p>팔로우 : <span>200</span> &nbsp;&nbsp; 팔로잉 : <span>10</span></p>
-								<br>
-								<p>닉네임 : <span>닉네임</span></p>
-								<br>
-								<p>나이 : <span>24</span></p>
-								<br>
-								<p>MBTI : <span>MBTI</span></p>
+               <div class="modal-body">
+                  <div class="all">
+                     <img src="resources/images/profil.png" id="p_img">
+                     <div id="p_con">
+                        <p>팔로우 : <span>200</span> &nbsp;&nbsp; 팔로잉 : <span>10</span></p>
+                        <br>
+                        <p>닉네임 : <span>닉네임</span></p>
+                        <br>
+                        <p>나이 : <span>24</span></p>
+                        <br>
+                        <p>MBTI : <span>MBTI</span></p>
 
-							</div>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary fl_btn">팔로우</button>
-					</div>
-				</div>
-			</div>
-		</div>
- -->		
- 		
- 		
+                     </div>
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary fl_btn">팔로우</button>
+               </div>
+            </div>
+         </div>
+      </div>
+ -->      
+       
+       
       <!-- reviews end -->
       
     </div>

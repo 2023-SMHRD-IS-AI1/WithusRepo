@@ -67,12 +67,19 @@
          SELECT * FROM reviews
         WHERE review_idx = #{review_idx}
     </select>
-    
+   	
+   
+   	
+   
    
 <insert id="addComment" parameterType="kr.smhrd.entity.Comment">
     INSERT INTO comments (mb_id, cmt_content, created_at, review_idx)
     VALUES (#{mb_id}, #{cmt_content}, now(), #{review_idx} )
 </insert>
+
+
+
+
 
 <!-- 특정 리뷰의 댓글 목록 가져오기 -->
 <select id="getCommentsByReviewIndex" parameterType="Long" resultType="kr.smhrd.entity.Comment">
@@ -110,5 +117,30 @@
         review_region = #{review_region}
     WHERE review_idx = #{review_idx}
 </update>
-  
+
+
+	 <select id="getCompByIndex" resultType="kr.smhrd.entity.Board">
+         SELECT * FROM companions
+        WHERE comp_idx = #{comp_idx}
+    </select>
+
+	 <delete id="deleteComp" parameterType="Long">
+        DELETE FROM companions WHERE comp_idx = #{comp_idx}
+    </delete>
+    
+    
+
+<update id="updateComp" parameterType="kr.smhrd.entity.Board">
+    UPDATE companions
+    SET
+        comp_title = #{comp_title},
+        comp_content = #{comp_content},
+        comp_tourplace = #{comp_tourplace},
+        comp_members = #{comp_members}
+    WHERE comp_idx = #{comp_idx}
+</update>
+
+
+
+
 </mapper>
