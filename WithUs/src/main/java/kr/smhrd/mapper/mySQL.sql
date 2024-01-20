@@ -18,7 +18,10 @@ select * from comments;
 
 select * from reviewLike;
 
+select * from reports;
 commit;
+delete from reports where report_idx<10;
+
 
 ALTER TABLE members
 MODIFY COLUMN mb_comment VARCHAR(300) DEFAULT '입력 안됨';
@@ -142,6 +145,18 @@ create table following (
 	primary key(following_idx),
 	FOREIGN KEY(follower) REFERENCES members(mb_id)
 );
+
+create table reports (
+	report_idx int unsigned not null auto_increment,
+	reporter varchar(20) not null,
+	reportee varchar(20) not null,
+	report_content varchar(300) not null,
+	created_at datetime default now(),
+	primary key(report_idx),
+	FOREIGN KEY(reporter) REFERENCES members(mb_id)
+);
+-- 다중 신고 방지
+ALTER TABLE reports ADD UNIQUE unique_report (reporter, reportee);
 
 
 create table calendars (

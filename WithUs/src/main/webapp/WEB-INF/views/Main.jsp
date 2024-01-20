@@ -37,7 +37,7 @@
       <% 
     List<reviewBoard> reviewList = (List<reviewBoard>)request.getAttribute("reviewList");
 	if(reviewList != null){
-		System.out.println(reviewList.size());
+		System.out.println(reviewList.size());	
 	}
   %>   
     <div id="main">
@@ -121,5 +121,17 @@
     <!-- contain end -->
     <%@ include file="./F_chat.jsp" %>
     <footer></footer>
+	    <script>
+        window.onload = function() {
+            <% if (loginMember != null && session.getAttribute("reportWarning") != null) { %>
+                alert('<%= session.getAttribute("reportWarning") %>');
+                <% session.removeAttribute("reportWarning"); %>
+            <% } %>
+        };
+    </script>
+	
+
+    
+    
 </body>
 </html>
