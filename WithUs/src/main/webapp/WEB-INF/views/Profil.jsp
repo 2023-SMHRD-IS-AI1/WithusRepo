@@ -55,7 +55,10 @@
 				<%}else if(loginMember.getMb_id().equals(memPro.getMb_id())){ %>
 					<!-- 로그인한 사람과 프로필 사람이 동일할 때 --> 
 				<%}else{ %>
+					<!-- 팔로우 버튼 -->
 					<button type="button" id="followbtn" onclick="toggleFollow('<%=loginMember.getMb_id() %>','<%=memPro.getMb_id() %>')">팔로우</button>
+					
+					
 
 				<%} %>
 
@@ -79,10 +82,22 @@
 						<span>팔로잉</span><span class="followingCount"></span>
 					</div>
 				</div>
+				<div id="boxR">
 				
+<<<<<<< HEAD
 				<%@ include file="" %>
 				
+=======
+				<!-- 신고 버튼 -->
+					<form id="reportForm">
+					    <input type="hidden" id="reporter" name="reporter" value="<%=loginMember.getMb_id() %>">
+					    <input type="hidden" id="reportee" name="reportee" value="<%=memPro.getMb_id() %>">
+					    <textarea id="report_content" name="report_content" placeholder="신고 내용을 입력해주세요."></textarea>
+				    <button type="button" onclick="submitReport()">신고하기</button>
+					</form>
+>>>>>>> branch 'master' of https://github.com/2023-SMHRD-IS-AI1/WithusRepo.git
 				
+				</div>
 			</div>
 		</div>
 	</div>
@@ -134,7 +149,6 @@
             type: 'GET',
             success: function(followerData) {
                 // 팔로워 정보 처리
-                console.log(followerData)
                 document.getElementsByClassName('followerCount')[0].innerText = followerData.count;
             },
             error: function(error) {
@@ -156,6 +170,37 @@
             }
         });
     }
+    
+	// 신고 기능
+	function submitReport() {
+
+	    var formData = {
+	        reporter: document.getElementById('reporter').value,
+	        reportee: document.getElementById('reportee').value,
+	        report_content: document.getElementById('report_content').value
+	    };
+		
+	    $.ajax({
+	        type: "POST",
+	        url: "report",
+	        contentType: "application/json",
+	        data: JSON.stringify(formData),
+	        success: function(response) {
+	        	if (typeof response === 'number') {
+	                // 신고 횟수 처리
+	                console.log("신고 횟수: " + response);
+	            } else {
+	            }
+	            alert("신고가 접수되었습니다.");
+	        },
+	        error: function(error) {
+	            alert("이미 신고한 회원은 신고가 불가능합니다.");
+	        }
+	    });
+	}
+
+    
+    
     
     
     

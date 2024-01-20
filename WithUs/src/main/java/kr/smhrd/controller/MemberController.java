@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -35,6 +36,7 @@ import kr.smhrd.mapper.BoardMapper;
 import kr.smhrd.mapper.CalendarMapper;
 import kr.smhrd.mapper.MemberMapper;
 import kr.smhrd.mapper.MessageMapper;
+import kr.smhrd.mapper.ReportMapper;
 
 // POJO를 찾기위해 @(어노테이션)으로 Controller라고 명시해야 함
 // 어떤 패키지에서 Controller를 찾을 건지 servlet-context.xml 파일에도 명시해야 함
@@ -50,11 +52,14 @@ public class MemberController {
    @Autowired
    private BoardMapper boardMapper;
    
+   @Autowired
+   private ReportMapper reportMapper;
+   
    // @RequestMapping : get방식,post방식 요청을 다 받을 수 있음
    // @GetMapping : get방식 요청만 받을 수 있음
    // @PostMapping : post방식 요청만 받을 수 있음
    
-   
+   // 메인으로 이동
    @RequestMapping("/")
    public String main(Model model) {
 	   List<reviewBoard> reviewList = boardMapper.getAllReview();
@@ -64,7 +69,9 @@ public class MemberController {
       return "Main";
    }
    
+   // 메인으로 이동
    @RequestMapping("/goMain")
+
    public String goMain(Model model) {
 	   List<reviewBoard> reviewList = boardMapper.getAllReview();
 	   if (reviewList != null) {
@@ -73,6 +80,7 @@ public class MemberController {
       return "Main";
    }
    
+   // 로그인 화면으로 이동
    @RequestMapping("/goLogin")
    public String goLogin() {
       return "Login";
@@ -84,28 +92,32 @@ public class MemberController {
    public String goChat() {
       return "Chat";
    }
+   
+   // 회원가입화면으로 이동
    @RequestMapping("/goJoin")
    public String goJoin() {
       return "Join";
    }
 
-
-   
+   // 이건 뭘까 친구들 ??
    @RequestMapping("/goFollow")
    public String goFollow() {
       return "Follow";
    }
    
+   // 프로필 수정 화면으로 이동
    @RequestMapping("/goUserproinfo")
    public String goUserproinfo() {
       return "Userproinfo";
    }
-   
+
+   // 회원정보 수정 화면으로 이동
    @RequestMapping("/goUserinfo")
    public String goUserinfo() {
       return "Userinfo";
    }
    
+   // 일정 화면으로 이동
    @RequestMapping("/goDaily")
    public String goDaily() {
       return "daily";
@@ -133,19 +145,7 @@ public class MemberController {
 	   
 	   return "Profil";
    }
-   
-   // 추천 회원 가져오기
-//   @RequestMapping("/recommendMem")
-//   public void recommendMem(HttpSession session) {
-//	   
-//	   String mb_id = (String) session.getAttribute("mb_id");
-//	   
-//	   
-//	   
-//   }
-   
-   
-   
+      
    // 개인정보 변경
    @RequestMapping("/updateUserinfo")
    public String updateUserinfo(Member member, HttpSession session) {
@@ -207,9 +207,7 @@ public class MemberController {
 	   
 	   return "Userproinfo";
    }
-   
-   
-   
+
    
    // 회원가입
    @RequestMapping("/goResult")
@@ -236,7 +234,7 @@ public class MemberController {
    
    // 로그인
    @RequestMapping("/memberSelect")
-   public String memberSelect(Member member, HttpSession session) {
+   public String memberSelect(Member member, HttpSession session, Model model) {
       Member loginMember = memberMapper.memberSelect(member);
       
       session.setAttribute("loginMember", loginMember);
@@ -251,7 +249,27 @@ public class MemberController {
 
        int mb_age = Period.between(birthDate, currentDate).getYears(); // 나이 계산
        
-    // 추천 회원 가져오기
+       // 신고 횟수 확인
+       int reportCount = reportMapper.getReportCount(loginMember.getMb_id());
+       if (reportCount >= 5) {
+    	   // 5회 이상 신고된 경우, 사용자에게 알림 메시지를 보내고 특정 페이지로 리디렉션
+    	   session.setAttribute("reportWarning", "경고 5회 누적으로 사용에 제한이 되었습니다.");
+           return "restricted"; // 'restricted' 페이지로 리디렉션
+          
+       }else if(reportCount >= 3) {
+    	   // 경고 메시지 세션에 저장
+           session.setAttribute("reportWarning", "신고가 3회가 되셨습니다 신고가 5회 누적될 시 이용에 제한이 있을 수 있습니다.");
+       }
+    	   
+       
+       
+       // 리뷰 목록 가져오기
+       List<reviewBoard> reviewList = boardMapper.getAllReview();
+       if (reviewList != null) {
+           model.addAttribute("reviewList", reviewList);
+       }
+     
+       // 추천 회원 가져오기
        String mb_id = loginMember.getMb_id();
        List<String> recommendMem = memberMapper.getrecommendMem(mb_id);
  	   
@@ -274,7 +292,7 @@ public class MemberController {
        return "Main";
       
       }else {
-         return "Login";
+         return "redirect:/login";
          
       }
       

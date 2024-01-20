@@ -39,7 +39,7 @@
       <% 
     List<reviewBoard> reviewList = (List<reviewBoard>)request.getAttribute("reviewList");
 	if(reviewList != null){
-		System.out.println(reviewList.size());
+		System.out.println(reviewList.size());	
 	}
   %>   
     <div id="main">
@@ -50,23 +50,38 @@
         <p>With Us!</p>
       </div>
     </div>
+<<<<<<< HEAD
 	
 	
    	
  
+=======
+    
+
+>>>>>>> branch 'master' of https://github.com/2023-SMHRD-IS-AI1/WithusRepo.git
     <!-- mainImg end -->
     <div id="contain">
+<<<<<<< HEAD
 
 					 <%@ include file="./Frequency.jsp" %>
+=======
+    <div>
+		</div>
+>>>>>>> branch 'master' of https://github.com/2023-SMHRD-IS-AI1/WithusRepo.git
       <div id="reviewTitle">With Us와 함께하는 여행자들의 생생한 후기</div>
       <div id="writeBtn">
         <a class="btn btn-primary" href="goReview" role="button">더보기</a>
       </div>
+<<<<<<< HEAD
       	
       	
       	
       	
       	
+=======
+		
+     
+>>>>>>> branch 'master' of https://github.com/2023-SMHRD-IS-AI1/WithusRepo.git
       <div id="reviews">
       <%if(reviewList != null && reviewList.size() > 6){ %>
       <%for(int i =0; i<6;i++){ %>
@@ -133,5 +148,17 @@
     <!-- contain end -->
     <%@ include file="./F_chat.jsp" %>
     <footer></footer>
+	    <script>
+        window.onload = function() {
+            <% if (loginMember != null && session.getAttribute("reportWarning") != null) { %>
+                alert('<%= session.getAttribute("reportWarning") %>');
+                <% session.removeAttribute("reportWarning"); %>
+            <% } %>
+        };
+    </script>
+	
+
+    
+    
 </body>
 </html>
