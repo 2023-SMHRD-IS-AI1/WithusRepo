@@ -48,13 +48,18 @@
         <p>With Us!</p>
       </div>
     </div>
+    
+
     <!-- mainImg end -->
     <div id="contain">
+    <div>
+		</div>
       <div id="reviewTitle">With Us와 함께하는 여행자들의 생생한 후기</div>
       <div id="writeBtn">
         <a class="btn btn-primary" href="goReview" role="button">더보기</a>
       </div>
-      
+		
+     
       <div id="reviews">
       <%if(reviewList != null && reviewList.size() > 6){ %>
       <%for(int i =0; i<6;i++){ %>

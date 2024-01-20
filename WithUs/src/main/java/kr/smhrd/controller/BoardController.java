@@ -40,21 +40,7 @@ public class BoardController {
 	  int maxSize = 1024 * 1024 * 10 ; // 10MB
       String enc = "UTF-8";
       DefaultFileRenamePolicy dftrp = new DefaultFileRenamePolicy(); 
-	  
-//      private String comp_idx;
-//  	private String mb_id;
-//  	private String mb_nick;
-//  	private String mb_age;
-//  	private String comp_title;
-//  	private String comp_members;
-//  	private String comp_content;
-//  	private LocalDateTime created_at;
-//  	private String comp_tourplace;
-//  	private String comp_start;
-//  	private String comp_end;
-//  	private String comp_img;
-      
-      
+
       try {
 		multi = new MultipartRequest(request, savePath, maxSize, enc, dftrp);
 		String mb_id = multi.getParameter("mb_id");
