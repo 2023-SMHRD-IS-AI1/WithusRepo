@@ -17,3 +17,5 @@ W
 'src/main/webapp/WEB-INF/views/chats.jsp,0\1\0113221392cdce53b5114b9b7124f0fb34ead54b
 a
 1src/main/java/kr/smhrd/controller/ChatServer.java,0\6\060d65fe96f582d4644d081d352f2eeb074abf17
+]
+-src/main/webapp/resources/assets/css/chat.css,6\f\6fdf300ad564646e6d957f35ad8d44c03e405fd4

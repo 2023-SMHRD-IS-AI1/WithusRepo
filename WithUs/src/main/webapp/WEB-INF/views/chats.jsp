@@ -66,7 +66,7 @@
 	<div id="chatBox">
 		<ul id="chatList">
 			<li class="chatRoom" id="room10">
-				<div class="chatImg"></div>
+				<div class="chatImg"><img src="resources/images/user.png"></div>
 				<div class="chatCon">
 					<input type="hidden" readonly value="10">
 					<span class="chatTitle">강원도 여행</span> <span class="count">5</span>
@@ -81,7 +81,7 @@
 				</div>
 			</li>
 			<li class="chatRoom" id="room120">
-				<div class="chatImg"></div>
+				<div class="chatImg"><img src="resources/images/user3.jpg"></div>
 				<div class="chatCon">
 					<span class="chatTitle">충청도 여행</span> <span class="count">5</span>
 					<p class="chat">방설명</p>
@@ -89,6 +89,18 @@
 			</li>
 		</ul>
 		<ul id="chatting">
+			<li class="you">
+			<span class="chatImg"><img src="resources/images/user.png"></span>
+				<span class="chatNick">반장</span>
+			<span class="talk">식당은 어디로 갈까요?</span>
+			<span class="chatDate">08:32</span>
+			</li>
+			<li class="you">
+				<span class="chatImg"><img src="resources/images/user3.jpg"></span>
+				<span class="chatNick">유리</span>
+				<span class="talk">삼겹살 먹으러가요!</span>
+				<span class="chatDate">08:35</span>
+			</li>
 		</ul>
 		<textarea class="form-control" aria-label="With textarea" id="msg"> </textarea>
 		<button onclick="sendMessage()" type="submit" class="submitBtn">전송</button>
@@ -99,46 +111,75 @@
     let ws
     let userNickname = '<%=loginMember.getMb_nick()%>';
     let isAlreadyJoined = false;
-    let currentRoomId = null;
+
+    $('#chatting > li').hide();
 
     // 로그인 전 메세지 입력 창 비활성화
     $('#msg').attr('disabled', true);
 
     // 채팅 리스트 클릭 시 함수
-    $('.chatRoom').click(function () {
+    $('.chatRoom:nth-of-type(1)').click(function () {
+        $('#chatting > li').show();
         // 방식별자를 가져오기
         var room_idx = $(this).attr('id').replace('room', '');
 
         // 현재 선택한 채팅방과 클릭한 채팅방이 다를 경우에만 처리
-        if (currentRoomId !== room_idx) {
-            currentRoomId = room_idx; // 현재 선택한 방 업데이트
-            clearChatHistory();
 
-            if (!isAlreadyJoined) {
-                // 소켓 연결
-                ws = new WebSocket(url + room_idx);
+        if (!isAlreadyJoined) {
+            // 소켓 연결
+            ws = new WebSocket(url + room_idx);
 
-                // 데이터수신
-                ws.onmessage = onMessage;
+            // 데이터수신
+            ws.onmessage = onMessage;
 
-                ws.onerror = onError;
+            ws.onerror = onError;
 
-                ws.onopen = function () {
-                    $('#chatting').append(
-                        $('<li>')
-                            .text("'" + userNickname + "' 님이 입장했습니다.")
-                            .addClass('userCome')
-                    );
-                    // 서버로 데이터 전송
-                    ws.send('1#' + userNickname + '#');
-                    // 채팅창 요소들 속성 변경
-                    $('.chatRoom').attr('disabled', true);
-                    $('#msg').attr('disabled', false);
-                    $('#msg').focus();
-                }
-                isAlreadyJoined = true;
+            ws.onopen = function () {
+                // $('#chatting').append(
+                //     $('<li>')
+                //         .text("'" + userNickname + "' 님이 입장했습니다.")
+                //         .addClass('userCome')
+                // );
+                // 서버로 데이터 전송
+                ws.send('1#' + userNickname + '#');
+                // 채팅창 요소들 속성 변경
+                $('.chatRoom').attr('disabled', true);
+                $('#msg').attr('disabled', false);
+                $('#msg').focus();
             }
+            isAlreadyJoined = true;
         }
+    });
+
+    // 채팅 리스트 클릭 시 함수
+    $('.chatRoom:nth-of-type(2)').click(function () {
+        $('#chatting > li').hide();
+        // 방식별자를 가져오기
+        var room_idx = $(this).attr('id').replace('room', '');
+
+        // 현재 선택한 채팅방과 클릭한 채팅방이 다를 경우에만 처리
+
+            // 소켓 연결
+            ws = new WebSocket(url + room_idx);
+
+            // 데이터수신
+            ws.onmessage = onMessage;
+
+            ws.onerror = onError;
+
+            ws.onopen = function () {
+                $('#chatting').append(
+                    $('<li>')
+                        .text("'" + userNickname + "' 님이 입장했습니다.")
+                        .addClass('userCome')
+                );
+                // 서버로 데이터 전송
+                ws.send('1#' + userNickname + '#');
+                // 채팅창 요소들 속성 변경
+                $('.chatRoom').attr('disabled', true);
+                $('#msg').attr('disabled', false);
+                $('#msg').focus();
+            }
     });
 
     // 메세지 전송 및 아이디

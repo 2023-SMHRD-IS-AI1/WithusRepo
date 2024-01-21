@@ -12,7 +12,7 @@ import kr.smhrd.entity.reviewBoard;
 
 @Mapper
 public interface BoardMapper {
-	
+
 	// 모집글 작성
 	public void boardWirte(Board board);
 
@@ -23,44 +23,66 @@ public interface BoardMapper {
 	public List<reviewBoard> getAllReview();
 
 	// 페이징을 위한 추가된 메서드
-    List<reviewBoard> getAllReviewWithPagination(@Param("offset") int offset, @Param("size") int size);
+	List<reviewBoard> getAllReviewWithPagination(@Param("offset") int offset, @Param("size") int size);
 
-    // 리뷰의 총 갯수를 가져오는 메서드
-    int getReviewCount();
-    
-    // 페이징을 위한 추가된 메서드
-    List<Board> getAllRecruitingWithPagination(@Param("offset") int offset, @Param("size") int size);
+	// 리뷰의 총 갯수를 가져오는 메서드
+	int getReviewCount();
 
-    // 모집 중인 사람들의 총 갯수를 가져오는 메서드
-    int getRecruitingCount();
-    
-    // 게시물 상세 페이지
+	// 페이징을 위한 추가된 메서드
+	List<Board> getAllRecruitingWithPagination(@Param("offset") int offset, @Param("size") int size);
+
+	// 모집 중인 사람들의 총 갯수를 가져오는 메서드
+	int getRecruitingCount();
+
+	// 게시물 상세 페이지
 	public reviewBoard getReviewByIndex(Long review_idx);
-	
+
 	// 댓글 추가
 	void addComment(Comment comment);
-	
+
+	// 모집 댓글 추가
+	void graddComment(Comment comment);
+
 	List<Comment> getCommentsByReviewIndex(Long review_idx);
 
 	public Comment getCommentById(Long cmt_idx);
-	
+
 	// 댓글 삭제
 	public void deleteComment(@Param("cmt_idx") Long cmt_idx);
-	
+//
+//	// 모집 댓글 삭제
+//	public void grdeleteComment(@Param("cmt_idx") Long cmt_idx);
+//
 	// 댓글 수정
 	public void updateComment(Comment comment);
-	
+//
+//	// 모집 댓글 수정
+//	public void grupdateComment(Comment comment);
+//
 	// 리뷰 게시물 삭제
 	public void deleteReview(Long review_idx);
 
-    // 리뷰 게시물 수정
-    void updateReview(reviewBoard review);
-
-	
 	// 리뷰 게시물 수정
-
-
+	void updateReview(reviewBoard review);
+//
+//	// 모집 게시물 수정
+//	public void updateBoard(Board board);
+//
+//	//
+//	public Board getCompByIndex(Long comp_idx);
+//
+//	public List<Comment> getCommentsByBoardIndex(Long comp_idx);
 	
+	// 모집 번호 게시판 
+	public Board getCompByIndex(Long comp_idx);
+	
+	// 모집 수정
+	public void updateComp(Board board);
+	
+	// 모집 삭제
+	public void deleteComp(Long comp_idx);
+
+
 
 //	public int insertBoard(Board board);
 //
@@ -69,10 +91,5 @@ public interface BoardMapper {
 //	public Board boardContent(int idx);
 //
 //	public int boardDelete(int idx);
-	
-	
-	
-	
-	
-	
+
 }

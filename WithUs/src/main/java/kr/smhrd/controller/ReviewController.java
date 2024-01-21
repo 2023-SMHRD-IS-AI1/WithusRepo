@@ -96,7 +96,7 @@ public class ReviewController {
             // 예외가 발생한 경우, 오류 메시지와 함께 리뷰 수정 폼으로 이동
             model.addAttribute("error", "리뷰 수정 중 오류가 발생했습니다: " + e.getMessage());
             model.addAttribute("review", review); // 수정 폼에 이전에 입력한 데이터를 다시 보여주기 위해 모델에 추가
-            return "re_wr_modify";
+            return "goRecon";
         }
     }
 

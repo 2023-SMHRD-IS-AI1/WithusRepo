@@ -84,6 +84,10 @@
 				</div>
 				<div id="boxR">
 				
+<<<<<<< HEAD
+				<%@ include file="" %>
+				
+=======
 				<!-- 신고 버튼 -->
 					<form id="reportForm">
 					    <input type="hidden" id="reporter" name="reporter" value="<%=loginMember.getMb_id() %>">
@@ -91,6 +95,7 @@
 					    <textarea id="report_content" name="report_content" placeholder="신고 내용을 입력해주세요."></textarea>
 				    <button type="button" onclick="submitReport()">신고하기</button>
 					</form>
+>>>>>>> branch 'master' of https://github.com/2023-SMHRD-IS-AI1/WithusRepo.git
 				
 				</div>
 			</div>
