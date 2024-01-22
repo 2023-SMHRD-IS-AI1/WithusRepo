@@ -306,12 +306,12 @@
 				<div id="revInfo">
 					<div>
 						<span id="userImg"></span>
-						<ul id="userIn">
-							<li><span id="userId">${board.mb_id}</span></li>
-							<li><span id="userNick">${board.mb_nick}</span></li>
-						</ul>
+					
+							<span id="userId">${board.mb_id}</span>
+							
+						
 					</div>
-					<span id="trtime">${board.created_at.format(DateTimeFormatter.ofPattern("yyyy.MM.dd"))}</span>
+					<span>${board.created_at.format(DateTimeFormatter.ofPattern("yyyy.MM.dd"))}</span>
 				</div>
 			</div>
 			<div id="revContent">
