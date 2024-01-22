@@ -222,11 +222,7 @@ html, body {
                     },
                     
                   ],
-                  
-                  
                 });
-                
-                
                 
                 // 캘린더 랜더링
                 calendar.render();
