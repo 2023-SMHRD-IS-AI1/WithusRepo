@@ -84,5 +84,23 @@ public class CalendarController {
        return calendarData;
    }
    
+ 
+   @PostMapping("/eventSave")
+   @ResponseBody
+   public String eventSave(@RequestBody Calendar eventData, @RequestBody String params) {
+       // eventData를 이용하여 데이터베이스에 저장하는 로직을 구현
+       // 여기서는 간단하게 콘솔에 로그를 출력하는 예시를 보여줍니다.
+       System.out.println("Received Event Data: " + eventData);
+       System.out.println(params);
+       
+       Calendar[] arr = new Gson().fromJson(params, Calendar[].class);
+       for(int i=0; i<arr.length; i++) {
+    	   dto = arr[i];
+           calMapper.insertCalendar(dto);
+       }
+
+       // 성공 또는 실패 여부를 클라이언트에게 응답
+       return "Event saved successfully";
+   }
    
 }

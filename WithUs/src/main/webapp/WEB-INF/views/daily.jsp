@@ -228,7 +228,7 @@ html, body {
                 calendar.render();
                 
                 
-                
+               
                 //모달창 이벤트
                 $("#saveChanges").on("click", function () {
                   var eventData = {
@@ -237,6 +237,8 @@ html, body {
                     end: $("#end").val(),
                    // color: $("#color").val(),
                   };
+                  
+                
                   //빈값입력시 오류
                   if (
                     eventData.title == "" ||

@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="resources/assets/css/F_chat.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/F_chat.css" />
 <title>Insert title here</title>
 </head>
 
 <body>
 	
 	<% if (loginMember != null){ %>
-	<a href="chat.action" id="chat"><img src="resources/images/chat.png" alt="" /></a>
+	<a href="chat.action" id="chat"><img src="${pageContext.request.contextPath}/resources/images/chat.png" alt="" /></a>
 	 <%}else {%>
 	 
 	 <%} %>

@@ -34,7 +34,7 @@
     <!-- mainImg end -->
    
     <div id="contain">
-       <h1 id ="m_title">리뷰 수정</h1>
+       <h1 id ="m_title">리뷰 글쓰기</h1>
       <form id = "m_content" action="Writereview" method="post" enctype="multipart/form-data">
         <div class="input-group">
           <span class="input-group-text">제목</span>

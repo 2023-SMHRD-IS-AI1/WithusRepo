@@ -95,6 +95,20 @@
         SET cmt_content = #{cmt_content}
         WHERE cmt_idx = #{cmt_idx}
     </update>
+	
+	 <delete id="deleteReview" parameterType="Long">
+        DELETE FROM reviews WHERE review_idx = #{review_idx}
+    </delete>
+    
+    
 
+<update id="updateReview" parameterType="kr.smhrd.entity.reviewBoard">
+    UPDATE reviews
+    SET
+        review_title = #{review_title},
+        review_content = #{review_content},
+        review_region = #{review_region}
+    WHERE review_idx = #{review_idx}
+</update>
   
 </mapper>

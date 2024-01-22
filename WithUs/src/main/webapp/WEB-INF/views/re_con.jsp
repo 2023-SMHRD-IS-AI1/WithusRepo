@@ -29,7 +29,11 @@
     <link rel="stylesheet" href="resources/assets/css/reset.css" />
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+     
+	
 <style>
+
 
 	#dele{
 	
@@ -67,6 +71,17 @@
             color: red;
             cursor: pointer;
         }
+        
+        #p_bodays{
+        
+        	height: 490px;
+        
+        }
+        
+        #f_btn2{
+        	position: relative;
+        	left: 140px;
+        }
 </style>
 <body>
 	
@@ -82,39 +97,118 @@
 <div id="mainImg"></div>
 <!-- mainImg end -->
 <h1 id="title">리뷰</h1>
+
 <div id="del">
-    <a href="goRewrmodify"><p><i class="fa-solid fa-pencil"></i>수정</p></a>
-    <p data-bs-toggle="modal" data-bs-target="#dele"><i class="fa-solid fa-trash" ></i>삭제</p>
+  <%-- 리뷰 수정 및 삭제 버튼 --%>
+<%
+    if (loginMember != null && loginMember.getMb_id() != null && loginMember.getMb_id().equals(review.getMb_id())) {
+%>
+    <!-- 리뷰 수정 링크 -->
+   <%-- <a href="${pageContext.request.contextPath}/gorewrModify/${review.getReview_idx()}"> --%>
+                <p data-bs-toggle="modal" data-bs-target="#updateReviewModal"><i class="fa-solid fa-pencil"></i>수정</p>
+           <!--  </a> -->
+    <!-- 리뷰 삭제 모달 -->
+    <p  data-bs-toggle="modal" data-bs-target="#dele"><i class="fa-solid fa-trash"></i>삭제</p>
+<%
+    }
+%>
+</div>
+	<!-- 수정 폼 모달 -->
+<div class="modal fade" id="updateReviewModal" tabindex="-1" aria-labelledby="updateReviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateReviewModalLabel">리뷰 수정</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="p_bodays">
+                <!-- 수정 폼 내용 -->
+                <form id="updateReviewForm" action="${pageContext.request.contextPath}/updateReview" method="post">
+                    <input type="hidden" name="review_idx" value="${review.getReview_idx()}" />
+                    <div class="mb-3">
+                        <label for="updatedTitle" class="form-label">제목</label>
+                        <input type="text" class="form-control" id="updatedTitle" name="review_title"
+                               value="${review.getReview_title()}" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="updatedContent" class="form-label">내용</label>
+                        <textarea class="form-control" id="updatedContent" name="review_content"
+                                  rows="5" required>${review.getReview_content()}</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="updatedRegion" class="form-label">지역</label>
+                        <textarea class="form-control" id="updatedRegion" name="review_region"
+                                  rows="5" required>${review.getReview_region()}</textarea>
+                    </div>
+                    <div id="f_btn2">
+                    <button type="button" class="btn btn-primary" onclick="submitUpdateReview()">수정 완료</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                	</div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
-	<!-- Modal -->
-	<div class="modal fade" id="dele" data-bs-backdrop="static"  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    	<div class="modal-dialog">
-	      <div class="modal-content">
-	        <div class="modal-header">
-	          <h1 class="modal-title fs-5" id="staticBackdropLabel">삭제</h1>
-	          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-	        </div>	      
-		        <div class="modal-body" id="del_body">
-		         진짜 삭제 하시겠습니까?
-	            </div>
-	        </div>
-        <div class="modal-footer" id = "del_fot">
-          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-          <button type="button" class="btn btn-danger fl_btn del1">예</button>
-          <button type="button" class="btn btn-primary fl_btn del2">아니오</button>
-    	</div>
-  	</div>
-  </div>
-<!-- 삭제 모달  -->
+<script type="text/javascript">
+    function submitUpdateReview() {
+        // 리뷰 수정 폼을 서버로 제출
+        var review_idx = "${review.getReview_idx()}";
+        var updatedTitle = $("#updatedTitle").val();
+        var updatedContent = $("#updatedContent").val();
+        var updatedRegion = $("#updatedRegion").val();
+
+        // AJAX를 사용하여 비동기적으로 수정 내용을 서버로 전송
+        $.ajax({
+            type: "POST",
+            url: "${pageContext.request.contextPath}/updateReview",
+            data: {
+                review_idx: review_idx,
+                review_title: updatedTitle,
+                review_content: updatedContent,
+                review_region: updatedRegion
+            },
+            success: function (response) {
+                // 서버에서 성공적으로 응답이 오면
+                // 새로운 리뷰 내용을 화면에 즉시 반영
+                // 이 부분은 필요에 따라서 페이지 전체를 다시 로드하거나, 특정 부분만 업데이트할 수 있습니다.
+                location.reload(); // 페이지 전체 다시 로드
+            },
+            error: function (xhr, status, error) {
+                console.error("Error updating review:", error);
+            }
+        });
+    }
+</script>
+	
+	
+	
+<!-- 삭제 Modal -->
+<div class="modal fade" id="dele" data-bs-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">삭제</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="del_body">
+                진짜 삭제 하시겠습니까?
+            </div>
+            <div class="modal-footer" id="del_fot">
+             <form action="${pageContext.request.contextPath}/deleteReview" method="post" id="deleteForm">
+    <input type="hidden" name="review_idx" value="${review.getReview_idx()}" />
+    <button type="button" class="btn btn-danger fl_btn delete" onclick="confirmDelete()">예</button>
+    <button type="button" class="btn btn-primary fl_btn del2" data-bs-dismiss="modal">아니오</button>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
-    // 삭제 버튼 클릭 시 이벤트 처리
-    $('#confirmDeleteBtn').on('click', function() {
-        // 여기에 삭제 동작을 수행하는 JavaScript 코드 추가
-        // 예를 들어, AJAX를 사용하여 서버에 삭제 요청을 보낼 수 있습니다.
-        // 삭제가 완료되면 모달을 닫을 수 있습니다.
-        $('#deleteModal').modal('hide');
-    });
+    function confirmDelete() {
+        document.getElementById('deleteForm').submit();
+    }
 </script>
 <div id="contain">
         <div id="revBox">
@@ -174,7 +268,7 @@
                             <div class="commentDate">
                                 <%-- 댓글 작성자일 경우에만 수정 및 삭제 버튼 표시 --%>
                                 <% if (loginMember.getMb_id().equals(comment.getMb_id())) { %>
-                                    <button class="updateCommentBtn" onclick="showUpdateCommentForm('<%= comment.getCmt_idx() %>', '<%= comment.getCmt_content() %>')">수정</button>
+                                    <button class="updateCommentBtn" data-bs-toggle="modal" data-bs-target="#updateCommentModal" onclick="showUpdateCommentForm(<%= comment.getCmt_idx()%>)">수정</button>
                                     <form action="${pageContext.request.contextPath}/deleteComment" method="post">
                                         <input type="hidden" name="cmt_idx" value="<%= comment.getCmt_idx()%>" />
                                         <input type="hidden" name="review_idx" value="${review.getReview_idx()}" />
@@ -198,7 +292,7 @@
         </div>
     </div>
 
-    <!-- 수정 폼 모달 -->
+   <!-- 수정 폼 모달 -->
     <div class="modal fade" id="updateCommentModal" tabindex="-1" aria-labelledby="updateCommentModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -215,22 +309,34 @@
                             <label for="updatedContent" class="form-label">댓글 내용</label>
                             <textarea class="form-control" id="updatedContent" name="updatedContent" rows="3"></textarea>
                         </div>
-                        <button type="button" class="btn btn-primary" onclick="submitUpdateComment()">수정 완료</button>
+                        <button class="updateCommentBtn"  onclick="submitUpdateComment()">수정</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    
+    
+
+
+
+
+
+  <script type="text/javascript">
+  </script>
  <script src="resources/assets/js/jquery.min.js"></script>
     <script type="text/javascript">
+
         $(document).ready(function () {
             // 좋아요 및 댓글 표시 여부 설정
             $("#full-heart").hide();
             $("#full-comments").hide();
-            $(".showComment").hide();
-            $(".commentList").hide();
-            
+
+
+            // 좋아요 버튼 클릭 시
+
+           
             <% if (review != null && loginMember != null) { %>
             var review_idx = <%= review.getReview_idx() %>;
             var mb_id = <%= loginMember.getMb_id() %>;
@@ -252,6 +358,7 @@
             });
         }
 /*             // 좋아요 버튼 클릭 시
+
             $("#normal-heart").click(() => {
                 $("#normal-heart").hide();
                 $("#full-heart").show();
@@ -284,6 +391,7 @@
                 });
             });
 
+
             // 좋아요 취소 버튼 클릭 시
             $("#full-heart").click(() => {
 
@@ -312,13 +420,8 @@
                 $(".commentList").show();
             });
 
-            // 댓글 감추기 버튼 클릭 시
-            $("#full-comments").click(() => {
-                $("#normal-comments").show();
-                $("#full-comments").hide();
-                $(".showComment").hide();
-                $(".commentList").hide();
-            });
+        
+
 
             // 댓글 등록 후 입력 필드 초기화
             $("#commentForm").on("submit", function () {
@@ -328,8 +431,11 @@
 
         // 댓글 수정을 위한 JavaScript 코드
         function showUpdateCommentForm(cmt_idx, existingContent) {
+        	console.log("cmt_idx: ", cmt_idx);
+            console.log("existingContent: ", existingContent)
             $("#cmt_idx_input").val(cmt_idx);
             $("#updatedContent").val(existingContent);
+            $("#review_idx_input").val(review_idx); // 리뷰 인덱스 추가
             $("#updateCommentModal").modal("show");
         }
 
@@ -337,7 +443,7 @@
             // 댓글 수정 폼을 서버로 제출
             var updatedContent = $("#updatedContent").val();
             var cmt_idx = $("#cmt_idx_input").val();
-            var review_idx = "${review.getReview_idx()}";
+            var review_idx = $("#review_idx_input").val(); // 리뷰 인덱스 가져오기
 
             // AJAX를 사용하여 비동기적으로 수정 내용을 서버로 전송
             $.ajax({

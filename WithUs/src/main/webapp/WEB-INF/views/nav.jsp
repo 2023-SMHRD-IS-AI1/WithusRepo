@@ -17,8 +17,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="resources/assets/css/reset.css" />
-     <link rel="stylesheet" href="resources/assets/css/nav.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/reset.css" />
+     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/nav.css" />
+
      <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <title>Insert title here</title>
@@ -89,30 +90,30 @@
 
 	  <header>
       <div id="logo">
-        <a href="goMain"><img src="resources/images/logo.png" alt="" /></a>
+        <a href="goMain"><img src="${pageContext.request.contextPath}/resources/images/logo.png" alt="" /></a>
       </div>
       <nav>
         <ul id="menu">
-          <li><a href="goMain">홈</a></li>
-          <li><a href="goGroup">커뮤니티</a></li>
+          <li><a href="${pageContext.request.contextPath}/goMain">홈</a></li>
+          <li><a href="${pageContext.request.contextPath}/goGroup">커뮤니티</a></li>
         </ul>
       </nav>
       <ul id="r_nav">
 
         <% if (loginMember == null){ %>
-        <li><a href="goLogin">로그인</a></li>
-        <li><a href="goJoin">회원가입</a></li>
+        <li><a href="${pageContext.request.contextPath}/goLogin">로그인</a></li>
+        <li><a href="${pageContext.request.contextPath}/goJoin">회원가입</a></li>
         <%}else {%>
         <li>
           <a data-bs-toggle="modal" data-bs-target="#mypmodal" onclick="openMyPmodal()"><i class="fa-solid fa-user"></i></a>
         </li>
         <li>
-        	<a href="goUserinfo"><i class="fa fa-cog" aria-hidden="true"></i></a>
+        	<a href="${pageContext.request.contextPath}/goUserinfo"><i class="fa fa-cog" aria-hidden="true"></i></a>
         </li>
         <li>
-          <a href="goDaily"><i class="fa-solid fa-calendar"></i></a>
+          <a href="${pageContext.request.contextPath}/goDaily"><i class="fa-solid fa-calendar"></i></a>
         </li>
-        <li><a href="goLogout">로그아웃</a></li>
+        <li><a href="${pageContext.request.contextPath}/goLogout">로그아웃</a></li>
         
         <%} %>
       </ul>

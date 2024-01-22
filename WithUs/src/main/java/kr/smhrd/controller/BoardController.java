@@ -215,7 +215,7 @@ public class BoardController {
    
    
    
-   // 게시글 업로드 기능
+   // 리뷰 업로드 기능
    @RequestMapping("/Writereview")
    public String Writereview(reviewBoard board,HttpServletRequest request) {
       
