@@ -95,7 +95,14 @@
 		request.setAttribute("review", review); // review 속성을 설정하여 JSP 페이지로 전달
 	}
 	%>
-
+	
+		<%
+		if (session.getAttribute("loginMember") == null) {
+		    response.sendRedirect("Main"); // 메인 페이지로 리디렉션
+		    return; // 이후의 코드 실행 방지
+		}
+		%>
+	
 	<%@ include file="./nav.jsp"%>
 	<div id="mainImg"></div>
 	<!-- mainImg end -->

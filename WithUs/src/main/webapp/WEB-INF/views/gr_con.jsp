@@ -77,7 +77,13 @@
 		request.setAttribute("board", board);
 	}
 	%>
-
+		
+		<%
+		if (session.getAttribute("loginMember") == null) {
+		    response.sendRedirect("Main"); // 메인 페이지로 리디렉션
+		    return; // 이후의 코드 실행 방지
+		}
+		%>
 
 	<%@ include file="./nav.jsp"%>
 	<div id="mainImg"></div>
