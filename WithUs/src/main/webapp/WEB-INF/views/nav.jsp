@@ -37,6 +37,8 @@
 
      #p_con{
         position: relative;
+        left: 350px;
+        bottom: 100px;
     }
 
     .modal-header{
@@ -61,8 +63,9 @@
     }
 
     .all{
-        position: relative;
-        bottom:15px;
+        position: absolute;
+        top : 2px;
+        bottom: 2px;
     }
     .modal-title{
         font-weight: bold;
