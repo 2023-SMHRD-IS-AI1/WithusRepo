@@ -37,8 +37,6 @@
 
      #p_con{
         position: relative;
-        left: 210px;
-        bottom: 105px;
     }
 
     .modal-header{

@@ -124,7 +124,7 @@
             if(profiles.size() >= 5){
                for (int i=0;i<5; i++){%>
                   <div class="travlerCard">
-                   <div class="travlerCardImg"></div>
+                   <img class="travlerCardImg" src="resources/pro_img/<%=profiles.get(i).getMb_proimg() %>">
                    <div class="travlerNick"><%=profiles.get(i).getMb_nick() %></div>
                    <div class="travlerAge">나이 : <%=ageList.get(i) %></div>
                    <button type="button" class="followbtn" onclick="toggleFollow('<%=loginMember.getMb_id() %>','<%=profiles.get(i).getMb_id() %>', this)">팔로우</button>
@@ -164,7 +164,7 @@
             <%}else{
                for (int i=0;i<profiles.size(); i++){%>   
                <div class="travlerCard">
-                   <div class="travlerCardImg"></div>
+                   <div><img class="travlerCardImg" src="resources/pro_img/<%=profiles.get(i).getMb_proimg() %>" ></div>
                    <div class="travlerNick"><%=profiles.get(i).getMb_nick() %></div>
                    <div class="travlerAge">나이 : <%=ageList.get(i) %></div>
                    <button type="button" class="followbtn" onclick="toggleFollow('<%=loginMember.getMb_id() %>','<%=profiles.get(i).getMb_id() %>', this)">팔로우</button>
@@ -229,7 +229,7 @@
          
           <div class="groupCard">
             <div class="groupCardTop">
-              <div class="groupCardImg"></div>
+              <div class="groupCardImg"><img class="groupCardImg" src="resources/images/여행자.png"></div>
               <div class="groupCardText">
               
                <% if (loginMember != null) { %>
