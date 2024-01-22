@@ -156,6 +156,10 @@
         window.onload = function() {
             <%if (loginMember != null && session.getAttribute("reportWarning") != null) {%>
                 alert('<%=session.getAttribute("reportWarning")%>
+<<<<<<< HEAD
+=======
+      ');
+>>>>>>> branch 'master' of https://github.com/2023-SMHRD-IS-AI1/WithusRepo.git
    <%session.removeAttribute("reportWarning");%>
       
    <%}%>
