@@ -38,13 +38,7 @@
     <!-- mainImg end -->
    
    <% int mb_age = (int)session.getAttribute("mb_age"); %>
-   
-   		<%
-		if (session.getAttribute("loginMember") == null) {
-		    response.sendRedirect("Main"); // 메인 페이지로 리디렉션
-		    return; // 이후의 코드 실행 방지
-		}
-		%>
+
    
     <div id="contain">
        <h1 id ="m_title">모집 글쓰기</h1>
