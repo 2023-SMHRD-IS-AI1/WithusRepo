@@ -31,7 +31,7 @@
         width: 150px;
         height: 150px;
         position: relative;
-        left: 35px;
+        left: 135px;
         top:40px;
     }
 
@@ -53,6 +53,7 @@
 
     .modal-body{
         height: 235px;
+        right : 100px;
         font-weight: bold;
     }
 
@@ -126,6 +127,7 @@
                 <!-- 외부 JSP 파일이 들어오는 부분 -->
                   <div class="modal-content">
         <div class="modal-header">
+        
           <h1 class="modal-title fs-5" id="staticBackdropLabel">프로필</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
@@ -133,7 +135,7 @@
         <div class="modal-body">
             <div class="all">
             <% if (loginMember != null){ %>
-          <img src="./resources/pro_img/<%=loginMember.getMb_proimg() %>" id="p_img">
+          <img src="resources/pro_img/<%=loginMember.getMb_proimg() %>" id="p_img">
             <div id="p_con">
                 <p>팔로우 : <span id="followerCount"></span> &nbsp;&nbsp; 팔로잉 : <span id="followingCount"></span> </p>
                 <br>

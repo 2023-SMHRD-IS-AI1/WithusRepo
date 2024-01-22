@@ -375,7 +375,7 @@
            
             <%if (review != null && loginMember != null) {%>
             var review_idx = <%=review.getReview_idx()%>;
-            var mb_id = <%=loginMember.getMb_id()%>;
+            var mb_id = "<%=loginMember.getMb_id()%>";
         <%} else {%>
 				
         <%}%>

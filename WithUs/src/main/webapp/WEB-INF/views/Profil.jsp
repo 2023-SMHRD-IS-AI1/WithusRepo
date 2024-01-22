@@ -76,16 +76,13 @@
 			<div id="boxR">
 				<div id="boxR_top">
 					<div id="follow">
-						<span>팔로우</span><span class="followerCount"></span>
+						<span>팔로우</span><span class="followingCount"></span>
 					</div>
 					<div id="following">
-						<span>팔로잉</span><span class="followingCount"></span>
+						<span>팔로잉</span><span class="followerCount"></span>
 					</div>
 				</div>
 				<div id="boxR">
-				
-
-				<%@ include file="" %>
 				
 
 				<!-- 신고 버튼 -->
