@@ -59,9 +59,6 @@
 
 					 <%@ include file="./Frequency.jsp" %>
 
-    <div>
-		</div>
-
       <div id="reviewTitle">With Us와 함께하는 여행자들의 생생한 후기</div>
       <div id="writeBtn">
         <a class="btn btn-primary" href="goReview" role="button">더보기</a>
