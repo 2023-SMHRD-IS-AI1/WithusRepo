@@ -32,7 +32,12 @@
 <body>
 	<%@ include file="./nav.jsp" %>
      
-     
+     			<%
+		if (session.getAttribute("loginMember") == null) {
+		    response.sendRedirect("Main"); // 메인 페이지로 리디렉션
+		    return; // 이후의 코드 실행 방지
+		}
+		%>
      
     <div id="contain">
       <div id="mainImg">

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.smhrd.entity.Board;
+import kr.smhrd.entity.Comment;
 import kr.smhrd.entity.Member;
 import kr.smhrd.entity.reviewBoard;
 import kr.smhrd.mapper.BoardMapper;
@@ -27,10 +29,15 @@ import kr.smhrd.mapper.MemberMapper;
 @Controller
 public class BoardController {
    
-   @Autowired
-   private BoardMapper boardMapper;
+	  private final BoardMapper boardMapper;
+	    private final HttpSession httpSession;
+	    
+	    @Autowired
+	    public BoardController(BoardMapper boardMapper, HttpSession httpSession) {
+	        this.boardMapper = boardMapper;
+	        this.httpSession = httpSession;
+	    }
    
-
 
    // 모집 글 작성
    @RequestMapping("/boardWirte")
@@ -57,7 +64,7 @@ public class BoardController {
       String comp_end = multi.getParameter("comp_end");
       String comp_img =  multi.getFilesystemName("comp_img");
       
-      board = new Board(null, mb_id, mb_nick, mb_age, comp_title, comp_members, comp_content, null, comp_tourplace, comp_start, comp_end, comp_img);
+      board = new Board(null, mb_id, mb_nick, mb_age, comp_title, comp_members, comp_content, null, comp_tourplace, comp_start, comp_end, comp_img, null);
       System.out.println(board.toString());
    
    } catch (IOException e) {
@@ -109,106 +116,23 @@ public class BoardController {
        // 리뷰 세부 정보를 모델에 추가
        model.addAttribute("board", board);
 	   
+    // 리뷰에 대한 댓글 목록을 가져와 모델에 추가
+       List<Comment> comments = boardMapper.getCommentsByCompIndex(comp_idx);
+       board.setComments(comments);
+       model.addAttribute("comments", comments);
 	   
+    // 현재 로그인한 사용자 정보를 모델에 추가
+       Member loginMember = (Member) httpSession.getAttribute("loginMember");
+       model.addAttribute("loginMember", loginMember);
 	   
       return "gr_con";
    }
    
-   
-
-   /*
-    * @RequestMapping("/goRecon") public String goRecon() {
-    * 
-    * return "re_con"; }
-    */
-   
-
-//   @RequestMapping("/Writereview")
-//   public String Writereview(MultipartHttpServletRequest request, reviewBoard board) {
-//       // 파일 처리
-//       MultipartFile file = request.getFile("review_img"); 
-//       
-//       if (file != null && !file.isEmpty()) {
-//           String originalFileName = file.getOriginalFilename();
-//           String filePath = "   /resources/review_img/"; 
-//
-//           // 파일명 중복 방지 처리
-//           String savedFileName = System.currentTimeMillis() + originalFileName;
-//
-//           // 파일 저장
-//           try {
-//               file.transferTo(new File(filePath + savedFileName));
-//               board.setReview_img(savedFileName); // 파일 이름을 DB에 저장
-//           } catch (IOException e) {
-//               e.printStackTrace();
-//               // 예외 처리
-//           }
-//       }
-//
-//       
-//       boardMapper.Writereview(board);
-//
-//       return "redirect:/goReview";
-//   }
-
 
    
    
-//   // 리뷰 글 작성
-//   @RequestMapping("/Writereview")
-//   public String Writereview(reviewBoard board) {
-//      
-//      
-//      
-//      boardMapper.Writereview(board);
-//      
-//      return "redirect:/goReview";
-//   }
 
 
-   
-   
-   
-
-   // 게시글 업로드 기능
-//   @RequestMapping("/Writereview")
-//   public String writereview(reviewBoard board,HttpServletRequest request) {
-//      
-//      MultipartRequest multi = null;
-//      
-//      // MultipartRequest 객체 생성을 위한 매개변수 설정
-//      // 1. 요청객체(request)
-//      // 2. 파일을 저장할 경로(String)
-//      String savePath = "C:\\Users\\poa11\\git\\WithusRepo2\\WithUs\\src\\main\\webapp\\resources\\upload1";
-//      System.out.println(savePath);
-//      // 3. 파일의 용량 크기(int)
-//      int maxSize = 1024 * 1024 * 10 ; // 10MB
-//      // 4. 파일 이름에 대한 인코딩(String)
-//      String enc = "UTF-8";
-//      // 5. 파일 이름 중복제거(DefaultFileRenamePolicy) 
-//      DefaultFileRenamePolicy dftrp = new DefaultFileRenamePolicy(); 
-//      
-//      try {
-//         multi = new MultipartRequest(request, savePath, maxSize, enc, dftrp);
-//         String review_title = multi.getParameter("review_title");
-//         String review_content = multi.getParameter("review_content");
-//         String review_region = multi.getParameter("review_region");
-//         String mb_id = multi.getParameter("mb_id");
-//         String review_img =  multi.getFilesystemName("review_img");
-//      
-//         board = new reviewBoard(null, review_title, review_content, review_region, null, mb_id, review_img);
-//         System.out.println(board.toString());
-//         boardMapper.Writereview(board);
-//      } catch (IOException e) {
-//         // TODO Auto-generated catch block
-//         System.out.println("리뷰 작성 실패");
-//      }
-//      
-//      
-//      
-//      return "review";
-//   }
-   
    
    
    
@@ -297,139 +221,77 @@ public class BoardController {
        }
    }
 
-   // 게시글 업로드 기능
+   @PostMapping("/addGrComment")
+   public String addGrComment(
+          @RequestParam("commentContent") String commentContent,
+          @RequestParam("comp_idx") Long comp_idx,
+          HttpSession session) {
+       Member loginMember = (Member) session.getAttribute("loginMember");
+       if (loginMember != null) {
+           Comment comment = new Comment();
+           comment.setCmt_content(commentContent);
+           comment.setMb_id(loginMember.getMb_id());
+           comment.setComp_idx(comp_idx);  // comp_idx 설정
 
-//   @RequestMapping("/Writereview")
-//   public String BoardInsert(reviewBoard board,HttpServletRequest request) {
-//      
-//      MultipartRequest multi = null;
-//      
-//      // MultipartRequest 객체 생성을 위한 매개변수 설정
-//      // 1. 요청객체(request)
-//      // 2. 파일을 저장할 경로(String)
-//      String savePath = request.getRealPath("resources/upload1");
-//      System.out.println(savePath);
-//      // 3. 파일의 용량 크기(int)
-//      int maxSize = 1024 * 1024 * 10 ; // 10MB
-//      // 4. 파일 이름에 대한 인코딩(String)
-//      String enc = "UTF-8";
-//      // 5. 파일 이름 중복제거(DefaultFileRenamePolicy) 
-//      DefaultFileRenamePolicy dftrp = new DefaultFileRenamePolicy(); 
-//      
-//      try {
-//         multi = new MultipartRequest(request, savePath, maxSize, enc, dftrp);
-//         String review_title = multi.getParameter("review_title");
-//         String review_content = multi.getParameter("review_content");
-//         String review_region = multi.getParameter("review_region");
-//         String mb_id = multi.getParameter("mb_id");
-//         String review_img =  multi.getFilesystemName("review_img");
-//      
-//         board = new reviewBoard(null, review_title, review_content, review_region, null, mb_id, review_img);
-//         System.out.println(board.toString());
-//         boardMapper.Writereview(board);
-//      } catch (IOException e) {
-//         // TODO Auto-generated catch block
-//         System.out.println("리뷰 작성 실패");
-//      }
-//      
-//      
-//      
-//      return "review";
-//   }
+           // 디버깅을 위해 정보를 로그로 남깁니다.
+           System.out.println("comp_idx: " + comp_idx);
+           System.out.println("Comment: " + comment);
 
+           // 댓글을 데이터베이스에 삽입합니다.
+           boardMapper.addGrComment(comment);
 
+           // 그룹 콘텐츠 페이지로 리다이렉트합니다.
+           return "redirect:/goGrcon?comp_idx=" + comp_idx;
+       } else {
+           // 사용자가 로그인하지 않은 경우 로그인 페이지로 리다이렉트합니다.
+           return "redirect:/login";
+       }
+   }
+   
+   @PostMapping("/updateGrComment")
+   public String updateGrComment(
+           @RequestParam Long cmt_idx,
+           @RequestParam Long comp_idx,
+           @RequestParam("updatedGrContent") String updatedGrContent,
+           Model model) {
+       // 댓글 수정 처리
+       Member loginMember = (Member) httpSession.getAttribute("loginMember");
 
+       if (loginMember != null) {
+           Comment comment = boardMapper.getCommentById(cmt_idx);
 
+           if (comment != null && loginMember.getMb_id().equals(comment.getMb_id())) {
+               // 로그인한 사용자가 댓글 작성자인 경우에만 수정 처리
+               comment.setCmt_content(updatedGrContent);
+               boardMapper.updateComment(comment);
+
+               // 수정 후 댓글 상세 페이지로 리다이렉트
+               return "redirect:/goGrcon?comp_idx=" + comp_idx;
+           }
+       }
+
+       // 수정에 실패하거나 권한이 없는 경우
+       return "redirect:/login"; // 수정 실패 시 리다이렉트할 페이지 설정
+   }
    
    
+   @PostMapping("/deleteGrComment")
+   public String deleteGrComment(@RequestParam Long cmt_idx, @RequestParam Long comp_idx, HttpSession session) {
+       // Check if the logged-in user is the owner of the comment
+       Member loginMember = (Member) session.getAttribute("loginMember");
+       Comment comment = boardMapper.getCommentById(cmt_idx);
 
-   
-//   // boardDelete 게시글 삭제
-//   @RequestMapping("/boardDelete") // boardContent?idx=
-//   public String boardDeletet(@RequestParam("idx") int idx) {
-//      
-//      boardMapper.boardDelete(idx);
-//      
-//      
-//      return "redirect:/goBoardMain";
-//   }
-//   
-//   
-//   // 게시글 상세보기 boardContent
-//   @RequestMapping("/boardContent") // boardContent?idx=
-//   public String boardContent(@RequestParam("idx") int idx,Model model) {
-//      
-//      // idx,title,writer,filename,content,b_date
-//      Board board = boardMapper.boardContent(idx);
-//      model.addAttribute("board",board);
-//      
-//      return "BoardDetail";
-//   }
-//   
-//   
-//   // BoardMain.jsp로 이동
-//   @RequestMapping("/goBoardMain")
-//   public String goBoardMain(Model model) {
-//      // db에 있는값을 뿌려주는 코드 까지 써야 한다.
-//      
-//      List<Board> boardList = boardMapper.boardList();
-////      System.out.println(boardList.size());
-//      model.addAttribute("boardList",boardList);
-//      
-//      
-//      return "BoardMain";
-//   }
-//   
-//   // BoardWrite.jsp로 이동
-//   @RequestMapping("/goBoardWrite")
-//   public String goBoardWrite() {
-//      
-//      return "BoardWrite";
-//   }
-//   
-//   // 게시글 업로드 기능
-//   @RequestMapping("/BoardInsert")
-//   public String BoardInsert(Board board,HttpServletRequest request) {
-//      
-//      MultipartRequest multi = null;
-//      
-//      // MultipartRequest 객체 생성을 위한 매개변수 설정
-//      // 1. 요청객체(request)
-//      // 2. 파일을 저장할 경로(String)
-//      String savePath = request.getRealPath("./resources/upload");
-//      System.out.println(savePath);
-//      // 3. 파일의 용량 크기(int)
-//      int maxSize = 1024 * 1024 * 10 ; // 10MB
-//      // 4. 파일 이름에 대한 인코딩(String)
-//      String enc = "UTF-8";
-//      // 5. 파일 이름 중복제거(DefaultFileRenamePolicy) 
-//      DefaultFileRenamePolicy dftrp = new DefaultFileRenamePolicy(); 
-//      
-//      try {
-//         multi = new MultipartRequest(request, savePath, maxSize, enc, dftrp);
-//         String title = multi.getParameter("title");
-//         String writer = multi.getParameter("writer");
-//         String filename =  multi.getFilesystemName("filename");
-//         String content = multi.getParameter("content");
-//      
-//         board = new Board(title, writer, filename, content);
-//         System.out.println(board.toString());
-//      } catch (IOException e) {
-//         // TODO Auto-generated catch block
-//         e.printStackTrace();
-//      }
-//      
-//      int cnt = boardMapper.insertBoard(board);
-//      
-//      if(cnt>0) {
-//         System.out.println("게시글 업로드 성공");
-//      }
-//      else {
-//         System.out.println("게시글 업로드 실패");
-//      }
-//      
-//      return null;
-//   }
+       if (loginMember != null && comment != null && loginMember.getMb_id().equals(comment.getMb_id())) {
+           // If the logged-in user is the owner, proceed with deletion
+           boardMapper.deleteGrComment(cmt_idx);
+
+           // Redirect to the review detail page after deletion
+           return "redirect:/goGrcon?comp_idx=" + comp_idx;
+       } else {
+           // If the user is not the owner or not logged in, handle accordingly
+           return "redirect:/login"; // Redirect to the login page or another appropriate page
+       }
+   }
    
 
 }

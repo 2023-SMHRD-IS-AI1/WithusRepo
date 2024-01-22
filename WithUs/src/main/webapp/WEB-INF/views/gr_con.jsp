@@ -1,9 +1,11 @@
 <%@page import="kr.smhrd.entity.Board"%>
+<%@ page import="kr.smhrd.entity.Comment"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="kr.smhrd.entity.Message"%>
 <%@page import="java.util.List"%>
 <%@page import="kr.smhrd.entity.Member"%>
 <%@page import="java.util.ArrayList"%>
+<%@ page import="java.time.format.DateTimeFormatter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -45,7 +47,6 @@
 	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
 	crossorigin="anonymous"></script>
 <style>
-
 #dele {
 	height: 220px;
 }
@@ -59,21 +60,79 @@
 	text-align: center;
 	position: relative;
 	top: 10px;
+	left: 5px;
 }
 
-#p_bodays{
+#p_bodays {
+	height: 540px;
+}
 
-	height:540px;
+#updateCompForm {
+	position: relative;
+	left: 100px;
+}
 
+#deleteComp{
+
+	position: relative;
+	left:20px;
+
+
+}
+
+.updateCommentBtn {
+	background-color: transparent;
+	border: none;
+	color: blue;
+	cursor: pointer;
+	margin-right: 10px; /* 수정 버튼 간격 조절 */
+}
+
+.deleteCommentBtn {
+	background-color: transparent;
+	border: none;
+	color: red;
+	cursor: pointer;
+}
+
+#p_bodays {
+	height: 530px;
+}
+
+#f_btn2 {
+	position: relative;
+	left: 140px;
 }
 
 #updateCompForm{
 
 	position: relative;
-	left:100px;
+	left: 100px;
 
 }
 
+
+#updateGrCommentForm{
+	
+	position: relative;
+	left: 100px;
+
+}
+
+#g_btn_co{
+	
+	position: relative;
+	left: 170px;
+	top:20px;
+}
+
+.s_btn{
+	width:60px;
+	height: 40px;
+	position: relative;
+	top:2px;
+
+}
 </style>
 <body>
 
@@ -85,6 +144,12 @@
 	}
 	%>
 
+	<%
+	if (session.getAttribute("loginMember") == null) {
+		response.sendRedirect("Main"); // 메인 페이지로 리디렉션
+		return; // 이후의 코드 실행 방지
+	}
+	%>
 
 	<%@ include file="./nav.jsp"%>
 	<div id="mainImg"></div>
@@ -124,7 +189,8 @@
 					<form id="updateCompForm"
 						action="${pageContext.request.contextPath}/updateComp"
 						method="post">
-						<input type="hidden" name="comp_idx" value="${board.getComp_idx()}" />
+						<input type="hidden" name="comp_idx"
+							value="${board.getComp_idx()}" />
 						<div class="mb-3">
 							<label for="updatedTitle" class="form-label">제목</label> <input
 								type="text" class="form-control" id="updatedCompTitle"
@@ -197,7 +263,7 @@
 		tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header">
+				<div class="modal-header" style="background-color: red">
 					<h1 class="modal-title fs-5" id="staticBackdropLabel">삭제</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
@@ -243,7 +309,7 @@
 							<li><span id="userNick">${board.mb_nick}</span></li>
 						</ul>
 					</div>
-					<span id="trtime">${board.created_at}</span>
+					<span id="trtime">${board.created_at.format(DateTimeFormatter.ofPattern("yyyy.MM.dd"))}</span>
 				</div>
 			</div>
 			<div id="revContent">
@@ -265,8 +331,10 @@
 			</div>
 
 			<div class="showComment">
-				<form method="post">
-					<input type="hidden" name="review_idx" />
+				<form action="${pageContext.request.contextPath}/addGrComment"
+					method="post">
+					<input type="hidden" name="comp_idx"
+						value="<%=board.getComp_idx()%>" />
 					<textarea name="commentContent" rows="3" cols=""
 						placeholder="댓글을 입력해주세요"></textarea>
 					<button type="submit">등록</button>
@@ -274,31 +342,146 @@
 			</div>
 
 
-			<ul class="commentList">
 
+			<%
+			if (loginMember != null && board != null && board.getComments() != null && !board.getComments().isEmpty()) {
+			%>
+			<ul class="commentList">
+				<%
+				for (Comment comment : board.getComments()) {
+				%>
 				<li>
 					<div class="commentLeft">
 						<div class="commentImg"></div>
-						<div class="commentContent"></div>
+						<div class="commentContent">
+							<p><%=comment.getMb_id()%></p>
+							<p><%=comment.getCmt_content()%></p>
+						</div>
 					</div>
 					<div class="commentDate">
-
+						<%-- 댓글 작성자일 경우에만 수정 및 삭제 버튼 표시 --%>
+						<%
+						if (loginMember.getMb_id().equals(comment.getMb_id())) {
+						%>
 						<button class="updateCommentBtn" data-bs-toggle="modal"
-							data-bs-target="#updateCommentModal">수정</button>
-						<form method="post">
-							<input type="hidden" name="cmt_idx" /> <input type="hidden"
-								name="review_idx" />
+							data-bs-target="#updateGrCommentModal"
+							onclick="showUpdateGrCommentForm(<%=comment.getCmt_idx()%>)">수정</button>
+						<form action="${pageContext.request.contextPath}/deleteGrComment"
+							method="post">
+							<input type="hidden" name="cmt_idx"
+								value="<%=comment.getCmt_idx()%>" /> <input type="hidden"
+								name="comp_idx" value="${board.getComp_idx()}" />
 							<button type="submit" class="deleteCommentBtn">삭제</button>
 						</form>
-
-
+						<%
+						}
+						%>
+						<%=comment.getCreated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"))%>
 					</div>
 				</li>
-
+				<%
+				}
+				%>
 			</ul>
-
+			<%
+			} else {
+			%>
+			<p>댓글이 없습니다.</p>
+			<%
+			}
+			%>
 		</div>
 	</div>
+	
+	<!-- 수정 폼 모달 -->
+	<div class="modal fade" id="updateGrCommentModal" tabindex="-1"
+		aria-labelledby="updateGrCommentModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="updateCommentGrModalLabel">댓글 수정</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<!-- 수정 폼 내용 -->
+					<form id="updateGrCommentForm"
+						action="${pageContext.request.contextPath}/updateGrComment"
+						method="post">
+						<input type="hidden" id="cmt_idx_input" name="cmt_idx" /> <input
+							type="hidden" name="comp_idx" value="${board.getComp_idx()}" />
+						<div class="mb-3">
+							<label for="updatedGrContent" class="form-label">댓글 내용</label>
+							<textarea class="form-control" id="updatedGrContent"
+								name="updatedGrContent" rows="3"></textarea>
+						</div>
+						<div id="g_btn_co">
+						<button class="updateGrCommentBtn btn-primary s_btn" onclick="submitUpdateGrComment()">수정</button>
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">취소</button>
+							</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="resources/assets/js/jquery.min.js"></script>
+	<script type="text/javascript">
+
+        $(document).ready(function () {
+            // 좋아요 및 댓글 표시 여부 설정
+            $("#full-heart").hide();
+            $("#full-comments").hide();            
+
+       
+            // 댓글 등록 후 입력 필드 초기화
+            $("#commentForm").on("submit", function () {
+                $("#commentContent").val("");
+            });
+        });
+
+        function showUpdateGrCommentForm(cmt_idx, existingContent) {
+            console.log("cmt_idx: ", cmt_idx);
+            console.log("existingContent: ", existingContent)
+            $("#cmt_idx_input").val(cmt_idx);
+            $("#updatedGrContent").val(existingContent);
+            $("#comp_idx_input").val(comp_idx); // 리뷰 인덱스 추가
+            $("#updateGrCommentModal").modal("show");
+        }
+
+        function submitUpdateGrComment() {
+            // 댓글 수정 폼을 서버로 제출
+            var updatedContent = $("#updatedGrContent").val();
+            var cmt_idx = $("#cmt_idx_input").val();
+            var comp_idx = $("#comp_idx_input").val(); // 리뷰 인덱스 가져오기
+
+            // AJAX를 사용하여 비동기적으로 수정 내용을 서버로 전송
+            $.ajax({
+                type: "POST",
+                url: "${pageContext.request.contextPath}/updateGrComment",
+                data: {
+                    cmt_idx: cmt_idx,
+                    comp_idx: comp_idx,
+                    updatedGrContent: updatedContent // 변수명 수정
+                },
+                success: function (response) {
+                    // 서버에서 성공적으로 응답이 오면
+                    // 새로운 댓글 내용을 화면에 즉시 반영
+                    var commentElement = $("#comment_" + cmt_idx);
+                    commentElement.find(".commentContent p:last-child").text(updatedContent);
+
+                    // 모달 닫기
+                    $("#updateGrCommentModal").modal("hide");
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error updating comment:", error);
+                }
+            });
+        }
+        
+    </script>
+	
 	<!-- contain end -->
 	<%@ include file="./F_chat.jsp"%>
 	<footer></footer>
