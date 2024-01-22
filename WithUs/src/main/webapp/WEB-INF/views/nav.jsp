@@ -136,7 +136,7 @@
         <div class="modal-body">
             <div class="all">
             <% if (loginMember != null){ %>
-          <img src="resources/pro_img/<%=loginMember.getMb_proimg() %>" id="p_img">
+          <img src="./resources/pro_img/<%=loginMember.getMb_proimg() %>" id="p_img">
             <div id="p_con">
                 <p>팔로우 : <span id="followerCount"></span> &nbsp;&nbsp; 팔로잉 : <span id="followingCount"></span> </p>
                 <br>
