@@ -87,7 +87,7 @@
             일정이름 : <input type="text" id="title" /><br />
             시작시간 : <input type="datetime-local" id="start" /><br />
             종료시간 : <input type="datetime-local" id="end" /><br />
-            배경색상 :
+            <!-- 배경색상 :
             <select id="color">
               <option value="red">빨강색</option>
               <option value="orange">주황색</option>
@@ -96,7 +96,7 @@
               <option value="blue">파랑색</option>
               <option value="indigo">남색</option>
               <option value="purple">보라색</option>
-            </select>
+            </select> -->
           </div>
           
           <div class="modal-footer">
