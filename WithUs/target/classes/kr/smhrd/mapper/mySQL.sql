@@ -20,17 +20,22 @@ select * from reviewLike;
 
 select * from reports;
 commit;
-delete from reports where report_idx<10;
+
+delete from surveys where survey_idx =20;
+
 
 
 ALTER TABLE members
 MODIFY COLUMN mb_comment VARCHAR(300) DEFAULT '입력 안됨';
 
+alter table members modify column mb_proimg varchar(300) default '프로필 기본값.png';
+
+update members set mb_proimg = '프로필 기본값.png' ;
 
 
 create table members(
 	mb_id varchar(20) not null,
-	mb_pw varchar(20) not null,
+	mb_pw varchar(200) not null,
 	mb_name varchar(50) not null,
 	mb_nick varchar(20) not null,
 	mb_birthdate date not null,
