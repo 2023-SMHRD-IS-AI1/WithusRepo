@@ -30,6 +30,23 @@
 
 <title>프로필상세</title>
 </head>
+<style>
+
+#reportForm{
+
+	position: relative;
+	left: 100px;
+	
+}
+
+.d_btn{
+	
+	position: relative;
+	left: 188px;
+	
+}
+
+</style>
 <body>
    <%@ include file="./nav.jsp"%>
 
@@ -39,20 +56,21 @@
    String mb_age = (String) session.getAttribute("mb_age");
    %>
 
-		<%
-		if (session.getAttribute("loginMember") == null) {
-		    response.sendRedirect("Main"); // 메인 페이지로 리디렉션
-		    return; // 이후의 코드 실행 방지
-		}
-		%>
 		
    <div id="mainImg"></div>
    <!-- mainImg end -->
    <div id="contain">
-
+	
      <div class="container m-auto mt-4 p-5 p-md-1 ">
+         <div class="menubar mb-5">
+            <div><span class="menubar__Profile fontjordyblue">Profile</span></div>
+            <div class="progress" style="height: 2px; ">
+                <div class="progress-bar backjordyblue" role="progressbar" style="width: 120px" aria-valuenow="50"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
         <div class="profile--container row shadow-sm p-5 p-md-2 mb-5 bg-body rounded flex-md-row align-items-md-center">
-            <div class="profile row align-items-end col-md-7">
+            <div class="profile row align-items-end col-md-6">
                 <div class="avatar  col-4 col-md-3 rounded-circle align-self-center">
                     <img src="resources/pro_img/<%=memPro.getMb_proimg() %>">
                 </div>
@@ -85,7 +103,7 @@
                             <!-- 추가: 신고 대상 정보를 hidden input으로 전달 -->
                             <input type="hidden" id="reporter" value="<%=memPro.getMb_id()%>" />
                             <input type="hidden" id="reportee" value="<%=memPro.getMb_id() %>" /> <!-- 대상 사용자 ID를 여기에 입력 -->
-                            <button type="button" class="btn btn-danger" onclick="submitReport()">신고하기</button>
+                            <button type="button" class="btn btn-danger d_btn" onclick="submitReport()">신고하기</button>
                         </form>
                     </div>
                 </div>
@@ -110,13 +128,7 @@
  
             </div>
         </div>
-        <div class="menubar mb-5">
-            <div><span class="menubar__Profile fontjordyblue">Profile</span></div>
-            <div class="progress" style="height: 2px; ">
-                <div class="progress-bar backjordyblue" role="progressbar" style="width: 120px" aria-valuenow="50"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-        </div>
+    
         <div class="bottomContainer">
             <div class="works shadow-sm p-5 mb-5 bg-body rounded">
                 <h3>자기소개</h3>
