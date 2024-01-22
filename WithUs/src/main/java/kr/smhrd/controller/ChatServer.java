@@ -81,7 +81,11 @@ public class ChatServer {
 
     } else if (no.equals("2")) {
       // 누군가 메세지를 전송
-      for (Session s : userMap.get(room_idx)) {
+    	
+    	List<Session> roomSessions = userMap.get(room_idx);
+        List<String> roomChatHistory = getRoomChatHistory(room_idx);
+    	
+      for (Session s : roomSessions) {
 
         if (s != session) { // 현재 접속자가 아닌 나머지 사람들
           try {
@@ -93,6 +97,10 @@ public class ChatServer {
         }
 
       }
+      
+   // 채팅 내용 저장
+      roomChatHistory.add(user + ": " + txt);
+      
     } else if (no.equals("3")) {
       // 누군가 접속종료 > 3#아무개
       for (Session s :  userMap.get(room_idx)) {
@@ -111,7 +119,12 @@ public class ChatServer {
 
   }
 
-  @OnClose
+  private List<String> getRoomChatHistory(int room_idx) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+@OnClose
   public void handleClose(Session session, @PathParam("room_idx") int room_idx ) {
 
     System.out.println("클라이언트 연결 해제");

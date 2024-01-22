@@ -1,6 +1,7 @@
 package kr.smhrd.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,7 +25,12 @@ public class Board {
 //		    FOREIGN KEY(mb_id) REFERENCES members(mb_id)
 //		);
 	
+		
 	
+	
+	
+	 
+
 	
 	
 	private Long comp_idx;
@@ -45,4 +51,10 @@ public class Board {
 	private String comp_start;
 	private String comp_end;
 	private String comp_img;
+	public void setComments(List<Comment> comments) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
 }

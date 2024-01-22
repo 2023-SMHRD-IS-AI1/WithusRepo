@@ -129,6 +129,33 @@ div {
     cursor: pointer;
 }
 
+
+
+#userIn{
+	
+	position: relative;
+	bottom: 44px;
+	left:75px;
+	
+}
+
+#userId{
+	
+	position: relative;
+	font-size: 30px;
+	bottom:13px;
+	font-style: bold;
+	
+}
+
+#trtime{
+	
+	position: relative;
+	bottom:45px;
+	
+}
+
+
 .showComment {
     width: 100%;
 }

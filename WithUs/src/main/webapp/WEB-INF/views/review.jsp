@@ -97,7 +97,7 @@
                     </a>
                 </li>
             </c:if>
-            
+            <c:if test="${totalPages > 0}">
             <c:forEach begin="0" end="${totalPages - 1}" var="pageNumber">
                 <li class="page-item ${pageNumber eq currentPage ? 'active' : ''}">
                     <a class="page-link" href="<c:url value='/goReview'/>?page=${pageNumber}">
@@ -105,6 +105,9 @@
                     </a>
                 </li>
             </c:forEach>
+			</c:if>
+            
+            
             
             <c:if test="${currentPage < totalPages - 1}">
                 <li class="page-item">
