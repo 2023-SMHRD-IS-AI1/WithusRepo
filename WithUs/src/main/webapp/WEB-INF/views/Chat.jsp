@@ -32,6 +32,14 @@
 </head>
 <body>
 	<%@ include file="./nav.jsp" %>
+	
+	<%
+		if (session.getAttribute("loginMember") == null) {
+		    response.sendRedirect("Main"); // 메인 페이지로 리디렉션
+		    return; // 이후의 코드 실행 방지
+		}
+		%>
+	
     <div id="mainImg"></div>
     <div id="contain">
       <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
