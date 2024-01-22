@@ -33,7 +33,7 @@
    rel="stylesheet"
    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
    crossorigin="anonymous" />
-   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/daily.css" />
+
 <style>
 /* body 스타일 */
 html, body {
@@ -58,18 +58,26 @@ html, body {
 	position: relative;
 	right:180px;
 }
+
+#m_cont{
+
+	position: relative;
+	left: 90px;
+
+}
+
+
 </style>
 </head>
-<%@ include file="./nav.jsp"%>
-<div id="mainImg"></div>
 <!-- mainImg end -->
-
-<body style="padding: 30px">
+<body>
+<%@ include file="./nav.jsp"%>
    <!-- calendar 태그 -->
+
    <div id="calendar-container">
       <div id="calendar"></div>
    </div>
-
+</div>
    <!-- 부트스트랩 modal 부분 -->
    <!-- Modal -->
    <div class="modal fade" id="exampleModal" tabindex="-1"
@@ -81,7 +89,7 @@ html, body {
                <button type="button" class="btn-close" data-bs-dismiss="modal"
                   aria-label="Close"></button>
             </div>
-            <div class="modal-body" >
+            <div class="modal-body" id="m_cont" >
 
                일정이름 : <input type="text" id="title" />
                <br/><br/> 
@@ -109,7 +117,7 @@ html, body {
             </div>
          </div>
       </div>
-   </div>
+</div>
    
    <script type="text/javascript">
       var mb_id = "<%=loginMember.getMb_id()%>";

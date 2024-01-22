@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -164,48 +165,56 @@ public class MemberController {
    }
    
    
-   // 프로필 수정
    @RequestMapping("/updateProfil")
    public String updateProfil(Member member, HttpServletRequest request, HttpSession session) {
-	   
-	    MultipartRequest multi = null;
-		
-		String savePath = "C:\\Users\\smhrd\\git\\WithusRepo\\WithUs\\src\\main\\webapp\\resources\\pro_img";
-		System.out.println(savePath);
-		// 3. 파일의 용량 크기(int)
-		int maxSize = 1024 * 1024 * 10 ; // 10MB
-		// 4. 파일 이름에 대한 인코딩(String)
-		String enc = "UTF-8";
-		// 5. 파일 이름 중복제거(DefaultFileRenamePolicy) 
-		DefaultFileRenamePolicy dftrp = new DefaultFileRenamePolicy(); 
-		
-		try {
-			multi = new MultipartRequest(request, savePath, maxSize, enc, dftrp);
-			String mb_id = multi.getParameter("mb_id");
-			String mb_pw = multi.getParameter("mb_pw");
-			String mb_name = multi.getParameter("mb_name");
-			String mb_nick = multi.getParameter("mb_nick");
-			String mb_birthdate = multi.getParameter("mb_birthdate");
-			String mb_gender = multi.getParameter("mb_gender");
-			String mb_phone = multi.getParameter("mb_phone");
-			String mb_img = multi.getParameter("mb_img");
-			String mb_proimg  =  multi.getFilesystemName("mb_proimg");
-			String mb_comment = multi.getParameter("mb_comment");
-			String mb_mbti = multi.getParameter("mb_mbti");
-			
-			member = new Member(mb_id, mb_pw, mb_name, mb_nick, mb_birthdate, mb_gender, mb_phone, mb_img, null, null, mb_proimg, mb_comment,mb_mbti);
-			session.setAttribute("loginMember", member);
-			System.out.println(member);
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			
-		} 
-	   System.out.println(member.toString());
-	   int cnt = memberMapper.updateUserPro(member);
-	   
-	   
-	   return "redirect:/goMain";
+       MultipartRequest multi = null;
+
+       // 1. 파일 업로드 경로 설정
+       String savePath = "C:\\Users\\smhrd\\git\\WithusRepo\\WithUs\\src\\main\\webapp\\resources\\pro_img\\";
+
+       // 2. 파일의 용량 크기(int)
+       int maxSize = 1024 * 1024 * 10; // 10MB
+
+       // 3. 파일 이름에 대한 인코딩(String)
+       String enc = "UTF-8";
+
+       // 4. 파일 이름 중복제거(DefaultFileRenamePolicy)
+       DefaultFileRenamePolicy dftrp = new DefaultFileRenamePolicy();
+
+       try {
+           // 5. MultipartRequest 생성 시 인코딩 설정
+           multi = new MultipartRequest(request, savePath, maxSize, "UTF-8", dftrp);
+           
+           // 나머지 파라미터들 받아오기
+           String mb_id = multi.getParameter("mb_id");
+           String mb_pw = multi.getParameter("mb_pw");
+           String mb_name = multi.getParameter("mb_name");
+           String mb_nick = multi.getParameter("mb_nick");
+           String mb_birthdate = multi.getParameter("mb_birthdate");
+           String mb_gender = multi.getParameter("mb_gender");
+           String mb_phone = multi.getParameter("mb_phone");
+           String mb_img = multi.getParameter("mb_img");
+           
+           // 6. 업로드된 파일 확인
+           Enumeration files = multi.getFileNames();
+           while (files.hasMoreElements()) {
+               String file = (String) files.nextElement();
+               String mb_proimg = multi.getFilesystemName(file);
+               System.out.println("mb_proimg: " + mb_proimg);
+           }
+
+           // 나머지 파라미터들 받아오기 (계속)
+           String mb_comment = multi.getParameter("mb_comment");
+           String mb_mbti = multi.getParameter("mb_mbti");
+
+           // 나머지 코드 (생략)
+
+       } catch (IOException e) {
+           // 오류 처리
+       }
+
+       // 나머지 코드 (생략)
+       return "redirect:/goMain";
    }
 
    
