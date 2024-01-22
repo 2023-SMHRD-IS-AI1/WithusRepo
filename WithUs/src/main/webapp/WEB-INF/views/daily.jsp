@@ -1,6 +1,6 @@
 <%@page import="kr.smhrd.entity.Calendar"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -8,43 +8,43 @@
 <meta charset="utf-8" />
 <!-- 화면 해상도에 따라 글자 크기 대응(모바일 대응) -->
 <meta name="viewport"
-	content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+   content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <!-- jquery CDN -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- fullcalendar CDN -->
 <link
-	href="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css"
-	rel="stylesheet" />
+   href="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css"
+   rel="stylesheet" />
 <script
-	src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js"></script>
+   src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js"></script>
 <!-- fullcalendar 언어 CDN -->
 <script
-	src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales-all.min.js"></script>
+   src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales-all.min.js"></script>
 <!-- axios -->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <!-- 부트스트랩CDN -->
 <script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-	crossorigin="anonymous"></script>
+   src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+   integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+   crossorigin="anonymous"></script>
 <!-- 부트스트랩CSS -->
 <link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-	crossorigin="anonymous" />
+   href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+   rel="stylesheet"
+   integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+   crossorigin="anonymous" />
 <style>
 /* body 스타일 */
 html, body {
-	overflow: hidden;
-	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-	font-size: 14px;
+   overflow: hidden;
+   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+   font-size: 14px;
 }
 /* 캘린더 위의 해더 스타일(날짜가 있는 부분) */
 .fc-header-toolbar {
-	padding-top: 1em;
-	padding-left: 1em;
-	padding-right: 1em;
+   padding-top: 1em;
+   padding-left: 1em;
+   padding-right: 1em;
 }
 </style>
 </head>
@@ -53,54 +53,49 @@ html, body {
 <!-- mainImg end -->
 
 <body style="padding: 30px">
-	<!-- calendar 태그 -->
-	<div id="calendar-container">
-		<div id="calendar"></div>
-	</div>
+   <!-- calendar 태그 -->
+   <div id="calendar-container">
+      <div id="calendar"></div>
+   </div>
 
-	<c:forEach var="event" items="${calendarData }">
-		<p>${event.cal_title}</p>
-		<p>${event.cal_start}</p>
-		<p>${event.cal_end}</p>
-	</c:forEach>
-	<!-- 부트스트랩 modal 부분 -->
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModal" tabindex="-1"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">일정 추가하기</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					일정이름 : <input type="text" id="title" /><br /> 시작시간 : <input
-						type="datetime-local" id="start" /><br /> 종료시간 : <input
-						type="datetime-local" id="end" /><br /><!--  배경색상 : <select
-						id="color">
-						<option value="red">빨강색</option>
-						<option value="orange">주황색</option>
-						<option value="yellow">노랑색</option>
-						<option value="green">초록색</option>
-						<option value="blue">파랑색</option>
-						<option value="indigo">남색</option>
-						<option value="purple">보라색</option>
-					</select> -->
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-bs-dismiss="modal">취소</button>
-					<button type="button" class="btn btn-primary" id="saveChanges">
-						추가</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<script type="text/javascript">
+   <!-- 부트스트랩 modal 부분 -->
+   <!-- Modal -->
+   <div class="modal fade" id="exampleModal" tabindex="-1"
+      aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">일정 추가하기</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               일정이름 : <input type="text" id="title" /><br /> 시작시간 : <input
+                  type="datetime-local" id="start" /><br /> 종료시간 : <input
+                  type="datetime-local" id="end" /><br /><!--  배경색상 : <select
+                  id="color">
+                  <option value="red">빨강색</option>
+                  <option value="orange">주황색</option>
+                  <option value="yellow">노랑색</option>
+                  <option value="green">초록색</option>
+                  <option value="blue">파랑색</option>
+                  <option value="indigo">남색</option>
+                  <option value="purple">보라색</option>
+               </select> -->
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary"
+                  data-bs-dismiss="modal">취소</button>
+               <button type="button" class="btn btn-primary" id="saveChanges">
+                  추가</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   
+   <script type="text/javascript">
       var mb_id = "<%=loginMember.getMb_id()%>";
-	
+   
       let eventArray = [];
       
       (function () {
@@ -113,18 +108,18 @@ html, body {
              method: "GET",
              url: "eventData",
              success: function (res) {
-            	 console.log(res)
-            	 
-            	 for(let i = 0; i < res.length; i++){
-              		 
-            		 eventArray.push({
-	                   title: res[i].cal_title,
-	                   start: res[i].cal_start,
-	                   end: res[i].cal_end
-            		 })
-            	 }
-             	             	
-             	console.log(eventArray);
+                console.log(res)
+                
+                for(let i = 0; i < res.length; i++){
+                     
+                   eventArray.push({
+                      title: res[i].cal_title,
+                      start: new Date(res[i].cal_start),
+                      end: res[i].cal_end ? new Date(res[i].cal_end) : null
+                   })
+                }
+                                
+                console.log(eventArray);
                 
                 var calendar = new FullCalendar.Calendar(calendarEl, {
                   googleCalendarApiKey: "", // 여기에 구글캘린더 api키 입력하시면 됩니다.
@@ -156,8 +151,8 @@ html, body {
                             var objt = new Object();
                             objt.mb_id = mb_id;
                             objt.cal_title = allEvent[i]._def.title;
-                            objt.cal_start = allEvent[i]._instance.range.start;
-                            objt.cal_end = allEvent[i]._instance.range.end;
+                            objt.cal_start = allEvent[i].start.toISOString();
+                            objt.cal_end = allEvent[i].end ? allEvent[i].end.toISOString() : null;
 
                             events.push(objt);
                           }
@@ -233,7 +228,7 @@ html, body {
                 calendar.render();
                 
                 
-                
+               
                 //모달창 이벤트
                 $("#saveChanges").on("click", function () {
                   var eventData = {
@@ -242,6 +237,8 @@ html, body {
                     end: $("#end").val(),
                    // color: $("#color").val(),
                   };
+                  
+                
                   //빈값입력시 오류
                   if (
                     eventData.title == "" ||
