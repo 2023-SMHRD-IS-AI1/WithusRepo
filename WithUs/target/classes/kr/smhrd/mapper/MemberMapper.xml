@@ -2,64 +2,64 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.smhrd.mapper.MemberMapper">
 
-	<!-- 인터페이스에서 mapper로 넘어올 수 있는 조건
-		namespace가 interface 이름과 동일 하던가
-		xml파일과 interface이름이 동일하면 자동으로 맞춰줌
-	 -->
-	 
-	<!-- 회원가입 -->
-	<insert id="memberInsert" parameterType="kr.smhrd.entity.Member">
-		insert into members (mb_id, mb_pw, mb_name, mb_nick, mb_birthdate, mb_gender, mb_phone, mb_img) values (#{mb_id}, #{mb_pw}, #{mb_name}, #{mb_nick}, #{mb_birthdate}, #{mb_gender}, #{mb_phone}, #{mb_img})
-	</insert> 
-	
-	<!-- 설문조사 -->
-	<insert id="surveyInsert" parameterType="kr.smhrd.entity.Survey">
-		insert into surveys (mb_id,q1,q2,q3,q4,q5) values(#{mb_id},#{q1},#{q2},#{q3},#{q4},#{q5})
-	</insert>
-	
-	<!-- 로그인 -->
-	<select id="memberSelect" parameterType="kr.smhrd.entity.Member" resultType="kr.smhrd.entity.Member">
-		select * from members where mb_id=#{mb_id} and mb_pw=#{mb_pw}
-	</select>
-	
-	
-	<update id="updateUserinfo" parameterType="kr.smhrd.entity.Member">
-		update members set mb_pw=#{mb_pw} , mb_nick=#{mb_nick}, mb_phone=#{mb_phone} where mb_id=#{mb_id}
-	</update>
-	
-	<update id="updateUserPro" parameterType="kr.smhrd.entity.Member">
-		update members set mb_proimg=#{mb_proimg} , mb_comment=#{mb_comment}, mb_mbti=#{mb_mbti} where mb_id=#{mb_id}
-	</update>
-	
-	<select id="findPro" parameterType="String" resultType="kr.smhrd.entity.Member">
-		select * from members where mb_id=#{mb_id}
-	</select>
-	
-	<select id="getrecommendMem" parameterType="String" resultType="String">
-		SELECT DISTINCT s2.mb_id
-		FROM members m
-		JOIN surveys s1 ON m.mb_id = s1.mb_id
-		JOIN surveys s2 ON s1.result_label = s2.result_label
-		WHERE m.mb_id = #{mb_id} AND s2.mb_id != #{mb_id}
-	</select>
-	
-	
-	
-<!-- 	<update id="updateProfil" parameterType="String">
-		update members set mb_proimg=#{mb_proimg} , mb_comment=#{mb_comment} where mb_id=#{mb_id}
-	</update> -->
-	
-	
-	<!-- <update id="updateMember" parameterType="kr.smhrd.entity.Member">
-		UPDATE MEMBER SET PW=#{pw} , TEL=#{tel}, ADDRESS=#{address} where EMAIL=#{email}
-	</update>
-	
-	<select id="showMember" resultType="kr.smhrd.entity.Member">
-		SELECT * FROM MEMBER WHERE NOT(EMAIL ='admin')
-	</select>
-	
-	<delete id="deleteMember" parameterType="String">
-		DELETE FROM MEMBER WHERE EMAIL=#{email}
-	</delete> -->
-	
+   <!-- 인터페이스에서 mapper로 넘어올 수 있는 조건
+      namespace가 interface 이름과 동일 하던가
+      xml파일과 interface이름이 동일하면 자동으로 맞춰줌
+    -->
+    
+   <!-- 회원가입 -->
+   <insert id="memberInsert" parameterType="kr.smhrd.entity.Member">
+      insert into members (mb_id, mb_pw, mb_name, mb_nick, mb_birthdate, mb_gender, mb_phone, mb_img) values (#{mb_id}, MD5(#{mb_pw}), #{mb_name}, #{mb_nick}, #{mb_birthdate}, #{mb_gender}, #{mb_phone}, #{mb_img})
+   </insert> 
+   
+   <!-- 설문조사 -->
+   <insert id="surveyInsert" parameterType="kr.smhrd.entity.Survey">
+      insert into surveys (mb_id,q1,q2,q3,q4,q5) values(#{mb_id},#{q1},#{q2},#{q3},#{q4},#{q5})
+   </insert>
+   
+   <!-- 로그인 -->
+   <select id="memberSelect" parameterType="kr.smhrd.entity.Member" resultType="kr.smhrd.entity.Member">
+      select * from members where mb_id=#{mb_id} and mb_pw=MD5(#{mb_pw})
+   </select>
+   
+   
+   <update id="updateUserinfo" parameterType="kr.smhrd.entity.Member">
+      update members set mb_pw=#{mb_pw} , mb_nick=#{mb_nick}, mb_phone=#{mb_phone} where mb_id=#{mb_id}
+   </update>
+   
+   <update id="updateUserPro" parameterType="kr.smhrd.entity.Member">
+      update members set mb_proimg=#{mb_proimg} , mb_comment=#{mb_comment}, mb_mbti=#{mb_mbti} where mb_id=#{mb_id}
+   </update>
+   
+   <select id="findPro" parameterType="String" resultType="kr.smhrd.entity.Member">
+      select * from members where mb_id=#{mb_id}
+   </select>
+   
+   <select id="getrecommendMem" parameterType="String" resultType="String">
+      SELECT DISTINCT s2.mb_id
+      FROM members m
+      JOIN surveys s1 ON m.mb_id = s1.mb_id
+      JOIN surveys s2 ON s1.result_label = s2.result_label
+      WHERE m.mb_id = #{mb_id} AND s2.mb_id != #{mb_id}
+   </select>
+   
+   
+   
+<!--    <update id="updateProfil" parameterType="String">
+      update members set mb_proimg=#{mb_proimg} , mb_comment=#{mb_comment} where mb_id=#{mb_id}
+   </update> -->
+   
+   
+   <!-- <update id="updateMember" parameterType="kr.smhrd.entity.Member">
+      UPDATE MEMBER SET PW=#{pw} , TEL=#{tel}, ADDRESS=#{address} where EMAIL=#{email}
+   </update>
+   
+   <select id="showMember" resultType="kr.smhrd.entity.Member">
+      SELECT * FROM MEMBER WHERE NOT(EMAIL ='admin')
+   </select>
+   
+   <delete id="deleteMember" parameterType="String">
+      DELETE FROM MEMBER WHERE EMAIL=#{email}
+   </delete> -->
+   
 </mapper>
