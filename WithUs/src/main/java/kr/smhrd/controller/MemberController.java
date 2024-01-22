@@ -205,7 +205,7 @@ public class MemberController {
 	   int cnt = memberMapper.updateUserPro(member);
 	   
 	   
-	   return "Userproinfo";
+	   return "redirect:/goMain";
    }
 
    
