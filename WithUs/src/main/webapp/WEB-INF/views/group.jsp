@@ -244,11 +244,17 @@
 			<%} %>
               </div>   
             </div>
+            <% if (loginMember != null) { %>
             <div class="groupCardBottom"><a href="goGrcon?comp_idx=<%=boardList.get(i).getComp_idx() %>">
               <div class="groupCount">모집 인원 : <%= boardList.get(i).getComp_members() %></div>
               <div class="groupDesc"><%= boardList.get(i).getComp_content() %></div></a>
               <button type="button">신청</button>
-   
+               <%}else{%>
+               <div class="groupCardBottom">
+   				<div class="groupCount">모집 인원 : <%= boardList.get(i).getComp_members() %></div>
+              <div class="groupDesc"><%= boardList.get(i).getComp_content() %></div>
+              <%}%>
+              
     <% if (loginMember != null && !loginMember.getMb_id().equals(boardList.get(i).getMb_id())) { %>
           <a href="chat.action" class="oneChat">1:1대화</a>
           <%}%>
