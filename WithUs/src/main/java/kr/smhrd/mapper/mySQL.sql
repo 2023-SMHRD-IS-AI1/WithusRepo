@@ -32,6 +32,11 @@ alter table members modify column mb_proimg varchar(300) default '프로필 기�
 
 update members set mb_proimg = '프로필 기본값.png' ;
 
+ALTER TABLE comments
+ADD COLUMN comp_idx INT UNSIGNED, 
+
+ADD CONSTRAINT fk_comp_idx
+FOREIGN KEY (comp_idx) REFERENCES companions(comp_idx);
 
 create table members(
 	mb_id varchar(20) not null,
