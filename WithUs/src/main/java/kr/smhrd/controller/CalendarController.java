@@ -36,14 +36,12 @@ import kr.smhrd.mapper.MemberMapper;
 @RestController
 @Controller
 public class CalendarController {
-   
+   int beforeArraySize = 0;  
+	
    @Autowired
    private CalendarMapper calMapper;
    
-   
    private Calendar dto;
-   
-   
    
    @RequestMapping(value="/calSave", method=RequestMethod.POST)
    public @ResponseBody String addEvent(@RequestBody String params, HttpSession session) {
@@ -51,10 +49,8 @@ public class CalendarController {
       System.out.println(params);
    
       Calendar[] arr = new Gson().fromJson(params, Calendar[].class);
-      
        
-      for(int i=0; i<arr.length; i++) {
-         
+      for(int i=beforeArraySize; i<arr.length; i++) {  
        //  System.out.println("문자열 잘랐어요 : " + arr[i].getCal_start().substring(0, arr[i].getCal_start().indexOf("T")));
           arr[i].setCal_start(arr[i].getCal_start().substring(0, arr[i].getCal_start().indexOf("T")));
             System.out.println(arr[i].getCal_start());
@@ -63,10 +59,10 @@ public class CalendarController {
           dto = arr[i];
           calMapper.insertCalendar(dto);
       }
- 
-      //session.setAttribute("calendar",dto);
+      beforeArraySize = arr.length;
+      
      
-       System.out.println(dto.getMb_id());
+      // System.out.println(dto.getMb_id());
     
        return "Event added successfully!";
    }
@@ -80,27 +76,13 @@ public class CalendarController {
 	   
 	   List<Calendar> calendarData = calMapper.getCalendar(mb_id);
 	   
-       System.out.println("calendarData:"+calendarData);
+	   beforeArraySize = calendarData.size();
+	   
+       //System.out.println("calendarData:"+calendarData);
        return calendarData;
    }
    
  
-   @PostMapping("/eventSave")
-   @ResponseBody
-   public String eventSave(@RequestBody Calendar eventData, @RequestBody String params) {
-       // eventData를 이용하여 데이터베이스에 저장하는 로직을 구현
-       // 여기서는 간단하게 콘솔에 로그를 출력하는 예시를 보여줍니다.
-       System.out.println("Received Event Data: " + eventData);
-       System.out.println(params);
-       
-       Calendar[] arr = new Gson().fromJson(params, Calendar[].class);
-       for(int i=0; i<arr.length; i++) {
-    	   dto = arr[i];
-           calMapper.insertCalendar(dto);
-       }
-
-       // 성공 또는 실패 여부를 클라이언트에게 응답
-       return "Event saved successfully";
-   }
+ 
    
 }
