@@ -33,6 +33,7 @@
    rel="stylesheet"
    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
    crossorigin="anonymous" />
+   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/daily.css" />
 <style>
 /* body 스타일 */
 html, body {
@@ -45,6 +46,17 @@ html, body {
    padding-top: 1em;
    padding-left: 1em;
    padding-right: 1em;
+}
+
+.modal-content{
+
+	height:300px;
+
+}
+
+.m_b_f{
+	position: relative;
+	right:180px;
 }
 </style>
 </head>
@@ -69,10 +81,13 @@ html, body {
                <button type="button" class="btn-close" data-bs-dismiss="modal"
                   aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-               일정이름 : <input type="text" id="title" /><br /> 시작시간 : <input
-                  type="datetime-local" id="start" /><br /> 종료시간 : <input
-                  type="datetime-local" id="end" /><br /><!--  배경색상 : <select
+            <div class="modal-body" >
+
+               일정이름 : <input type="text" id="title" />
+               <br/><br/> 
+               시작시간 : <input type="datetime-local" id="start" />
+               <br/><br/> 
+               종료시간 : <input type="datetime-local" id="end" /><!--  배경색상 : <select
                   id="color">
                   <option value="red">빨강색</option>
                   <option value="orange">주황색</option>
@@ -82,12 +97,15 @@ html, body {
                   <option value="indigo">남색</option>
                   <option value="purple">보라색</option>
                </select> -->
+          
             </div>
             <div class="modal-footer">
+            <div class="m_b_f">
                <button type="button" class="btn btn-secondary"
                   data-bs-dismiss="modal">취소</button>
                <button type="button" class="btn btn-primary" id="saveChanges">
                   추가</button>
+                  </div>
             </div>
          </div>
       </div>

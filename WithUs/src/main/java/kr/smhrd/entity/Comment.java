@@ -15,6 +15,7 @@ public class Comment {
     private LocalDateTime created_at;
     private String mb_id;
     private Long review_idx;
+    private Long comp_idx;
     
    
 
@@ -38,6 +39,15 @@ public class Comment {
 
     public void setCmt_content(String cmt_content) {
         this.cmt_content = cmt_content;
+    }
+
+ // comp_idx 필드에 대한 getter, setter 메서드 추가
+    public Long getComp_idx() {
+        return comp_idx;
+    }
+
+    public void setComp_idx(Long comp_idx) {
+        this.comp_idx = comp_idx;
     }
    
 }

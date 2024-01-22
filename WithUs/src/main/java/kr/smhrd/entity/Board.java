@@ -51,8 +51,16 @@ public class Board {
 	private String comp_start;
 	private String comp_end;
 	private String comp_img;
+	
+	
+	 private List<Comment> comments;
+
+	    public List<Comment> getComments() {
+	        return comments;
+	    }
+	
 	public void setComments(List<Comment> comments) {
-		// TODO Auto-generated method stub
+		 this.comments = comments;
 		
 	}
 	

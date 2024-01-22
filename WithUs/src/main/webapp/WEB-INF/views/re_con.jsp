@@ -60,6 +60,15 @@
 	text-align: center;
 	position: relative;
 	top: 10px;
+	left: 5px;
+}
+
+#deleteForm{
+
+	position: relative;
+	left:20px;
+
+
 }
 
 .updateCommentBtn {
@@ -85,6 +94,36 @@
 	position: relative;
 	left: 140px;
 }
+
+#updateReviewForm{
+
+	position: relative;
+	left: 100px;
+
+}
+
+#updateCommentForm{
+	
+	position: relative;
+	left: 100px;
+
+}
+
+#g_btn_co{
+	
+	position: relative;
+	left: 170px;
+	top:20px;
+}
+
+.s_btn{
+	width:60px;
+	height: 40px;
+	position: relative;
+	top:2px;
+
+}
+
 </style>
 <body>
 
@@ -95,9 +134,7 @@
 		request.setAttribute("review", review); // review 속성을 설정하여 JSP 페이지로 전달
 	}
 	%>
-	
 
-	
 	<%@ include file="./nav.jsp"%>
 	<div id="mainImg"></div>
 	<!-- mainImg end -->
@@ -204,7 +241,7 @@
 		tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header">
+				<div class="modal-header" style="background-color: red">
 					<h1 class="modal-title fs-5" id="staticBackdropLabel">삭제</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
@@ -346,23 +383,17 @@
 							<textarea class="form-control" id="updatedContent"
 								name="updatedContent" rows="3"></textarea>
 						</div>
-						<button class="updateCommentBtn" onclick="submitUpdateComment()">수정</button>
+						<div id="g_btn_co">
+						<button class="updateCommentBtn btn-primary s_btn" onclick="submitUpdateComment()">수정</button>
 						<button type="button" class="btn btn-secondary"
 							data-bs-dismiss="modal">취소</button>
+							</div>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
 
-
-
-
-
-
-
-	<script type="text/javascript">
-  </script>
 	<script src="resources/assets/js/jquery.min.js"></script>
 	<script type="text/javascript">
 

@@ -40,9 +40,6 @@ public interface BoardMapper {
 	// 댓글 추가
 	void addComment(Comment comment);
 
-	// 모집 댓글 추가
-	void graddComment(Comment comment);
-
 	List<Comment> getCommentsByReviewIndex(Long review_idx);
 
 	public Comment getCommentById(Long cmt_idx);
@@ -81,6 +78,14 @@ public interface BoardMapper {
 	
 	// 모집 삭제
 	public void deleteComp(Long comp_idx);
+
+	public void addGrComment(Comment comment);
+
+
+
+	public List<Comment> getCommentsByCompIndex(Long comp_idx);
+
+	public void deleteGrComment(Long cmt_idx);
 
 
 
