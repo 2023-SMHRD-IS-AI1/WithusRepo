@@ -237,7 +237,7 @@
 				<p>${review.review_title}</p>
 				<div id="revInfo">
 					<div>
-						<span id="userImg"></span> <span id="userNick">${review.mb_id}</span>
+						<img id="userImg" class="uim" src="resources/pro_img/프로필 기본값.png"> <span id="userId">${review.mb_id}</span>
 					</div>
 					<span>${review.reviewed_at.format(DateTimeFormatter.ofPattern("yyyy.MM.dd"))}</span>
 				</div>
@@ -283,7 +283,7 @@
 				%>
 				<li>
 					<div class="commentLeft">
-						<div class="commentImg"></div>
+						<img class="commentImg" src="resources/images/댓글1.png">
 						<div class="commentContent">
 							<p><%=comment.getMb_id()%></p>
 							<p><%=comment.getCmt_content()%></p>

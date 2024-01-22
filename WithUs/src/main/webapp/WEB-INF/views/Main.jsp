@@ -38,9 +38,7 @@
    
       <% 
     List<reviewBoard> reviewList = (List<reviewBoard>)request.getAttribute("reviewList");
-	if(reviewList != null){
-		System.out.println(reviewList.size());	
-	}
+
   %>   
     <div id="main">
       <div id="main1"></div>
@@ -68,16 +66,14 @@
       <div id="writeBtn">
         <a class="btn btn-primary" href="goReview" role="button">더보기</a>
       </div>
-
-		
-     
-
+	
+	
       <div id="reviews">
       <%if(reviewList != null && reviewList.size() > 6){ %>
       <%for(int i =0; i<6;i++){ %>
         <div class="reviewCard">
           <a href="#">
-            <div class="imgBox"><img class="uim" src="resources/upload1/<%=reviewList.get(i).getReview_img() %>"></div>
+            <div class="imgBox"><img class="uim" src="resources/upload1/<%=reviewList.get(i).getReview_img()%>"></div>
             <div class="textBox">
               <p class="title"><%=reviewList.get(i).getReview_title() %></p>
               <p class="text">
@@ -88,7 +84,7 @@
           </a>
         </div>
         <%} 
-      }else if(reviewList != null && reviewList.size() <= 5){ %>
+      }else if(reviewList != null && reviewList.size() > 0){ %>
       	<%for(int i =0; i<reviewList.size();i++){ %>
         <div class="reviewCard">
           <a href="#">
@@ -102,7 +98,7 @@
             </div>
           </a>
         </div>
-      <%} 
+      <%}
       }
       %>
       
