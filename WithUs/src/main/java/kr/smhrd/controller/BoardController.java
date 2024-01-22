@@ -38,7 +38,7 @@ public class BoardController {
       
      MultipartRequest multi = null;
      
-     String savePath = "C:\\Users\\poa11\\git\\WithusRepo2\\WithUs\\src\\main\\webapp\\resources\\comp_img";
+     String savePath = "C:\\Users\\smhrd\\git\\WithusRepo\\WithUs\\src\\main\\webapp\\resources\\comp_img";
      System.out.println(savePath);
      int maxSize = 1024 * 1024 * 10 ; // 10MB
       String enc = "UTF-8";
@@ -221,7 +221,7 @@ public class BoardController {
       // MultipartRequest 객체 생성을 위한 매개변수 설정
       // 1. 요청객체(request)
       // 2. 파일을 저장할 경로(String)
-      String savePath = "C:\\Users\\poa11\\git\\WithusRepo2\\WithUs\\src\\main\\webapp\\resources\\upload1";
+      String savePath = "C:\\Users\\smhrd\\git\\WithusRepo\\WithUs\\src\\main\\webapp\\resources\\upload1";
       
       System.out.println(savePath);
       // 3. 파일의 용량 크기(int)

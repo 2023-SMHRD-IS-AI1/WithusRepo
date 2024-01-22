@@ -85,6 +85,13 @@
 	position: relative;
 	left: 140px;
 }
+
+#updateReviewForm{
+
+	position: relative;
+	left: 100px;
+
+}
 </style>
 <body>
 

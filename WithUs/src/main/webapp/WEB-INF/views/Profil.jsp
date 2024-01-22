@@ -52,7 +52,7 @@
                     <img src="resources/pro_img/<%=memPro.getMb_proimg() %>">
                 </div>
                 <div class="name col-8">
-                    <h2 class="mb-0 fs-2">닉네임</h2><%=memPro.getMb_nick() %>
+                    <h2 class="mb-0 fs-2"><%=memPro.getMb_nick() %></h2>
                  
                     <!-- <i class="fas fa-map-marker-alt fontjordyblue"></i><span class="fontjordyblue"> 대구 수성구</span> -->
                     <br>

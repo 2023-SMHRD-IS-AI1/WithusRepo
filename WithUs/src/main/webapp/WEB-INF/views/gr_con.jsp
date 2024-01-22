@@ -67,6 +67,13 @@
 
 }
 
+#updateCompForm{
+
+	position: relative;
+	left:100px;
+
+}
+
 </style>
 <body>
 
@@ -251,14 +258,9 @@
 				</div>
 			</div>
 			<div id="userAction">
-				<div id="like">
-					<i class="fa-regular fa-heart" id="normal-heart"></i><i
-						class="fa-solid fa-heart" id="full-heart"></i> <span
-						id="likeCount">0</span>
-				</div>
+
 				<div id="comment">
-					<i class="fa-regular fa-comment-dots" id="normal-comments"></i><i
-						class="fa-solid fa-comment-dots" id="full-comments"> </i>
+					<i class="fa-regular fa-comment-dots" id="normal-comments"></i>
 				</div>
 			</div>
 
