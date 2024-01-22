@@ -114,8 +114,8 @@ html, body {
                      
                    eventArray.push({
                       title: res[i].cal_title,
-                      start: res[i].cal_start,
-                      end: res[i].cal_end
+                      start: new Date(res[i].cal_start),
+                      end: res[i].cal_end ? new Date(res[i].cal_end) : null
                    })
                 }
                                 
@@ -151,8 +151,8 @@ html, body {
                             var objt = new Object();
                             objt.mb_id = mb_id;
                             objt.cal_title = allEvent[i]._def.title;
-                            objt.cal_start = allEvent[i]._instance.range.start;
-                            objt.cal_end = allEvent[i]._instance.range.end;
+                            objt.cal_start = allEvent[i].start.toISOString();
+                            objt.cal_end = allEvent[i].end ? allEvent[i].end.toISOString() : null;
 
                             events.push(objt);
                           }
