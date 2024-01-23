@@ -23,7 +23,7 @@ commit;
 
 delete from surveys where survey_idx =20;
 
-
+delete from reviews where review_title = '부산여행';
 
 ALTER TABLE members
 MODIFY COLUMN mb_comment VARCHAR(300) DEFAULT '입력 안됨';
