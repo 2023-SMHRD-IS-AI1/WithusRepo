@@ -58,11 +58,12 @@
 
 		
    <div id="mainImg"></div>
-   <!-- mainImg end -->
+   
    <div id="contain">
 	
      <div class="container m-auto mt-4 p-5 p-md-1 ">
-         <div class="menubar mb-5">
+     <!-- mainImg end -->
+       <div class="menubar mb-5">
             <div><span class="menubar__Profile fontjordyblue">Profile</span></div>
             <div class="progress" style="height: 2px; ">
                 <div class="progress-bar backjordyblue" role="progressbar" style="width: 120px" aria-valuenow="50"

@@ -217,7 +217,7 @@
         </div>
         
         <div class="thumbnail-item">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZIUTPbF3-g4FJjnukLNH-CPoHvE0VKHzxdA&usqp=CAU" alt="Imag" alt="Thumbnail 6">
+            <img src="https://a.cdn-hotels.com/gdcs/production138/d281/dd8a2f93-672e-4e2e-a5c7-2fa7f795fc65.jpg" alt="Imag" alt="Thumbnail 6">
         	 <h3>6.해운대 해수욕장</h3>
                                     <p>부산광역시 해운대구 </p>
         </div>
