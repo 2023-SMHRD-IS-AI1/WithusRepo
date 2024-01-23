@@ -41,8 +41,8 @@
       </div>
       
       <form action="updateProfil" method="post" enctype="multipart/form-data">
-        <div id="profileImg">
-			<img src="./resources/pro_img/<%=loginMember.getMb_proimg() %>">
+        <div>
+			<img id="profileImg" src="./resources/pro_img/<%=loginMember.getMb_proimg() %>">
         </div>
         
         <div class="input">
