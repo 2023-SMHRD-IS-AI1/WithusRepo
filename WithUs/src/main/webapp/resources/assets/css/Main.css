@@ -114,10 +114,11 @@ nav {
 #reviewTitle {
   width: 80%;
   height: 50px;
-  font-size: 50px;
+  font-size: 30px;
   margin-bottom: 30px;
   position: relative;
   top:70px;
+  font-weight: bold;
 }
 #reviews {
   width: 100%;
