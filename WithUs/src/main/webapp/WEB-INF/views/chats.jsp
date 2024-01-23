@@ -81,13 +81,6 @@
 					<p class="chat">방설명</p>
 				</div>
 			</li>
-			<li class="chatRoom" id="room120">
-				<div class="chatImg"><img src="resources/images/user3.jpg"></div>
-				<div class="chatCon">
-					<span class="chatTitle">충청도 여행</span> <span class="count">5</span>
-					<p class="chat">방설명</p>
-				</div>
-			</li>
 		</ul>
 		<ul id="chatting">
 			<li class="you">
