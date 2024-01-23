@@ -40,7 +40,7 @@
         <p><a href="goUserproinfo">회원 정보 변경</a></p>
       </div>
       
-      <form action="updateProfil" method="get" enctype="multipart/form-data">
+      <form action="updateProfil" method="post" enctype="multipart/form-data">
         <div id="profileImg">
 			<img src="./resources/pro_img/<%=loginMember.getMb_proimg() %>">
         </div>
@@ -49,7 +49,7 @@
        <input type="hidden" name="mb_id" value= "<%=loginMember.getMb_id()%>">
        <input type="hidden" class="form-control" id="exampleFormControlInput1" name="mb_pw" value="<%=loginMember.getMb_pw() %>" />
        <input type="hidden" class="form-control" id="exampleFormControlInput1" name="mb_name" value="<%=loginMember.getMb_name() %>" />
-       <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="<%=loginMember.getMb_nick() %>" readonly="readonly"/>
+       <input type="text" class="form-control" id="exampleFormControlInput1" name="mb_nick" value="<%=loginMember.getMb_nick() %>" placeholder="<%=loginMember.getMb_nick() %>" readonly="readonly" />
           <input type="hidden" class="form-control" id="exampleFormControlInput1" name="mb_birthdate" value="<%=loginMember.getMb_birthdate() %>" />
           <input type="hidden" class="form-control" id="exampleFormControlInput1" name="mb_gender" value="<%=loginMember.getMb_gender() %>" />
           <input type="hidden" class="form-control" id="exampleFormControlInput1" name="mb_phone" value="<%=loginMember.getMb_phone() %>" />

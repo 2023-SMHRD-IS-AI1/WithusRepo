@@ -181,6 +181,7 @@ public class MemberController {
 		DefaultFileRenamePolicy dftrp = new DefaultFileRenamePolicy(); 
 		
 		try {
+			System.out.println(" 들어옴 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ");
 			multi = new MultipartRequest(request, savePath, maxSize, enc, dftrp);
 			String mb_id = multi.getParameter("mb_id");
 			String mb_pw = multi.getParameter("mb_pw");
@@ -199,6 +200,7 @@ public class MemberController {
 			System.out.println(member);
 			
 		} catch (IOException e) {
+			e.printStackTrace();
 			System.out.println("안됨 ㅠ");
 			// TODO Auto-generated catch block
 			

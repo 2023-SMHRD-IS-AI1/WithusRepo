@@ -397,47 +397,35 @@
 	<script src="resources/assets/js/jquery.min.js"></script>
 	<script type="text/javascript">
 
-        $(document).ready(function () {
-            // 좋아요 및 댓글 표시 여부 설정
-            $("#full-heart").hide();
-            $("#full-comments").hide();
-            
+	$(document).ready(function () {
+	    // 좋아요 및 댓글 표시 여부 설정
+	    $("#full-heart").hide();
+	    $("#full-comments").hide();
+	    
+	    // 리뷰와 로그인 멤버 정보 확인
+	    <%if (review != null && loginMember != null) {%>
+	    var review_idx = <%=review.getReview_idx()%>;
+	    var mb_id = "<%=loginMember.getMb_id()%>";
+	    updateLikeCount(review_idx); // 페이지 로드 시 좋아요 개수 업데이트
+	    <%} else {%>
+	        // 정보가 없는 경우 처리
+	    <%}%>
 
-            // 좋아요 버튼 클릭 시
+	    function updateLikeCount(review_idx) {
+	        $.ajax({
+	            url: 'reviewLike/count',
+	            type: 'GET',
+	            data: { review_idx: review_idx },
+	            success: function(likeCount) {
+	                console.log("좋아요 개수: " + likeCount);
+	                $("#likeCount").text(likeCount);
+	            },
+	            error: function(xhr, status, error) {
+	                console.error('좋아요 개수 조회 실패:', error);
+	            }
+	        });
+	    }
 
-           
-            <%if (review != null && loginMember != null) {%>
-            var review_idx = <%=review.getReview_idx()%>;
-            var mb_id = "<%=loginMember.getMb_id()%>";
-        <%} else {%>
-				
-        <%}%>
-        function updateLikeCount(review_idx) {
-            $.ajax({
-                url: 'reviewLike/count',
-                type: 'GET',
-                data: { review_idx: review_idx },
-                success: function(likeCount) {
-                	console.log("좋아요 개수" + likeCount);
-                    $("#likeCount").text(likeCount);
-                },
-                error: function(xhr, status, error) {
-                    console.error('좋아요 개수 조회 실패:', error);
-                }
-            });
-        }
-/*             // 좋아요 버튼 클릭 시
-
-            $("#normal-heart").click(() => {
-                $("#normal-heart").hide();
-                $("#full-heart").show();
-            });
-
-            // 좋아요 취소 버튼 클릭 시
-            $("#full-heart").click(() => {
-                $("#normal-heart").show();
-                $("#full-heart").hide();
-            }); */
         	  // 좋아요 버튼 클릭 시
             $("#normal-heart").click(() => {
             	
