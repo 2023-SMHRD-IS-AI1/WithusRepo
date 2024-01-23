@@ -40,17 +40,17 @@
 <div id="contain">
 	<form action="goResult" method="post" onsubmit="return validateForm()">
 		<label class="form-label">아이디 *</label>
-		<input type="text" name="mb_id" class="form-control" id="inputE" placeholder="ID"/>
+		<input type="text" name="mb_id" class="form-control" id="inputE" placeholder="ID" autocomplete="off"/>
 		<input class="checkBtn" type="button" value="중복체크" onclick="checkE()"/>
 		<p class="warnTxt1 warn"></p>
 
 		<label class="form-label">비밀번호 *</label>
 		<input type="password" name="mb_pw" class="form-control" placeholder="PW"/>
 		<label class="form-label">이름 *</label>
-		<input type="text" name="mb_name" class="form-control" placeholder="NAME"/>
+		<input type="text" name="mb_name" class="form-control" placeholder="NAME" autocomplete="off"/>
 
 		<label class="form-label">닉네임 *</label>
-		<input type="text" name="mb_nick" class="form-control" id="inputN" placeholder="NICKNAME"/>
+		<input type="text" name="mb_nick" class="form-control" id="inputN" placeholder="NICKNAME" autocomplete="off"/>
 
 		<input class="checkBtn" type="button" value="중복체크" onclick="checkN()"/>
 		<p class="warnTxt2 warn"></p>
@@ -68,7 +68,7 @@
 			<label class="form-check-label" for="inlineRadio2">여성</label>
 		</div>
 		<label class="form-label">휴대폰번호 *</label>
-		<input type="text" class="form-control" name="mb_phone" placeholder="PHONE NUMBER"/>
+		<input type="text" class="form-control" name="mb_phone" placeholder="PHONE NUMBER" autocomplete="off"/>
 		<input class="checkBtn" type="button" value="핸드폰인증" onclick="checkP()"/>
 		<p class="warnTxt3 warn"></p>
 

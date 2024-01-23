@@ -102,7 +102,7 @@
                                 <textarea class="form-control" id="report_content" rows="3"></textarea>
                             </div>
                             <!-- 추가: 신고 대상 정보를 hidden input으로 전달 -->
-                            <input type="hidden" id="reporter" value="<%=memPro.getMb_id()%>" />
+                            <input type="hidden" id="reporter" value="<%=loginMember.getMb_id()%>" />
                             <input type="hidden" id="reportee" value="<%=memPro.getMb_id() %>" /> <!-- 대상 사용자 ID를 여기에 입력 -->
                             <button type="button" class="btn btn-danger d_btn" onclick="submitReport()">신고하기</button>
                         </form>
