@@ -171,7 +171,7 @@ public class MemberController {
 	   
 	    MultipartRequest multi = null;
 		
-		String savePath = "C:\\Users\\poa11\\git\\WithusRepo2\\WithUs\\src\\main\\webapp\\resources\\pro_img";
+		String savePath = "C:\\eGovFrame-4.0.0\\workspace.edu\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\WithUs\\resources\\pro_img";
 		System.out.println(savePath);
 		// 3. 파일의 용량 크기(int)
 		int maxSize = 1024 * 1024 * 10 ; // 10MB
@@ -181,6 +181,7 @@ public class MemberController {
 		DefaultFileRenamePolicy dftrp = new DefaultFileRenamePolicy(); 
 		
 		try {
+			System.out.println(" 들어옴 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ");
 			multi = new MultipartRequest(request, savePath, maxSize, enc, dftrp);
 			String mb_id = multi.getParameter("mb_id");
 			String mb_pw = multi.getParameter("mb_pw");
@@ -199,6 +200,7 @@ public class MemberController {
 			System.out.println(member);
 			
 		} catch (IOException e) {
+			e.printStackTrace();
 			System.out.println("안됨 ㅠ");
 			// TODO Auto-generated catch block
 			

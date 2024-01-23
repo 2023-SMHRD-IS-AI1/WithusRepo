@@ -45,27 +45,27 @@ public class BoardController {
       
      MultipartRequest multi = null;
      
-     String savePath = "C:\\Users\\poa11\\git\\WithusRepo2\\WithUs\\src\\main\\webapp\\resources\\comp_img";
+     String savePath = "C:\\eGovFrame-4.0.0\\workspace.edu\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\WithUs\\resources\\comp_img";
      System.out.println(savePath);
      int maxSize = 1024 * 1024 * 10 ; // 10MB
       String enc = "UTF-8";
       DefaultFileRenamePolicy dftrp = new DefaultFileRenamePolicy(); 
 
       try {
-      multi = new MultipartRequest(request, savePath, maxSize, enc, dftrp);
-      String mb_id = multi.getParameter("mb_id");
-      String mb_nick = multi.getParameter("mb_nick");
-      String mb_age = multi.getParameter("mb_age");
-      String comp_title = multi.getParameter("comp_title");
-      String comp_members = multi.getParameter("comp_members");
-      String comp_content = multi.getParameter("comp_content");
-      String comp_tourplace = multi.getParameter("comp_tourplace");
-      String comp_start = multi.getParameter("comp_start");
-      String comp_end = multi.getParameter("comp_end");
-      String comp_img =  multi.getFilesystemName("comp_img");
-      
-      board = new Board(null, mb_id, mb_nick, mb_age, comp_title, comp_members, comp_content, null, comp_tourplace, comp_start, comp_end, comp_img, null);
-      System.out.println(board.toString());
+	      multi = new MultipartRequest(request, savePath, maxSize, enc, dftrp);
+	      String mb_id = multi.getParameter("mb_id");
+	      String mb_nick = multi.getParameter("mb_nick");
+	      String mb_age = multi.getParameter("mb_age");
+	      String comp_title = multi.getParameter("comp_title");
+	      String comp_members = multi.getParameter("comp_members");
+	      String comp_content = multi.getParameter("comp_content");
+	      String comp_tourplace = multi.getParameter("comp_tourplace");
+	      String comp_start = multi.getParameter("comp_start");
+	      String comp_end = multi.getParameter("comp_end");
+	      String comp_img =  multi.getFilesystemName("comp_img");
+	      
+	      board = new Board(null, mb_id, mb_nick, mb_age, comp_title, comp_members, comp_content, null, comp_tourplace, comp_start, comp_end, comp_img, null);
+	      System.out.println(board.toString());
    
    } catch (IOException e) {
       // TODO Auto-generated catch block
@@ -145,7 +145,7 @@ public class BoardController {
       // MultipartRequest 객체 생성을 위한 매개변수 설정
       // 1. 요청객체(request)
       // 2. 파일을 저장할 경로(String)
-      String savePath = "C:\\Users\\poa11\\git\\WithusRepo2\\WithUs\\src\\main\\webapp\\resources\\upload1";
+      String savePath = "C:\\eGovFrame-4.0.0\\workspace.edu\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\WithUs\\resources\\upload1";
       
       System.out.println(savePath);
       // 3. 파일의 용량 크기(int)
