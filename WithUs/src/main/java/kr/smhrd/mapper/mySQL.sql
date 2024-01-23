@@ -21,6 +21,8 @@ select * from reviewLike;
 select * from reports;
 commit;
 
+delete from reports;
+
 delete from surveys where survey_idx =20;
 
 delete from reviews where review_title = '부산여행';
