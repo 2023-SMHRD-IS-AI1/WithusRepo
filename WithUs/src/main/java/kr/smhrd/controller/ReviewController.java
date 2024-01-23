@@ -176,9 +176,13 @@ public class ReviewController {
        
         Member loginMember = (Member) session.getAttribute("loginMember");
         reviewBoard review = boardMapper.getReviewByIndex(review_idx);
-
+        boardMapper.deleteComment2(review_idx);
+        boardMapper.deleteReviewLike(review_idx);
+        
+        
         if (loginMember != null && (review == null || loginMember.getMb_id().equals(review.getMb_id()))) {
             boardMapper.deleteReview(review_idx);
+            
             return "redirect:/goReview";
         } else {
             return "redirect:/goRecon?review_idx=" + review_idx; 

@@ -214,11 +214,14 @@ public class BoardController {
    public String deleteComp(@RequestParam Long comp_idx, HttpSession session) {
       
        Member loginMember = (Member) session.getAttribute("loginMember");
+       System.out.println(comp_idx);
        Board board = boardMapper.getCompByIndex(comp_idx);
-
+       
+       boardMapper.deleteGrComment1(comp_idx);
+       
        if (loginMember != null && (board == null || loginMember.getMb_id().equals(board.getMb_id()))) {
            boardMapper.deleteComp(comp_idx);
-           return "redirect:/goGrcon";
+           return "redirect:/goGroup";
        } else {
     	   return "redirect:/goGrcon?comp_idx=" + board.getComp_idx(); 
        }
