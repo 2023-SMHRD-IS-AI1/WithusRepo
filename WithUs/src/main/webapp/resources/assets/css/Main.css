@@ -135,6 +135,7 @@ nav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  position: relative;
 }
 .reviewCard {
   width: 18%;
@@ -200,10 +201,10 @@ nav {
   background-image: url('../../images/place1.png');
 }
 .placeCard:nth-child(2){
-  background-image: url('../../images/place2.png');
+  background-image: url('../../images/place3.png');
 }
 .placeCard:nth-child(3){
-  background-image: url('../../images/place3.png');
+  background-image: url('../../images/place2.png');
 }
 .placeCard:nth-child(4){
   background-image: url('../../images/place4.png');

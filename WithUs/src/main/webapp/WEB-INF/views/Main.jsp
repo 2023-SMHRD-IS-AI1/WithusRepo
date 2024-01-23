@@ -102,7 +102,7 @@
       </div>
       <div id="reviewTitle">지역별 추천 맛집 List</div>
       <div id="writeBtn">
-        <a class="btn btn-primary" href="goSeoul" role="button">더보기</a>
+       
       </div>
       <div id="places">
         <div class="placeCard">
