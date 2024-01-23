@@ -171,7 +171,7 @@ public class MemberController {
 	   
 	    MultipartRequest multi = null;
 		
-		String savePath = "C:\\Users\\poa11\\git\\WithusRepo2\\WithUs\\src\\main\\webapp\\resources\\pro_img";
+		String savePath = "C:\\eGovFrame-4.0.0\\workspace.edu\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\WithUs\\resources\\pro_img";
 		System.out.println(savePath);
 		// 3. 파일의 용량 크기(int)
 		int maxSize = 1024 * 1024 * 10 ; // 10MB
