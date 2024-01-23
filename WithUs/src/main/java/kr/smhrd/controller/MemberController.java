@@ -296,7 +296,7 @@ public class MemberController {
        return "Main";
       
       }else {
-         return "redirect:/login";
+         return "redirect:/goLogin";
          
       }
       

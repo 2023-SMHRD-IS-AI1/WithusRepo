@@ -69,7 +69,7 @@
       <%if(reviewList != null && reviewList.size() > 6){ %>
       <%for(int i =0; i<6;i++){ %>
         <div class="reviewCard">
-          <a href="#">
+          <a href="goRecon?review_idx=<%=reviewList.get(i).getReview_idx() %>">
             <div class="imgBox"><img class="uim" src="resources/upload1/<%=reviewList.get(i).getReview_img()%>"></div>
             <div class="textBox">
               <p class="title"><%=reviewList.get(i).getReview_title() %></p>
