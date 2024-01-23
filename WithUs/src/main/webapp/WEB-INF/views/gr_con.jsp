@@ -319,7 +319,7 @@
 			</div>
 			<div id="revContent">
 				<div id="revPhoto">
-					<img src="resources/upload1/${board.comp_img}" alt="">
+					<img src="resources/comp_img/${board.comp_img}" alt="">
 				</div>
 				<div id="revTxt">${board.comp_content}</div>
 				<div id="travelInfo">
