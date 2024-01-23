@@ -7,18 +7,18 @@
     <title>BEST TOURPLACE</title>
     <style>
         .thumbnail-container1 {
-            width: 90%;
+            width: 100%;
             overflow: hidden;
             position: relative;
-           right:35px;
+        
             bottom:30px;
         }
         
         .thumbnail-container2 {
-            width: 90%;
+            width: 100%;
             overflow: hidden;
             position: relative;
-           right:35px;
+        
             bottom:30px;
         }
 
@@ -67,7 +67,7 @@
         
         #c_foot{
         	position: absolute;
-        	left:860px;
+        	left:980px;
         	top:25px;
         	
         }
