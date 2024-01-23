@@ -43,9 +43,11 @@
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
 	rel="stylesheet">
 <link rel="stylesheet" href="resources/assets/css/reset.css" />
+
 <script src="https://code.jquery.com/jquery-3.7.1.js"
 	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
 	crossorigin="anonymous"></script>
+</head>	
 <style>
 #dele {
 	height: 220px;
@@ -134,6 +136,7 @@
 
 }
 </style>
+
 <body>
 
 	<%

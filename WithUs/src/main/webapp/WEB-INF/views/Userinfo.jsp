@@ -56,7 +56,7 @@
         <label for="exampleFormControlInput1" class="form-label">전화번호 *</label>
         <input type="text" class="form-control" name="mb_phone" id="exampleFormControlInput1" placeholder="PHONE NUMBER" />
         <input type="hidden" name= "mb_img" value=<%=loginMember.getMb_img() %>>
-        <input id="submit" class="btn btn-primary" type="submit" value="수정" />
+        <input id="submit" class="btn btn-primary sub_btn" type="submit" value="수정" />
       </form>
       
     </div>

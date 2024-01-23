@@ -39,6 +39,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="resources/assets/css/daily.css" />
     <style>
       /* body 스타일 */
       html,
@@ -47,17 +48,19 @@
         font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
         font-size: 14px;
       }
-      /* 캘린더 위의 해더 스타일(날짜가 있는 부분) */
+      /*  캘린더 위의 해더 스타일(날짜가 있는 부분)  */
       .fc-header-toolbar {
         padding-top: 1em;
         padding-left: 1em;
         padding-right: 1em;
-      }
+      } 
+      
     </style>
   </head>
   
-  <body style="padding: 30px">
- 
+  <body >
+
+
     <!-- calendar 태그 -->
     <div id="calendar-container">
       <div id="calendar"></div>
@@ -114,7 +117,7 @@
         </div>
       </div>
     </div>
-   
+  
     <script>
     
       (function () {

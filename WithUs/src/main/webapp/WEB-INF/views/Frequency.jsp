@@ -65,9 +65,11 @@
 
      
         
-        .c_foot{
-        	position: relative;
-        	top:35px;
+        #c_foot{
+        	position: absolute;
+        	left:860px;
+        	top:25px;
+        	
         }
         
 	
@@ -132,25 +134,25 @@
         </div>
         
         <div class="thumbnail-item">
-            <img src="https://i.namu.wiki/i/N3HeYeRRnwQahmlYSLl4G3Sb0tq_ZwQMjdEViRy3ruU0tVZA48PKbz30mt3fiHV0r9DvMzo2EiZMj5EKleoqPQ.webp" alt="Imag" alt="Thumbnail 2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiM-4NSsVm0dV1EQL-NAz_c4jmqMXRIC7twg&usqp=CAU" alt="Imag" alt="Thumbnail 2">
         	 <h3>2.코엑스</h3>
              <p>서울 특별시 강남구 </p>
         </div>
         
         <div class="thumbnail-item">
-            <img src="https://cdn.goyang1.com/news/photo/201807/6689_11301_1255.jpg" alt="Imag" alt="Thumbnail 3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5zvkZKlphX0YXdr03ZI3mjAWP4skwLs8NEQ&usqp=CAU" alt="Imag" alt="Thumbnail 3">
         	 <h3>3.킨텍스 제1 전시장</h3>
                                     <p>경기도 고양시 일산서구 </p>
         </div>
         
         <div class="thumbnail-item">
-            <img src="https://mediahub.seoul.go.kr/uploads/mediahub/2022/02/RsdXerNqgMMbclULRSFYcICcSiUtZGMx.jpg" alt="Imag" alt="Thumbnail 4">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnBmvyLkJhyLJ_W66yjLFpXaCYrkhkZoisGg&usqp=CAU" alt="Imag" alt="Thumbnail 4">
         	 <h3>4.여의도 한강공원</h3>
                                     <p>서울특별시 영등포구</p>
         </div>
         
         <div class="thumbnail-item">
-            <img src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202311/17/c74ac685-ad04-4ddb-a7a1-23cd337fa165.jpg" alt="Imag" alt="Thumbnail 5">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKpQJXR5xDa-QXl_dcFRU31gR_dglqGzafaQ&usqp=CAU" alt="Imag" alt="Thumbnail 5">
         	  <h3>5.롯데월드 잠실점</h3>
                                     <p>서울 특별시 송파구 </p>
         </div>
@@ -168,11 +170,7 @@
                                     <p>경기도 시홍시</p>
         </div>
         
-        <div class="thumbnail-item">
-            <img src="https://www.lafent.com/mono/data/news/img1/em200501007.jpg" alt="Imag" alt="Thumbnail 8">
-        	   <h3>8.일산호수공원</h3>
-                                    <p>경기도  고양시 일산동구</p>
-        </div>
+      
         
         <!-- Add more as needed -->
     </div>
@@ -189,13 +187,13 @@
     <div id="thumbnail-list">
     
         <div class="thumbnail-item">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFDDZrSpti3dx3glwoyJRl1etKJe469UpzYQ&usqp=CAU" alt="Imag" alt="Thumbnail 1">
+            <img src="https://www.gangwon.to/upload/board/BDMAIN03/997b0db6-1ba2-49ff-8eee-486983d739cf.jpg" alt="Imag" alt="Thumbnail 1">
         	<h3>1.속초해변</h3>
             <p>강원특별자치도 속초시 </p>
         </div>
         
         <div class="thumbnail-item">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4Zjh-7NwLPlo_XDz7n6nCsXq0lpO791ejEw&usqp=CAU" alt="Imag" alt="Thumbnail 2">
+            <img src="https://datacdn.ibtravel.co.kr/files/2023/07/26104528/2da24b5030684f9f86cc2884f0e6329e_img-1.jpeg" alt="Imag" alt="Thumbnail 2">
         	 <h3>2.광안리 해수욕장</h3>
              <p>부산광역시 수영구 </p>
         </div>
@@ -231,11 +229,7 @@
                                     <p>인천광역시 강화군</p>
         </div>
         
-        <div class="thumbnail-item">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEYqfa5YMb9xzyS011OpT-AiXiy_3XrBf70Q&usqp=CAU" alt="Imag" alt="Thumbnail 8">
-        	   <h3>8.대천해수욕장</h3>
-                                    <p>충청남도 보령시</p>
-        </div>
+       
         
         <!-- Add more as needed -->
     </div>

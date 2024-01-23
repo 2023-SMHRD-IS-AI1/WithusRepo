@@ -66,7 +66,7 @@ public class CalendarController {
     
        return "Event added successfully!";
    }
-   // 사용자 아이디를 기반으로 달력 데이터를 가져와서 모델에 추가
+   // 사용자 아이디를 기반으로 달력 데이터를 가져옴
    @GetMapping("/eventData")
    public @ResponseBody List<Calendar> getEventData(HttpSession session) {
 	   

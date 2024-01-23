@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -164,9 +165,9 @@ public class MemberController {
    }
    
    
-   // 프로필 수정
    @RequestMapping("/updateProfil")
    public String updateProfil(Member member, HttpServletRequest request, HttpSession session) {
+
 	   
 	    MultipartRequest multi = null;
 		
@@ -208,6 +209,7 @@ public class MemberController {
 	   Member loginMember = memberMapper.findPro(member.getMb_id());
 	   session.setAttribute("loginMember", loginMember);
 	   return "Userproinfo";
+
    }
 
    
