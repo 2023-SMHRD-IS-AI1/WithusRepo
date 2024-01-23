@@ -40,18 +40,18 @@
       <form id = "m_content" action="Writereview" method="post" enctype="multipart/form-data">
         <div class="input-group">
           <span class="input-group-text">제목</span>
-          <input type="text" name="review_title" aria-label="m_title" class="form-control">
+          <input type="text" name="review_title" aria-label="m_title" class="form-control" autocomplete="off">
         </div>
        		<br>
 		 <div class="input-group">
           <span class="input-group-text">내용</span>
-          <textarea class="form-control" name="review_content" placeholder="Leave a comment here" id="floatingTextarea" rows="15"></textarea>
+          <textarea class="form-control" name="review_content" placeholder="Leave a comment here" autocomplete="off" id="floatingTextarea" rows="15"></textarea>
          	<br>
         </div>
         <br>
         <div class="input-group">
           <span class="input-group-text">지역</span>
-          <input type="text" name="review_region" aria-label="m_location" class="form-control">
+          <input type="text" name="review_region" aria-label="m_location" autocomplete="off" class="form-control">
         </div>
         <input type="hidden" name="mb_id" value="<%=loginMember.getMb_id()%>">
         <br>

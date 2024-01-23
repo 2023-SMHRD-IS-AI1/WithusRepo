@@ -101,7 +101,7 @@
 	</div>
 </div>
 <script type="text/javascript">
-    let url = 'ws://172.30.1.55:8081/controller/chatserver/';
+    let url = 'ws://localhost:8081/controller/chatserver/';
     let ws
     let userNickname = '<%=loginMember.getMb_nick()%>';
     let isAlreadyJoined = false;

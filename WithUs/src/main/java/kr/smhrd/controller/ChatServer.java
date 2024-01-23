@@ -83,7 +83,6 @@ public class ChatServer {
       // 누군가 메세지를 전송
     	
     	List<Session> roomSessions = userMap.get(room_idx);
-        List<String> roomChatHistory = getRoomChatHistory(room_idx);
     	
       for (Session s : roomSessions) {
 
@@ -98,8 +97,6 @@ public class ChatServer {
 
       }
       
-   // 채팅 내용 저장
-      roomChatHistory.add(user + ": " + txt);
       
     } else if (no.equals("3")) {
       // 누군가 접속종료 > 3#아무개
@@ -119,10 +116,6 @@ public class ChatServer {
 
   }
 
-  private List<String> getRoomChatHistory(int room_idx) {
-	// TODO Auto-generated method stub
-	return null;
-}
 
 @OnClose
   public void handleClose(Session session, @PathParam("room_idx") int room_idx ) {

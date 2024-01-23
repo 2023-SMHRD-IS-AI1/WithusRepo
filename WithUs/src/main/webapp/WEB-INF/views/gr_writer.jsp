@@ -37,7 +37,13 @@
      <div id="mainImg"></div>
     <!-- mainImg end -->
    
-   <% int mb_age = (int)session.getAttribute("mb_age"); %>
+   <% int mb_age = (int)session.getAttribute("mb_age");
+   	if (mb_age == 0){
+   		
+   	}else{
+   		
+   	};
+   %>
 
    
     <div id="contain">
@@ -48,23 +54,23 @@
       	
         <div class="input-group">
           <span class="input-group-text">제목</span>
-          <input type="text" name ="comp_title" aria-label="m_title" class="form-control">
+          <input type="text" name ="comp_title" aria-label="m_title" class="form-control" autocomplete="off">
           <input type= "hidden" name="mb_age" value=${mb_age }>
         </div>
         <br>
         <div class="input-group">
           <span class="input-group-text">모집인원</span>
-          <input type="number" name="comp_members" aria-label="m_person" class="form-control"  placeholder="ex) 1">
+          <input type="number" name="comp_members" aria-label="m_person" class="form-control"  placeholder="ex) 1" autocomplete="off">
         </div>
         <br>
         <div class="input-group">
           <span class="input-group-text">내용</span>
-          <textarea name="comp_content" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" rows="15"></textarea>
+          <textarea name="comp_content" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" rows="15" autocomplete="off"></textarea>
         </div>
         <br>
         <div class="input-group">
           <span class="input-group-text">지역</span>
-          <input type="text" name="comp_tourplace" aria-label="m_location" class="form-control">
+          <input type="text" name="comp_tourplace" aria-label="m_location" class="form-control" autocomplete="off">
         </div>
         <br>
         <div class="input-group">

@@ -292,7 +292,7 @@
 				<div id="like">
 					<i class="fa-regular fa-heart" id="normal-heart"></i><i
 						class="fa-solid fa-heart" id="full-heart"></i> <span
-						id="likeCount">0</span>
+						id="likeCount"></span>
 				</div>
 				<div id="comment">
 					<i class="fa-regular fa-comment-dots" id="normal-comments"></i><i
@@ -401,7 +401,7 @@
             // 좋아요 및 댓글 표시 여부 설정
             $("#full-heart").hide();
             $("#full-comments").hide();
-
+            
 
             // 좋아요 버튼 클릭 시
 
