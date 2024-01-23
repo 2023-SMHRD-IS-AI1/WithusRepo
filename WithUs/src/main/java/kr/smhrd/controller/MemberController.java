@@ -194,17 +194,19 @@ public class MemberController {
 			String mb_mbti = multi.getParameter("mb_mbti");
 			
 			member = new Member(mb_id, mb_pw, mb_name, mb_nick, mb_birthdate, mb_gender, mb_phone, mb_img, null, null, mb_proimg, mb_comment,mb_mbti);
-			session.setAttribute("loginMember", member);
+			
 			System.out.println(member);
 			
 		} catch (IOException e) {
+			System.out.println("안됨 ㅠ");
 			// TODO Auto-generated catch block
 			
 		} 
 	   System.out.println(member.toString());
 	   int cnt = memberMapper.updateUserPro(member);
 	   
-	   
+	   Member loginMember = memberMapper.findPro(member.getMb_id());
+	   session.setAttribute("loginMember", loginMember);
 	   return "Userproinfo";
    }
 

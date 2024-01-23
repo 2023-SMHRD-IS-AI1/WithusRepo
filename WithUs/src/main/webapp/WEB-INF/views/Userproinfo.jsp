@@ -42,7 +42,7 @@
       
       <form action="updateProfil" method="get" enctype="multipart/form-data">
         <div id="profileImg">
-
+			<img src="resources/pro_img/<%= loginMember.getMb_proimg() %>">
         </div>
         
         <div class="input">
