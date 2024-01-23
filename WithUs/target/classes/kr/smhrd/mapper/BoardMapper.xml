@@ -107,7 +107,13 @@
         DELETE FROM reviews WHERE review_idx = #{review_idx}
     </delete>
     
+    <delete id="deleteComment2" parameterType="Long">
+    	DELETE FROM comments WHERE review_idx = #{review_idx}
+    </delete>
     
+    <delete id="deleteReviewLike" parameterType="Long">
+    	DELETE FROM reviewLike WHERE review_idx = #{review_idx}
+    </delete>
 
 <update id="updateReview" parameterType="kr.smhrd.entity.reviewBoard">
     UPDATE reviews
@@ -161,6 +167,11 @@
     
      <delete id="deleteGrComment" parameterType="Long">
         DELETE FROM comments WHERE cmt_idx = #{cmt_idx}
+    </delete>
+    
+    
+    <delete id="deleteGrComment1" parameterType="Long">
+    	DELETE FROM comments WHERE comp_idx = #{comp_idx}
     </delete>
     
     

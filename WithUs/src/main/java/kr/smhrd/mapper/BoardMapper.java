@@ -87,6 +87,12 @@ public interface BoardMapper {
 
 	public void deleteGrComment(Long cmt_idx);
 
+	public void deleteComment2(Long review_idx);
+
+	public void deleteGrComment1(Long comp_idx);
+
+	public void deleteReviewLike(Long review_idx);
+
 
 
 //	public int insertBoard(Board board);
