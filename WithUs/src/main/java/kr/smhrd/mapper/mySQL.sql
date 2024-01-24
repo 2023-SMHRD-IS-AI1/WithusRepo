@@ -21,6 +21,10 @@ select * from reviewLike;
 select * from reports;
 commit;
 
+delete from reports;
+
+update members set mb_proimg='프로필 기본값.png';
+
 delete from surveys where survey_idx =20;
 
 delete from reviews where review_title = '부산여행';
