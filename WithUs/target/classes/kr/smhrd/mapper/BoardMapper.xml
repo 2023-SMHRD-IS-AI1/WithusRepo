@@ -34,10 +34,12 @@
 		select * from companions
 	</select>
 	
-	<select id="getAllReview" resultType="kr.smhrd.entity.reviewBoard">
-		select * from reviews
-	</select> 
-	
+<select id="getAllReview" resultType="kr.smhrd.entity.reviewBoard">
+    SELECT * FROM reviews
+
+</select>
+
+
 	 <!-- 페이징을 위한 추가된 SQL -->
     <select id="getAllReviewWithPagination" resultType="kr.smhrd.entity.reviewBoard">
         SELECT * FROM reviews
