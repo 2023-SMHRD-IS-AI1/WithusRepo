@@ -83,92 +83,10 @@
 - 프로필 사진을 변경하는 과정에서 사진이 resource내의 폴더로 제대로 들어가지 않는 상황이 발생하여 원인에 대해 분석해본 결과
 상대경로로 입력시 DB로 사진의 이름값만 저장이 되고 폴더에 사진이 저장이 되지 않는다는 사실을 발견하여 사진을 저장할 절대경로를
 만든 후 정상적으로 사진 업로드 기능 구현했으나 Git Hub로 Pull을 받은 후 다시 정상적으로 작동되지 않는 문제를 발견하여 에러 코드를
-찍어본 결과 multi-part form데이터는 Post 방식으로만 가져올 수 있는데 Get방식으로 바뀌어져 있다는 사실을 확인 후 수정하여 
+찍어본 결과 multipart/form-data는  Post 방식으로만 가져올 수 있는데 Get방식으로 바뀌어져 있다는 사실을 확인 후 수정하여 
 원활한 프로젝트 진행을 할 수 있었습니다.
 
-<details>
-<summary><b>기존 코드</b></summary>
-<div markdown="1">
-
-~~~java
-/**
- * 게시물 Top10 (기준: 댓글 수 + 좋아요 수)
- * @return 인기순 상위 10개 게시물
- */
-public Page<PostResponseDto> listTopTen() {
-
-    PageRequest pageRequest = PageRequest.of(0, 10, Sort.Direction.DESC, "rankPoint", "likeCnt");
-    return postRepository.findAll(pageRequest).map(PostResponseDto::new);
-}
-
-/**
- * 게시물 필터 (Tag Name)
- * @param tagName 게시물 박스에서 클릭한 태그 이름
- * @param pageable 페이징 처리를 위한 객체
- * @return 해당 태그가 포함된 게시물 목록
- */
-public Page<PostResponseDto> listFilteredByTagName(String tagName, Pageable pageable) {
-
-    return postRepository.findAllByTagName(tagName, pageable).map(PostResponseDto::new);
-}
-
-// ... 게시물 필터 (Member) 생략 
-
-/**
- * 게시물 필터 (Date)
- * @param createdDate 게시물 박스에서 클릭한 날짜
- * @return 해당 날짜에 등록된 게시물 목록
- */
-public List<PostResponseDto> listFilteredByDate(String createdDate) {
-
-    // 등록일 00시부터 24시까지
-    LocalDateTime start = LocalDateTime.of(LocalDate.parse(createdDate), LocalTime.MIN);
-    LocalDateTime end = LocalDateTime.of(LocalDate.parse(createdDate), LocalTime.MAX);
-
-    return postRepository
-                    .findAllByCreatedAtBetween(start, end)
-                    .stream()
-                    .map(PostResponseDto::new)
-                    .collect(Collectors.toList());
-    }
-~~~
-
-</div>
-</details>
-
-- 이 때 카테고리(tag)로 게시물을 필터링 하는 경우,  
-각 게시물은 최대 3개까지의 카테고리(tag)를 가질 수 있어 해당 카테고리를 포함하는 모든 게시물을 질의해야 했기 때문에  
-- 아래 **개선된 코드**와 같이 QueryDSL을 사용하여 다소 복잡한 Query를 작성하면서도 페이징 처리를 할 수 있었습니다.
-
-<details>
-<summary><b>개선된 코드</b></summary>
-<div markdown="1">
-
-~~~java
-/**
- * 게시물 필터 (Tag Name)
- */
-@Override
-public Page<Post> findAllByTagName(String tagName, Pageable pageable) {
-
-    QueryResults<Post> results = queryFactory
-            .selectFrom(post)
-            .innerJoin(postTag)
-                .on(post.idx.eq(postTag.post.idx))
-            .innerJoin(tag)
-                .on(tag.idx.eq(postTag.tag.idx))
-            .where(tag.name.eq(tagName))
-            .orderBy(post.idx.desc())
-                .limit(pageable.getPageSize())
-                .offset(pageable.getOffset())
-            .fetchResults();
-
-    return new PageImpl<>(results.getResults(), pageable, results.getTotal());
-}
-~~~
-
-</div>
-</details>
+pushpin:[개선된 코드 확인](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/9fdd137d-62aa-49d0-9d62-9abd0e947c4d)
 
 </br>
 
