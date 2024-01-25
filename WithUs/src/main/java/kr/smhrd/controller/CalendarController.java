@@ -43,6 +43,7 @@ public class CalendarController {
    
    private Calendar dto;
    
+   // 캘린더 저장
    @RequestMapping(value="/calSave", method=RequestMethod.POST)
    public @ResponseBody String addEvent(@RequestBody String params, HttpSession session) {
 
@@ -51,7 +52,6 @@ public class CalendarController {
       Calendar[] arr = new Gson().fromJson(params, Calendar[].class);
        
       for(int i=beforeArraySize; i<arr.length; i++) {  
-       //  System.out.println("문자열 잘랐어요 : " + arr[i].getCal_start().substring(0, arr[i].getCal_start().indexOf("T")));
           arr[i].setCal_start(arr[i].getCal_start().substring(0, arr[i].getCal_start().indexOf("T")));
             System.out.println(arr[i].getCal_start());
            arr[i].setCal_end(arr[i].getCal_end().substring(0, arr[i].getCal_end().indexOf("T")));
@@ -60,9 +60,7 @@ public class CalendarController {
           calMapper.insertCalendar(dto);
       }
       beforeArraySize = arr.length;
-      
-     
-      // System.out.println(dto.getMb_id());
+
     
        return "Event added successfully!";
    }
@@ -77,8 +75,7 @@ public class CalendarController {
 	   List<Calendar> calendarData = calMapper.getCalendar(mb_id);
 	   
 	   beforeArraySize = calendarData.size();
-	   
-       //System.out.println("calendarData:"+calendarData);
+
        return calendarData;
    }
    
