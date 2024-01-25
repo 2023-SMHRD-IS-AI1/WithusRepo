@@ -51,7 +51,7 @@ public class ReviewController {
         this.boardMapper = boardMapper;
         this.httpSession = httpSession;
     }
-
+    // 리뷰글 가져오기
     @GetMapping("/goReview")
     public String goReview(
             @RequestParam(defaultValue = "0") int page,
@@ -78,11 +78,10 @@ public class ReviewController {
         return "review";
     }
     
-    
+    // 리뷰 수정
     @PostMapping("/updateReview")
     public String updateReview(@ModelAttribute reviewBoard review, Model model) {
         try {
-            // 유효성 검사: 리뷰 제목이 null이거나 빈 문자열인 경우 예외 발생
             if (review.getReview_title() == null || review.getReview_title().trim().isEmpty()) {
                 throw new IllegalArgumentException("리뷰 제목은 필수 입력 항목입니다.");
             }
@@ -104,7 +103,7 @@ public class ReviewController {
 
     
 
- // getRecon 메서드에 로그인한 사용자 정보 가져오는 코드 추가
+    // 리뷰 상세로 이동
     @GetMapping("/goRecon")
     public String goRecon(@RequestParam Long review_idx, Model model) {
         // review_idx를 사용하여 특정 리뷰의 세부 정보를 가져옴
@@ -150,21 +149,21 @@ public class ReviewController {
         }
     }
     
+    // 리뷰 댓글 삭제
     @PostMapping("/deleteComment")
     public String deleteComment(@RequestParam Long cmt_idx, @RequestParam Long review_idx, HttpSession session) {
-        // Check if the logged-in user is the owner of the comment
+
         Member loginMember = (Member) session.getAttribute("loginMember");
         Comment comment = boardMapper.getCommentById(cmt_idx);
 
         if (loginMember != null && comment != null && loginMember.getMb_id().equals(comment.getMb_id())) {
-            // If the logged-in user is the owner, proceed with deletion
             boardMapper.deleteComment(cmt_idx);
 
-            // Redirect to the review detail page after deletion
+          
             return "redirect:/goRecon?review_idx=" + review_idx;
         } else {
-            // If the user is not the owner or not logged in, handle accordingly
-            return "redirect:/login"; // Redirect to the login page or another appropriate page
+            
+            return "redirect:/login"; 
         }
     }
     
@@ -188,7 +187,7 @@ public class ReviewController {
             return "redirect:/goRecon?review_idx=" + review_idx; 
         }
     }
-    
+    // 리뷰 댓글 수정
     @PostMapping("/updateComment")
     public String updateComment(
             @RequestParam Long cmt_idx,
@@ -206,13 +205,11 @@ public class ReviewController {
                 comment.setCmt_content(updatedContent);
                 boardMapper.updateComment(comment);
 
-                // 수정 후 댓글 상세 페이지로 리다이렉트
                 return "redirect:/goRecon?review_idx=" + review_idx;
             }
         }
-
         // 수정에 실패하거나 권한이 없는 경우
-        return "redirect:/login"; // 수정 실패 시 리다이렉트할 페이지 설정
+        return "redirect:/login"; 
     }
 }
   

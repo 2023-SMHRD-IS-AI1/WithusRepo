@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.smhrd.mapper.ReviewLikeMapper">
-	  <!-- 리뷰에 대한 좋아요 추가 -->
+	
+	<!-- 리뷰에 대한 좋아요 추가 -->
     <insert id="addReviewLike" parameterType="kr.smhrd.entity.reviewLike">
         INSERT INTO reviewLike (review_idx, mb_id)
         VALUES (#{review_idx}, #{mb_id})
@@ -13,6 +14,7 @@
         WHERE review_idx = #{review_idx} AND mb_id = #{mb_id}
     </delete>
 	
+	<!-- 리뷰 좋아요 숫자 조회하기 -->
 	<select id="countReviewLikes" parameterType="int" resultType="int">
     SELECT COUNT(*) FROM reviewLike WHERE review_idx = #{review_idx}
 	</select>

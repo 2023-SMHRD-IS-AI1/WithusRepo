@@ -17,14 +17,10 @@ public class Comment {
     private Long review_idx;
     private Long comp_idx;
     
-   
-
-    // created_at 필드에 대한 getter 메서드 추가
     public LocalDateTime getCreated_at() {
         return created_at;
     }
 
-    // created_at 필드에 대한 setter 메서드 추가
     public void setCreated_at(LocalDateTime created_at) {
         this.created_at = created_at;
     }
@@ -41,7 +37,6 @@ public class Comment {
         this.cmt_content = cmt_content;
     }
 
- // comp_idx 필드에 대한 getter, setter 메서드 추가
     public Long getComp_idx() {
         return comp_idx;
     }

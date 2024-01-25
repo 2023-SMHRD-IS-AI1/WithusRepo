@@ -50,22 +50,22 @@
       </div>
     </div>
 
-	
-	
-   	
+   
+   
+      
 
     <!-- mainImg end -->
     <div id="contain">
 
 
-					 <%@ include file="./Frequency.jsp" %>
+                <%@ include file="./Frequency.jsp" %>
 
       <div id="reviewTitle">With Us와 함께하는 여행자들의 생생한 후기</div>
       <div id="writeBtn">
         <a class="btn btn-primary" href="goReview" role="button">더보기</a>
       </div>
-	
-	
+   
+   
       <div id="reviews">
       <%if(reviewList != null && reviewList.size() > 6){ %>
       <%for(int i =0; i<6;i++){ %>
@@ -83,7 +83,7 @@
         </div>
         <%} 
       }else if(reviewList != null && reviewList.size() > 0){ %>
-      	<%for(int i =0; i<reviewList.size();i++){ %>
+         <%for(int i =0; i<reviewList.size();i++){ %>
         <div class="reviewCard">
           <a href="#">
             <div class="imgBox"><img class="uim" src="resources/upload1/<%=reviewList.get(i).getReview_img() %>"></div>
@@ -132,7 +132,7 @@
     <!-- contain end -->
     <%@ include file="./F_chat.jsp" %>
     <footer></footer>
-	    <script>
+       <script>
         window.onload = function() {
             <% if (loginMember != null && session.getAttribute("reportWarning") != null) { %>
                 alert('<%= session.getAttribute("reportWarning") %>');
@@ -140,7 +140,7 @@
             <% } %>
         };
     </script>
-	
+   
 
     
     
