@@ -51,13 +51,30 @@
 
 
 - **설문조사와 동행자 추천** :pushpin: [코드 확인]
-- ![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/b26408bf-e457-47ec-9e18-ee1d221b841b)
+ ![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/b26408bf-e457-47ec-9e18-ee1d221b841b)
 
-  - Vue.js로 렌더링된 화면단에서, 사용자가 등록을 시도한 URL의 모양새를 정규식으로 확인합니다.
-  - URL의 모양새가 아닌 경우, 에러 메세지를 띄웁니다.
+  - 600개 정도의 설문조사 데이터를 수집
+  - 180개의 y데이터 사용한 후 6개의 라벨 값을 가지고 있는 머신러닝 머신에 학습
+  - DB와 연결해 회원가입시 설문조사 결과를 DB에 저장
+  - 파이썬에서 Polling 방식으로 5초마다 결과에 라벨값을 입혀 다시 DB에 저장
+  - RandomForest, decision tree보다 성능이 좋은 Knn모델 사용
+  - 사용자는 본인과 라벨값이 똑같은 사용자가 추천 동행자에 보이게 됨
 
-- **Axios 비동기 요청** :pushpin: [코드 확인]()
-  - URL의 모양새인 경우, 컨텐츠를 등록하는 POST 요청을 비동기로 날립니다.
+- **실시간 채팅** :pushpin: [코드 확인]()
+![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/badde335-a2f5-484d-b11b-7de9dab463c2)
+- 채팅은 자바스크립트의 Web Socket기능 이용
+- 사용자가 메세지를 입력, 전송하면 자바스크립트에서 샌드메세지 함수 사용하여 웹소켓 서버로 보냄
+![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/6083b22d-7328-47af-8251-557daa431f96)
+- Web Socket 서버는 메세지를 수신하고 붙어있는 분류번호를 이용해 알맞은 곳에 다시 메세지 보내줌
+- 채팅방 번호를 붙여 경로에 방번호가 붙게 보낸뒤 서버에서 방번호를 수집
+- 해당 방번호에 들어와있는 사람만 메세지를 받을 수 있게 함
+
+- **캘린더** :pushpin: [코드 확인]()
+![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/b1ea1c1e-d3c7-4660-b5d1-3f8946a9f98b)
+![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/e5c6673d-3804-4999-ad03-ea10aaa95e56)
+- FullCalendar API를 사용
+- 일정을 등록하면 일정이 불러와져 화면에 보이게끔 함
+
 
 ### 4.3. Controller
 
