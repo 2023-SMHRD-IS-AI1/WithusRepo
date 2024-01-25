@@ -50,10 +50,8 @@
 ![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/d77fd717-c3b0-4afa-9e41-c7fcb4ab8288)
 
 
-- **설문조사와 동행자 추천** :pushpin:[코드 확인]()
-- [코드 확인](![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/b26408bf-e457-47ec-9e18-ee1d221b841b))
-
-
+- **설문조사와 동행자 추천** :pushpin:[코드 확인](![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/10d01598-52e3-4eff-9fcf-13794a7b61b4)
+)
   - 600개 정도의 설문조사 데이터를 수집
   - 180개의 y데이터 사용한 후 6개의 라벨 값을 가지고 있는 머신러닝 머신에 학습
   - DB와 연결해 회원가입시 설문조사 결과를 DB에 저장
