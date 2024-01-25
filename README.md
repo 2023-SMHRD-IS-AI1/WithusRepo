@@ -68,6 +68,7 @@
 
 ![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/b1ea1c1e-d3c7-4660-b5d1-3f8946a9f98b)
 - FullCalendar API를 사용
+- 비동기통신방식을 이용
 - 일정을 등록하면 일정이 불러와져 화면에 보이게끔 함
 
 
