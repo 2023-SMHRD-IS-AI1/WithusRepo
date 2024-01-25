@@ -4,24 +4,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>Seoul</title>
-	<meta charset="utf-8"/>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400&display=swap"/>
-	<link
-					href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-					rel="stylesheet"
-					integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-					crossorigin="anonymous"
-	/>
-	<script src="https://kit.fontawesome.com/d5377ff581.js" crossorigin="anonymous"></script>
-	<link rel="preconnect" href="https://fonts.googleapis.com"/>
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;800&display=swap"
-	      rel="stylesheet"/>
-	<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
-	<link rel="stylesheet" href="resources/assets/css/reset.css"/>
-	<link rel="stylesheet" href="resources/assets/css/Maps.css"/>
+   <title>Seoul</title>
+   <meta charset="utf-8"/>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400&display=swap"/>
+   <link
+               href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+               rel="stylesheet"
+               integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+               crossorigin="anonymous"
+   />
+   <script src="https://kit.fontawesome.com/d5377ff581.js" crossorigin="anonymous"></script>
+   <link rel="preconnect" href="https://fonts.googleapis.com"/>
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;800&display=swap"
+         rel="stylesheet"/>
+   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+   <link rel="stylesheet" href="resources/assets/css/reset.css"/>
+   <link rel="stylesheet" href="resources/assets/css/Maps.css"/>
 
 </head>
 <body>
@@ -29,44 +29,44 @@
 <div id="mainImg"></div>
 
 <div id="contain">
-	<div id="buttons">
-		<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-			<input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"
-			       onclick="location.href='goGroup'"/>
-			<label class="btn btn-outline-primary" for="btnradio1">모집</label>
+   <div id="buttons">
+      <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+         <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"
+                onclick="location.href='goGroup'"/>
+         <label class="btn btn-outline-primary" for="btnradio1">모집</label>
 
-			<input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off"
-			       onclick="location.href='goReview'"/>
-			<label class="btn btn-outline-primary" for="btnradio2">리뷰</label>
+         <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off"
+                onclick="location.href='goReview'"/>
+         <label class="btn btn-outline-primary" for="btnradio2">리뷰</label>
 
-			<input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked/>
-			<label class="btn btn-outline-primary" for="btnradio3">추천 맛집</label>
-		</div>
-	</div>
-	<!-- buttons end -->
-	<div id="mapbuttons">
-		<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-			<input type="radio" class="btn-check" name="btnradio1" id="btnradio4" autocomplete="off" checked/>
-			<label class="btn btn-outline-primary btn-outline-warning" for="btnradio4" onclick="seoul()">서울</label>
+         <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked/>
+         <label class="btn btn-outline-primary" for="btnradio3">추천 맛집</label>
+      </div>
+   </div>
+   <!-- buttons end -->
+   <div id="mapbuttons">
+      <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+         <input type="radio" class="btn-check" name="btnradio1" id="btnradio4" autocomplete="off" checked/>
+         <label class="btn btn-outline-primary btn-outline-warning" for="btnradio4" onclick="seoul()">서울</label>
 
-			<input type="radio" class="btn-check" name="btnradio1" id="btnradio5" autocomplete="off"/>
-			<label class="btn btn-outline-primary btn-outline-warning" for="btnradio5" onclick="Gr()">강릉</label>
+         <input type="radio" class="btn-check" name="btnradio1" id="btnradio5" autocomplete="off"/>
+         <label class="btn btn-outline-primary btn-outline-warning" for="btnradio5" onclick="Gr()">강릉</label>
 
-			<input type="radio" class="btn-check" name="btnradio1" id="btnradio6" autocomplete="off"/>
-			<label class="btn btn-outline-primary btn-outline-warning" for="btnradio6" onclick="jj()">제주</label>
+         <input type="radio" class="btn-check" name="btnradio1" id="btnradio6" autocomplete="off"/>
+         <label class="btn btn-outline-primary btn-outline-warning" for="btnradio6" onclick="jj()">제주</label>
 
-			<input type="radio" class="btn-check" name="btnradio1" id="btnradio7" autocomplete="off"/>
-			<label class="btn btn-outline-primary btn-outline-warning" for="btnradio7" onclick="bs()">부산</label>
-		</div>
-	</div>
+         <input type="radio" class="btn-check" name="btnradio1" id="btnradio7" autocomplete="off"/>
+         <label class="btn btn-outline-primary btn-outline-warning" for="btnradio7" onclick="bs()">부산</label>
+      </div>
+   </div>
 
-	<div id="map" style="width:60%;height:500px;"></div>
-	<script
-					type="text/javascript"
-					src="//dapi.kakao.com/v2/maps/sdk.js?appkey=865ecf86d0c01c0a3ac0450f18fe26c1&libraries=services"
-	></script>
+   <div id="map" style="width:60%;height:500px;"></div>
+   <script
+               type="text/javascript"
+               src="//dapi.kakao.com/v2/maps/sdk.js?appkey=865ecf86d0c01c0a3ac0450f18fe26c1&libraries=services"
+   ></script>
 
-	<script>
+   <script>
 
       let ClickOverlay = null;
       var mapContainer = document.getElementById("map"),
@@ -1300,11 +1300,10 @@
       }
 
 
-	</script>
+   </script>
 </div>
 <!-- contain end -->
 <%@ include file="./F_chat.jsp" %>
 <footer></footer>
 </body>
 </html>
-

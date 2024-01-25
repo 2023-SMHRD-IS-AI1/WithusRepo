@@ -1,40 +1,13 @@
 package kr.smhrd.controller;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.util.List;
-import java.util.UUID;
-
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
-
 import org.springframework.ui.Model;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-
 import kr.smhrd.entity.Comment;
 import kr.smhrd.entity.Member;
 import kr.smhrd.entity.reviewBoard;
@@ -92,9 +65,8 @@ public class ReviewController {
             // 수정된 리뷰의 상세 페이지로 리다이렉트
             return "redirect:/goRecon?review_idx=" + review.getReview_idx();
         } catch (Exception e) {
-            // 예외가 발생한 경우, 오류 메시지와 함께 리뷰 수정 폼으로 이동
             model.addAttribute("error", "리뷰 수정 중 오류가 발생했습니다: " + e.getMessage());
-            model.addAttribute("review", review); // 수정 폼에 이전에 입력한 데이터를 다시 보여주기 위해 모델에 추가
+            model.addAttribute("review", review);
             return "goRecon";
         }
     }
@@ -129,7 +101,7 @@ public class ReviewController {
     @PostMapping("/addComment")
     public String addComment(
             @RequestParam("commentContent") String commentContent,
-            @RequestParam("review_idx") Long review_idx, // 'cmt_idx'를 제거하고 'review_idx'로 변경
+            @RequestParam("review_idx") Long review_idx,
             HttpSession session) {
         Member loginMember = (Member) session.getAttribute("loginMember");
         if (loginMember != null) {
@@ -137,7 +109,7 @@ public class ReviewController {
             // 'cmt_idx' 관련 부분 삭제
             comment.setCmt_content(commentContent);
             comment.setMb_id(loginMember.getMb_id());
-            comment.setReview_idx(review_idx); // review_idx 값 설정
+            comment.setReview_idx(review_idx);
             // 데이터베이스에 댓글을 저장하기 위해 매퍼 메서드 호출
             boardMapper.addComment(comment);
 
