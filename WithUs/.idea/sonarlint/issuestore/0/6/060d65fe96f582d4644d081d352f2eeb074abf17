@@ -1,34 +1,11 @@
 
-E
-java:S3740"/Provide the parametrized type for this generic.(ğ“İÓ
+{
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ã‚êòùÿÿÿÿ8Ã…úÓ1
+v
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(·†şó8Å…úÓ1
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜ì´™
+r	java:S117!"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åûùåÿÿÿÿÿ8Æ…úÓ1
+m	java:S117S"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³çØê8Æ…úÓ1
 t
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ã‚êòùÿÿÿÿ
-o
-java:S2293-"YReplace the type specification in this constructor call with the diamond operator ("<>").(·†şó
-f	java:S117%"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜ì´™
-k	java:S1177"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åûùåÿÿÿÿÿ
-m	java:S117z"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯¸™8¤ĞÆÓÒ1
-g	java:S117€"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³çØê
-j
-java:S2259f"MA "NullPointerException" could be thrown; "roomChatHistory" is nullable here.(‘Ç™ã8êÒÆÓÒ1
-V	java:S125"<This block of commented-out lines of code should be removed.(˜«¤šüÿÿÿÿ
-l
-java:S3457 "Q%n should be used in place of \n to produce the platform-specific line separator.(±ä£Üúÿÿÿÿ
-E	java:S106 "+Replace this use of System.out by a logger.(±ä£Üúÿÿÿÿ
-@	java:S106'"+Replace this use of System.out by a logger.(ß·º™
-m
-java:S37767"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(åûùåÿÿÿÿÿ
-?	java:S1069"+Replace this use of System.out by a logger.(‚š‰1
-?	java:S106B"+Replace this use of System.out by a logger.(‚š‰1
-E	java:S106D"+Replace this use of System.out by a logger.(¼ÅÎ½üÿÿÿÿ
-L
-java:S1172z"/Remove this unused method parameter "room_idx".(¯¸™8¡ÔÆÓÒ1
-H
-java:S1168|"+Return an empty collection instead of null.(¥¹ï8¦ÔÆÓÒ1
-T
-java:S1135{"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8¨ÔÆÓÒ1
-F	java:S106‚"+Replace this use of System.out by a logger.(—³‡×ıÿÿÿÿ
-l
-java:S1128"QRemove this unused import 'org.springframework.web.bind.annotation.PathVariable'.(¹ûñÅşÿÿÿÿ
->
-java:S1068"(Remove this unused "list" private field.(ğ“İÓ
+java:S3776!"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(åûùåÿÿÿÿÿ8Ø†úÓ1
+L	java:S106U"+Replace this use of System.out by a logger.(—³‡×ıÿÿÿÿ8÷†úÓ1

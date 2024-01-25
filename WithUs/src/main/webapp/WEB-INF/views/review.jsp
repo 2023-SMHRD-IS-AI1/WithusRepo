@@ -1,9 +1,5 @@
 <%@page import="kr.smhrd.entity.reviewBoard"%>
-<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
-<%@page import="kr.smhrd.entity.Message"%>
 <%@page import="java.util.List"%>
-<%@page import="kr.smhrd.entity.Member"%>
-<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 

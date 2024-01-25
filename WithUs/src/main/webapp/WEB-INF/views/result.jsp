@@ -1,8 +1,3 @@
-<%@page import="org.apache.ibatis.reflection.SystemMetaObject" %>
-<%@page import="kr.smhrd.entity.Message" %>
-<%@page import="java.util.List" %>
-<%@page import="kr.smhrd.entity.Member" %>
-<%@page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 				 pageEncoding="UTF-8" %>
 
@@ -26,13 +21,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;800&display=swap"
 				rel="stylesheet"/>
 	<link rel="stylesheet" href="resources/assets/css/reset.css"/>
-	<!--[if lte IE 8]>
-	<script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 	<link rel="stylesheet" href="resources/assets/css/result.css"/>
-	<!--[if lte IE 9]>
-	<link rel="stylesheet" href="assets/css/ie9.css"/><![endif]-->
-	<!--[if lte IE 8]>
-	<link rel="stylesheet" href="assets/css/ie8.css"/><![endif]-->
   <script src="resources/assets/js/jquery.min.js"></script>
 </head>
 <body>
