@@ -46,10 +46,6 @@
 ![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/815b3de6-7b10-4428-a112-d1ab4b12160e)
 
 
-### 4.2. 사용자 요청
-![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/d77fd717-c3b0-4afa-9e41-c7fcb4ab8288)
-
-
 - **설문조사와 동행자 추천** :pushpin:[코드 확인](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/10d01598-52e3-4eff-9fcf-13794a7b61b4
 )
   - 600개 정도의 설문조사 데이터를 수집
@@ -59,8 +55,8 @@
   - RandomForest, decision tree보다 성능이 좋은 Knn모델 사용
   - 사용자는 본인과 라벨값이 똑같은 사용자가 추천 동행자에 보이게 됨
 
-- **실시간 채팅** :pushpin: [코드 확인](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/3bd76c45-d43b-4f89-8de9-c4b95f1e7f7e)
-  pushpin: [코드 확인2](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/69bb0d5b-30f2-4f30-a8e1-41c96f97dae1)
+- **실시간 채팅** :pushpin: [코드 확인](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/31226e87-0192-4046-8ae9-b7c0f27fe338)
+ 
   ![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/03f60ac4-c7ac-456b-8405-00f0eb07f08c)
 - 채팅은 자바스크립트의 Web Socket기능 이용
 - 사용자가 메세지를 입력, 전송하면 자바스크립트에서 샌드메세지 함수 사용하여 웹소켓 서버로 보냄
@@ -75,44 +71,6 @@
 - 일정을 등록하면 일정이 불러와져 화면에 보이게끔 함
 
 
-### 4.3. Controller
-
-![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_controller.png)
-
-- **요청 처리** :pushpin: [코드 확인](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/blob/94e1b3a93c48cc3fdb51d4468de151930705faa6/Middle_project12/src/main/webapp/WEB-INF/views/BoardContent.jsp#L20)
-  - Controller에서는 요청을 화면단에서 넘어온 요청을 받고, Service 계층에 로직 처리를 위임합니다.
-
-- **결과 응답** :pushpin: [코드 확인]()
-  - Service 계층에서 넘어온 로직 처리 결과(메세지)를 화면단에 응답해줍니다.
-
-### 4.4. Service
-
-![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_service1.png)
-
-- **Http 프로토콜 추가 및 trim()** :pushpin: [코드 확인]()
-  - 사용자가 URL 입력 시 Http 프로토콜을 생략하거나 공백을 넣은 경우,  
-  올바른 URL이 될 수 있도록 Http 프로토콜을 추가해주고, 공백을 제거해줍니다.
-
-- **URL 접속 확인** :pushpin: [코드 확인]()
-  - 화면단에서 모양새만 확인한 URL이 실제 리소스로 연결되는지 HttpUrlConnection으로 테스트합니다.
-  - 이 때, 빠른 응답을 위해 Request Method를 GET이 아닌 HEAD를 사용했습니다.
-  - (HEAD 메소드는 GET 메소드의 응답 결과의 Body는 가져오지 않고, Header만 확인하기 때문에 GET 메소드에 비해 응답속도가 빠릅니다.)
-
-  ![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_service2.png)
-
-- **Jsoup 이미지, 제목 파싱** :pushpin: [코드 확인]()
-  - URL 접속 확인결과 유효하면 Jsoup을 사용해서 입력된 URL의 이미지와 제목을 파싱합니다.
-  - 이미지는 Open Graphic Tag를 우선적으로 파싱하고, 없을 경우 첫 번째 이미지와 제목을 파싱합니다.
-  - 컨텐츠에 이미지가 없을 경우, 미리 설정해둔 기본 이미지를 사용하고, 제목이 없을 경우 생략합니다.
-
-
-### 4.5. Repository
-
-![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_repo.png)
-
-- **컨텐츠 저장** :pushpin: [코드 확인]()
-  - URL 유효성 체크와 이미지, 제목 파싱이 끝난 컨텐츠는 DB에 저장합니다.
-  - 저장된 컨텐츠는 다시 Repository - Service - Controller를 거쳐 화면단에 송출됩니다.
 
 </div>
 </details>
