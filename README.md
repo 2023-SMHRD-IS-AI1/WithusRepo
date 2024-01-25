@@ -130,5 +130,6 @@
 ### 6.4 팀원 박가현
 ![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/806a7af5-13be-4988-aeaf-2ab9d29eceea)
 
-
+## 7. 전체적인 프로젝트 일정을 관리한 WBS
+[링크](https://docs.google.com/spreadsheets/d/1oLvQexKmVbAzWP6pvgJqAQioClkE64O_YZaODJlG24I/edit?usp=sharing)
 </br>
