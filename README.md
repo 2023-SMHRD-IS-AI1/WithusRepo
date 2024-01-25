@@ -29,8 +29,8 @@
 </br>
 
 ## 3. ERD 설계
-![](![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/10b17fcc-c103-4492-b48b-6dea970f4e68)
-)
+![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/607e5b07-72e3-4bc6-a528-6882671912d2)
+
 ![](https://github.com/JungHyung2/gitio.io/blob/master/assets/images/portfolio/p1.jpg)
 
 
