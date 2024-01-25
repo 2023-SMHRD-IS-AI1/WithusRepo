@@ -43,12 +43,16 @@
 <div markdown="1">
 
 ### 4.1. 전체 흐름
-![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow1.png)
+![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/815b3de6-7b10-4428-a112-d1ab4b12160e)
+
 
 ### 4.2. 사용자 요청
-![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_vue.png)
+![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/d77fd717-c3b0-4afa-9e41-c7fcb4ab8288)
 
-- **URL 정규식 체크** :pushpin: [코드 확인](https://github.com/JungHyung2/gitio.io/blob/95b4c4f06a2a5a74a00f81a3c3fcc003c994725f/index.html#L15C8-L15C26)
+
+- **설문조사와 동행자 추천** :pushpin: [코드 확인]
+- ![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/b26408bf-e457-47ec-9e18-ee1d221b841b)
+
   - Vue.js로 렌더링된 화면단에서, 사용자가 등록을 시도한 URL의 모양새를 정규식으로 확인합니다.
   - URL의 모양새가 아닌 경우, 에러 메세지를 띄웁니다.
 
