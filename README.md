@@ -58,25 +58,25 @@
 - **실시간 채팅** :pushpin: [코드 확인](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/31226e87-0192-4046-8ae9-b7c0f27fe338)
  
   ![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/03f60ac4-c7ac-456b-8405-00f0eb07f08c)
-- 채팅은 자바스크립트의 Web Socket기능 이용
-- 사용자가 메세지를 입력, 전송하면 자바스크립트에서 샌드메세지 함수 사용하여 웹소켓 서버로 보냄
-- Web Socket 서버는 메세지를 수신하고 붙어있는 분류번호를 이용해 알맞은 곳에 다시 메세지 보내줌
-- 채팅방 번호를 붙여 경로에 방번호가 붙게 보낸뒤 서버에서 방번호를 수집
-- 해당 방번호에 들어와있는 사람만 메세지를 받을 수 있게 함
+ - 채팅은 자바스크립트의 Web Socket기능 이용
+ - 사용자가 메세지를 입력, 전송하면 자바스크립트에서 샌드메세지 함수 사용하여 웹소켓 서버로 보냄
+ - Web Socket 서버는 메세지를 수신하고 붙어있는 분류번호를 이용해 알맞은 곳에 다시 메세지 보내줌
+ - 채팅방 번호를 붙여 경로에 방번호가 붙게 보낸뒤 서버에서 방번호를 수집
+ - 해당 방번호에 들어와있는 사람만 메세지를 받을 수 있게 함
 
 - **캘린더** :pushpin: [코드 확인](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/4cd9196b-0aa0-496a-8558-dca5dd9e6b44)
 
 ![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/b1ea1c1e-d3c7-4660-b5d1-3f8946a9f98b)
-- FullCalendar API를 사용
-- 비동기통신방식을 이용
-- 일정을 등록하면 일정이 불러와져 화면에 보이게끔 함
+ - FullCalendar API를 사용
+ - 비동기통신방식을 이용
+ - 일정을 등록하면 일정이 불러와져 화면에 보이게끔 함
 
 - **지도(맛집)** :pushpin: [코드 확인](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/02b926c9-5485-4c15-8866-d1a1f9bb2149)
 
 ![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/a4e02f85-67cf-492f-9483-40a68b0cd3e7)
-- Kakao Map API를 사용
-- JavaScript, Dom을 이용해서 마커를 표시
-- 오버레이로 가게정보 화면에 보이게 함
+ - Kakao Map API를 사용
+ - JavaScript, Dom을 이용해서 마커를 표시
+ - 오버레이로 가게정보 화면에 보이게 함
 
 </div>
 </details>
