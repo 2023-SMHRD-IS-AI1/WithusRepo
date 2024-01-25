@@ -59,11 +59,10 @@
   - RandomForest, decision tree보다 성능이 좋은 Knn모델 사용
   - 사용자는 본인과 라벨값이 똑같은 사용자가 추천 동행자에 보이게 됨
 
-- **실시간 채팅** :pushpin: [코드 확인]()
-![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/badde335-a2f5-484d-b11b-7de9dab463c2)
+- **실시간 채팅** :pushpin: [코드 확인1](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/badde335-a2f5-484d-b11b-7de9dab463c2)
+ pushpin: [코드 확인2](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/6083b22d-7328-47af-8251-557daa431f96)
 - 채팅은 자바스크립트의 Web Socket기능 이용
 - 사용자가 메세지를 입력, 전송하면 자바스크립트에서 샌드메세지 함수 사용하여 웹소켓 서버로 보냄
-![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/6083b22d-7328-47af-8251-557daa431f96)
 - Web Socket 서버는 메세지를 수신하고 붙어있는 분류번호를 이용해 알맞은 곳에 다시 메세지 보내줌
 - 채팅방 번호를 붙여 경로에 방번호가 붙게 보낸뒤 서버에서 방번호를 수집
 - 해당 방번호에 들어와있는 사람만 메세지를 받을 수 있게 함
