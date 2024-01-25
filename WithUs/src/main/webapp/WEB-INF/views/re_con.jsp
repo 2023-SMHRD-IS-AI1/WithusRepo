@@ -40,10 +40,7 @@
 <script src="https://code.jquery.com/jquery-3.7.1.js"
 	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
 	crossorigin="anonymous"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-	crossorigin="anonymous"></script>
+
 
 
 <style>
@@ -63,12 +60,9 @@
 	left: 5px;
 }
 
-#deleteForm{
-
+#deleteForm {
 	position: relative;
-	left:20px;
-
-
+	left: 20px;
 }
 
 .updateCommentBtn {
@@ -95,35 +89,28 @@
 	left: 140px;
 }
 
-#updateReviewForm{
-
+#updateReviewForm {
 	position: relative;
 	left: 100px;
-
 }
 
-#updateCommentForm{
-	
+#updateCommentForm {
 	position: relative;
 	left: 100px;
-
 }
 
-#g_btn_co{
-	
+#g_btn_co {
 	position: relative;
 	left: 170px;
-	top:20px;
+	top: 20px;
 }
 
-.s_btn{
-	width:60px;
+.s_btn {
+	width: 60px;
 	height: 40px;
 	position: relative;
-	top:2px;
-
+	top: 2px;
 }
-
 </style>
 <body>
 
@@ -136,21 +123,22 @@
 	%>
 
 	<%@ include file="./nav.jsp"%>
+	 <!--네비바 끝  -->
 	<div id="mainImg"></div>
 	<!-- mainImg end -->
 	<h1 id="title">리뷰</h1>
-
+	<%-- 리뷰 수정 및 삭제 버튼 --%>
 	<div id="del">
-		<%-- 리뷰 수정 및 삭제 버튼 --%>
+
 		<%
 		if (loginMember != null && loginMember.getMb_id() != null && loginMember.getMb_id().equals(review.getMb_id())) {
 		%>
-		<!-- 리뷰 수정 링크 -->
-		<%-- <a href="${pageContext.request.contextPath}/gorewrModify/${review.getReview_idx()}"> --%>
+		<!-- 리뷰 수정 모달 -->
+
 		<p data-bs-toggle="modal" data-bs-target="#updateReviewModal">
 			<i class="fa-solid fa-pencil"></i>수정
 		</p>
-		<!--  </a> -->
+		
 		<!-- 리뷰 삭제 모달 -->
 		<p data-bs-toggle="modal" data-bs-target="#dele">
 			<i class="fa-solid fa-trash"></i>삭제
@@ -267,14 +255,16 @@
         document.getElementById('deleteForm').submit();
     }
 </script>
-
+	
+	<!--상세 게시물 정보  -->
 	<div id="contain">
 		<div id="revBox">
 			<div id="revTitle">
 				<p>${review.review_title}</p>
 				<div id="revInfo">
 					<div>
-						<img id="userImg" class="uim" src="resources/pro_img/프로필 기본값.png"> <span id="userId">${review.mb_id}
+						<img id="userImg" class="uim" src="resources/pro_img/프로필 기본값.png">
+						<span id="userId">${review.mb_id}
 					</div>
 					<span>${review.reviewed_at.format(DateTimeFormatter.ofPattern("yyyy.MM.dd"))}</span>
 				</div>
@@ -384,10 +374,11 @@
 								name="updatedContent" rows="3"></textarea>
 						</div>
 						<div id="g_btn_co">
-						<button class="updateCommentBtn btn-primary s_btn" onclick="submitUpdateComment()">수정</button>
-						<button type="button" class="btn btn-secondary"
-							data-bs-dismiss="modal">취소</button>
-							</div>
+							<button class="updateCommentBtn btn-primary s_btn"
+								onclick="submitUpdateComment()">수정</button>
+							<button type="button" class="btn btn-secondary"
+								data-bs-dismiss="modal">취소</button>
+						</div>
 					</form>
 				</div>
 			</div>

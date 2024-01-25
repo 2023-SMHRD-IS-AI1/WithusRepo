@@ -23,12 +23,12 @@
 <link rel="stylesheet"  href="resources/assets/css/Main.css" />
 <link rel="stylesheet" href="resources/assets/css/nav.css" />
 <style type="text/css">
-	h1{
-		font-size: 35px;
-		font-weight: bold;
-		
-		
-	}
+   h1{
+      font-size: 35px;
+      font-weight: bold;
+      
+      
+   }
 
 </style>
 
@@ -38,7 +38,7 @@
 
 <body>
        
-  	 <header>
+      <header>
       <div id="logo">
         <a href="#"><img src="${pageContext.request.contextPath}/resources/images/logo.png" alt="" /></a>
       </div>
@@ -54,7 +54,7 @@
           <a data-bs-toggle="modal" data-bs-target="#mypmodal" onclick="openMyPmodal()"><i class="fa-solid fa-user"></i></a>
         </li>
         <li>
-        	<a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a>
+           <a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a>
         </li>
         <li>
           <a href="#"><i class="fa-solid fa-calendar"></i></a>
@@ -78,7 +78,7 @@
       
     </div>
 
-	    <script>
+       <script>
         window.onload = function() {
             
                 alert('<%= session.getAttribute("reportWarning") %>')
@@ -86,7 +86,7 @@
            
         };
     </script>    
-	
+   
 
     
     
