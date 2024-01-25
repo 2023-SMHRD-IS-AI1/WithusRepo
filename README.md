@@ -64,6 +64,7 @@
  - 채팅방 번호를 붙여 경로에 방번호가 붙게 보낸뒤 서버에서 방번호를 수집
  - 해당 방번호에 들어와있는 사람만 메세지를 받을 수 있게 함
 
+<br/>
 - **캘린더** :pushpin: [코드 확인](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/4cd9196b-0aa0-496a-8558-dca5dd9e6b44)
 
 ![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/b1ea1c1e-d3c7-4660-b5d1-3f8946a9f98b)
@@ -71,6 +72,7 @@
  - 비동기통신방식을 이용
  - 일정을 등록하면 일정이 불러와져 화면에 보이게끔 함
 
+<br/>
 - **지도(맛집)** :pushpin: [코드 확인](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/02b926c9-5485-4c15-8866-d1a1f9bb2149)
 
 ![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/a4e02f85-67cf-492f-9483-40a68b0cd3e7)
