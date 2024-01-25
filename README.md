@@ -4,30 +4,33 @@
 </br>
 
 ## 1. 제작 기간 & 참여 인원
-- 2024년 1월 8일 ~ 1월 24일
+- 2024년 12월 18일 ~ 1월 24일
 - 팀 프로젝트(총 4명)
 
 </br>
 
 ## 2. 사용 기술
 #### `Back-end`
-  - Java 8
-  - Spring Boot 2.3
-  - Gradle
-  - Spring Data JPA
-  - QueryDSL
-  - H2
-  - MySQL 5.7
-  - Spring Security
-  - Jsoup
+  - Java 11
+  - Spring
+  - MySQL 5.1
+  - Python 3.9
+  - Apache Tomcat 8.5
+  - Maven
+  - WebSocket
+  - FullCalendar API
+  - KAKAO MAP API
+    
 #### `Front-end`
-  - Vue.js 3.0
-  - Element UI
+  - JavaScript
+  - Html
+  - Css
 
 </br>
 
 ## 3. ERD 설계
-![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/final_erd.png)
+![](![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/10b17fcc-c103-4492-b48b-6dea970f4e68)
+)
 ![](https://github.com/JungHyung2/gitio.io/blob/master/assets/images/portfolio/p1.jpg)
 
 
