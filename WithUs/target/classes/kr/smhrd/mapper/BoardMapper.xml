@@ -2,44 +2,31 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.smhrd.mapper.BoardMapper">
 
-<!-- 	<insert id="insertBoard" parameterType="kr.smhrd.entity.Board">
-		insert into board(title,writer,filename,content)
-		values(#{title},#{writer},#{filename},#{content})
-	</insert>
-	
-	<select id="boardList" resultType="kr.smhrd.entity.Board">
-		select * from board order by b_date desc
-	</select>
-	
-	<select id="boardContent" parameterType="int" resultType="kr.smhrd.entity.Board">
-		select * from board where idx = #{idx}
-	</select>
-	
-	<delete id="boardDelete" parameterType="int">
-		delete  from board where idx = #{idx}
-	</delete> -->
-	
+
 	<!-- 모집글 작성 -->
 	<insert id="boardWirte" parameterType="kr.smhrd.entity.Board">
 		insert into companions (mb_id,mb_nick,mb_age,comp_title,comp_members,comp_content,comp_tourplace,comp_start,comp_end,comp_img)
 		values(#{mb_id},#{mb_nick},#{mb_age},#{comp_title},#{comp_members},#{comp_content},#{comp_tourplace},#{comp_start},#{comp_end},#{comp_img})
 	</insert>
 	
+	<!-- 리뷰글 작성 -->
 	<insert id="Writereview" parameterType="kr.smhrd.entity.reviewBoard">
 		insert into reviews (review_title, review_content, review_region, mb_id, review_img)
 		values(#{review_title},#{review_content},#{review_region},#{mb_id},#{review_img})
 	</insert>
 	
+	<!-- 모집글 가져오기 -->
 	<select id="getAllBoard" resultType="kr.smhrd.entity.Board">
 		select * from companions
 	</select>
 	
-<select id="getAllReview" resultType="kr.smhrd.entity.reviewBoard">
+	<!-- 리뷰글 가져오기 -->
+	<select id="getAllReview" resultType="kr.smhrd.entity.reviewBoard">
     SELECT * FROM reviews
 
-</select>
-
-
+	</select>
+	
+	 <!-- 댓글 -->
 	 <!-- 페이징을 위한 추가된 SQL -->
     <select id="getAllReviewWithPagination" resultType="kr.smhrd.entity.reviewBoard">
         SELECT * FROM reviews
@@ -51,127 +38,128 @@
         SELECT COUNT(*) FROM reviews
     </select>
     
-    <!-- 모집-->
+    <!-- 모집 -->
     <!-- 페이징을 위한 추가된 SQL -->
-<select id="getAllRecruitingWithPagination" resultType="kr.smhrd.entity.Board">
-    SELECT * FROM companions
-    LIMIT #{size} OFFSET #{offset}
-</select>
+	<select id="getAllRecruitingWithPagination" resultType="kr.smhrd.entity.Board">
+	    SELECT * FROM companions
+	    LIMIT #{size} OFFSET #{offset}
+	</select>
 
 
 
-<!-- 총 모집글의 갯수를 가져오는 SQL -->
-<select id="getRecruitingCount" resultType="int">
-    SELECT COUNT(*) FROM companions
-</select>
+	<!-- 총 모집글의 갯수를 가져오는 SQL -->
+	<select id="getRecruitingCount" resultType="int">
+	    SELECT COUNT(*) FROM companions
+	</select>
 
-  <select id="getReviewByIndex" resultType="kr.smhrd.entity.reviewBoard">
-         SELECT * FROM reviews
-        WHERE review_idx = #{review_idx}
-    </select>
-   	
-   
-   	
-   
-   
-<insert id="addComment" parameterType="kr.smhrd.entity.Comment">
-    INSERT INTO comments (mb_id, cmt_content, created_at, review_idx)
-    VALUES (#{mb_id}, #{cmt_content}, now(), #{review_idx} )
-</insert>
-
-
-
-
-
-<!-- 특정 리뷰의 댓글 목록 가져오기 -->
-<select id="getCommentsByReviewIndex" parameterType="Long" resultType="kr.smhrd.entity.Comment">
-    SELECT * FROM comments
-    WHERE review_idx = #{review_idx} 
-    ORDER BY created_at DESC
-</select>
+	<!-- 특정 리뷰 가져오기 -->
+	  <select id="getReviewByIndex" resultType="kr.smhrd.entity.reviewBoard">
+	         SELECT * FROM reviews
+	        WHERE review_idx = #{review_idx}
+	    </select>
+	   	
+	<!-- 댓글 추가 -->   
+	<insert id="addComment" parameterType="kr.smhrd.entity.Comment">
+	    INSERT INTO comments (mb_id, cmt_content, created_at, review_idx)
+	    VALUES (#{mb_id}, #{cmt_content}, now(), #{review_idx} )
+	</insert>
 	
+	<!-- 특정 리뷰의 댓글 목록 가져오기 -->
+	<select id="getCommentsByReviewIndex" parameterType="Long" resultType="kr.smhrd.entity.Comment">
+	    SELECT * FROM comments
+	    WHERE review_idx = #{review_idx} 
+	    ORDER BY created_at DESC
+	</select>
+	
+	<!-- 특정 모집글의 댓글 목록 가져오기 -->	
 	  <select id="getCommentById" resultType="kr.smhrd.entity.Comment" parameterType="Long">
         SELECT * FROM comments WHERE cmt_idx = #{cmt_idx}
     </select>
 	
-	
+	<!-- 댓글 삭제하기 -->
   <delete id="deleteComment" parameterType="Long">
         DELETE FROM comments WHERE cmt_idx = #{cmt_idx}
     </delete>
-
+	
+	<!-- 댓글 수정하기 -->
 	  <update id="updateComment" parameterType="kr.smhrd.entity.Comment">
         UPDATE comments
         SET cmt_content = #{cmt_content}
         WHERE cmt_idx = #{cmt_idx}
     </update>
 	
+	<!-- 리뷰 삭제하기 -->
 	 <delete id="deleteReview" parameterType="Long">
         DELETE FROM reviews WHERE review_idx = #{review_idx}
     </delete>
     
+    
+    <!-- 댓글이 포함된 리뷰 삭제하기 -->
     <delete id="deleteComment2" parameterType="Long">
     	DELETE FROM comments WHERE review_idx = #{review_idx}
     </delete>
     
+    <!-- 좋아요 삭제하기 -->
     <delete id="deleteReviewLike" parameterType="Long">
     	DELETE FROM reviewLike WHERE review_idx = #{review_idx}
     </delete>
+	
+	<!-- 리뷰 수정하기 -->
+	<update id="updateReview" parameterType="kr.smhrd.entity.reviewBoard">
+	    UPDATE reviews
+	    SET
+	        review_title = #{review_title},
+	        review_content = #{review_content},
+	        review_region = #{review_region}
+	    WHERE review_idx = #{review_idx}
+	</update>
 
-<update id="updateReview" parameterType="kr.smhrd.entity.reviewBoard">
-    UPDATE reviews
-    SET
-        review_title = #{review_title},
-        review_content = #{review_content},
-        review_region = #{review_region}
-    WHERE review_idx = #{review_idx}
-</update>
-
-
+	<!-- 모집 가져오기 -->
 	 <select id="getCompByIndex" resultType="kr.smhrd.entity.Board">
          SELECT * FROM companions
         WHERE comp_idx = #{comp_idx}
     </select>
-
+	
+	<!-- 모집 삭제하기 -->
 	 <delete id="deleteComp" parameterType="Long">
         DELETE FROM companions WHERE comp_idx = #{comp_idx}
     </delete>
     
-    
-    
-    
+    <!-- 모집 수정하기 -->
+	<update id="updateComp" parameterType="kr.smhrd.entity.Board">
+	    UPDATE companions
+	    SET
+	        comp_title = #{comp_title},
+	        comp_content = #{comp_content},
+	        comp_tourplace = #{comp_tourplace},
+	        comp_members = #{comp_members}
+	    WHERE comp_idx = #{comp_idx}
+	</update>
 
-<update id="updateComp" parameterType="kr.smhrd.entity.Board">
-    UPDATE companions
-    SET
-        comp_title = #{comp_title},
-        comp_content = #{comp_content},
-        comp_tourplace = #{comp_tourplace},
-        comp_members = #{comp_members}
-    WHERE comp_idx = #{comp_idx}
-</update>
-
-
-<insert id="addGrComment" parameterType="kr.smhrd.entity.Comment">
-    INSERT INTO comments (mb_id, cmt_content, created_at, comp_idx)
-    VALUES (#{mb_id}, #{cmt_content}, now(), #{comp_idx} )
-</insert>
-
-<select id="getCommentsByCompIndex" parameterType="java.lang.Long" resultType="kr.smhrd.entity.Comment">
+	<!-- 댓글 수정하기 -->
+	<insert id="addGrComment" parameterType="kr.smhrd.entity.Comment">
+	    INSERT INTO comments (mb_id, cmt_content, created_at, comp_idx)
+	    VALUES (#{mb_id}, #{cmt_content}, now(), #{comp_idx} )
+	</insert>
+	
+	<!-- 특정 모집글의 댓글 가져오기 -->
+	<select id="getCommentsByCompIndex" parameterType="java.lang.Long" resultType="kr.smhrd.entity.Comment">
         SELECT * FROM comments WHERE comp_idx = #{comp_idx}
     </select>
     
-    
+    <!-- 모집 댓글 수정하기 -->
       <update id="updateGrComment" parameterType="kr.smhrd.entity.Comment">
         UPDATE comments
         SET cmt_content = #{cmt_content}
         WHERE cmt_idx = #{cmt_idx}
     </update>
     
+    <!-- 모집 댓글 삭제하기 -->
      <delete id="deleteGrComment" parameterType="Long">
         DELETE FROM comments WHERE cmt_idx = #{cmt_idx}
     </delete>
     
-    
+    <!-- 모집 글 삭제시 댓글 같이 삭제하기 -->
     <delete id="deleteGrComment1" parameterType="Long">
     	DELETE FROM comments WHERE comp_idx = #{comp_idx}
     </delete>

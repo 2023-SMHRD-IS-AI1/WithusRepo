@@ -44,8 +44,6 @@ public class BoardController {
    public String boardWirte(Board board,HttpServletRequest request) {
       
      MultipartRequest multi = null;
-     
-
 
      String savePath = "C:\\eGovFrame-4.0.0\\workspace.edu\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\WithUs\\resources\\comp_img";
 
@@ -68,7 +66,6 @@ public class BoardController {
 	      String comp_img =  multi.getFilesystemName("comp_img");
 	      
 	      board = new Board(null, mb_id, mb_nick, mb_age, comp_title, comp_members, comp_content, null, comp_tourplace, comp_start, comp_end, comp_img, null);
-	      System.out.println(board.toString());
    
    } catch (IOException e) {
       // TODO Auto-generated catch block
@@ -131,12 +128,6 @@ public class BoardController {
       return "gr_con";
    }
    
-
-   
-   
-
-
-   
    
    
    // 리뷰 업로드 기능
@@ -144,8 +135,6 @@ public class BoardController {
    public String Writereview(reviewBoard board,HttpServletRequest request) {
       
       MultipartRequest multi = null;
-   
-      // MultipartRequest 객체 생성을 위한 매개변수 설정
       // 1. 요청객체(request)
       // 2. 파일을 저장할 경로(String)
       String savePath = "C:\\eGovFrame-4.0.0\\workspace.edu\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\WithUs\\resources\\upload1";
@@ -167,15 +156,12 @@ public class BoardController {
          String review_img =  multi.getFilesystemName("review_img");
       
          board = new reviewBoard(null, review_title, review_content, review_region, null, mb_id, review_img, null);
-         System.out.println(board.toString());
          boardMapper.Writereview(board);
       } catch (IOException e) {
          // TODO Auto-generated catch block
          System.out.println("리뷰 작성 실패");
       }
-      
-      
-      
+   
       return "redirect:/goReview";
    }
    
@@ -214,7 +200,6 @@ public class BoardController {
    public String deleteComp(@RequestParam Long comp_idx, HttpSession session) {
       
        Member loginMember = (Member) session.getAttribute("loginMember");
-       System.out.println(comp_idx);
        Board board = boardMapper.getCompByIndex(comp_idx);
        
        boardMapper.deleteGrComment1(comp_idx);
@@ -237,11 +222,7 @@ public class BoardController {
            Comment comment = new Comment();
            comment.setCmt_content(commentContent);
            comment.setMb_id(loginMember.getMb_id());
-           comment.setComp_idx(comp_idx);  // comp_idx 설정
-
-           // 디버깅을 위해 정보를 로그로 남깁니다.
-           System.out.println("comp_idx: " + comp_idx);
-           System.out.println("Comment: " + comment);
+           comment.setComp_idx(comp_idx); 
 
            // 댓글을 데이터베이스에 삽입합니다.
            boardMapper.addGrComment(comment);
@@ -249,11 +230,11 @@ public class BoardController {
            // 그룹 콘텐츠 페이지로 리다이렉트합니다.
            return "redirect:/goGrcon?comp_idx=" + comp_idx;
        } else {
-           // 사용자가 로그인하지 않은 경우 로그인 페이지로 리다이렉트합니다.
            return "redirect:/login";
        }
    }
    
+   // 모집 댓글 수정
    @PostMapping("/updateGrComment")
    public String updateGrComment(
            @RequestParam Long cmt_idx,
@@ -280,7 +261,7 @@ public class BoardController {
        return "redirect:/login"; // 수정 실패 시 리다이렉트할 페이지 설정
    }
    
-   
+   // 모집 댓글 삭제
    @PostMapping("/deleteGrComment")
    public String deleteGrComment(@RequestParam Long cmt_idx, @RequestParam Long comp_idx, HttpSession session) {
        // Check if the logged-in user is the owner of the comment

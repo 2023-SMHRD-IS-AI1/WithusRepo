@@ -15,7 +15,7 @@ public class reviewLikeController {
 	@Autowired
 	private ReviewLikeMapper reviewLikeMapper;
 
-
+	// 리뷰 좋아요 추가
 	@RequestMapping("reviewLike/add")
 	@ResponseBody
     public String addReviewLike(@RequestParam("review_idx") int review_idx, 
@@ -26,6 +26,7 @@ public class reviewLikeController {
     	reviewLikeMapper.addReviewLike(reviewlike);
         return "success"; 
     }
+	// 리뷰 좋아요 취소
 	@RequestMapping("reviewLike/delete")
 	@ResponseBody
     public String deleteReviewLike(@RequestParam("review_idx") int review_idx, 
@@ -37,12 +38,11 @@ public class reviewLikeController {
     	return "success"; 
     }
 	
-	// 좋아요 개수 조회
+	// 리뷰 좋아요 개수 조회
 	@RequestMapping("reviewLike/count")
 	@ResponseBody
 	public int countReviewLikes(@RequestParam("review_idx") int review_idx) {
 	    int countLikes = reviewLikeMapper.countReviewLikes(review_idx);
-	    System.out.println("좋아요 개수!!!!!!" + countLikes);
 	    return countLikes;
 	}
 	

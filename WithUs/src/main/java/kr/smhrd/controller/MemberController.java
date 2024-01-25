@@ -1,9 +1,4 @@
 package kr.smhrd.controller;
-
-
-
-
-
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
@@ -30,36 +25,27 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.smhrd.entity.Board;
 import kr.smhrd.entity.Member;
-import kr.smhrd.entity.Message;
+
 import kr.smhrd.entity.Survey;
 import kr.smhrd.entity.reviewBoard;
 import kr.smhrd.mapper.BoardMapper;
 import kr.smhrd.mapper.CalendarMapper;
 import kr.smhrd.mapper.MemberMapper;
-import kr.smhrd.mapper.MessageMapper;
+
 import kr.smhrd.mapper.ReportMapper;
 
-// POJO를 찾기위해 @(어노테이션)으로 Controller라고 명시해야 함
-// 어떤 패키지에서 Controller를 찾을 건지 servlet-context.xml 파일에도 명시해야 함
 @Controller
 public class MemberController {
 
-   // class 안에 있는 메소드를 쓰려면 '객체생성' 필요함, interface는 객체생성도 안됨 -> but 스프링에서는 생성하는게 아니라 주입받아서 씀
-   @Autowired // 스프링 컨테이너에 객체가 생성되어 올라간 boardMapper 객체를 주입받아 사용하겠다
-   private MemberMapper memberMapper; // DAO같은 역할인데 DAO는 커넥션 관리까지 다했다면
-   
-   private CalendarMapper calendarMapper;
+   @Autowired 
+   private MemberMapper memberMapper; 
    
    @Autowired
    private BoardMapper boardMapper;
    
    @Autowired
    private ReportMapper reportMapper;
-   
-   // @RequestMapping : get방식,post방식 요청을 다 받을 수 있음
-   // @GetMapping : get방식 요청만 받을 수 있음
-   // @PostMapping : post방식 요청만 받을 수 있음
-   
+
    // 메인으로 이동
    @RequestMapping("/")
    public String main(Model model) {
@@ -88,7 +74,7 @@ public class MemberController {
    }
    
   
-
+   // 채팅으로 이동
    @RequestMapping("/goChat")
    public String goChat() {
       return "Chat";
@@ -98,12 +84,6 @@ public class MemberController {
    @RequestMapping("/goJoin")
    public String goJoin() {
       return "Join";
-   }
-
-   // 이건 뭘까 친구들 ??
-   @RequestMapping("/goFollow")
-   public String goFollow() {
-      return "Follow";
    }
    
    // 프로필 수정 화면으로 이동
@@ -127,12 +107,8 @@ public class MemberController {
    // 프로필 가져오기
    @RequestMapping("/getProfil")
    public String getProfil(@RequestParam("mb_id") String mb_id, @RequestParam("mb_age") String mb_age, HttpSession session) {
-       // mbId와 mbAge를 사용하여 필요한 처리 수행
-       // 예를 들어, 회원 정보 조회 등
 
-       Member memPro = memberMapper.findPro(mb_id); // 예시 메서드, 실제 구현에 맞게 변경 필요
-
-
+       Member memPro = memberMapper.findPro(mb_id); 
        session.setAttribute("memPro", memPro);
        session.setAttribute("mb_age", mb_age);
 
@@ -164,7 +140,7 @@ public class MemberController {
 	   return "Userinfo";
    }
    
-   
+   // 프로필 변경
    @RequestMapping("/updateProfil")
    public String updateProfil(Member member, HttpServletRequest request, HttpSession session) {
 
@@ -172,16 +148,11 @@ public class MemberController {
 	    MultipartRequest multi = null;
 		
 		String savePath = "C:\\eGovFrame-4.0.0\\workspace.edu\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\WithUs\\resources\\pro_img";
-		System.out.println(savePath);
-		// 3. 파일의 용량 크기(int)
-		int maxSize = 1024 * 1024 * 10 ; // 10MB
-		// 4. 파일 이름에 대한 인코딩(String)
+		int maxSize = 1024 * 1024 * 10 ;
 		String enc = "UTF-8";
-		// 5. 파일 이름 중복제거(DefaultFileRenamePolicy) 
 		DefaultFileRenamePolicy dftrp = new DefaultFileRenamePolicy(); 
 		
 		try {
-			System.out.println(" 들어옴 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ");
 			multi = new MultipartRequest(request, savePath, maxSize, enc, dftrp);
 			String mb_id = multi.getParameter("mb_id");
 			String mb_pw = multi.getParameter("mb_pw");
@@ -201,7 +172,6 @@ public class MemberController {
 			
 		} catch (IOException e) {
 			e.printStackTrace();
-			System.out.println("안됨 ㅠ");
 			// TODO Auto-generated catch block
 			
 		} 
@@ -227,8 +197,7 @@ public class MemberController {
    }
    
    
-  // 설문조사 
-
+   // 설문조사 
    @RequestMapping("/surveyInsert")
    public String surveyInsert(Survey survey) {
 	  
@@ -258,9 +227,8 @@ public class MemberController {
        // 신고 횟수 확인
        int reportCount = reportMapper.getReportCount(loginMember.getMb_id());
        if (reportCount >= 5) {
-    	   // 5회 이상 신고된 경우, 사용자에게 알림 메시지를 보내고 특정 페이지로 리디렉션
     	   session.setAttribute("reportWarning", "경고 5회 누적으로 사용에 제한이 되었습니다.");
-           return "restricted"; // 'restricted' 페이지로 리디렉션
+           return "restricted"; 
           
        }else if(reportCount >= 3) {
     	   // 경고 메시지 세션에 저장
@@ -339,12 +307,13 @@ public class MemberController {
       return "busan";
    }
    
-   
+   // 게시글 작성으로 이동
    @RequestMapping("/goGrwriter")
    public String goGrwriter() {
       return "gr_writer";
    }
    
+   // 리뷰 작성으로 이동
    @RequestMapping("/goRewrite")
    public String goRewrite() {
       
