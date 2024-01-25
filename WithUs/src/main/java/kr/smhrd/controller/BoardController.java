@@ -1,7 +1,6 @@
 package kr.smhrd.controller;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +22,6 @@ import kr.smhrd.entity.Comment;
 import kr.smhrd.entity.Member;
 import kr.smhrd.entity.reviewBoard;
 import kr.smhrd.mapper.BoardMapper;
-import kr.smhrd.mapper.MemberMapper;
 
 @Controller
 public class BoardController {
@@ -68,7 +65,6 @@ public class BoardController {
 	      board = new Board(null, mb_id, mb_nick, mb_age, comp_title, comp_members, comp_content, null, comp_tourplace, comp_start, comp_end, comp_img, null);
    
    } catch (IOException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
    }
      
