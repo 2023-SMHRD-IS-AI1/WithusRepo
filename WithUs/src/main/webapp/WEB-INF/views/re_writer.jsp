@@ -30,12 +30,14 @@
 </head>
 <body>
 	<%@ include file="./nav.jsp" %>
+	 <!--네비바 끝  -->
      <div id="mainImg"></div>
     <!-- mainImg end -->
    	
    	
    	
     <div id="contain">
+    	<!-- 리뷰 글쓰기  -->
        <h1 id ="m_title">리뷰 글쓰기</h1>
       <form id = "m_content" action="Writereview" method="post" enctype="multipart/form-data">
         <div class="input-group">

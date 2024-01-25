@@ -29,7 +29,9 @@
     <link rel="stylesheet" href="resources/assets/css/reset.css" />
 </head>
 <body>
+
 	<%@ include file="./nav.jsp" %>
+	 <!--네비바 끝  -->
      <div id="mainImg"></div>
     <!-- mainImg end -->
    
@@ -46,6 +48,7 @@
 
    
     <div id="contain">
+    <!--카테고리 버튼  -->
        <div id="buttons">
         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
           <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" onclick="location.href='goGroup'" />
@@ -59,6 +62,7 @@
         </div>
       </div>
       <!-- buttons end -->
+      <!--리뷰 목록  -->
       <div id="reviews">
         <div id="writeBtn">
         <% if (loginMember == null){ %>
