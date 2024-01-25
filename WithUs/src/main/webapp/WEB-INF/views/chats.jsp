@@ -1,10 +1,5 @@
-<%@page import="org.apache.ibatis.reflection.SystemMetaObject" %>
-<%@page import="kr.smhrd.entity.Message" %>
-<%@page import="java.util.List" %>
-<%@page import="kr.smhrd.entity.Member" %>
-<%@page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-				 pageEncoding="UTF-8" %>
+         pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -14,56 +9,35 @@
 	<script
 					src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 	<link rel="stylesheet"
-				href="https://fonts.googleapis.com/css2?family=Jost:wght@400&display=swap"/>
+	      href="https://fonts.googleapis.com/css2?family=Jost:wght@400&display=swap"/>
 	<link
 					href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 					rel="stylesheet"
 					integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 					crossorigin="anonymous"/>
 	<script src="https://kit.fontawesome.com/d5377ff581.js"
-					crossorigin="anonymous"></script>
+	        crossorigin="anonymous"></script>
 	<link rel="preconnect" href="https://fonts.googleapis.com"/>
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 	<link
 					href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;800&display=swap"
 					rel="stylesheet"/>
 	<link rel="stylesheet" href="resources/assets/css/reset.css"/>
-	<!--[if lte IE 8]>
-	<script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<script src="assets/js/ie/html5shiv.js"></script>
 	<link rel="stylesheet" href="resources/assets/css/chat.css"/>
-	<!--[if lte IE 9]>
-	<link rel="stylesheet" href="assets/css/ie9.css"/><![endif]-->
-	<!--[if lte IE 8]>
-	<link rel="stylesheet" href="assets/css/ie8.css"/><![endif]-->
+	<link rel="stylesheet" href="assets/css/ie9.css"/>
+	<link rel="stylesheet" href="assets/css/ie8.css"/>
 </head>
 <body>
 <%@ include file="./nav.jsp" %>
 <div id="mainImg"></div>
 <div id="contain">
 	<div class="btn-group" role="group"
-			 aria-label="Basic radio toggle button group">
+	     aria-label="Basic radio toggle button group">
 		<input type="radio" class="btn-check" name="btnradio" id="btnradio1"
-					 autocomplete="off" checked/> <label
+		       autocomplete="off" checked/> <label
 					class="btn btn-outline-primary" for="btnradio1">채팅</label>
 	</div>
-	<!-- 채팅방을 따로 분리할것
-채팅방(
-	방 식별자 (PK)
-	개설날짜
-	방이름
-	방설명
-	소속인원 (PK)
-)
-
--->
-
-	<!-- A 라는 사람이 들어왔을 때, A가 소속된 채팅방을 불러와 출력 -->
-	<!--
-		select 방식별자, 방이름, 방설명 from 채팅방
-		where 소속인원 = 로그인한 사용자;
-	-->
-	<!-- 방식별자 -->
-
 	<div id="chatBox">
 		<ul id="chatList">
 			<li class="chatRoom" id="room10">
@@ -84,10 +58,10 @@
 		</ul>
 		<ul id="chatting">
 			<li class="you">
-			<span class="chatImg"><img src="resources/images/user.png"></span>
+				<span class="chatImg"><img src="resources/images/user.png"></span>
 				<span class="chatNick">반장</span>
-			<span class="talk">식당은 어디로 갈까요?</span>
-			<span class="chatDate">08:32</span>
+				<span class="talk">식당은 어디로 갈까요?</span>
+				<span class="chatDate">08:32</span>
 			</li>
 			<li class="you">
 				<span class="chatImg"><img src="resources/images/user3.jpg"></span>
@@ -129,11 +103,6 @@
             ws.onerror = onError;
 
             ws.onopen = function () {
-                // $('#chatting').append(
-                //     $('<li>')
-                //         .text("'" + userNickname + "' 님이 입장했습니다.")
-                //         .addClass('userCome')
-                // );
                 // 서버로 데이터 전송
                 ws.send('1#' + userNickname + '#');
                 // 채팅창 요소들 속성 변경
@@ -153,27 +122,27 @@
 
         // 현재 선택한 채팅방과 클릭한 채팅방이 다를 경우에만 처리
 
-            // 소켓 연결
-            ws = new WebSocket(url + room_idx);
+        // 소켓 연결
+        ws = new WebSocket(url + room_idx);
 
-            // 데이터수신
-            ws.onmessage = onMessage;
+        // 데이터수신
+        ws.onmessage = onMessage;
 
-            ws.onerror = onError;
+        ws.onerror = onError;
 
-            ws.onopen = function () {
-                $('#chatting').append(
-                    $('<li>')
-                        .text("'" + userNickname + "' 님이 입장했습니다.")
-                        .addClass('userCome')
-                );
-                // 서버로 데이터 전송
-                ws.send('1#' + userNickname + '#');
-                // 채팅창 요소들 속성 변경
-                $('.chatRoom').attr('disabled', true);
-                $('#msg').attr('disabled', false);
-                $('#msg').focus();
-            }
+        ws.onopen = function () {
+            $('#chatting').append(
+                $('<li>')
+                    .text("'" + userNickname + "' 님이 입장했습니다.")
+                    .addClass('userCome')
+            );
+            // 서버로 데이터 전송
+            ws.send('1#' + userNickname + '#');
+            // 채팅창 요소들 속성 변경
+            $('.chatRoom').attr('disabled', true);
+            $('#msg').attr('disabled', false);
+            $('#msg').focus();
+        }
     });
 
     // 메세지 전송 및 아이디
@@ -226,8 +195,6 @@
     }
 
     function print2(user) {
-        // <li class="userCome">가현님이 입장했습니다.</li>
-        console.log(user);
         let temp = '';
         temp += '<li class="userCome">';
         temp += "'" + user + "'님이 접속했습니다.";
@@ -251,18 +218,6 @@
         $('#chatting').scrollTop($('#chatting')[0].scrollHeight);
     }
 
-    // client 접속 종료
-    function chatClose(user) {
-        let temp = '';
-        temp += '<li class="userCome">';
-        temp += "'" + user + "'님이 종료했습니다.";
-        temp += '</li>';
-
-        $('#list').append(temp);
-        $('#chatting').scrollTop($('#chatting')[0].scrollHeight);
-
-    }
-
     // 엔터 키 입력 시 이벤트 등록
     $('#msg').keydown(function (event) {
         if (event.keyCode == 13) {
@@ -282,22 +237,11 @@
         return hours + ':' + minutes;
     }
 
-    function connectWebSocket() {
-        // 웹소켓 오픈
-        ws.onopen = () => {
-            console.log('서버 연결 성공');
-        }
-    }
-
     window.onbeforeunload = function () {
         if (ws) {
             ws.close();
         }
     };
-
-    function clearChatHistory() {
-        $('#chatting').empty(); // Empty the chat history
-    }
 
 </script>
 </body>

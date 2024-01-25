@@ -1,0 +1,75 @@
+
+p
+java:S2293”"YReplace the type specification in this constructor call with the diamond operator ("<>").(øîÇ‚
+u
+java:S2293•"YReplace the type specification in this constructor call with the diamond operator ("<>").(ù©Ü¦ıÿÿÿÿ
+`
+java:S1192C"KDefine a constant instead of duplicating this literal "reviewList" 3 times.(‹“ğ!
+c
+java:S1192›"LDefine a constant instead of duplicating this literal "loginMember" 4 times.(™€¡½
+l	java:S117€"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÇÛ¡‹şÿÿÿÿ
+l	java:S117€"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÇÛ¡‹şÿÿÿÿ
+f	java:S117¸"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤ˆü3
+g	java:S117¹"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Šğ¼¾
+l	java:S117º"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(é²üşÿÿÿÿ
+f	java:S117»"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Àêú
+g	java:S117¼"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ë¯™
+g	java:S117½"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùøû„
+g	java:S117¾"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è­™å
+g	java:S117¿"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²ÇÀş
+l	java:S117À"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«Ù¯¡şÿÿÿÿ
+l	java:S117Á"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„ìá™ûÿÿÿÿ
+g	java:S117Â"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜±Ñà
+l	java:S117ú"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßÁ×ÿÿÿÿÿ
+l	java:S117‘"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’ìÖ’ûÿÿÿÿ
+g	java:S117š"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢‡Éü
+k
+java:S2637Ä"OParameter 10 to this constructor is marked "@NonNull" but null could be passed.(“«¤Æüÿÿÿÿ
+X
+java:S6813/"BRemove this field injection and use constructor injection instead.(íÀ£”
+X
+java:S68134"BRemove this field injection and use constructor injection instead.(êæÄŞ
+X
+java:S68137"BRemove this field injection and use constructor injection instead.(êæÄŞ
+i
+java:S4144K"TUpdate this method so that its implementation is not identical to "main" on line 64.(µ¸İ
+X
+java:S2441‡"<Make "Member" serializable or don't store it in the session.(•é”Äûÿÿÿÿ
+S
+java:S2441›"<Make "Member" serializable or don't store it in the session.(™€¡½
+F	java:S106"+Replace this use of System.out by a logger.(ƒì¢ûÿÿÿÿ
+A	java:S106 "+Replace this use of System.out by a logger.(ÆÔÆ°
+N
+java:S1854Í"7Remove this useless assignment to local variable "cnt".(Çâí˜
+X
+java:S1075­"ARefactor your code to get this URI from a customizable parameter.(ÌÜ†Ğ
+F	java:S106®"+Replace this use of System.out by a logger.(ª´Àñıÿÿÿÿ
+S
+java:S2441Å"<Make "Member" serializable or don't store it in the session.(™€¡½
+A	java:S106Æ"+Replace this use of System.out by a logger.(ãöÜ
+N
+java:S1135É"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ
+F	java:S106Ì"+Replace this use of System.out by a logger.(ŸÈÍŒÿÿÿÿÿ
+?
+java:S1481Í"(Remove this unused "cnt" local variable.(Çâí˜
+X
+java:S2441ğ"<Make "Member" serializable or don't store it in the session.(™‡ÉÃüÿÿÿÿ
+i
+java:S2441"MMake "List" and its parameters serializable or don't store it in the session.(ÅŸ—˜øÿÿÿÿ
+F	java:S106 "+Replace this use of System.out by a logger.(ÀÃ¤Ğşÿÿÿÿ
+d
+java:S1128"IRemove this unused import 'org.springframework.validation.BindingResult'.(‹¶¸ùÿÿÿÿ
+k
+java:S1128"PRemove this unused import 'org.springframework.web.bind.annotation.PostMapping'.(äƒà°ùÿÿÿÿ
+l
+java:S1128"QRemove this unused import 'org.springframework.web.bind.annotation.ResponseBody'.(•¶¶êøÿÿÿÿ
+q
+java:S1128"[Remove this unused import 'org.springframework.web.servlet.mvc.support.RedirectAttributes'.(ìçÚË
+H
+java:S1128"2Remove this unused import 'kr.smhrd.entity.Board'.(˜ßäü
+O
+java:S1128 "4Remove this unused import 'kr.smhrd.entity.Message'.(Èóö“ùÿÿÿÿ
+U
+java:S1128&":Remove this unused import 'kr.smhrd.mapper.MessageMapper'.(Ä–»üÿÿÿÿ
+M
+java:S10682"2Remove this unused "calendarMapper" private field.(ıÕùÁşÿÿÿÿ
