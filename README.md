@@ -86,7 +86,7 @@
 찍어본 결과 multipart/form-data는  Post 방식으로만 가져올 수 있는데 Get방식으로 바뀌어져 있다는 사실을 확인 후 수정하여 
 원활한 프로젝트 진행을 할 수 있었습니다.
 
-pushpin:[개선된 코드 확인](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/9fdd137d-62aa-49d0-9d62-9abd0e947c4d)
+: pushpin:[개선된 코드 확인](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/9fdd137d-62aa-49d0-9d62-9abd0e947c4d)
 
 </br>
 
