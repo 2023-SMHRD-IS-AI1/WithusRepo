@@ -408,7 +408,7 @@
 	            type: 'GET',
 	            data: { review_idx: review_idx },
 	            success: function(likeCount) {
-	                console.log("좋아요 개수: " + likeCount);
+	               
 	                $("#likeCount").text(likeCount);
 	            },
 	            error: function(xhr, status, error) {
