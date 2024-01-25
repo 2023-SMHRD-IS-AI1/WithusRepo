@@ -71,7 +71,12 @@
 - 비동기통신방식을 이용
 - 일정을 등록하면 일정이 불러와져 화면에 보이게끔 함
 
+- **지도(맛집)** :pushpin: [코드 확인](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/02b926c9-5485-4c15-8866-d1a1f9bb2149)
 
+![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/a4e02f85-67cf-492f-9483-40a68b0cd3e7)
+- Kakao Map API를 사용
+- JavaScript, Dom을 이용해서 마커를 표시
+- 오버레이로 가게정보 화면에 보이게 함
 
 </div>
 </details>
@@ -116,5 +121,13 @@
 ![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/16a66a65-baf0-4d9c-a56f-3ed50ca321f5)
 
 ### 6.2 팀원 이진근
+![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/58251fb8-b464-4f2a-9260-04d7a6e5e1a1)
 
-    
+### 6.3 팀원 임은영
+![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/1fd117d9-abd5-4f25-a2b1-fe05b1478ec5)
+
+### 6.4 팀원 박가현
+![image](https://github.com/2023-SMHRD-IS-AI1/WithusRepo/assets/153056455/806a7af5-13be-4988-aeaf-2ab9d29eceea)
+
+
+</br>
