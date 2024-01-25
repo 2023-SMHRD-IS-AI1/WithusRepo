@@ -1,9 +1,3 @@
-<%@page import="kr.smhrd.entity.reviewBoard"%>
-<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
-<%@page import="kr.smhrd.entity.Message"%>
-<%@page import="java.util.List"%>
-<%@page import="kr.smhrd.entity.Member"%>
-<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 
@@ -26,11 +20,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="resources/assets/css/reset.css" />
-<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 <link rel="stylesheet"  href="resources/assets/css/Main.css" />
 <link rel="stylesheet" href="resources/assets/css/nav.css" />
-<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 <style type="text/css">
 	h1{
 		font-size: 35px;

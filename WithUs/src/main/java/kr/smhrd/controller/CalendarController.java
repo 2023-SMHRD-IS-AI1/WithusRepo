@@ -47,15 +47,13 @@ public class CalendarController {
    @RequestMapping(value="/calSave", method=RequestMethod.POST)
    public @ResponseBody String addEvent(@RequestBody String params, HttpSession session) {
 
-      System.out.println(params);
-   
+      
       Calendar[] arr = new Gson().fromJson(params, Calendar[].class);
        
       for(int i=beforeArraySize; i<arr.length; i++) {  
           arr[i].setCal_start(arr[i].getCal_start().substring(0, arr[i].getCal_start().indexOf("T")));
-            System.out.println(arr[i].getCal_start());
-           arr[i].setCal_end(arr[i].getCal_end().substring(0, arr[i].getCal_end().indexOf("T")));
-          System.out.println(arr[i].getCal_end());
+          arr[i].setCal_end(arr[i].getCal_end().substring(0, arr[i].getCal_end().indexOf("T")));
+          
           dto = arr[i];
           calMapper.insertCalendar(dto);
       }
