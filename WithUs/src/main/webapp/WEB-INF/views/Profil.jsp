@@ -251,7 +251,7 @@
 				success : function(response) {
 					if (typeof response === 'number') {
 						// 신고 횟수 처리
-						console.log("신고 횟수: " + response);
+						
 					} else {
 					}
 					alert("신고가 접수되었습니다.");
